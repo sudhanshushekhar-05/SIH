@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINDSET-NER — AI Cognitive Gaming & Memory Assistance Platform</title>
+    <meta name="description" content="AI-Based Cognitive Gaming and Memory Assistance Platform for Elderly Dementia Patients in North Eastern Region (SIH26003)">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome / Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-light">
+    <!-- Top Navigation Header -->
+    <header class="app-header">
+        <div class="logo-container">
+            <div class="logo-badge">🧠 MINDSET-NER</div>
+            <div class="subtitle">SIH26003 | MDoNER | Space Tech Theme</div>
+        </div>
+
+        <!-- Mode / Role Switcher -->
+        <nav class="role-nav">
+            <button class="nav-btn active" id="btn-role-elderly" onclick="switchRole('elderly')">
+                <i class="fa-solid fa-user-nurse"></i> 👴 Elderly App
+            </button>
+            <button class="nav-btn" id="btn-role-caregiver" onclick="switchRole('caregiver')">
+                <i class="fa-solid fa-heart-pulse"></i> 👩‍⚕️ Caregiver App
+            </button>
+            <button class="nav-btn" id="btn-role-doctor" onclick="switchRole('doctor')">
+                <i class="fa-solid fa-stethoscope"></i> 🧑‍⚕️ Doctor Portal
+            </button>
+        </nav>
+
+        <!-- Connectivity & Multilingual Controls -->
+        <div class="header-actions">
+            <!-- Multilingual Dropdown -->
+            <div class="lang-selector-wrap" title="Choose Language / भाषा चुनें">
+                <i class="fa-solid fa-globe"></i>
+                <select id="lang-picker" onchange="changeLanguage(this.value)">
+                    <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="as">🇮🇳 অসমীয়া (Assamese)</option>
+                    <option value="bn">🇮🇳 বাংলা (Bengali)</option>
+                    <option value="mni">🇮🇳 Manipuri (Meitei)</option>
+                    <option value="mzo">🇮🇳 Mizo</option>
+                    <option value="kha">🇮🇳 Khasi</option>
+                </select>
+            </div>
+
+            <div class="ner-toggle" onclick="toggleNerMode()" title="Toggle North Eastern Cultural Content">
+                <span class="ner-badge" id="ner-badge">🌸 NER Content: ON</span>
+            </div>
+            
+            <button class="offline-pill" id="offline-pill" onclick="openOfflineDrawer()">
+                <i class="fa-solid fa-wifi"></i> <span id="network-text">Online</span>
+            </button>
+
+            <!-- Judging Quick Modals Bar -->
+            <div class="judge-demo-bar">
+                <button class="judge-btn" onclick="openModal('modal-ai-brain')" title="Inspect AI Decision Engine"><i class="fa-solid fa-brain"></i> AI Brain</button>
+                <button class="judge-btn" onclick="openModal('modal-ner-map')" title="View North Eastern Region Impact Map"><i class="fa-solid fa-map-location-dot"></i> NER Map</button>
+                <button class="judge-btn" onclick="openModal('modal-satellite')" title="Space Tech Satellite Connectivity Roadmap"><i class="fa-solid fa-satellite"></i> Satellite Layer</button>
+                <button class="judge-btn" onclick="openModal('modal-privacy')" title="Privacy & Security Center"><i class="fa-solid fa-shield-halved"></i> Privacy</button>
+            </div>
+
+            <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Contrast / Dark Mode">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content">
+        
+        <!-- ========================================== -->
+        <!-- 1. ELDERLY PATIENT APPLICATION INTERFACE   -->
+        <!-- ========================================== -->
+        <section id="view-elderly" class="app-view active">
+            
+            <!-- Cognitive Journey Map & Streak Ribbon -->
+            <div class="glass-card journey-banner">
+                <div class="journey-title-wrap">
+                    <h3>🧠 YOUR MEMORY JOURNEY</h3>
+                    <div class="streak-badge"><i class="fa-solid fa-fire"></i> <span id="streak-count">7 Day Streak</span></div>
+                </div>
+                <div class="journey-nodes">
+                    <div class="j-node completed">
+                        <span class="icon">🌱</span>
+                        <span class="label">Getting Started</span>
+                    </div>
+                    <div class="j-line completed"></div>
+                    <div class="j-node active">
+                        <span class="icon">🧠</span>
+                        <span class="label">Memory Builder</span>
+                    </div>
+                    <div class="j-line"></div>
+                    <div class="j-node">
+                        <span class="icon">🎯</span>
+                        <span class="label">Focus Master</span>
+                    </div>
+                    <div class="j-line"></div>
+                    <div class="j-node">
+                        <span class="icon">❤️</span>
+                        <span class="label">Memory Moments</span>
+                    </div>
+                    <div class="j-line"></div>
+                    <div class="j-node">
+                        <span class="icon">🌟</span>
+                        <span class="label">Cognitive Champion</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="elderly-grid">
+                
+                <!-- Left Panel: AI Voice Companion 'Asha' -->
+                <div class="glass-card voice-card">
+                    <div class="card-header">
+                        <div class="avatar-pulse">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div>
+                            <h2 id="companion-name-title">AI साथी आशा (Asha Companion)</h2>
+                            <p class="subtext">Voice Assistance (Hindi, English, Assamese, Bengali)</p>
+                        </div>
+                    </div>
+
+                    <!-- Audio Visualizer Waves -->
+                    <div class="audio-wave-box" id="audio-visualizer">
+                        <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                    </div>
+
+                    <!-- Voice Response Bubble -->
+                    <div class="speech-bubble" id="companion-speech-bubble">
+                        <p id="speech-text">“नमस्ते रमेश जी! मैं आपकी साथी आशा हूँ। आप मुझसे अपनी दवाई, परिवार की यादें या खेल के बारे में पूछ सकते हैं।”</p>
+                    </div>
+
+                    <!-- Giant Mic & Speak Controls -->
+                    <div class="voice-controls">
+                        <button class="mic-btn pulse-glow giant-mic-btn" id="mic-trigger-btn" onclick="listenVoiceCommand()">
+                            <i class="fa-solid fa-microphone"></i> 🎤 Talk to MINDSET
+                        </button>
+                        <button class="secondary-voice-btn" onclick="speakCurrentText()">
+                            <i class="fa-solid fa-volume-high"></i> Listen Again
+                        </button>
+                    </div>
+
+                    <!-- Quick Voice Suggestion Pills -->
+                    <div class="quick-pills">
+                        <button onclick="sendQuickQuery('मेरी दवाई कब है?')">💊 मेरी दवाई कब है?</button>
+                        <button onclick="sendQuickQuery('मेरी बेटी का नाम क्या है?')">❤️ मेरी बेटी का नाम?</button>
+                        <button onclick="sendQuickQuery('आज मुझे क्या करना है?')">📅 आज की दिनचर्या?</button>
+                        <button onclick="sendQuickQuery('मुझे पानी कब पीना है?')">💧 पानी पीने का समय?</button>
+                    </div>
+                </div>
+
+                <!-- Center Panel: Games, Memory Book, Music, Family & Reminders Tabs -->
+                <div class="center-elderly-panel">
+                    
+                    <!-- Top Tab Switcher Bar -->
+                    <div class="elderly-tab-bar">
+                        <button class="tab-btn active" id="tab-games-btn" onclick="switchElderlyTab('games')">
+                            🎮 Cognitive Games
+                        </button>
+                        <button class="tab-btn" id="tab-memorybook-btn" onclick="switchElderlyTab('memorybook')">
+                            ⭐ Digital Memory Book
+                        </button>
+                        <button class="tab-btn" id="tab-music-btn" onclick="switchElderlyTab('music')">
+                            🎵 Music Memory
+                        </button>
+                        <button class="tab-btn" id="tab-family-btn" onclick="switchElderlyTab('family')">
+                            👨‍👩‍👧 Family Connect
+                        </button>
+                        <button class="tab-btn" id="tab-mood-btn" onclick="switchElderlyTab('mood')">
+                            😊 Mood Check-In
+                        </button>
+                        <button class="tab-btn" id="tab-reminders-btn" onclick="switchElderlyTab('reminders')">
+                            🔔 Reminders
+                        </button>
+                    </div>
+
+                    <!-- TAB 1: COGNITIVE GAMES HUB -->
+                    <div id="elderly-tab-games" class="tab-content active">
+                        <div class="game-select-header">
+                            <span class="difficulty-badge" id="current-diff-display">AI Level: Medium (Adaptive)</span>
+                            <span class="score-badge" id="elderly-today-score">Today Score: 78/100</span>
+                        </div>
+
+                        <!-- Game Selection Cards Grid -->
+                        <div class="games-grid" id="game-selector-grid">
+                            
+                            <div class="game-card village-card" onclick="startSelectedGame('market')">
+                                <div class="game-icon">🌳 🍎 🌾 🥛</div>
+                                <h3>1. Village Market Challenge</h3>
+                                <p>उत्तर पूर्वी बाज़ार से वस्तुएं याद रखें (10s Market Recall)</p>
+                                <span class="play-pill gold">Featured Market Game <i class="fa-solid fa-store"></i></span>
+                            </div>
+
+                            <div class="game-card ner-highlight" onclick="startSelectedGame('local_ner')">
+                                <div class="game-icon">🫖 🌸 🏔️</div>
+                                <h3>2. Local NER Cultural Memory</h3>
+                                <p>उत्तर पूर्वी संस्कृति व स्थान (Regional Landmarks)</p>
+                                <span class="play-pill gold">Featured NER <i class="fa-solid fa-star"></i></span>
+                            </div>
+
+                            <div class="game-card" onclick="startSelectedGame('family')">
+                                <div class="game-icon">👩‍👧 👨‍👦 👴</div>
+                                <h3>3. Family Memory Recognition</h3>
+                                <p>पारिवारिक पहचान (Face & Relation Memory)</p>
+                                <span class="play-pill">Play Now <i class="fa-solid fa-play"></i></span>
+                            </div>
+
+                            <div class="game-card" onclick="startSelectedGame('routine')">
+                                <div class="game-icon">🌅 🪥 🥣 💊</div>
+                                <h3>4. Daily Routine Recall</h3>
+                                <p>दिनचर्या क्रम में लगाएं (Routine Sequence)</p>
+                                <span class="play-pill">Play Now <i class="fa-solid fa-play"></i></span>
+                            </div>
+
+                            <div class="game-card" onclick="startSelectedGame('pattern')">
+                                <div class="game-icon">🔴 🔵 🔴 ❓</div>
+                                <h3>5. Pattern Recognition</h3>
+                                <p>पैटर्न समझें (Logic & Concentration)</p>
+                                <span class="play-pill">Play Now <i class="fa-solid fa-play"></i></span>
+                            </div>
+
+                        </div>
+
+                        <!-- ACTIVE GAME PLAY ARENA -->
+                        <div class="game-arena glass-card" id="active-game-arena" style="display:none;">
+                            <div class="arena-top">
+                                <button class="back-game-btn" onclick="exitGameArena()">← Choose Game</button>
+                                <h2 id="game-title">Village Market Challenge</h2>
+                                <div class="game-timer" id="game-timer-display">⏱️ 00:10</div>
+                            </div>
+
+                            <!-- Dynamic Game Stage Container -->
+                            <div class="arena-stage" id="game-stage-container">
+                                <!-- Dynamic HTML injected by JS -->
+                            </div>
+
+                            <!-- Visual AI Adaptation Decision Card -->
+                            <div class="ai-adaptation-card" id="ai-adaptation-card" style="display:none;">
+                                <div class="ai-card-title"><i class="fa-solid fa-brain"></i> AI Cognitive Decision Engine</div>
+                                <div class="ai-card-grid">
+                                    <div>
+                                        <span class="lbl">Previous Accuracy</span>
+                                        <strong id="ai-val-acc">92%</strong>
+                                    </div>
+                                    <div>
+                                        <span class="lbl">Response Latency</span>
+                                        <strong id="ai-val-speed">4.2s</strong>
+                                    </div>
+                                    <div class="ai-arrow">
+                                        <i class="fa-solid fa-arrow-right"></i> AI Decision
+                                    </div>
+                                    <div>
+                                        <span class="lbl">Next Challenge</span>
+                                        <strong id="ai-val-next">Objects: 5 → 7 | EASY → MEDIUM</strong>
+                                    </div>
+                                </div>
+                                <div class="ai-reason-text" id="ai-reason-text">Excellent recall! Difficulty increased to keep experience engaging.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: DIGITAL MEMORY BOOK ⭐ Signature Feature -->
+                    <div id="elderly-tab-memorybook" class="tab-content" style="display:none;">
+                        <div class="memory-book-container glass-card">
+                            <div class="dmb-header">
+                                <h2>📖 Digital Memory Book (डिजिटल मेमोरी बुक)</h2>
+                                <p>Personal reminiscence profile generated with family photos, favorite places, and songs.</p>
+                            </div>
+
+                            <!-- Interactive AI Memory Q&A Prompt Activity Arena -->
+                            <div class="dmb-qa-arena" id="dmb-qa-arena">
+                                <div class="dmb-card-showcase" id="dmb-active-card">
+                                    <!-- Injected dynamically by JS -->
+                                </div>
+                            </div>
+
+                            <!-- Thumbnails Grid -->
+                            <h3 style="margin: 1.5rem 0 1rem 0;">Browse Your Personal Memory Profile Cards:</h3>
+                            <div class="dmb-grid" id="dmb-grid-container">
+                                <!-- Injected by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: MEMORY THROUGH MUSIC 🎵 -->
+                    <div id="elderly-tab-music" class="tab-content" style="display:none;">
+                        <div class="music-container glass-card">
+                            <h2>🎵 Memory Through Music (संगीत से यादें)</h2>
+                            <p class="subtext">Listen to familiar regional songs to stimulate emotional & cognitive reminiscence.</p>
+                            
+                            <div class="music-player-box" id="music-player-box">
+                                <div class="music-icon-pulse"><i class="fa-solid fa-music"></i></div>
+                                <h3 id="music-track-title">Assamese Folk Bihu Flute</h3>
+                                <p id="music-track-region">Assam Traditional</p>
+                                
+                                <audio id="reminiscence-audio" controls style="width: 100%; margin: 1rem 0;"></audio>
+                                
+                                <div class="music-prompt-card" id="music-prompt-card">
+                                    <h4 id="music-prompt-question">“क्या आपको यह संगीत याद है?” (Do you remember this song?)</h4>
+                                    <div class="music-btn-row">
+                                        <button class="btn-music-ans" onclick="respondMusicMemory('yes')">😊 हां, याद है! (Yes, I Remember)</button>
+                                        <button class="btn-music-ans" onclick="respondMusicMemory('listen_again')">🔁 फिर से सुनें (Listen Again)</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 4: FAMILY CONNECT 👨‍👩‍👧 -->
+                    <div id="elderly-tab-family" class="tab-content" style="display:none;">
+                        <div class="family-connect-container glass-card">
+                            <h2>❤️ Family Connect (पारिवारिक जुड़ाव)</h2>
+                            <p class="subtext">Messages and photos sent by your children and loved ones.</p>
+                            
+                            <div class="family-feed" id="family-feed-list">
+                                <!-- Injected by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 5: DAILY MOOD CHECK-IN 😊 -->
+                    <div id="elderly-tab-mood" class="tab-content" style="display:none;">
+                        <div class="mood-container glass-card">
+                            <h2>😊 How are you feeling today? (आज आप कैसा महसूस कर रहे हैं?)</h2>
+                            <p class="subtext">Daily well-being tracking for family and caregiver awareness.</p>
+                            
+                            <div class="emoji-buttons-grid">
+                                <button class="emoji-btn" onclick="submitMoodCheckIn('good', '😊 Good / Happy')">
+                                    <span class="e-icon">😊</span>
+                                    <span class="e-label">Good</span>
+                                </button>
+                                <button class="emoji-btn" onclick="submitMoodCheckIn('okay', '😐 Okay / Normal')">
+                                    <span class="e-icon">😐</span>
+                                    <span class="e-label">Okay</span>
+                                </button>
+                                <button class="emoji-btn" onclick="submitMoodCheckIn('sad', '😔 Sad / Low')">
+                                    <span class="e-icon">😔</span>
+                                    <span class="e-label">Sad</span>
+                                </button>
+                                <button class="emoji-btn" onclick="submitMoodCheckIn('angry', '😡 Restless')">
+                                    <span class="e-icon">😡</span>
+                                    <span class="e-label">Restless</span>
+                                </button>
+                                <button class="emoji-btn" onclick="submitMoodCheckIn('tired', '😴 Tired / Sleepy')">
+                                    <span class="e-icon">😴</span>
+                                    <span class="e-label">Tired</span>
+                                </button>
+                            </div>
+
+                            <div class="mood-feedback-box" id="mood-feedback-box" style="display:none;">
+                                <p id="mood-feedback-text">Thank you! Your mood update has been recorded for your caregiver.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 6: REMINDERS LIST -->
+                    <div id="elderly-tab-reminders" class="tab-content" style="display:none;">
+                        <div class="reminders-container glass-card">
+                            <h2>💊 आज के रिमाइंडर (Today's Reminders)</h2>
+                            <div class="reminders-list" id="elderly-reminders-list">
+                                <!-- Injected by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 2. CAREGIVER DASHBOARD INTERFACE           -->
+        <!-- ========================================== -->
+        <section id="view-caregiver" class="app-view">
+            <div class="dashboard-header glass-card">
+                <div class="patient-profile-strip">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" alt="Patient Avatar" class="profile-thumb">
+                    <div>
+                        <h2>Patient: Ramesh Sharma (Age: 74)</h2>
+                        <p>Caregiver: Ananya Sharma (Daughter) | Primary ID: #p001</p>
+                    </div>
+                </div>
+                <div class="overall-score-box">
+                    <div class="score-circle" id="cg-overall-score-circle">78%</div>
+                    <div>
+                        <div class="score-label">Cognitive Engagement Score</div>
+                        <div class="score-subtext">Non-diagnostic activity metric</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Caregiver Daily Briefing (⭐ Signature Feature) -->
+            <div class="glass-card briefing-card" id="caregiver-daily-briefing-card">
+                <div class="briefing-header">
+                    <i class="fa-solid fa-sun briefing-sun-icon"></i>
+                    <div>
+                        <h3>GOOD MORNING, ANANYA</h3>
+                        <p class="subtext">👴 Ramesh — Today's AI Summary Briefing</p>
+                    </div>
+                </div>
+                <div class="briefing-stats-row">
+                    <div class="b-stat">
+                        <span class="lbl">Cognitive Engagement</span>
+                        <strong id="b-eng">78%</strong>
+                    </div>
+                    <div class="b-stat">
+                        <span class="lbl">Games Completed</span>
+                        <strong>3/3</strong>
+                    </div>
+                    <div class="b-stat">
+                        <span class="lbl">Medication</span>
+                        <strong id="b-med">2/3 Done</strong>
+                    </div>
+                    <div class="b-stat">
+                        <span class="lbl">Hydration</span>
+                        <strong>4/6 Glasses</strong>
+                    </div>
+                    <div class="b-stat">
+                        <span class="lbl">Mood</span>
+                        <strong id="b-mood">😊 Positive</strong>
+                    </div>
+                </div>
+                <div class="briefing-alert-line warning" id="b-alert-line">
+                    ⚠️ Attention performance was lower than the 7-day average.
+                </div>
+                <div class="briefing-rec-box">
+                    <strong>AI Recommended:</strong> <span id="b-rec-text">Spend 10 minutes doing a personalized memory activity or Memory Through Music session today.</span>
+                </div>
+            </div>
+
+            <!-- Caregiver Dashboard Grid -->
+            <div class="caregiver-grid">
+                
+                <!-- Domain Breakdown Scores -->
+                <div class="glass-card domain-card">
+                    <h3>🧠 Cognitive Domain Metrics</h3>
+                    <div class="metric-row">
+                        <span>Memory Recall</span>
+                        <div class="bar-wrap"><div class="bar-fill" id="bar-memory" style="width: 82%;"></div></div>
+                        <strong id="val-memory">82%</strong>
+                    </div>
+                    <div class="metric-row">
+                        <span>Attention & Concentration</span>
+                        <div class="bar-wrap"><div class="bar-fill" id="bar-attention" style="width: 74%;"></div></div>
+                        <strong id="val-attention">74%</strong>
+                    </div>
+                    <div class="metric-row">
+                        <span>Pattern Recognition</span>
+                        <div class="bar-wrap"><div class="bar-fill" id="bar-pattern" style="width: 89%;"></div></div>
+                        <strong id="val-pattern">89%</strong>
+                    </div>
+                    <div class="metric-row">
+                        <span>Daily Routine Recall</span>
+                        <div class="bar-wrap"><div class="bar-fill" id="bar-routine" style="width: 71%;"></div></div>
+                        <strong id="val-routine">71%</strong>
+                    </div>
+                </div>
+
+                <!-- 14-Day Performance Trend Chart -->
+                <div class="glass-card chart-card">
+                    <h3>📈 14-Day Engagement Trend</h3>
+                    <div class="svg-chart-box">
+                        <svg viewBox="0 0 500 180" class="trend-svg" id="trend-chart-svg">
+                            <line x1="40" y1="20" x2="480" y2="20" stroke="rgba(255,255,255,0.1)"/>
+                            <line x1="40" y1="70" x2="480" y2="70" stroke="rgba(255,255,255,0.1)"/>
+                            <line x1="40" y1="120" x2="480" y2="120" stroke="rgba(255,255,255,0.1)"/>
+                            <polyline fill="none" stroke="#3b82f6" stroke-width="4" points="
+                                50,70 80,65 110,68 140,55 170,60 200,50 230,58 260,72 290,75 320,80 350,78 380,85 410,82 440,78
+                            "/>
+                            <circle cx="50" cy="70" r="5" fill="#60a5fa"/>
+                            <circle cx="200" cy="50" r="5" fill="#60a5fa"/>
+                            <circle cx="440" cy="78" r="7" fill="#f43f5e"/>
+                        </svg>
+                    </div>
+                    <p class="subtext center-text">Monitored continuously by MINDSET-NER Trend AI</p>
+                </div>
+
+                <!-- Care Circle Multi-Role System -->
+                <div class="glass-card manager-card">
+                    <h3>🧑‍🤝‍🧑 Care Circle Authorization</h3>
+                    <div class="care-circle-grid">
+                        <div class="role-chip active">
+                            <strong>Ananya (Daughter)</strong>
+                            <span>Primary Caregiver</span>
+                        </div>
+                        <div class="role-chip">
+                            <strong>Rahul (Son)</strong>
+                            <span>Family Member</span>
+                        </div>
+                        <div class="role-chip">
+                            <strong>Dr. Phukan</strong>
+                            <span>Neurologist</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Memory Book Item -->
+                <div class="glass-card manager-card">
+                    <h3>📖 Add Digital Memory Book Card</h3>
+                    <form id="add-dmb-form" onsubmit="handleCreateMemoryBook(event)">
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="dmb-category">
+                                <option value="family">Family Member</option>
+                                <option value="place">Familiar Place / Home</option>
+                                <option value="food">Favorite Food</option>
+                                <option value="song">Favorite Song</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Title / Name</label>
+                            <input type="text" id="dmb-title" placeholder="e.g. Daughter Ananya" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Relationship / Detail</label>
+                            <input type="text" id="dmb-rel" placeholder="e.g. Daughter / Guwahati Home" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Photo URL (Optional)</label>
+                            <input type="url" id="dmb-url" placeholder="https://...">
+                        </div>
+                        <button type="submit" class="submit-btn gold-btn"><i class="fa-solid fa-plus"></i> Add Memory Book Card</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 3. DOCTOR / HEALTHCARE WORKER PORTAL       -->
+        <!-- ========================================== -->
+        <section id="view-doctor" class="app-view">
+            <div class="glass-card doc-card">
+                <div class="doc-header">
+                    <div>
+                        <h2>🧑‍⚕️ Clinical Longitudinal Report — Patient #p001</h2>
+                        <p>Attending Neurologist: Dr. Phukan | MDoNER Tele-Health Protocol</p>
+                    </div>
+                    <button class="export-btn" onclick="exportClinicalReport()">
+                        <i class="fa-solid fa-file-pdf"></i> Export Clinical Report (JSON/PDF)
+                    </button>
+                </div>
+
+                <div class="doc-summary-grid">
+                    <div class="stat-box">
+                        <div class="num">24</div>
+                        <div class="label">Total Sessions Played</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="num">82.5%</div>
+                        <div class="label">Average Accuracy</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="num">5.8s</div>
+                        <div class="label">Mean Response Latency</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="num">Medium</div>
+                        <div class="label">Current AI Difficulty</div>
+                    </div>
+                </div>
+
+                <div class="doc-logs-table-wrap">
+                    <h3>Recent Game Session Audit Logs</h3>
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Game Module</th>
+                                <th>Accuracy</th>
+                                <th>Latency</th>
+                                <th>Difficulty</th>
+                                <th>AI Adaptation Outcome</th>
+                            </tr>
+                        </thead>
+                        <tbody id="doctor-session-logs">
+                            <tr>
+                                <td>Today 11:05 AM</td>
+                                <td>Village Market Challenge</td>
+                                <td>95%</td>
+                                <td>4.0s</td>
+                                <td>Medium</td>
+                                <td><span class="status-badge success">Upgraded to Hard</span></td>
+                            </tr>
+                            <tr>
+                                <td>Today 11:00 AM</td>
+                                <td>Local NER Memory</td>
+                                <td>95%</td>
+                                <td>3.8s</td>
+                                <td>Easy</td>
+                                <td><span class="status-badge success">Upgraded to Medium</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- JUDGING & DEMO INSPECTION MODALS           -->
+    <!-- ========================================== -->
+
+    <!-- Modal 1: AI Brain Inspection Screen -->
+    <div class="modal-backdrop" id="modal-ai-brain">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>🧠 AI Cognitive Engine — Real-Time Inference Vector</h3>
+                <button class="modal-close" onclick="closeModal('modal-ai-brain')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="ai-brain-box">
+                    <h4>ANALYZING USER PERFORMANCE...</h4>
+                    <ul class="ai-checklist">
+                        <li><i class="fa-solid fa-check text-green"></i> Accuracy: <strong>92.5%</strong></li>
+                        <li><i class="fa-solid fa-check text-green"></i> Response Time: <strong>4.2 sec</strong></li>
+                        <li><i class="fa-solid fa-check text-green"></i> Mistake Pattern: <strong>0 Mistakes</strong></li>
+                        <li><i class="fa-solid fa-check text-green"></i> Game History: <strong>24 Sessions Evaluated</strong></li>
+                    </ul>
+                    
+                    <div class="ai-decision-box">
+                        <h5>AI CLASSIFICATION OUTCOME</h5>
+                        <div class="dec-row"><span>Target Difficulty:</span> <strong>MEDIUM → HARD</strong></div>
+                        <div class="dec-row"><span>Recommended Module:</span> <strong>VILLAGE_MARKET_CHALLENGE</strong></div>
+                        <div class="dec-row"><span>Objects Count:</span> <strong>6 Items</strong></div>
+                        <div class="dec-row"><span>Time Limit:</span> <strong>8.0 Sec</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: NER Regional Impact Map -->
+    <div class="modal-backdrop" id="modal-ner-map">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>🗺️ North Eastern Region (NER) Impact Map</h3>
+                <button class="modal-close" onclick="closeModal('modal-ner-map')">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Offline-First Tele-Health Coverage for Remote Communities in 8 NER States:</p>
+                <div class="ner-states-grid">
+                    <div class="state-chip">Assam 🟢 Online</div>
+                    <div class="state-chip">Arunachal Pradesh 🟢 Offline-Synced</div>
+                    <div class="state-chip">Manipur 🟢 Online</div>
+                    <div class="state-chip">Meghalaya 🟢 Offline-Synced</div>
+                    <div class="state-chip">Mizoram 🟢 Online</div>
+                    <div class="state-chip">Nagaland 🟢 Offline-Synced</div>
+                    <div class="state-chip">Tripura 🟢 Online</div>
+                    <div class="state-chip">Sikkim 🟢 Online</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Satellite Connectivity Architecture Roadmap (Space Tech Theme) -->
+    <div class="modal-backdrop" id="modal-satellite">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>🛰️ Space Tech Integration Roadmap (Future Satellite Layer)</h3>
+                <button class="modal-close" onclick="closeModal('modal-satellite')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="sat-flow">
+                    <div class="sat-step">Remote Hill Village</div>
+                    <div class="sat-arrow">↓</div>
+                    <div class="sat-step">Offline MINDSET App</div>
+                    <div class="sat-arrow">↓</div>
+                    <div class="sat-step">Local Data Storage (SQLite)</div>
+                    <div class="sat-arrow">↓</div>
+                    <div class="sat-step gold">Satellite / NavIC Connectivity (Future Integration)</div>
+                    <div class="sat-arrow">↓</div>
+                    <div class="sat-step">Central Health Network</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Privacy & Security Center -->
+    <div class="modal-backdrop" id="modal-privacy">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>🔐 PRIVACY CENTER</h3>
+                <button class="modal-close" onclick="closeModal('modal-privacy')">×</button>
+            </div>
+            <div class="modal-body">
+                <ul class="privacy-list">
+                    <li><span>Personal Memory Data</span> <strong class="text-green">✓ Encrypted</strong></li>
+                    <li><span>Family Photographs</span> <strong class="text-green">✓ Protected</strong></li>
+                    <li><span>Caregiver Access</span> <strong class="text-green">✓ Authorized</strong></li>
+                    <li><span>Cloud Sync Security</span> <strong class="text-green">✓ TLS 1.3</strong></li>
+                    <li><span>External Data Sharing</span> <strong class="text-red">OFF</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5: Offline Drawer Simulator -->
+    <div class="modal-backdrop" id="modal-offline-drawer">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>📶 Offline Mode Status & Synchronization</h3>
+                <button class="modal-close" onclick="closeModal('modal-offline-drawer')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="offline-status-box">
+                    <h4 id="off-drawer-status-title">🟢 Current Status: ONLINE</h4>
+                    <div class="checklist">
+                        <div>Cognitive Games <strong class="text-green">✓ Available Offline</strong></div>
+                        <div>Reminders & Alerts <strong class="text-green">✓ Available Offline</strong></div>
+                        <div>Voice Companion <strong class="text-green">✓ Local Heuristic Engine</strong></div>
+                        <div>Local DB Storage <strong class="text-green">✓ Active</strong></div>
+                    </div>
+
+                    <div class="sync-queue-info">
+                        <span>Pending Sync Queue:</span> <strong id="off-queue-count">0 records</strong>
+                    </div>
+
+                    <div class="sync-progress-bar-wrap" id="sync-progress-wrap" style="display:none;">
+                        <div class="sync-label">☁ Syncing with Cloud...</div>
+                        <div class="progress-track"><div class="progress-fill" id="sync-progress-fill" style="width:0%;"></div></div>
+                    </div>
+
+                    <button class="toggle-net-btn" onclick="toggleOfflineMode()">
+                        Toggle Internet Connection (Simulate Offline/Online)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- App JS Engine -->
+    <script src="app.js"></script>
+</body>
+</html>
