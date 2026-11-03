@@ -1,376 +1,578 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MINDSET-NER — AI Cognitive Gaming & Memory Assistance Platform</title>
-    <meta name="description" content="AI-Based Cognitive Gaming and Memory Assistance Platform for Elderly Dementia Patients in North Eastern Region (SIH26003)">
+    <title>MINDSET-NER | मानसिक स्वास्थ्य एवं संज्ञानात्मक संवर्धन पोर्टल | Government of India</title>
+    <meta name="description" content="AI-Based Cognitive Gaming and Memory Assistance Platform for Elderly Dementia Patients in North Eastern Region (SIH26003 - MDoNER & MoHFW)">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome / Icons -->
+    <!-- FontAwesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Custom Style Sheet -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Portal Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Official Government Portal Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=2.6">
 </head>
-<body class="theme-light">
-    <!-- Top Navigation Header -->
-    <header class="app-header">
-        <div class="logo-container">
-            <div class="logo-badge">🧠 MINDSET-NER</div>
-            <div class="subtitle">SIH26003 | MDoNER | Space Tech Theme</div>
+<body>
+    <!-- Skip to main content for screen readers (GIGW standard) -->
+    <a href="#main-content-anchor" class="skip-link">Skip to main content</a>
+
+    <!-- ========================================================= -->
+    <!-- 1. TOP ACCESSIBILITY & MINISTRY STRIP                     -->
+    <!-- ========================================================= -->
+    <div class="gov-top-strip">
+        <div class="gov-top-strip-inner">
+            <div class="gov-emblem-text">
+                <span class="flag-icon" title="National Flag of India">🇮🇳</span>
+                <span class="hi">भारत सरकार</span>
+                <span class="separator">|</span>
+                <span>Government of India</span>
+                <span class="separator">|</span>
+                <span>पूर्वोत्तर क्षेत्र विकास मंत्रालय (MDoNER)</span>
+            </div>
+
+            <div class="gov-top-actions">
+                <!-- Text Sizing Accessibility Controls -->
+                <div class="accessibility-tools" title="Text Sizing Controls / अक्षरों का आकार">
+                    <button class="a-btn" id="btn-font-dec" onclick="changeFontSize('decrease')" title="Decrease Font Size">A-</button>
+                    <button class="a-btn active" id="btn-font-reset" onclick="changeFontSize('reset')" title="Normal Font Size">A</button>
+                    <button class="a-btn" id="btn-font-inc" onclick="changeFontSize('increase')" title="Increase Font Size">A+</button>
+                </div>
+
+                <!-- High Contrast Toggle Button -->
+                <button class="contrast-btn" id="btn-high-contrast" onclick="toggleHighContrast()" title="Toggle High Contrast Mode for Better Visibility">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                    <span id="contrast-text">High Contrast</span>
+                </button>
+            </div>
         </div>
+    </div>
 
-        <!-- Mode / Role Switcher -->
-        <nav class="role-nav">
-            <button class="nav-btn active" id="btn-role-elderly" onclick="switchRole('elderly')">
-                <i class="fa-solid fa-user-nurse"></i> 👴 Elderly App
-            </button>
-            <button class="nav-btn" id="btn-role-caregiver" onclick="switchRole('caregiver')">
-                <i class="fa-solid fa-heart-pulse"></i> 👩‍⚕️ Caregiver App
-            </button>
-            <button class="nav-btn" id="btn-role-doctor" onclick="switchRole('doctor')">
-                <i class="fa-solid fa-stethoscope"></i> 🧑‍⚕️ Doctor Portal
-            </button>
-        </nav>
+    <!-- ========================================================= -->
+    <!-- 2. MAIN GOVERNMENT BRANDING HEADER                         -->
+    <!-- ========================================================= -->
+    <header class="gov-main-header">
+        <div class="gov-header-inner">
+            <div class="brand-section">
+                <!-- Ashoka Lion Capital (Emblem of India) SVG -->
+                <div class="national-emblem-svg" title="State Emblem of India">
+                    <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="30" r="18" fill="#0B2545"/>
+                        <path d="M35 30 Q50 14 65 30 Q50 24 35 30 Z" fill="#FF9933"/>
+                        <rect x="42" y="30" width="16" height="34" rx="3" fill="#0B2545"/>
+                        <circle cx="50" cy="46" r="7" stroke="#FF9933" stroke-width="2"/>
+                        <rect x="24" y="66" width="52" height="10" rx="2" fill="#0B2545"/>
+                        <circle cx="50" cy="71" r="4" stroke="#138808" stroke-width="1.5"/>
+                        <rect x="20" y="78" width="60" height="12" rx="2" fill="#061529"/>
+                        <text x="50" y="87" fill="#FFFFFF" font-size="7" font-weight="bold" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif">सत्यमेव जयते</text>
+                    </svg>
+                </div>
 
-        <!-- Connectivity & Multilingual Controls -->
-        <div class="header-actions">
-            <!-- Multilingual Dropdown -->
-            <div class="lang-selector-wrap" title="Choose Language / भाषा चुनें">
-                <i class="fa-solid fa-globe"></i>
-                <select id="lang-picker" onchange="changeLanguage(this.value)">
-                    <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
-                    <option value="en">🇬🇧 English</option>
-                    <option value="as">🇮🇳 অসমীয়া (Assamese)</option>
-                    <option value="bn">🇮🇳 বাংলা (Bengali)</option>
-                    <option value="mni">🇮🇳 Manipuri (Meitei)</option>
-                    <option value="mzo">🇮🇳 Mizo</option>
-                    <option value="kha">🇮🇳 Khasi</option>
-                </select>
+                <div class="brand-text">
+                    <span class="brand-title-hi">मानसिक स्वास्थ्य एवं संज्ञानात्मक संवर्धन मंच</span>
+                    <h1 class="brand-title-en">
+                        MINDSET<span class="highlight">-NER</span>
+                        <span style="font-size: 0.85rem; background: #e2e8f0; color: #0b2545; padding: 2px 8px; border-radius: 4px; font-weight: 700; margin-left: 6px;">PORTAL</span>
+                    </h1>
+                    <span class="brand-tagline">AI-Powered Cognitive Care & Memory Assistance for North East India</span>
+                </div>
             </div>
 
-            <div class="ner-toggle" onclick="toggleNerMode()" title="Toggle North Eastern Cultural Content">
-                <span class="ner-badge" id="ner-badge">🌸 NER Content: ON</span>
-            </div>
-            
-            <button class="offline-pill" id="offline-pill" onclick="openOfflineDrawer()">
-                <i class="fa-solid fa-wifi"></i> <span id="network-text">Online</span>
-            </button>
+            <div class="header-gov-badges">
+                <div class="partner-logo-seal">
+                    <div class="seal-icon">
+                        <i class="fa-solid fa-mountain-sun"></i>
+                    </div>
+                    <div class="seal-text">
+                        <strong>MDoNER</strong><br>
+                        North Eastern Region
+                    </div>
+                </div>
 
-            <!-- Judging Quick Modals Bar -->
-            <div class="judge-demo-bar">
-                <button class="judge-btn" onclick="openModal('modal-ai-brain')" title="Inspect AI Decision Engine"><i class="fa-solid fa-brain"></i> AI Brain</button>
-                <button class="judge-btn" onclick="openModal('modal-ner-map')" title="View North Eastern Region Impact Map"><i class="fa-solid fa-map-location-dot"></i> NER Map</button>
-                <button class="judge-btn" onclick="openModal('modal-satellite')" title="Space Tech Satellite Connectivity Roadmap"><i class="fa-solid fa-satellite"></i> Satellite Layer</button>
-                <button class="judge-btn" onclick="openModal('modal-privacy')" title="Privacy & Security Center"><i class="fa-solid fa-shield-halved"></i> Privacy</button>
+                <div class="partner-logo-seal">
+                    <div class="seal-icon" style="color: #047857;">
+                        <i class="fa-solid fa-notes-medical"></i>
+                    </div>
+                    <div class="seal-text">
+                        <strong>MoHFW</strong><br>
+                        Tele-MANAS Protocol
+                    </div>
+                </div>
             </div>
-
-            <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Contrast / Dark Mode">
-                <i class="fa-solid fa-circle-half-stroke"></i>
-            </button>
         </div>
     </header>
 
-    <!-- Main Container -->
-    <main class="main-content">
-        
-        <!-- ========================================== -->
-        <!-- 1. ELDERLY PATIENT APPLICATION INTERFACE   -->
-        <!-- ========================================== -->
+    <!-- Official Tricolor Ribbon -->
+    <div class="gov-tricolor-bar"></div>
+
+    <!-- ========================================================= -->
+    <!-- 3. OFFICIAL PORTAL NAVIGATION & ACTION BAR                 -->
+    <!-- ========================================================= -->
+    <nav class="gov-navbar">
+        <div class="gov-navbar-inner">
+            <!-- Main Role Navigation Tabs -->
+            <div class="main-portal-tabs" role="tablist">
+                <button class="portal-nav-btn active" id="btn-role-elderly" onclick="switchRole('elderly')" role="tab" aria-selected="true">
+                    <i class="fa-solid fa-person-walking-with-cane"></i>
+                    <span id="nav-lbl-elderly">👴 Elderly App</span>
+                </button>
+                <button class="portal-nav-btn" id="btn-role-caregiver" onclick="switchRole('caregiver')" role="tab" aria-selected="false">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span id="nav-lbl-caregiver">👩‍⚕️ Caregiver Dashboard</span>
+                </button>
+                <button class="portal-nav-btn" id="btn-role-doctor" onclick="switchRole('doctor')" role="tab" aria-selected="false">
+                    <i class="fa-solid fa-stethoscope"></i>
+                    <span id="nav-lbl-doctor">🧑‍⚕️ Doctor & Clinic</span>
+                </button>
+                <button class="portal-nav-btn" id="btn-role-schemes" onclick="switchRole('schemes')" role="tab" aria-selected="false">
+                    <i class="fa-solid fa-landmark"></i>
+                    <span id="nav-lbl-schemes">🏛️ Government Schemes</span>
+                </button>
+            </div>
+
+            <!-- Header Quick Action Tools -->
+            <div class="nav-actions-group">
+                <!-- Multilingual Language Selector -->
+                <div class="lang-selector-gov" title="भाषा चुनें / Select Language">
+                    <i class="fa-solid fa-language"></i>
+                    <select id="lang-picker" onchange="changeLanguage(this.value)">
+                        <option value="en" selected>🇬🇧 English</option>
+                        <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+                        <option value="as">🇮🇳 অসমীয়া (Assamese)</option>
+                        <option value="bn">🇮🇳 বাংলা (Bengali)</option>
+                        <option value="mni">🇮🇳 মৈতৈলোন্ (Meitei)</option>
+                        <option value="mzo">🇮🇳 Mizo ṭawng</option>
+                        <option value="kha">🇮🇳 Ka Khasi</option>
+                    </select>
+                </div>
+
+                <!-- NER Cultural Content Filter -->
+                <button class="ner-toggle-gov" id="ner-toggle-btn" onclick="toggleNerMode()" title="Toggle North Eastern Cultural Content">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                    <span id="ner-badge-text">🌸 NER सामग्री: ON</span>
+                </button>
+
+                <!-- Offline/Online Status Pill Simulator -->
+                <button class="network-pill-gov" id="offline-pill" onclick="openModal('modal-offline-drawer')" title="Check Network / Offline-First Tele-Health Status">
+                    <i class="fa-solid fa-wifi"></i>
+                    <span id="network-text">🟢 Online</span>
+                </button>
+
+                <!-- Judging & Portal Inspector Quick Buttons -->
+                <button class="tools-quick-btn" onclick="openModal('modal-ai-brain')" title="AI Cognitive Decision Engine Inspection">
+                    <i class="fa-solid fa-brain"></i> AI Brain
+                </button>
+                <button class="tools-quick-btn" onclick="openModal('modal-ner-map')" title="8 NER States Impact Map">
+                    <i class="fa-solid fa-map-location-dot"></i> NER Map
+                </button>
+                <button class="tools-quick-btn" onclick="openModal('modal-satellite')" title="Space Tech & NavIC Satellite Layer">
+                    <i class="fa-solid fa-satellite"></i> Satellite
+                </button>
+                <button class="tools-quick-btn" onclick="openModal('modal-privacy')" title="Patient Data Privacy & Security Center">
+                    <i class="fa-solid fa-shield-halved"></i> Privacy
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================================= -->
+    <!-- 4. OFFICIAL GOVERNMENT BULLETIN (NEWS MARQUEE)            -->
+    <!-- ========================================================= -->
+    <div class="gov-bulletin-bar">
+        <div class="gov-bulletin-inner">
+            <span class="bulletin-label" id="bulletin-label">
+                <i class="fa-solid fa-bullhorn"></i> <span id="bulletin-label-text">Notice / Bulletin</span>
+            </span>
+            <div class="bulletin-marquee" id="marquee-wrapper">
+                <span class="bulletin-content" id="bulletin-text">
+                    📢 <strong>MDoNER & MoHFW Initiative:</strong> 100% offline-first AI dementia care & cognitive gaming platform operational across 8 North Eastern states (Assam, Arunachal, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim, Tripura).
+                </span>
+            </div>
+            <button class="bulletin-pause-btn" id="btn-pause-marquee" onclick="toggleMarqueePause()" title="Pause/Play Marquee">
+                <i class="fa-solid fa-pause"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 5. MAIN CONTENT WRAPPER                                   -->
+    <!-- ========================================================= -->
+    <main class="main-content" id="main-content-anchor">
+
+        <!-- ===================================================== -->
+        <!-- VIEW 1: ELDERLY PATIENT APPLICATION INTERFACE         -->
+        <!-- ===================================================== -->
         <section id="view-elderly" class="app-view active">
             
-            <!-- Cognitive Journey Map & Streak Ribbon -->
-            <div class="glass-card journey-banner">
-                <div class="journey-title-wrap">
-                    <h3>🧠 YOUR MEMORY JOURNEY</h3>
-                    <div class="streak-badge"><i class="fa-solid fa-fire"></i> <span id="streak-count">7 Day Streak</span></div>
+            <!-- Cognitive Journey Map & Daily Streak Banner -->
+            <div class="elderly-journey-banner">
+                <div class="journey-top-row">
+                    <h3 id="lbl-journey-title">
+                        <i class="fa-solid fa-route" style="color: var(--gov-saffron-dark);"></i>
+                        Your Cognitive Memory Journey
+                    </h3>
+                    <div class="streak-pill" id="streak-badge-box">
+                        <i class="fa-solid fa-fire"></i>
+                        <span id="streak-count">7 Day Active Streak</span>
+                    </div>
                 </div>
-                <div class="journey-nodes">
-                    <div class="j-node completed">
-                        <span class="icon">🌱</span>
-                        <span class="label">Getting Started</span>
+
+                <div class="journey-nodes-bar">
+                    <div class="j-node completed" onclick="showJourneyInfo(1)" title="Step 1 Completed">
+                        <div class="j-circle">🌱</div>
+                        <span class="j-label" id="j-label-1">Start</span>
                     </div>
-                    <div class="j-line completed"></div>
-                    <div class="j-node active">
-                        <span class="icon">🧠</span>
-                        <span class="label">Memory Builder</span>
+                    <div class="j-track-line filled"></div>
+
+                    <div class="j-node active" onclick="showJourneyInfo(2)" title="Current Active Milestone">
+                        <div class="j-circle">🧠</div>
+                        <span class="j-label" id="j-label-2">Memory Builder</span>
                     </div>
-                    <div class="j-line"></div>
-                    <div class="j-node">
-                        <span class="icon">🎯</span>
-                        <span class="label">Focus Master</span>
+                    <div class="j-track-line"></div>
+
+                    <div class="j-node" onclick="showJourneyInfo(3)" title="Step 3">
+                        <div class="j-circle">🎯</div>
+                        <span class="j-label" id="j-label-3">Focus Master</span>
                     </div>
-                    <div class="j-line"></div>
-                    <div class="j-node">
-                        <span class="icon">❤️</span>
-                        <span class="label">Memory Moments</span>
+                    <div class="j-track-line"></div>
+
+                    <div class="j-node" onclick="showJourneyInfo(4)" title="Step 4">
+                        <div class="j-circle">❤️</div>
+                        <span class="j-label" id="j-label-4">Memory Moments</span>
                     </div>
-                    <div class="j-line"></div>
-                    <div class="j-node">
-                        <span class="icon">🌟</span>
-                        <span class="label">Cognitive Champion</span>
+                    <div class="j-track-line"></div>
+
+                    <div class="j-node" onclick="showJourneyInfo(5)" title="Step 5">
+                        <div class="j-circle">🌟</div>
+                        <span class="j-label" id="j-label-5">Cognitive Champion</span>
                     </div>
                 </div>
             </div>
 
-            <div class="elderly-grid">
-                
-                <!-- Left Panel: AI Voice Companion 'Asha' -->
-                <div class="glass-card voice-card">
-                    <div class="card-header">
-                        <div class="avatar-pulse">
-                            <i class="fa-solid fa-robot"></i>
+            <!-- Elderly Main Grid (Left Asha Companion + Center Activities) -->
+            <div class="elderly-main-grid">
+
+                <!-- Left Panel: AI Companion 'Asha' -->
+                <aside class="asha-voice-panel">
+                    <div class="asha-badge-header">
+                        <div class="asha-avatar">
+                            <i class="fa-solid fa-user-nurse"></i>
                         </div>
-                        <div>
-                            <h2 id="companion-name-title">AI साथी आशा (Asha Companion)</h2>
-                            <p class="subtext">Voice Assistance (Hindi, English, Assamese, Bengali)</p>
+                        <div class="asha-info">
+                            <h2 id="companion-name-title">AI Companion Asha</h2>
+                            <p id="companion-lang-subtext">Multilingual Senior Voice Assistant</p>
                         </div>
                     </div>
 
-                    <!-- Audio Visualizer Waves -->
-                    <div class="audio-wave-box" id="audio-visualizer">
-                        <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                    <!-- Voice Visualizer Wave -->
+                    <div class="voice-wave-container" id="audio-visualizer">
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
                     </div>
 
-                    <!-- Voice Response Bubble -->
-                    <div class="speech-bubble" id="companion-speech-bubble">
-                        <p id="speech-text">“नमस्ते रमेश जी! मैं आपकी साथी आशा हूँ। आप मुझसे अपनी दवाई, परिवार की यादें या खेल के बारे में पूछ सकते हैं।”</p>
+                    <!-- Asha Speech Response Bubble -->
+                    <div class="asha-speech-bubble" id="companion-speech-bubble">
+                        <p id="speech-text">“Hello Ramesh ji! I am Asha, your health companion. You can ask me about your medicine, water schedule, family memories, or games.”</p>
                     </div>
 
-                    <!-- Giant Mic & Speak Controls -->
-                    <div class="voice-controls">
-                        <button class="mic-btn pulse-glow giant-mic-btn" id="mic-trigger-btn" onclick="listenVoiceCommand()">
-                            <i class="fa-solid fa-microphone"></i> 🎤 Talk to MINDSET
+                    <!-- Big Senior Friendly Voice Controls -->
+                    <button class="gov-mic-btn" id="mic-trigger-btn" onclick="listenVoiceCommand()">
+                        <i class="fa-solid fa-microphone"></i>
+                        <span id="mic-btn-text">Talk to Asha</span>
+                    </button>
+
+                    <button class="listen-again-btn" onclick="speakCurrentText()">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <span id="lbl-listen-again">Listen Again</span>
+                    </button>
+
+                    <!-- Quick Voice Prompt Suggestion Buttons -->
+                    <div class="quick-prompts-title" id="lbl-quick-prompts">त्वरित प्रश्न (Quick Questions):</div>
+                    <div class="quick-prompt-buttons">
+                        <button class="prompt-btn" onclick="sendQuickPromptIndex(0)">
+                            💊 <span id="prompt-txt-1">When is my medicine schedule?</span>
                         </button>
-                        <button class="secondary-voice-btn" onclick="speakCurrentText()">
-                            <i class="fa-solid fa-volume-high"></i> Listen Again
+                        <button class="prompt-btn" onclick="sendQuickPromptIndex(1)">
+                            ❤️ <span id="prompt-txt-2">What is my daughter's name?</span>
+                        </button>
+                        <button class="prompt-btn" onclick="sendQuickPromptIndex(2)">
+                            📅 <span id="prompt-txt-3">What is my daily routine?</span>
+                        </button>
+                        <button class="prompt-btn" onclick="sendQuickPromptIndex(3)">
+                            💧 <span id="prompt-txt-4">When should I drink water?</span>
                         </button>
                     </div>
+                </aside>
 
-                    <!-- Quick Voice Suggestion Pills -->
-                    <div class="quick-pills">
-                        <button onclick="sendQuickQuery('मेरी दवाई कब है?')">💊 मेरी दवाई कब है?</button>
-                        <button onclick="sendQuickQuery('मेरी बेटी का नाम क्या है?')">❤️ मेरी बेटी का नाम?</button>
-                        <button onclick="sendQuickQuery('आज मुझे क्या करना है?')">📅 आज की दिनचर्या?</button>
-                        <button onclick="sendQuickQuery('मुझे पानी कब पीना है?')">💧 पानी पीने का समय?</button>
-                    </div>
-                </div>
-
-                <!-- Center Panel: Games, Memory Book, Music, Family & Reminders Tabs -->
-                <div class="center-elderly-panel">
+                <!-- Center Panel: Tabs for Activities -->
+                <div class="elderly-center-content">
                     
-                    <!-- Top Tab Switcher Bar -->
-                    <div class="elderly-tab-bar">
-                        <button class="tab-btn active" id="tab-games-btn" onclick="switchElderlyTab('games')">
-                            🎮 Cognitive Games
+                    <!-- Top Tab Switcher Strip -->
+                    <div class="elderly-tabs-strip" role="tablist">
+                        <button class="elderly-subtab-btn active" id="tab-games-btn" onclick="switchElderlyTab('games')">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span id="subtab-lbl-games">Cognitive Games</span>
                         </button>
-                        <button class="tab-btn" id="tab-memorybook-btn" onclick="switchElderlyTab('memorybook')">
-                            ⭐ Digital Memory Book
+                        <button class="elderly-subtab-btn" id="tab-memorybook-btn" onclick="switchElderlyTab('memorybook')">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span id="subtab-lbl-dmb">Digital Memory Book</span>
                         </button>
-                        <button class="tab-btn" id="tab-music-btn" onclick="switchElderlyTab('music')">
-                            🎵 Music Memory
+                        <button class="elderly-subtab-btn" id="tab-music-btn" onclick="switchElderlyTab('music')">
+                            <i class="fa-solid fa-music"></i>
+                            <span id="subtab-lbl-music">Memory Through Music</span>
                         </button>
-                        <button class="tab-btn" id="tab-family-btn" onclick="switchElderlyTab('family')">
-                            👨‍👩‍👧 Family Connect
+                        <button class="elderly-subtab-btn" id="tab-family-btn" onclick="switchElderlyTab('family')">
+                            <i class="fa-solid fa-people-roof"></i>
+                            <span id="subtab-lbl-family">Family Connect</span>
                         </button>
-                        <button class="tab-btn" id="tab-mood-btn" onclick="switchElderlyTab('mood')">
-                            😊 Mood Check-In
+                        <button class="elderly-subtab-btn" id="tab-mood-btn" onclick="switchElderlyTab('mood')">
+                            <i class="fa-solid fa-face-smile"></i>
+                            <span id="subtab-lbl-mood">Daily Mood</span>
                         </button>
-                        <button class="tab-btn" id="tab-reminders-btn" onclick="switchElderlyTab('reminders')">
-                            🔔 Reminders
+                        <button class="elderly-subtab-btn" id="tab-reminders-btn" onclick="switchElderlyTab('reminders')">
+                            <i class="fa-solid fa-bell"></i>
+                            <span id="subtab-lbl-reminders">Reminders</span>
                         </button>
                     </div>
 
-                    <!-- TAB 1: COGNITIVE GAMES HUB -->
+                    <!-- ========================================= -->
+                    <!-- TAB 1: COGNITIVE GAMES HUB                -->
+                    <!-- ========================================= -->
                     <div id="elderly-tab-games" class="tab-content active">
-                        <div class="game-select-header">
-                            <span class="difficulty-badge" id="current-diff-display">AI Level: Medium (Adaptive)</span>
-                            <span class="score-badge" id="elderly-today-score">Today Score: 78/100</span>
+                        <div class="hub-status-header">
+                            <div class="status-badge ai-level" id="current-diff-display">
+                                <i class="fa-solid fa-robot"></i> AI Level: Medium (Adaptive)
+                            </div>
+                            <div class="status-badge score" id="elderly-today-score">
+                                <i class="fa-solid fa-award"></i> आज का स्कोर: <strong id="val-today-score">0</strong>/100
+                                <button type="button" class="btn-score-reset" onclick="resetTodayScore(event)" title="स्कोर रीसेट करें (Reset Score for Demo)"><i class="fa-solid fa-arrows-rotate"></i></button>
+                            </div>
                         </div>
 
-                        <!-- Game Selection Cards Grid -->
-                        <div class="games-grid" id="game-selector-grid">
-                            
-                            <div class="game-card village-card" onclick="startSelectedGame('market')">
-                                <div class="game-icon">🌳 🍎 🌾 🥛</div>
-                                <h3>1. Village Market Challenge</h3>
-                                <p>उत्तर पूर्वी बाज़ार से वस्तुएं याद रखें (10s Market Recall)</p>
-                                <span class="play-pill gold">Featured Market Game <i class="fa-solid fa-store"></i></span>
-                            </div>
-
-                            <div class="game-card ner-highlight" onclick="startSelectedGame('local_ner')">
-                                <div class="game-icon">🫖 🌸 🏔️</div>
-                                <h3>2. Local NER Cultural Memory</h3>
-                                <p>उत्तर पूर्वी संस्कृति व स्थान (Regional Landmarks)</p>
-                                <span class="play-pill gold">Featured NER <i class="fa-solid fa-star"></i></span>
-                            </div>
-
-                            <div class="game-card" onclick="startSelectedGame('family')">
-                                <div class="game-icon">👩‍👧 👨‍👦 👴</div>
-                                <h3>3. Family Memory Recognition</h3>
-                                <p>पारिवारिक पहचान (Face & Relation Memory)</p>
-                                <span class="play-pill">Play Now <i class="fa-solid fa-play"></i></span>
-                            </div>
-
-                            <div class="game-card" onclick="startSelectedGame('routine')">
-                                <div class="game-icon">🌅 🪥 🥣 💊</div>
-                                <h3>4. Daily Routine Recall</h3>
-                                <p>दिनचर्या क्रम में लगाएं (Routine Sequence)</p>
-                                <span class="play-pill">Play Now <i class="fa-solid fa-play"></i></span>
-                            </div>
-
-                            <div class="game-card" onclick="startSelectedGame('pattern')">
-                                <div class="game-icon">🔴 🔵 🔴 ❓</div>
-                                <h3>5. Pattern Recognition</h3>
-                                <p>पैटर्न समझें (Logic & Concentration)</p>
-                                <span class="play-pill">Play Now <i class="fa-solid fa-play"></i></span>
-                            </div>
-
+                        <!-- Game Selection Grid -->
+                        <div class="games-cards-grid" id="game-selector-grid">
+                            <!-- Populated dynamically by renderGameSelectorGrid() based on active language -->
                         </div>
 
                         <!-- ACTIVE GAME PLAY ARENA -->
-                        <div class="game-arena glass-card" id="active-game-arena" style="display:none;">
-                            <div class="arena-top">
-                                <button class="back-game-btn" onclick="exitGameArena()">← Choose Game</button>
-                                <h2 id="game-title">Village Market Challenge</h2>
-                                <div class="game-timer" id="game-timer-display">⏱️ 00:10</div>
+                        <div class="active-game-arena-box" id="active-game-arena" style="display:none;">
+                            <div class="arena-top-controls">
+                                <button class="arena-back-btn" onclick="exitGameArena()">
+                                    <i class="fa-solid fa-arrow-left"></i> <span id="arena-back-text">खेलों की सूची (Back to Menu)</span>
+                                </button>
+                                <h3 id="game-title" style="color: var(--gov-navy); font-size: 1.3rem;">Village Market Challenge</h3>
+                                <div style="display:flex; align-items:center; gap: 0.8rem;">
+                                    <span class="arena-round-pill" id="game-round-pill">राउंड 1 / 3</span>
+                                    <div class="arena-timer" id="game-timer-display">⏱️ 00:10</div>
+                                </div>
                             </div>
 
-                            <!-- Dynamic Game Stage Container -->
-                            <div class="arena-stage" id="game-stage-container">
-                                <!-- Dynamic HTML injected by JS -->
+                            <!-- Dynamic Stage Container -->
+                            <div class="game-stage-viewport" id="game-stage-container">
+                                <!-- Dynamic Game HTML will be injected by app.js -->
                             </div>
 
                             <!-- Visual AI Adaptation Decision Card -->
-                            <div class="ai-adaptation-card" id="ai-adaptation-card" style="display:none;">
-                                <div class="ai-card-title"><i class="fa-solid fa-brain"></i> AI Cognitive Decision Engine</div>
-                                <div class="ai-card-grid">
-                                    <div>
-                                        <span class="lbl">Previous Accuracy</span>
-                                        <strong id="ai-val-acc">92%</strong>
+                            <div class="ai-adaptation-banner" id="ai-adaptation-card" style="display:none;">
+                                <div class="ai-banner-title">
+                                    <i class="fa-solid fa-brain" style="color: var(--gov-navy-light);"></i>
+                                    <span id="ai-banner-header">AI अनुकूलन निर्णय इंजन (AI Adaptive Decision Engine)</span>
+                                </div>
+                                <div class="ai-banner-metrics">
+                                    <div class="ai-metric-item">
+                                        <span id="lbl-ai-acc">सटीकता (Accuracy):</span> <strong id="ai-val-acc">95%</strong>
                                     </div>
-                                    <div>
-                                        <span class="lbl">Response Latency</span>
-                                        <strong id="ai-val-speed">4.2s</strong>
+                                    <div class="ai-metric-item">
+                                        <span id="lbl-ai-speed">प्रतिक्रिया समय (Latency):</span> <strong id="ai-val-speed">3.8s</strong>
                                     </div>
-                                    <div class="ai-arrow">
-                                        <i class="fa-solid fa-arrow-right"></i> AI Decision
-                                    </div>
-                                    <div>
-                                        <span class="lbl">Next Challenge</span>
-                                        <strong id="ai-val-next">Objects: 5 → 7 | EASY → MEDIUM</strong>
+                                    <div class="ai-metric-item">
+                                        <span id="lbl-ai-next">अगला स्तर (Next Level):</span> <strong id="ai-val-next">Medium → Hard</strong>
                                     </div>
                                 </div>
-                                <div class="ai-reason-text" id="ai-reason-text">Excellent recall! Difficulty increased to keep experience engaging.</div>
+                                <div class="ai-banner-reasoning" id="ai-reason-text">
+                                    🤖 AI विश्लेषण: उत्कृष्ट प्रदर्शन! मरीज का संज्ञानात्मक रिस्पॉन्स बहुत सक्रिय है।
+                                </div>
+                                <div style="display:flex; justify-content:flex-end; margin-top: 0.4rem;">
+                                    <button class="btn-primary-gov" id="btn-next-game-round" onclick="advanceNextGameRound()">
+                                        <span id="btn-next-round-text">अगला प्रश्न (Next Question)</span> <i class="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
+
                     </div>
 
-                    <!-- TAB 2: DIGITAL MEMORY BOOK ⭐ Signature Feature -->
+                    <!-- ========================================= -->
+                    <!-- TAB 2: DIGITAL MEMORY BOOK ⭐             -->
+                    <!-- ========================================= -->
                     <div id="elderly-tab-memorybook" class="tab-content" style="display:none;">
-                        <div class="memory-book-container glass-card">
-                            <div class="dmb-header">
-                                <h2>📖 Digital Memory Book (डिजिटल मेमोरी बुक)</h2>
-                                <p>Personal reminiscence profile generated with family photos, favorite places, and songs.</p>
-                            </div>
-
-                            <!-- Interactive AI Memory Q&A Prompt Activity Arena -->
-                            <div class="dmb-qa-arena" id="dmb-qa-arena">
-                                <div class="dmb-card-showcase" id="dmb-active-card">
-                                    <!-- Injected dynamically by JS -->
+                        <div class="gov-card">
+                            <div class="gov-card-header">
+                                <div>
+                                    <h2 id="dmb-sec-title"><i class="fa-solid fa-book-bookmark" style="color: var(--gov-saffron-dark);"></i> <span id="dmb-title-text">डिजिटल मेमोरी बुक (Digital Memory Book)</span></h2>
+                                    <span class="subtitle" id="dmb-sec-subtitle">पारिवारिक तस्वीरें, प्रिय स्थान और मधुर स्मृतियों का व्यक्तिगत संग्रह</span>
                                 </div>
+                                <button class="btn-primary-gov" onclick="openModal('modal-add-dmb')">
+                                    <i class="fa-solid fa-plus"></i> <span id="dmb-add-btn-text">नई याद जोड़ें (Add Card)</span>
+                                </button>
                             </div>
 
-                            <!-- Thumbnails Grid -->
-                            <h3 style="margin: 1.5rem 0 1rem 0;">Browse Your Personal Memory Profile Cards:</h3>
-                            <div class="dmb-grid" id="dmb-grid-container">
+                            <!-- Active Showcase Card -->
+                            <div class="dmb-showcase-card" id="dmb-active-card">
+                                <!-- Injected dynamically by JS -->
+                            </div>
+
+                            <div class="dmb-carousel-nav">
+                                <button class="dmb-nav-btn" onclick="prevDmbCard()">
+                                    <i class="fa-solid fa-chevron-left"></i> <span id="dmb-prev-text">पिछली याद (Previous)</span>
+                                </button>
+                                <span id="dmb-index-indicator" style="font-weight: 700; color: var(--text-muted); align-self: center;">1 / 4</span>
+                                <button class="dmb-nav-btn" onclick="nextDmbCard()">
+                                    <span id="dmb-next-text">अगली याद (Next)</span> <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                            </div>
+
+                            <h3 id="dmb-browse-title" style="margin: 2rem 0 1rem 0; color: var(--gov-navy); font-size: 1.15rem;">
+                                <i class="fa-solid fa-grip"></i> <span id="dmb-browse-text">सभी व्यक्तिगत स्मृति कार्ड (Browse Memory Cards):</span>
+                            </h3>
+                            <div class="dmb-thumbnails-grid" id="dmb-grid-container">
                                 <!-- Injected by JS -->
                             </div>
                         </div>
                     </div>
 
-                    <!-- TAB 3: MEMORY THROUGH MUSIC 🎵 -->
+                    <!-- ========================================= -->
+                    <!-- TAB 3: MUSIC MEMORY 🎵                    -->
+                    <!-- ========================================= -->
                     <div id="elderly-tab-music" class="tab-content" style="display:none;">
-                        <div class="music-container glass-card">
-                            <h2>🎵 Memory Through Music (संगीत से यादें)</h2>
-                            <p class="subtext">Listen to familiar regional songs to stimulate emotional & cognitive reminiscence.</p>
-                            
-                            <div class="music-player-box" id="music-player-box">
-                                <div class="music-icon-pulse"><i class="fa-solid fa-music"></i></div>
-                                <h3 id="music-track-title">Assamese Folk Bihu Flute</h3>
-                                <p id="music-track-region">Assam Traditional</p>
-                                
+                        <div class="gov-card">
+                            <div class="gov-card-header">
+                                <div>
+                                    <h2 id="music-sec-title"><i class="fa-solid fa-music" style="color: var(--gov-saffron-dark);"></i> <span id="music-title-text">संगीत से यादें (Memory Through Music)</span></h2>
+                                    <span class="subtitle" id="music-sec-subtitle">पूर्वोत्तर के पारंपरिक व लोक संगीत द्वारा पुरानी सुखद स्मृतियों का जागरण</span>
+                                </div>
+                            </div>
+
+                            <div style="max-width: 650px; margin: 0 auto; text-align: center; padding: 1.5rem;">
+                                <div style="font-size: 4rem; color: var(--gov-navy-light); margin-bottom: 0.5rem;">
+                                    <i class="fa-solid fa-compact-disc fa-spin" style="animation-duration: 8s;"></i>
+                                </div>
+                                <h3 id="music-track-title" style="color: var(--gov-navy); font-size: 1.4rem;">Assamese Folk Bihu Flute</h3>
+                                <p id="music-track-region" style="color: var(--gov-saffron-dark); font-weight: 700; margin-bottom: 1.2rem;">असम की पारंपरिक धुन (Assam Traditional)</p>
+
+                                <div style="display:flex; justify-content:center; gap: 0.8rem; margin-bottom: 1.2rem; flex-wrap: wrap;">
+                                    <button class="btn-secondary-gov" id="music-track-btn-0" onclick="selectMusicTrack(0)">1. Bihu Flute (Assam)</button>
+                                    <button class="btn-secondary-gov" id="music-track-btn-1" onclick="selectMusicTrack(1)">2. Classical Raga Flute</button>
+                                    <button class="btn-secondary-gov" id="music-track-btn-2" onclick="selectMusicTrack(2)">3. Manipuri Pena Melody</button>
+                                </div>
+
                                 <audio id="reminiscence-audio" controls style="width: 100%; margin: 1rem 0;"></audio>
-                                
-                                <div class="music-prompt-card" id="music-prompt-card">
-                                    <h4 id="music-prompt-question">“क्या आपको यह संगीत याद है?” (Do you remember this song?)</h4>
-                                    <div class="music-btn-row">
-                                        <button class="btn-music-ans" onclick="respondMusicMemory('yes')">😊 हां, याद है! (Yes, I Remember)</button>
-                                        <button class="btn-music-ans" onclick="respondMusicMemory('listen_again')">🔁 फिर से सुनें (Listen Again)</button>
+
+                                <div style="background: #f8fafc; border: 2px solid var(--border-color); border-radius: 12px; padding: 1.4rem; margin-top: 1.5rem;">
+                                    <h4 id="music-prompt-question" style="color: var(--gov-navy); font-size: 1.2rem; margin-bottom: 1rem;">
+                                        “Do you remember this music?”
+                                    </h4>
+                                    <div style="display:flex; justify-content:center; gap: 1rem; flex-wrap: wrap;">
+                                        <button class="game-choice-btn" style="padding: 0.8rem 1.5rem; font-size: 1.1rem;" onclick="respondMusicMemory('yes')">
+                                            <span id="music-btn-yes-text">😊 Yes, I Remember!</span>
+                                        </button>
+                                        <button class="game-choice-btn" style="padding: 0.8rem 1.5rem; font-size: 1.1rem; border-color: #64748b; color: #475569;" onclick="respondMusicMemory('listen_again')">
+                                            <span id="music-btn-again-text">🔁 Play Again</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- TAB 4: FAMILY CONNECT 👨‍👩‍👧 -->
+                    <!-- ========================================= -->
+                    <!-- TAB 4: FAMILY CONNECT 👨‍👩‍👧                 -->
+                    <!-- ========================================= -->
                     <div id="elderly-tab-family" class="tab-content" style="display:none;">
-                        <div class="family-connect-container glass-card">
-                            <h2>❤️ Family Connect (पारिवारिक जुड़ाव)</h2>
-                            <p class="subtext">Messages and photos sent by your children and loved ones.</p>
-                            
-                            <div class="family-feed" id="family-feed-list">
-                                <!-- Injected by JS -->
+                        <div class="gov-card">
+                            <div class="gov-card-header">
+                                <div>
+                                    <h2 id="family-sec-title"><i class="fa-solid fa-people-roof" style="color: #e11d48;"></i> <span id="family-title-text">Family Connect Feed</span></h2>
+                                    <span class="subtitle" id="family-sec-subtitle">Loving messages and photos from your children, grandchildren, and relatives</span>
+                                </div>
+                            </div>
+
+                            <div id="family-feed-list" style="display:flex; flex-direction:column; gap: 1.2rem; margin-top: 1rem;">
+                                <!-- Injected dynamically by JS -->
                             </div>
                         </div>
                     </div>
 
-                    <!-- TAB 5: DAILY MOOD CHECK-IN 😊 -->
+                    <!-- ========================================= -->
+                    <!-- TAB 5: DAILY MOOD CHECK-IN 😊             -->
+                    <!-- ========================================= -->
                     <div id="elderly-tab-mood" class="tab-content" style="display:none;">
-                        <div class="mood-container glass-card">
-                            <h2>😊 How are you feeling today? (आज आप कैसा महसूस कर रहे हैं?)</h2>
-                            <p class="subtext">Daily well-being tracking for family and caregiver awareness.</p>
-                            
-                            <div class="emoji-buttons-grid">
-                                <button class="emoji-btn" onclick="submitMoodCheckIn('good', '😊 Good / Happy')">
-                                    <span class="e-icon">😊</span>
-                                    <span class="e-label">Good</span>
+                        <div class="gov-card">
+                            <div class="gov-card-header">
+                                <div>
+                                    <h2 id="mood-sec-title"><i class="fa-solid fa-face-smile" style="color: var(--gov-saffron-dark);"></i> <span id="mood-title-text">आज आप कैसा महसूस कर रहे हैं? (Daily Mood Check-In)</span></h2>
+                                    <span class="subtitle" id="mood-sec-subtitle">Share your emotions so family and doctors can stay informed about your well-being</span>
+                                </div>
+                            </div>
+
+                            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1.2rem; margin: 2rem 0;">
+                                <button class="game-hub-card" style="padding: 1.5rem 1rem;" onclick="submitMoodCheckIn('good', appState.lang === 'en' ? '😊 Happy & Calm' : '😊 प्रसन्न व शांत')">
+                                    <span style="font-size: 3.5rem;">😊</span>
+                                    <strong id="mood-lbl-good" style="margin-top: 0.6rem; color: #166534; font-size: 1.1rem;">Good / Happy</strong>
                                 </button>
-                                <button class="emoji-btn" onclick="submitMoodCheckIn('okay', '😐 Okay / Normal')">
-                                    <span class="e-icon">😐</span>
-                                    <span class="e-label">Okay</span>
+                                <button class="game-hub-card" style="padding: 1.5rem 1rem;" onclick="submitMoodCheckIn('okay', appState.lang === 'en' ? '😐 Normal / Okay' : '😐 सामान्य')">
+                                    <span style="font-size: 3.5rem;">😐</span>
+                                    <strong id="mood-lbl-okay" style="margin-top: 0.6rem; color: #b45309; font-size: 1.1rem;">Normal / Okay</strong>
                                 </button>
-                                <button class="emoji-btn" onclick="submitMoodCheckIn('sad', '😔 Sad / Low')">
-                                    <span class="e-icon">😔</span>
-                                    <span class="e-label">Sad</span>
+                                <button class="game-hub-card" style="padding: 1.5rem 1rem;" onclick="submitMoodCheckIn('sad', appState.lang === 'en' ? '😔 Sad / Low' : '😔 उदास / मन भारी')">
+                                    <span style="font-size: 3.5rem;">😔</span>
+                                    <strong id="mood-lbl-sad" style="margin-top: 0.6rem; color: #1e40af; font-size: 1.1rem;">Sad / Low</strong>
                                 </button>
-                                <button class="emoji-btn" onclick="submitMoodCheckIn('angry', '😡 Restless')">
-                                    <span class="e-icon">😡</span>
-                                    <span class="e-label">Restless</span>
+                                <button class="game-hub-card" style="padding: 1.5rem 1rem;" onclick="submitMoodCheckIn('restless', appState.lang === 'en' ? '😟 Restless' : '😟 बेचैन')">
+                                    <span style="font-size: 3.5rem;">😟</span>
+                                    <strong id="mood-lbl-restless" style="margin-top: 0.6rem; color: #dc2626; font-size: 1.1rem;">Restless</strong>
                                 </button>
-                                <button class="emoji-btn" onclick="submitMoodCheckIn('tired', '😴 Tired / Sleepy')">
-                                    <span class="e-icon">😴</span>
-                                    <span class="e-label">Tired</span>
+                                <button class="game-hub-card" style="padding: 1.5rem 1rem;" onclick="submitMoodCheckIn('tired', appState.lang === 'en' ? '😴 Tired / Sleepy' : '😴 थकान / नींद')">
+                                    <span style="font-size: 3.5rem;">😴</span>
+                                    <strong id="mood-lbl-tired" style="margin-top: 0.6rem; color: #64748b; font-size: 1.1rem;">Tired / Sleepy</strong>
                                 </button>
                             </div>
 
-                            <div class="mood-feedback-box" id="mood-feedback-box" style="display:none;">
-                                <p id="mood-feedback-text">Thank you! Your mood update has been recorded for your caregiver.</p>
+                            <div id="mood-feedback-box" style="display:none; background: #ecfdf5; border: 2px solid #a7f3d0; border-radius: 12px; padding: 1.2rem; text-align: center;">
+                                <h4 id="mood-feedback-heading" style="color: #065f46; font-size: 1.2rem; margin-bottom: 0.3rem;"><i class="fa-solid fa-circle-check"></i> Mood Logged Successfully!</h4>
+                                <p id="mood-feedback-text" style="color: #047857; font-weight: 700; font-size: 1.1rem;">Thank you Ramesh Ji! Your health and well-being are our top priority.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- TAB 6: REMINDERS LIST -->
+                    <!-- ========================================= -->
+                    <!-- TAB 6: REMINDERS & HEALTH CHECKLIST       -->
+                    <!-- ========================================= -->
                     <div id="elderly-tab-reminders" class="tab-content" style="display:none;">
-                        <div class="reminders-container glass-card">
-                            <h2>💊 आज के रिमाइंडर (Today's Reminders)</h2>
-                            <div class="reminders-list" id="elderly-reminders-list">
-                                <!-- Injected by JS -->
+                        <div class="gov-card">
+                            <div class="gov-card-header">
+                                <div>
+                                    <h2 id="rem-sec-title"><i class="fa-solid fa-bell" style="color: var(--gov-saffron-dark);"></i> <span id="rem-title-text">Today's Health & Routine Reminders</span></h2>
+                                    <span class="subtitle" id="rem-sec-subtitle">Official digital schedule for timely medication, hydration, and daily activities</span>
+                                </div>
+                                <button class="btn-primary-gov" onclick="openModal('modal-add-reminder')">
+                                    <i class="fa-solid fa-plus"></i> <span id="rem-add-btn-text">Add Health Reminder</span>
+                                </button>
+                            </div>
+
+                            <div class="reminders-gov-list" id="elderly-reminders-list">
+                                <!-- Injected dynamically by JS -->
                             </div>
                         </div>
                     </div>
@@ -379,227 +581,252 @@
             </div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- 2. CAREGIVER DASHBOARD INTERFACE           -->
-        <!-- ========================================== -->
+        <!-- ===================================================== -->
+        <!-- VIEW 2: CAREGIVER DASHBOARD INTERFACE                 -->
+        <!-- ===================================================== -->
         <section id="view-caregiver" class="app-view">
-            <div class="dashboard-header glass-card">
-                <div class="patient-profile-strip">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" alt="Patient Avatar" class="profile-thumb">
-                    <div>
-                        <h2>Patient: Ramesh Sharma (Age: 74)</h2>
-                        <p>Caregiver: Ananya Sharma (Daughter) | Primary ID: #p001</p>
+            <!-- Patient Profile & Cognitive Score Strip -->
+            <div class="cg-patient-strip">
+                <!-- Patient Profile & Add Photo Widget -->
+                <div class="cg-patient-card" id="cg-patient-card">
+                    <div class="cg-avatar-wrapper" onclick="openPatientPhotoUploadModal()" title="मरीज की फोटो जोड़ें / बदलें (Add/Change Patient Photo)">
+                        <div class="cg-patient-avatar" id="cg-patient-avatar-display">
+                            <i class="fa-solid fa-hospital-user"></i>
+                        </div>
+                        <span class="cg-camera-badge" title="फोटो अपलोड करें"><i class="fa-solid fa-camera"></i></span>
+                    </div>
+                    <div class="cg-patient-info">
+                        <span class="cg-role-pill" id="cg-pat-role-pill" style="color: #0284c7;">Registered Patient</span>
+                        <h2 id="cg-pat-title" style="margin: 2px 0; font-size: 1.15rem; color: var(--gov-navy);">Patient: Ramesh Sharma (Age: 74)</h2>
+                        <p id="cg-pat-subtext" style="margin: 0; font-size: 0.82rem; color: var(--text-muted);">Primary Caregiver: Ananya Sharma (Daughter) | Patient ID: #p001 | Guwahati, Assam</p>
+                        <button type="button" class="btn-patient-photo" id="btn-patient-photo-action" onclick="openPatientPhotoUploadModal()">
+                            <i class="fa-solid fa-camera"></i> <span id="txt-patient-photo-btn">+ Add Photo</span>
+                        </button>
                     </div>
                 </div>
-                <div class="overall-score-box">
-                    <div class="score-circle" id="cg-overall-score-circle">78%</div>
+
+                <!-- Caregiver Profile & Add Photo Widget -->
+                <div class="cg-caregiver-card" id="cg-caregiver-card">
+                    <div class="cg-avatar-wrapper" onclick="openCaregiverPhotoUploadModal()" title="Add/Change Caregiver Photo">
+                        <div class="cg-caregiver-avatar" id="cg-caregiver-avatar-display">
+                            <i class="fa-solid fa-user-nurse"></i>
+                        </div>
+                        <span class="cg-camera-badge" title="Upload Photo"><i class="fa-solid fa-camera"></i></span>
+                    </div>
+                    <div class="cg-caregiver-info">
+                        <span class="cg-role-pill" id="cg-caregiver-role-pill">Authorized Caregiver</span>
+                        <strong id="cg-caregiver-display-name">Ananya Sharma (Daughter)</strong>
+                        <button type="button" class="btn-cg-photo" id="btn-cg-photo-action" onclick="openCaregiverPhotoUploadModal()">
+                            <i class="fa-solid fa-camera"></i> <span id="txt-cg-photo-btn">+ Add Photo</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cg-score-box">
+                    <div class="cg-circle-score" id="cg-overall-score-circle">0%</div>
                     <div>
-                        <div class="score-label">Cognitive Engagement Score</div>
-                        <div class="score-subtext">Non-diagnostic activity metric</div>
+                        <div id="cg-score-lbl" style="font-weight: 800; color: var(--gov-navy); font-size: 1.05rem;">Cognitive Engagement Score</div>
+                        <div id="cg-score-sub" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Daily Non-Clinical Longitudinal Trend Analysis</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Caregiver Daily Briefing (⭐ Signature Feature) -->
-            <div class="glass-card briefing-card" id="caregiver-daily-briefing-card">
-                <div class="briefing-header">
-                    <i class="fa-solid fa-sun briefing-sun-icon"></i>
+            <!-- Caregiver Daily Briefing Card -->
+            <div class="cg-briefing-alert" id="caregiver-daily-briefing-card">
+                <div style="display:flex; align-items:center; gap: 0.8rem;">
+                    <i class="fa-solid fa-sun" style="font-size: 1.8rem; color: #d97706;"></i>
                     <div>
-                        <h3>GOOD MORNING, ANANYA</h3>
-                        <p class="subtext">👴 Ramesh — Today's AI Summary Briefing</p>
+                        <h3 id="cg-brief-title" style="color: #78350f; font-size: 1.25rem; font-weight: 800;">Good Morning, Ananya</h3>
+                        <p id="cg-brief-sub" style="color: #92400e; font-size: 0.85rem; font-weight: 600;">Ramesh Ji — Daily AI Cognitive & Health Briefing</p>
                     </div>
                 </div>
+
                 <div class="briefing-stats-row">
-                    <div class="b-stat">
-                        <span class="lbl">Cognitive Engagement</span>
-                        <strong id="b-eng">78%</strong>
+                    <div class="b-stat-chip">
+                        <span class="lbl" id="lbl-b-eng">Cognitive Score</span>
+                        <strong id="b-eng">0%</strong>
                     </div>
-                    <div class="b-stat">
-                        <span class="lbl">Games Completed</span>
-                        <strong>3/3</strong>
+                    <div class="b-stat-chip">
+                        <span class="lbl" id="lbl-b-games">Game Sessions</span>
+                        <strong id="b-games">3 Sessions</strong>
                     </div>
-                    <div class="b-stat">
-                        <span class="lbl">Medication</span>
+                    <div class="b-stat-chip">
+                        <span class="lbl" id="lbl-b-med">Medicine Adherence</span>
                         <strong id="b-med">2/3 Done</strong>
                     </div>
-                    <div class="b-stat">
-                        <span class="lbl">Hydration</span>
-                        <strong>4/6 Glasses</strong>
+                    <div class="b-stat-chip">
+                        <span class="lbl" id="lbl-b-water">Hydration Log</span>
+                        <strong id="b-water">1.8L / 2.2L</strong>
                     </div>
-                    <div class="b-stat">
-                        <span class="lbl">Mood</span>
-                        <strong id="b-mood">😊 Positive</strong>
+                    <div class="b-stat-chip">
+                        <span class="lbl" id="lbl-b-mood">Daily Mood</span>
+                        <strong id="b-mood">😊 Calm & Happy</strong>
                     </div>
                 </div>
-                <div class="briefing-alert-line warning" id="b-alert-line">
-                    ⚠️ Attention performance was lower than the 7-day average.
+
+                <div style="background: #ffffff; border-left: 4px solid #d97706; padding: 0.8rem 1rem; border-radius: 6px; margin-bottom: 0.8rem; color: #92400e; font-weight: 700; font-size: 0.95rem;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> <strong id="cg-alert-prefix">Caregiver Alert: </strong> <span id="cg-alert-msg">Mild latency detected during 02:30 AM night movement (28 mins elapsed).</span>
                 </div>
-                <div class="briefing-rec-box">
-                    <strong>AI Recommended:</strong> <span id="b-rec-text">Spend 10 minutes doing a personalized memory activity or Memory Through Music session today.</span>
+
+                <div style="font-size: 0.95rem; color: #78350f; font-weight: 600;">
+                    <strong id="cg-rec-prefix">AI Care Recommendation: </strong> <span id="b-rec-text">Recommended to engage in 15 minutes of Village Market Challenge after breakfast and ensure adequate hydration.</span>
                 </div>
             </div>
 
             <!-- Caregiver Dashboard Grid -->
-            <div class="caregiver-grid">
+            <div class="cg-dashboard-grid">
                 
                 <!-- Domain Breakdown Scores -->
-                <div class="glass-card domain-card">
-                    <h3>🧠 Cognitive Domain Metrics</h3>
+                <div class="gov-card">
+                    <div class="gov-card-header">
+                        <h3 id="cg-domain-title"><i class="fa-solid fa-brain" style="color: var(--gov-navy);"></i> संज्ञानात्मक क्षेत्र मेट्रिक्स (Domain Metrics)</h3>
+                    </div>
                     <div class="metric-row">
-                        <span>Memory Recall</span>
-                        <div class="bar-wrap"><div class="bar-fill" id="bar-memory" style="width: 82%;"></div></div>
+                        <span class="metric-label" id="lbl-dom-memory">स्मृति रिकॉल (Memory)</span>
+                        <div class="progress-track-gov"><div class="progress-fill-gov" id="bar-memory" style="width: 82%;"></div></div>
                         <strong id="val-memory">82%</strong>
                     </div>
                     <div class="metric-row">
-                        <span>Attention & Concentration</span>
-                        <div class="bar-wrap"><div class="bar-fill" id="bar-attention" style="width: 74%;"></div></div>
+                        <span class="metric-label" id="lbl-dom-attention">एकाग्रता (Attention)</span>
+                        <div class="progress-track-gov"><div class="progress-fill-gov" id="bar-attention" style="width: 74%;"></div></div>
                         <strong id="val-attention">74%</strong>
                     </div>
                     <div class="metric-row">
-                        <span>Pattern Recognition</span>
-                        <div class="bar-wrap"><div class="bar-fill" id="bar-pattern" style="width: 89%;"></div></div>
+                        <span class="metric-label" id="lbl-dom-pattern">पैटर्न पहचान (Patterns)</span>
+                        <div class="progress-track-gov"><div class="progress-fill-gov" id="bar-pattern" style="width: 89%;"></div></div>
                         <strong id="val-pattern">89%</strong>
                     </div>
                     <div class="metric-row">
-                        <span>Daily Routine Recall</span>
-                        <div class="bar-wrap"><div class="bar-fill" id="bar-routine" style="width: 71%;"></div></div>
+                        <span class="metric-label" id="lbl-dom-routine">दिनचर्या रिकॉल (Routine)</span>
+                        <div class="progress-track-gov"><div class="progress-fill-gov" id="bar-routine" style="width: 71%;"></div></div>
                         <strong id="val-routine">71%</strong>
                     </div>
                 </div>
 
-                <!-- 14-Day Performance Trend Chart -->
-                <div class="glass-card chart-card">
-                    <h3>📈 14-Day Engagement Trend</h3>
-                    <div class="svg-chart-box">
-                        <svg viewBox="0 0 500 180" class="trend-svg" id="trend-chart-svg">
-                            <line x1="40" y1="20" x2="480" y2="20" stroke="rgba(255,255,255,0.1)"/>
-                            <line x1="40" y1="70" x2="480" y2="70" stroke="rgba(255,255,255,0.1)"/>
-                            <line x1="40" y1="120" x2="480" y2="120" stroke="rgba(255,255,255,0.1)"/>
-                            <polyline fill="none" stroke="#3b82f6" stroke-width="4" points="
+                <!-- 14-Day Trend Chart -->
+                <div class="gov-card">
+                    <div class="gov-card-header">
+                        <h3 id="cg-trend-title"><i class="fa-solid fa-chart-line" style="color: var(--gov-navy);"></i> 14-दिवसीय संज्ञानात्मक सहभागिता रुझान</h3>
+                    </div>
+                    <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem;">
+                        <svg viewBox="0 0 500 180" style="width:100%; height:auto;" id="trend-chart-svg">
+                            <line x1="40" y1="20" x2="480" y2="20" stroke="#cbd5e1" stroke-dasharray="3,3"/>
+                            <line x1="40" y1="70" x2="480" y2="70" stroke="#cbd5e1" stroke-dasharray="3,3"/>
+                            <line x1="40" y1="120" x2="480" y2="120" stroke="#cbd5e1" stroke-dasharray="3,3"/>
+                            <polyline fill="none" stroke="#0b2545" stroke-width="4" points="
                                 50,70 80,65 110,68 140,55 170,60 200,50 230,58 260,72 290,75 320,80 350,78 380,85 410,82 440,78
                             "/>
-                            <circle cx="50" cy="70" r="5" fill="#60a5fa"/>
-                            <circle cx="200" cy="50" r="5" fill="#60a5fa"/>
-                            <circle cx="440" cy="78" r="7" fill="#f43f5e"/>
+                            <circle cx="50" cy="70" r="5" fill="#133e87"/>
+                            <circle cx="200" cy="50" r="6" fill="#16a34a"/>
+                            <circle cx="440" cy="78" r="7" fill="#d97706"/>
+                            <text x="50" y="150" font-size="11" fill="#64748b" font-weight="bold" id="txt-trend-day1">दिन 1</text>
+                            <text x="240" y="150" font-size="11" fill="#64748b" font-weight="bold" id="txt-trend-day7">दिन 7</text>
+                            <text x="430" y="150" font-size="11" fill="#64748b" font-weight="bold" id="txt-trend-today">आज (दिन 14)</text>
                         </svg>
                     </div>
-                    <p class="subtext center-text">Monitored continuously by MINDSET-NER Trend AI</p>
+                    <p id="cg-trend-note" style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem;">
+                        सतत निगरानी: MDoNER AI Trend Analyzer Protocol
+                    </p>
                 </div>
 
-                <!-- Care Circle Multi-Role System -->
-                <div class="glass-card manager-card">
-                    <h3>🧑‍🤝‍🧑 Care Circle Authorization</h3>
-                    <div class="care-circle-grid">
-                        <div class="role-chip active">
-                            <strong>Ananya (Daughter)</strong>
-                            <span>Primary Caregiver</span>
-                        </div>
-                        <div class="role-chip">
-                            <strong>Rahul (Son)</strong>
-                            <span>Family Member</span>
-                        </div>
-                        <div class="role-chip">
-                            <strong>Dr. Phukan</strong>
-                            <span>Neurologist</span>
-                        </div>
+                <!-- Care Circle & Family Members Directory with Photo Cards -->
+                <div class="gov-card">
+                    <div class="gov-card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem;">
+                        <h3 id="cg-circle-title"><i class="fa-solid fa-people-roof" style="color: var(--gov-navy);"></i> परिवार के सदस्य व फोटो डायरेक्टरी (Family Members & Photos)</h3>
+                        <button type="button" class="btn-primary-gov" style="padding: 0.45rem 0.95rem; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.4rem;" onclick="openAddFamilyMemberModal()">
+                            <i class="fa-solid fa-user-plus"></i> <span id="btn-add-family-text">+ सदस्य का फोटो जोड़ें (Add Member Photo)</span>
+                        </button>
+                    </div>
+                    <div class="care-circle-list" id="care-circle-list">
+                        <!-- Injected dynamically with photo cards of every family member by JS -->
                     </div>
                 </div>
 
-                <!-- Add Memory Book Item -->
-                <div class="glass-card manager-card">
-                    <h3>📖 Add Digital Memory Book Card</h3>
-                    <form id="add-dmb-form" onsubmit="handleCreateMemoryBook(event)">
-                        <div class="form-group">
-                            <label>Category</label>
-                            <select id="dmb-category">
-                                <option value="family">Family Member</option>
-                                <option value="place">Familiar Place / Home</option>
-                                <option value="food">Favorite Food</option>
-                                <option value="song">Favorite Song</option>
-                            </select>
+                <!-- Quick Send Message to Patient -->
+                <div class="gov-card">
+                    <div class="gov-card-header">
+                        <h3 id="cg-post-title"><i class="fa-solid fa-paper-plane" style="color: var(--gov-navy);"></i> मरीज को पारिवारिक संदेश भेजें</h3>
+                    </div>
+                    <form id="cg-quick-post-form" onsubmit="handleCaregiverPostSubmit(event)">
+                        <div class="gov-form-group">
+                            <label id="cg-lbl-msg">संदेश (Message for Ramesh Ji)</label>
+                            <textarea id="cg-post-text" class="gov-textarea" rows="2" placeholder="उदा. पिताजी! आज शाम हम सब मिलने आ रहे हैं..." required></textarea>
                         </div>
-                        <div class="form-group">
-                            <label>Title / Name</label>
-                            <input type="text" id="dmb-title" placeholder="e.g. Daughter Ananya" required>
+                        <div class="gov-form-group">
+                            <label id="cg-lbl-photo">फोटो यूआरएल (वैकल्पिक)</label>
+                            <input type="url" id="cg-post-url" class="gov-input" placeholder="https://...">
                         </div>
-                        <div class="form-group">
-                            <label>Relationship / Detail</label>
-                            <input type="text" id="dmb-rel" placeholder="e.g. Daughter / Guwahati Home" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Photo URL (Optional)</label>
-                            <input type="url" id="dmb-url" placeholder="https://...">
-                        </div>
-                        <button type="submit" class="submit-btn gold-btn"><i class="fa-solid fa-plus"></i> Add Memory Book Card</button>
+                        <button type="submit" class="btn-primary-gov" style="width: 100%;">
+                            <i class="fa-solid fa-paper-plane"></i> <span id="cg-btn-post-text">संदेश भेजें (Post to Patient Feed)</span>
+                        </button>
                     </form>
                 </div>
 
             </div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- 3. DOCTOR / HEALTHCARE WORKER PORTAL       -->
-        <!-- ========================================== -->
+        <!-- ===================================================== -->
+        <!-- VIEW 3: DOCTOR / CLINICAL HEALTHCARE PORTAL           -->
+        <!-- ===================================================== -->
         <section id="view-doctor" class="app-view">
-            <div class="glass-card doc-card">
-                <div class="doc-header">
+            <div class="gov-card">
+                <div class="gov-card-header">
                     <div>
-                        <h2>🧑‍⚕️ Clinical Longitudinal Report — Patient #p001</h2>
-                        <p>Attending Neurologist: Dr. Phukan | MDoNER Tele-Health Protocol</p>
+                        <h2 id="doc-sec-title"><i class="fa-solid fa-file-medical" style="color: var(--gov-navy);"></i> Longitudinal Clinical Report — Patient #p001</h2>
+                        <span class="subtitle" id="doc-sec-subtitle">Attending Neurologist: Dr. Phukan | MDoNER Tele-Health Protocol</span>
                     </div>
-                    <button class="export-btn" onclick="exportClinicalReport()">
-                        <i class="fa-solid fa-file-pdf"></i> Export Clinical Report (JSON/PDF)
+                    <button class="export-pdf-btn" onclick="openClinicalReportModal()">
+                        <i class="fa-solid fa-print"></i> <span id="doc-btn-export-text">Official Clinical Report Print / PDF</span>
                     </button>
                 </div>
 
-                <div class="doc-summary-grid">
-                    <div class="stat-box">
-                        <div class="num">24</div>
-                        <div class="label">Total Sessions Played</div>
+                <div class="doc-stats-grid">
+                    <div class="doc-stat-card">
+                        <div class="num" id="doc-stat-sessions">24</div>
+                        <div class="label" id="doc-lbl-sessions">Total Game Sessions</div>
                     </div>
-                    <div class="stat-box">
-                        <div class="num">82.5%</div>
-                        <div class="label">Average Accuracy</div>
+                    <div class="doc-stat-card">
+                        <div class="num" id="doc-stat-accuracy">82.5%</div>
+                        <div class="label" id="doc-lbl-accuracy">Mean Accuracy</div>
                     </div>
-                    <div class="stat-box">
-                        <div class="num">5.8s</div>
-                        <div class="label">Mean Response Latency</div>
+                    <div class="doc-stat-card">
+                        <div class="num" id="doc-stat-latency">5.8s</div>
+                        <div class="label" id="doc-lbl-latency">Mean Latency</div>
                     </div>
-                    <div class="stat-box">
-                        <div class="num">Medium</div>
-                        <div class="label">Current AI Difficulty</div>
+                    <div class="doc-stat-card">
+                        <div class="num" id="doc-stat-diff" style="color: var(--gov-saffron-dark);">Medium</div>
+                        <div class="label" id="doc-lbl-diff">Current AI Difficulty Level</div>
                     </div>
                 </div>
 
-                <div class="doc-logs-table-wrap">
-                    <h3>Recent Game Session Audit Logs</h3>
-                    <table class="doc-table">
+                <div class="doc-table-wrap">
+                    <table class="gov-data-table">
                         <thead>
                             <tr>
-                                <th>Timestamp</th>
-                                <th>Game Module</th>
-                                <th>Accuracy</th>
-                                <th>Latency</th>
-                                <th>Difficulty</th>
-                                <th>AI Adaptation Outcome</th>
+                                <th id="th-col-time">Timestamp</th>
+                                <th id="th-col-module">Game Module</th>
+                                <th id="th-col-acc">Accuracy</th>
+                                <th id="th-col-lat">Latency</th>
+                                <th id="th-col-diff">Difficulty</th>
+                                <th id="th-col-outcome">AI Adaptive Outcome</th>
                             </tr>
                         </thead>
                         <tbody id="doctor-session-logs">
                             <tr>
                                 <td>Today 11:05 AM</td>
                                 <td>Village Market Challenge</td>
-                                <td>95%</td>
+                                <td><strong>95%</strong></td>
                                 <td>4.0s</td>
                                 <td>Medium</td>
-                                <td><span class="status-badge success">Upgraded to Hard</span></td>
+                                <td><span style="background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 4px; font-weight: 700;">Upgraded to Hard</span></td>
                             </tr>
                             <tr>
                                 <td>Today 11:00 AM</td>
-                                <td>Local NER Memory</td>
-                                <td>95%</td>
+                                <td>North Eastern Heritage</td>
+                                <td><strong>95%</strong></td>
                                 <td>3.8s</td>
                                 <td>Easy</td>
-                                <td><span class="status-badge success">Upgraded to Medium</span></td>
+                                <td><span style="background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 4px; font-weight: 700;">Upgraded to Medium</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -607,141 +834,779 @@
             </div>
         </section>
 
-    </main>
-
-    <!-- ========================================== -->
-    <!-- JUDGING & DEMO INSPECTION MODALS           -->
-    <!-- ========================================== -->
-
-    <!-- Modal 1: AI Brain Inspection Screen -->
-    <div class="modal-backdrop" id="modal-ai-brain">
-        <div class="modal-card">
-            <div class="modal-header">
-                <h3>🧠 AI Cognitive Engine — Real-Time Inference Vector</h3>
-                <button class="modal-close" onclick="closeModal('modal-ai-brain')">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="ai-brain-box">
-                    <h4>ANALYZING USER PERFORMANCE...</h4>
-                    <ul class="ai-checklist">
-                        <li><i class="fa-solid fa-check text-green"></i> Accuracy: <strong>92.5%</strong></li>
-                        <li><i class="fa-solid fa-check text-green"></i> Response Time: <strong>4.2 sec</strong></li>
-                        <li><i class="fa-solid fa-check text-green"></i> Mistake Pattern: <strong>0 Mistakes</strong></li>
-                        <li><i class="fa-solid fa-check text-green"></i> Game History: <strong>24 Sessions Evaluated</strong></li>
-                    </ul>
-                    
-                    <div class="ai-decision-box">
-                        <h5>AI CLASSIFICATION OUTCOME</h5>
-                        <div class="dec-row"><span>Target Difficulty:</span> <strong>MEDIUM → HARD</strong></div>
-                        <div class="dec-row"><span>Recommended Module:</span> <strong>VILLAGE_MARKET_CHALLENGE</strong></div>
-                        <div class="dec-row"><span>Objects Count:</span> <strong>6 Items</strong></div>
-                        <div class="dec-row"><span>Time Limit:</span> <strong>8.0 Sec</strong></div>
+        <!-- ===================================================== -->
+        <!-- VIEW 4: GOVERNMENT SCHEMES & RESOURCES VIEW           -->
+        <!-- ===================================================== -->
+        <section id="view-schemes" class="app-view">
+            <div class="gov-card">
+                <div class="gov-card-header">
+                    <div>
+                        <h2 id="schemes-sec-title"><i class="fa-solid fa-landmark" style="color: var(--gov-navy);"></i> Government Schemes & Senior Citizen Welfare Resources</h2>
+                        <span class="subtitle" id="schemes-sec-subtitle">National policies supported by Ministry of Health & Family Welfare and MDoNER</span>
                     </div>
                 </div>
+
+                <div class="schemes-grid" id="schemes-cards-container">
+                    <!-- Populated dynamically by renderSchemesView() -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- 6. JUDGING & DEMO INSPECTION MODALS (GIGW Compliant)      -->
+    <!-- ========================================================= -->
+
+    <!-- Modal 1: AI Brain Hub & Model Architecture Inspection -->
+    <div class="gov-modal-backdrop" id="modal-ai-brain" onclick="handleBackdropClick(event, 'modal-ai-brain')">
+        <div class="gov-modal-dialog" style="max-width: 860px; width: 95%; max-height: 90vh; overflow-y: auto;">
+            <div class="gov-modal-header" style="background: linear-gradient(135deg, #0b2545 0%, #134e4a 100%); color: #ffffff;">
+                <div style="display:flex; align-items:center; gap: 10px;">
+                    <div style="background: rgba(255,255,255,0.15); width: 38px; height: 38px; border-radius: 8px; display:flex; align-items:center; justify-content:center; font-size: 1.25rem;">
+                        <i class="fa-solid fa-brain" style="color: #6ee7b7;"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.2rem; color: #ffffff;">AI संज्ञानात्मक मॉडल हब (MINDSET-NER AI Architecture)</h3>
+                        <p style="margin: 2px 0 0 0; font-size: 0.8rem; color: #a7f3d0;">Smart India Hackathon (SIH26003) | Machine Learning Pipelines</p>
+                    </div>
+                </div>
+                <button class="gov-modal-close" style="color: #ffffff;" onclick="closeModal('modal-ai-brain')">&times;</button>
+            </div>
+
+            <div class="gov-modal-body" style="padding: 1.4rem;">
+                <!-- Model Cards Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.9rem; margin-bottom: 1.4rem;">
+                    <!-- Card 1: Adaptive Game Difficulty -->
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-top: 4px solid #16a34a; border-radius: 8px; padding: 1rem;">
+                        <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: #166534;">मॉडल 1 — संज्ञानात्मक खेल</span>
+                            <span class="badge" style="background: #dcfce7; color: #166534; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; font-weight: 700;">🟢 सक्रिय (Active)</span>
+                        </div>
+                        <h4 style="margin: 0 0 0.4rem 0; font-size: 0.98rem; color: var(--gov-navy);">Adaptive Game Classifier</h4>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                            <div>एल्गोरिदम: <strong>RandomForest (100 Trees)</strong></div>
+                            <div>प्रशिक्षण डेटा: <strong id="ai-model-samples-rf">2,142</strong> सत्र (Sessions)</div>
+                            <div>परीक्षण सटीकता (Accuracy): <strong id="ai-model-acc-rf" style="color: #16a34a; font-size: 1.05rem;">100.0%</strong></div>
+                            <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">आर्टिफैक्ट: <code>models/adaptive_game_model.joblib</code></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Multilingual Voice Intent Engine -->
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-top: 4px solid #2563eb; border-radius: 8px; padding: 1rem;">
+                        <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: #1e40af;">मॉडल 2 — बहुभाषी वॉयस NLP</span>
+                            <span class="badge" style="background: #dbeafe; color: #1e40af; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; font-weight: 700;">🟢 सक्रिय (Active)</span>
+                        </div>
+                        <h4 style="margin: 0 0 0.4rem 0; font-size: 0.98rem; color: var(--gov-navy);">Multilingual Intent Model</h4>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                            <div>एल्गोरिदम: <strong>TF-IDF + LogisticRegression</strong></div>
+                            <div>प्रशिक्षण डेटा: <strong id="ai-model-samples-nlp">302</strong> वाक्य (7 श्रेणियां)</div>
+                            <div>परीक्षण सटीकता (Accuracy): <strong id="ai-model-acc-nlp" style="color: #2563eb; font-size: 1.05rem;">95.08%</strong></div>
+                            <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">भाषाएं: हिन्दी, Hinglish, English</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Longitudinal Trend Monitoring -->
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-top: 4px solid #d97706; border-radius: 8px; padding: 1rem;">
+                        <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: #92400e;">मॉडल 3 — ट्रेंड मॉनिटरिंग</span>
+                            <span class="badge" style="background: #fef3c7; color: #92400e; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; font-weight: 700;">सुरक्षा गार्डरेल</span>
+                        </div>
+                        <h4 style="margin: 0 0 0.4rem 0; font-size: 0.98rem; color: var(--gov-navy);">Activity Baseline Tracker</h4>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                            <div>पद्धति: <strong>7-Day Longitudinal Sliding Baseline</strong></div>
+                            <div>ट्रैकिंग आयाम: <strong>याददाश्त, ध्यान, दैनिक दिनचर्या</strong></div>
+                            <div>सुरक्षा मानक: <strong>गैर-निदानात्मक (Non-Diagnostic)</strong></div>
+                            <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">उद्देश्य: देखभालकर्ता को शुरुआती चेतावनी</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Importance Breakdown for Model 1 -->
+                <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 1.4rem;">
+                    <h4 style="margin: 0 0 0.6rem 0; font-size: 0.95rem; color: var(--gov-navy); display:flex; align-items:center; justify-content:space-between;">
+                        <span><i class="fa-solid fa-chart-simple" style="color: #0d9488; margin-right: 6px;"></i> रैंडमफॉरेस्ट फीचर महत्व (Feature Importances - Adaptive Model):</span>
+                        <span style="font-size: 0.78rem; color: #64748b; font-weight: normal;">scikit-learn MDI Metrics</span>
+                    </h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.7rem; font-size: 0.85rem;">
+                        <div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom: 2px;">
+                                <span>वर्तमान कठिनाई (Difficulty):</span> <strong>60.6%</strong>
+                            </div>
+                            <div style="background: #e2e8f0; border-radius: 3px; height: 6px; overflow:hidden;">
+                                <div style="background: #0d9488; height: 100%; width: 60.6%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom: 2px;">
+                                <span>प्रतिक्रिया समय (Latency):</span> <strong>14.7%</strong>
+                            </div>
+                            <div style="background: #e2e8f0; border-radius: 3px; height: 6px; overflow:hidden;">
+                                <div style="background: #2563eb; height: 100%; width: 14.7%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom: 2px;">
+                                <span>गलतियों की संख्या (Mistakes):</span> <strong>12.7%</strong>
+                            </div>
+                            <div style="background: #e2e8f0; border-radius: 3px; height: 6px; overflow:hidden;">
+                                <div style="background: #f59e0b; height: 100%; width: 12.7%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom: 2px;">
+                                <span>सटीकता (Accuracy):</span> <strong>12.0%</strong>
+                            </div>
+                            <div style="background: #e2e8f0; border-radius: 3px; height: 6px; overflow:hidden;">
+                                <div style="background: #16a34a; height: 100%; width: 12.0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two-Column Interactive AI Testing Labs -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.2rem;">
+                    
+                    <!-- Lab 1: Interactive Cognitive Difficulty Simulator -->
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 1.2rem;">
+                        <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: var(--gov-navy); display:flex; align-items:center; gap: 8px;">
+                            <i class="fa-solid fa-sliders" style="color: #16a34a;"></i>
+                            लाइव सिमुलेटर: अनुकूलन निर्णय (Interactive Simulator)
+                        </h4>
+                        <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 1rem;">स्लाइडर बदलें और देखें कि AI मॉडल कठिनाई स्तर कैसे बदलता है:</p>
+
+                        <div style="display:flex; flex-direction:column; gap: 0.8rem; font-size: 0.85rem;">
+                            <div>
+                                <div style="display:flex; justify-content:space-between; margin-bottom: 3px;">
+                                    <span>सटीकता (Accuracy %):</span>
+                                    <strong id="sim-acc-val" style="color: #16a34a;">85%</strong>
+                                </div>
+                                <input type="range" min="10" max="100" step="5" value="85" id="sim-acc-slider" oninput="runAdaptiveSimulation()" style="width: 100%;">
+                            </div>
+
+                            <div>
+                                <div style="display:flex; justify-content:space-between; margin-bottom: 3px;">
+                                    <span>प्रतिक्रिया समय (Speed / Latency):</span>
+                                    <strong id="sim-lat-val" style="color: #2563eb;">4.5 सेकं.</strong>
+                                </div>
+                                <input type="range" min="1.0" max="25.0" step="0.5" value="4.5" id="sim-lat-slider" oninput="runAdaptiveSimulation()" style="width: 100%;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
+                                <div>
+                                    <label style="display:block; margin-bottom: 3px;">गलतियां (Mistakes):</label>
+                                    <select id="sim-mistakes-select" onchange="runAdaptiveSimulation()" class="gov-select" style="font-size: 0.85rem; padding: 6px 8px;">
+                                        <option value="0">0 Mistakes</option>
+                                        <option value="1">1 Mistake</option>
+                                        <option value="2">2 Mistakes</option>
+                                        <option value="3">3 Mistakes</option>
+                                        <option value="4">4+ Mistakes</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label style="display:block; margin-bottom: 3px;">वर्तमान स्तर (Current):</label>
+                                    <select id="sim-level-select" onchange="runAdaptiveSimulation()" class="gov-select" style="font-size: 0.85rem; padding: 6px 8px;">
+                                        <option value="Easy">Easy (आसान)</option>
+                                        <option value="Medium" selected>Medium (मध्यम)</option>
+                                        <option value="Hard">Hard (कठिन)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Live Inference Output Box -->
+                        <div id="sim-output-card" style="background: #eff6ff; border: 1.5px solid #93c5fd; border-radius: 6px; padding: 0.85rem; margin-top: 1rem;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.4rem;">
+                                <span style="font-weight: 700; color: #1e3a8a; font-size: 0.88rem;">AI सिफ़ारिश (Decision):</span>
+                                <span id="sim-result-transition" style="background: #1e40af; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: 700; font-size: 0.82rem;">MEDIUM -> HARD</span>
+                            </div>
+                            <div id="sim-result-reason" style="font-size: 0.82rem; color: #1e293b; line-height: 1.5; margin-bottom: 0.4rem;">
+                                उत्कृष्ट प्रदर्शन! AI ने खेल को और अधिक रोचक बनाने के लिए कठिनाई स्तर बढ़ा दिया है।
+                            </div>
+                            <div style="font-size: 0.78rem; color: #475569; border-top: 1px dashed #bfdbfe; padding-top: 4px; display:flex; justify-content:space-between;">
+                                <span>वस्तुएं: <strong id="sim-objects-change">5 -> 7 वस्तुएं</strong></span>
+                                <span>समय: <strong id="sim-time-change">8s -> 6s</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lab 2: Live Multilingual Voice Query Tester -->
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 1.2rem;">
+                        <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: var(--gov-navy); display:flex; align-items:center; gap: 8px;">
+                            <i class="fa-solid fa-microphone-lines" style="color: #2563eb;"></i>
+                            लाइव वॉयस NLP इंटेन्ट परीक्षक (Voice Intent Tester)
+                        </h4>
+                        <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.8rem;">हिन्दी, Hinglish या अंग्रेजी में वॉयस/टेक्स्ट टेस्ट करें:</p>
+
+                        <!-- Input and Test Button -->
+                        <div style="display:flex; gap: 6px; margin-bottom: 0.6rem;">
+                            <input type="text" id="sim-voice-input" class="gov-input" placeholder="उदा. दवा का समय क्या है? / thoda pani pina hai" style="font-size: 0.85rem;" value="दवा लेने का समय कब है?">
+                            <button class="btn-primary-gov" onclick="testVoiceQueryAI()" style="white-space: nowrap; padding: 6px 12px; font-size: 0.85rem;">
+                                <i class="fa-solid fa-play"></i> टेस्ट करें
+                            </button>
+                        </div>
+
+                        <!-- Quick Phrase Chips -->
+                        <div style="display:flex; flex-wrap:wrap; gap: 4px; margin-bottom: 0.8rem;">
+                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('दवा की याद दिलाओ')">दवा रिमाइंडर</button>
+                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('thoda pani pina hai')">thoda pani</button>
+                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('khel shuru karo')">khel shuru</button>
+                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('meri beti ananya ki photo')">beti ki photo</button>
+                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('bihu ka gana bajao')">bihu music</button>
+                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('What is my schedule today?')">daily schedule</button>
+                        </div>
+
+                        <!-- Live NLP Output Card -->
+                        <div id="sim-voice-output" style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 6px; padding: 0.85rem;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.4rem;">
+                                <span style="font-weight: 700; color: #14532d; font-size: 0.85rem;">पहचाना गया इंटेन्ट:</span>
+                                <span id="sim-voice-intent" style="background: #15803d; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.8rem;">MEDICINE_REMINDER</span>
+                            </div>
+                            <div style="font-size: 0.8rem; color: #166534; margin-bottom: 0.4rem;">
+                                आत्मविश्वास स्तर (Confidence): <strong id="sim-voice-conf" style="color: #15803d; font-size: 0.95rem;">87.6%</strong>
+                                <span style="color: #64748b; font-size: 0.75rem; margin-left: 6px;">(इंजन: <span id="sim-voice-engine">sklearn_tfidf_logreg</span>)</span>
+                            </div>
+                            <div style="background: #ffffff; border: 1px solid #bbf7d0; border-radius: 4px; padding: 6px 8px; font-size: 0.82rem; color: #1e293b;">
+                                <strong>आशा की प्रतिक्रिया:</strong> <span id="sim-voice-speech">आपकी अगली दवाई दोपहर 2:00 बजे है।</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gov-modal-footer" style="display:flex; justify-content:space-between; align-items:center; background: #f8fafc;">
+                <button class="btn-primary-gov" id="btn-retrain-models" onclick="triggerRetrainAIModels()" style="background: #0284c7; border-color: #0284c7;">
+                    <i class="fa-solid fa-arrows-rotate" id="retrain-spin-icon"></i> AI मॉडल्स पुनः प्रशिक्षित करें (Retrain AI Models)
+                </button>
+                <button class="btn-secondary-gov" onclick="closeModal('modal-ai-brain')">बंद करें (Close)</button>
             </div>
         </div>
     </div>
 
     <!-- Modal 2: NER Regional Impact Map -->
-    <div class="modal-backdrop" id="modal-ner-map">
-        <div class="modal-card">
-            <div class="modal-header">
-                <h3>🗺️ North Eastern Region (NER) Impact Map</h3>
-                <button class="modal-close" onclick="closeModal('modal-ner-map')">×</button>
+    <div class="gov-modal-backdrop" id="modal-ner-map" onclick="handleBackdropClick(event, 'modal-ner-map')">
+        <div class="gov-modal-dialog">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-map-location-dot"></i> पूर्वोत्तर क्षेत्र (NER) 8 राज्यों में प्रभाव मानचित्र</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-ner-map')">&times;</button>
             </div>
-            <div class="modal-body">
-                <p>Offline-First Tele-Health Coverage for Remote Communities in 8 NER States:</p>
-                <div class="ner-states-grid">
-                    <div class="state-chip">Assam 🟢 Online</div>
-                    <div class="state-chip">Arunachal Pradesh 🟢 Offline-Synced</div>
-                    <div class="state-chip">Manipur 🟢 Online</div>
-                    <div class="state-chip">Meghalaya 🟢 Offline-Synced</div>
-                    <div class="state-chip">Mizoram 🟢 Online</div>
-                    <div class="state-chip">Nagaland 🟢 Offline-Synced</div>
-                    <div class="state-chip">Tripura 🟢 Online</div>
-                    <div class="state-chip">Sikkim 🟢 Online</div>
+            <div class="gov-modal-body">
+                <p style="margin-bottom: 1rem;">MDoNER के अंतर्गत पूर्वोत्तर के आठों राज्यों में ऑफ़लाइन-सक्षम स्वास्थ्य सहायता कवरेज:</p>
+                <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem;">
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">असम (Assam) 🟢 सक्रिय</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">अरुणाचल प्रदेश 🟢 ऑफ़लाइन-सिंक</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">मणिपुर (Manipur) 🟢 सक्रिय</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">मेघालय (Meghalaya) 🟢 ऑफ़लाइन-सिंक</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">मिजोरम (Mizoram) 🟢 सक्रिय</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">नागालैंड (Nagaland) 🟢 ऑफ़लाइन-सिंक</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">त्रिपुरा (Tripura) 🟢 सक्रिय</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">सिक्किम (Sikkim) 🟢 सक्रिय</div>
                 </div>
+            </div>
+            <div class="gov-modal-footer">
+                <button class="btn-primary-gov" onclick="closeModal('modal-ner-map')">बंद करें (Close)</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal 3: Satellite Connectivity Architecture Roadmap (Space Tech Theme) -->
-    <div class="modal-backdrop" id="modal-satellite">
-        <div class="modal-card">
-            <div class="modal-header">
-                <h3>🛰️ Space Tech Integration Roadmap (Future Satellite Layer)</h3>
-                <button class="modal-close" onclick="closeModal('modal-satellite')">×</button>
+    <!-- Modal 3: Satellite Layer Roadmap -->
+    <div class="gov-modal-backdrop" id="modal-satellite" onclick="handleBackdropClick(event, 'modal-satellite')">
+        <div class="gov-modal-dialog">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-satellite"></i> स्पेस टेक एकीकरण रोडमैप (NavIC / Satellite Layer)</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-satellite')">&times;</button>
             </div>
-            <div class="modal-body">
-                <div class="sat-flow">
-                    <div class="sat-step">Remote Hill Village</div>
-                    <div class="sat-arrow">↓</div>
-                    <div class="sat-step">Offline MINDSET App</div>
-                    <div class="sat-arrow">↓</div>
-                    <div class="sat-step">Local Data Storage (SQLite)</div>
-                    <div class="sat-arrow">↓</div>
-                    <div class="sat-step gold">Satellite / NavIC Connectivity (Future Integration)</div>
-                    <div class="sat-arrow">↓</div>
-                    <div class="sat-step">Central Health Network</div>
+            <div class="gov-modal-body">
+                <p style="margin-bottom: 1.2rem;">दूरदराज के पहाड़ी गांवों में शून्य सेलुलर नेटवर्क होने पर भी सैटेलाइट एवं स्थानीय डेटा सिंक:</p>
+                <div style="display:flex; flex-direction:column; gap: 0.6rem; align-items:center;">
+                    <div style="background: #f1f5f9; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 700;">1. दूरस्थ पहाड़ी गांव (Remote Hill Village)</div>
+                    <i class="fa-solid fa-arrow-down" style="color: var(--gov-navy);"></i>
+                    <div style="background: #f1f5f9; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 700;">2. ऑफ़लाइन MINDSET-NER मोबाइल/वेब ऐप (Local SQLite)</div>
+                    <i class="fa-solid fa-arrow-down" style="color: var(--gov-navy);"></i>
+                    <div style="background: #fef3c7; border: 2px solid #f59e0b; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 800; color: #b45309;">
+                        3. NavIC / Satcom सैटेलाइट कनेक्टिविटी लेयर (भविष्य एकीकरण)
+                    </div>
+                    <i class="fa-solid fa-arrow-down" style="color: var(--gov-navy);"></i>
+                    <div style="background: #dcfce7; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 700; color: #166534;">4. केंद्रीय स्वास्थ्य नेटवर्क (National Health Portal)</div>
                 </div>
+            </div>
+            <div class="gov-modal-footer">
+                <button class="btn-primary-gov" onclick="closeModal('modal-satellite')">बंद करें (Close)</button>
             </div>
         </div>
     </div>
 
     <!-- Modal 4: Privacy & Security Center -->
-    <div class="modal-backdrop" id="modal-privacy">
-        <div class="modal-card">
-            <div class="modal-header">
-                <h3>🔐 PRIVACY CENTER</h3>
-                <button class="modal-close" onclick="closeModal('modal-privacy')">×</button>
+    <div class="gov-modal-backdrop" id="modal-privacy" onclick="handleBackdropClick(event, 'modal-privacy')">
+        <div class="gov-modal-dialog">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-shield-halved"></i> रोगी डेटा गोपनीयता एवं सुरक्षा केंद्र (Privacy Center)</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-privacy')">&times;</button>
             </div>
-            <div class="modal-body">
-                <ul class="privacy-list">
-                    <li><span>Personal Memory Data</span> <strong class="text-green">✓ Encrypted</strong></li>
-                    <li><span>Family Photographs</span> <strong class="text-green">✓ Protected</strong></li>
-                    <li><span>Caregiver Access</span> <strong class="text-green">✓ Authorized</strong></li>
-                    <li><span>Cloud Sync Security</span> <strong class="text-green">✓ TLS 1.3</strong></li>
-                    <li><span>External Data Sharing</span> <strong class="text-red">OFF</strong></li>
-                </ul>
+            <div class="gov-modal-body">
+                <div style="display:flex; flex-direction:column; gap: 0.8rem;">
+                    <div style="display:flex; justify-content:space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color);">
+                        <span>व्यक्तिगत स्मृति डेटा (Memory Data)</span>
+                        <strong style="color: #16a34a;"><i class="fa-solid fa-check"></i> AES-256 एन्क्रिप्टेड</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color);">
+                        <span>पारिवारिक तस्वीरें (Family Photographs)</span>
+                        <strong style="color: #16a34a;"><i class="fa-solid fa-check"></i> केवल अधिकृत केयर-सर्किल</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color);">
+                        <span>क्लाउड डेटा सिंक (Cloud TLS 1.3)</span>
+                        <strong style="color: #16a34a;"><i class="fa-solid fa-check"></i> सुरक्षित ट्रांसफर</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color);">
+                        <span>बाहरी तृतीय-पक्ष डेटा साझाकरण (Third-Party)</span>
+                        <strong style="color: #dc2626;"><i class="fa-solid fa-xmark"></i> पूर्णतः प्रतिबंधित (Strictly OFF)</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="gov-modal-footer">
+                <button class="btn-primary-gov" onclick="closeModal('modal-privacy')">स्वीकार करें (Acknowledge)</button>
             </div>
         </div>
     </div>
 
     <!-- Modal 5: Offline Drawer Simulator -->
-    <div class="modal-backdrop" id="modal-offline-drawer">
-        <div class="modal-card">
-            <div class="modal-header">
-                <h3>📶 Offline Mode Status & Synchronization</h3>
-                <button class="modal-close" onclick="closeModal('modal-offline-drawer')">×</button>
+    <div class="gov-modal-backdrop" id="modal-offline-drawer" onclick="handleBackdropClick(event, 'modal-offline-drawer')">
+        <div class="gov-modal-dialog">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-wifi"></i> ऑफ़लाइन मोड एवं डेटा सिंक्रनाइज़ेशन केंद्र</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-offline-drawer')">&times;</button>
             </div>
-            <div class="modal-body">
-                <div class="offline-status-box">
-                    <h4 id="off-drawer-status-title">🟢 Current Status: ONLINE</h4>
-                    <div class="checklist">
-                        <div>Cognitive Games <strong class="text-green">✓ Available Offline</strong></div>
-                        <div>Reminders & Alerts <strong class="text-green">✓ Available Offline</strong></div>
-                        <div>Voice Companion <strong class="text-green">✓ Local Heuristic Engine</strong></div>
-                        <div>Local DB Storage <strong class="text-green">✓ Active</strong></div>
-                    </div>
-
-                    <div class="sync-queue-info">
-                        <span>Pending Sync Queue:</span> <strong id="off-queue-count">0 records</strong>
-                    </div>
-
-                    <div class="sync-progress-bar-wrap" id="sync-progress-wrap" style="display:none;">
-                        <div class="sync-label">☁ Syncing with Cloud...</div>
-                        <div class="progress-track"><div class="progress-fill" id="sync-progress-fill" style="width:0%;"></div></div>
-                    </div>
-
-                    <button class="toggle-net-btn" onclick="toggleOfflineMode()">
-                        Toggle Internet Connection (Simulate Offline/Online)
-                    </button>
+            <div class="gov-modal-body">
+                <div style="text-align: center; margin-bottom: 1.2rem;">
+                    <h4 id="off-drawer-status-title" style="color: #16a34a; font-size: 1.25rem;">🟢 वर्तमान स्थिति: ऑनलाइन (ONLINE)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.88rem;">इंटरनेट न होने पर भी सभी गेम, रिमाइंडर और आवाज साथी पूरी तरह कार्यशील रहते हैं।</p>
                 </div>
+
+                <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                    <div style="margin: 0.4rem 0;">संज्ञानात्मक खेल: <strong style="color: #16a34a;">✓ ऑफ़लाइन उपलब्ध</strong></div>
+                    <div style="margin: 0.4rem 0;">दवा व जलपान रिमाइंडर: <strong style="color: #16a34a;">✓ ऑफ़लाइन उपलब्ध</strong></div>
+                    <div style="margin: 0.4rem 0;">आवाज साथी आशा: <strong style="color: #16a34a;">✓ लोकल NLP इंजन सक्रिय</strong></div>
+                </div>
+
+                <div style="margin-bottom: 1.2rem;">
+                    <span>सिंक हेतु लंबित रिकॉर्ड्स (Pending Queue):</span>
+                    <strong id="off-queue-count" style="color: var(--gov-navy); font-size: 1.1rem;">0 रिकॉर्ड्स</strong>
+                </div>
+
+                <!-- Animated Sync Progress -->
+                <div id="sync-progress-wrap" style="display:none; margin-bottom: 1.2rem;">
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--gov-navy);">☁ क्लाउड सर्वर से सिंक्रनाइज़ हो रहा है...</div>
+                    <div class="progress-track-gov" style="margin-top: 0.4rem;">
+                        <div class="progress-fill-gov" id="sync-progress-fill" style="width: 0%; background: #16a34a;"></div>
+                    </div>
+                </div>
+
+                <button class="btn-primary-gov" style="width: 100%; padding: 0.85rem; font-size: 1rem;" onclick="toggleOfflineMode()">
+                    <i class="fa-solid fa-plug-circle-xmark"></i> इंटरनेट कनेक्टिविटी टॉगल करें (Simulate Offline/Online)
+                </button>
+            </div>
+            <div class="gov-modal-footer">
+                <button class="btn-secondary-gov" onclick="closeModal('modal-offline-drawer')">बंद करें (Close)</button>
             </div>
         </div>
     </div>
 
-    <!-- App JS Engine -->
-    <script src="app.js"></script>
+    <!-- Modal 6: Add New Reminder Modal -->
+    <div class="gov-modal-backdrop" id="modal-add-reminder" onclick="handleBackdropClick(event, 'modal-add-reminder')">
+        <div class="gov-modal-dialog">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-bell"></i> नया रिमाइंडर जोड़ें (Add Health Reminder)</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-add-reminder')">&times;</button>
+            </div>
+            <form onsubmit="handleCreateReminderSubmit(event)">
+                <div class="gov-modal-body">
+                    <div class="gov-form-group">
+                        <label>रिमाइंडर प्रकार (Category)</label>
+                        <select id="new-rem-type" class="gov-select" required>
+                            <option value="medicine">💊 दवाई (Medication)</option>
+                            <option value="hydration">💧 जलपान / पानी (Hydration)</option>
+                            <option value="activity">🚶 शारीरिक व्यायाम / सैर (Activity)</option>
+                            <option value="appointment">🩺 डॉक्टर परामर्श (Doctor Consultation)</option>
+                        </select>
+                    </div>
+                    <div class="gov-form-group">
+                        <label>शीर्षक / विवरण (Title)</label>
+                        <input type="text" id="new-rem-title" class="gov-input" placeholder="उदा. दोपहर 2 बजे की बीपी गोली" required>
+                    </div>
+                    <div class="gov-form-group">
+                        <label>निर्धारित समय (Scheduled Time)</label>
+                        <input type="text" id="new-rem-time" class="gov-input" placeholder="उदा. 02:00 PM" required>
+                    </div>
+                </div>
+                <div class="gov-modal-footer">
+                    <button type="button" class="btn-secondary-gov" onclick="closeModal('modal-add-reminder')">रद्द करें (Cancel)</button>
+                    <button type="submit" class="btn-primary-gov">रिमाइंडर सुरक्षित करें (Save Reminder)</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 7: Add Digital Memory Book Card Modal -->
+    <div class="gov-modal-backdrop" id="modal-add-dmb" onclick="handleBackdropClick(event, 'modal-add-dmb')">
+        <div class="gov-modal-dialog">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-book-bookmark"></i> नया स्मृति कार्ड जोड़ें (Add Memory Card)</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-add-dmb')">&times;</button>
+            </div>
+            <form onsubmit="handleCreateMemoryBookModal(event)">
+                <div class="gov-modal-body">
+                    <div class="gov-form-group">
+                        <label>श्रेणी (Category)</label>
+                        <select id="modal-dmb-category" class="gov-select">
+                            <option value="family">👨‍👩‍👧 परिवार का सदस्य (Family Member)</option>
+                            <option value="place">🏡 प्रिय घर या स्थान (Familiar Place)</option>
+                            <option value="food">🍲 पसंदीदा भोजन (Favorite Dish)</option>
+                            <option value="song">🎵 प्रिय संगीत / गीत (Favorite Song)</option>
+                        </select>
+                    </div>
+                    <div class="gov-form-group">
+                        <label>नाम या शीर्षक (Name / Title)</label>
+                        <input type="text" id="modal-dmb-title" class="gov-input" placeholder="उदा. पोती श्रेया / गुवाहाटी का घर" required>
+                    </div>
+                    <div class="gov-form-group">
+                        <label>रिश्ता या विवरण (Relationship / Detail)</label>
+                        <input type="text" id="modal-dmb-rel" class="gov-input" placeholder="उदा. पोती (Granddaughter) / बचपन का घर" required>
+                    </div>
+                    <div class="gov-form-group">
+                        <label>फोटो यूआरएल (Photo URL - Optional)</label>
+                        <input type="url" id="modal-dmb-url" class="gov-input" placeholder="https://...">
+                    </div>
+                </div>
+                <div class="gov-modal-footer">
+                    <button type="button" class="btn-secondary-gov" onclick="closeModal('modal-add-dmb')">रद्द करें (Cancel)</button>
+                    <button type="submit" class="btn-primary-gov">मेमोरी कार्ड जोड़ें (Add Card)</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 8: Printable Official Clinical Report Modal -->
+    <div class="gov-modal-backdrop" id="modal-clinical-print" onclick="handleBackdropClick(event, 'modal-clinical-print')">
+        <div class="gov-modal-dialog" style="max-width: 780px;">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-file-medical"></i> आधिकारिक क्लिनिकल रिपोर्ट पूर्वावलोकन (Clinical Report View)</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-clinical-print')">&times;</button>
+            </div>
+            <div class="gov-modal-body" id="clinical-print-area">
+                <div style="border-bottom: 2px solid var(--gov-navy); padding-bottom: 1rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h3 style="color: var(--gov-navy); margin: 0;">MINDSET-NER CLINICAL ASSESSMENT RECORD</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 2px 0 0 0;">Ministry of Development of North Eastern Region (MDoNER) | MoHFW</p>
+                    </div>
+                    <span style="font-size: 0.8rem; background: #e2e8f0; padding: 4px 8px; border-radius: 4px; font-weight: 700;">CONFIDENTIAL</span>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; font-size: 0.92rem; margin-bottom: 1.2rem;">
+                    <div><strong>Patient Name:</strong> Ramesh Sharma</div>
+                    <div><strong>Patient ID:</strong> #p001 (Guwahati, Assam)</div>
+                    <div><strong>Age / Gender:</strong> 74 Years / Male</div>
+                    <div><strong>Attending Doctor:</strong> Dr. Phukan (Neurology)</div>
+                    <div><strong>Assessment Date:</strong> 24 October 2026</div>
+                    <div><strong>Cognitive Score:</strong> <span id="modal-clinical-score">0/100 (Session In Progress)</span></div>
+                </div>
+
+                <h4 style="color: var(--gov-navy); margin-bottom: 0.5rem;">Domain Evaluation Summary:</h4>
+                <ul style="padding-left: 1.2rem; line-height: 1.8; font-size: 0.95rem;">
+                    <li>Memory Recall: <strong>82%</strong> (Stable with personalized photo cues)</li>
+                    <li>Attention & Focus: <strong>74%</strong> (Recommended 10m daily music stimulation)</li>
+                    <li>Pattern Recognition: <strong>89%</strong> (High logical sequence capability)</li>
+                    <li>Routine Adherence: <strong>71%</strong> (Medication reminders 90% completed)</li>
+                </ul>
+
+                <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: 6px; padding: 0.8rem; margin-top: 1rem; font-size: 0.88rem;">
+                    <strong>AI Clinical Decision Note:</strong> Patient demonstrates healthy reminiscence triggers through regional North Eastern music and daughter's digital photo prompts. Continue low-stress adaptive cognitive gaming.
+                </div>
+            </div>
+            <div class="gov-modal-footer">
+                <button class="btn-secondary-gov" onclick="downloadReportJSON()"><i class="fa-solid fa-download"></i> JSON डाउनलोड</button>
+                <button class="btn-primary-gov" onclick="window.print()"><i class="fa-solid fa-print"></i> प्रिंट रिपोर्ट (Print)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 9: Voice Reply Simulator Modal -->
+    <div class="gov-modal-backdrop" id="modal-voice-reply" onclick="handleBackdropClick(event, 'modal-voice-reply')">
+        <div class="gov-modal-dialog" style="max-width: 480px; text-align: center;">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-microphone"></i> पारिवारिक वॉयस संदेश भेजें</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-voice-reply')">&times;</button>
+            </div>
+            <div class="gov-modal-body" style="padding: 2rem 1.5rem;">
+                <div style="font-size: 3.5rem; color: #dc2626; margin-bottom: 1rem;">
+                    <i class="fa-solid fa-circle-dot fa-fade"></i>
+                </div>
+                <h4 id="voice-reply-target" style="color: var(--gov-navy); margin-bottom: 0.5rem;">अनन्या को वॉयस संदेश भेजा जा रहा है...</h4>
+                <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.5rem;">“अपना संदेश बोलें। बोलने के बाद 'भेजें' बटन दबाएं।”</p>
+
+                <button class="btn-primary-gov" style="padding: 0.8rem 1.8rem; font-size: 1.1rem; background: #16a34a;" onclick="confirmVoiceReplySent()">
+                    <i class="fa-solid fa-check"></i> संदेश पूरा हुआ, भेजें (Send Voice Note)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 10: Care Circle Member Contact Modal -->
+    <div class="gov-modal-backdrop" id="modal-care-circle" onclick="handleBackdropClick(event, 'modal-care-circle')">
+        <div class="gov-modal-dialog" style="max-width: 480px;">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-user-shield"></i> केयर-सर्किल अधिकृत विवरण</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-care-circle')">&times;</button>
+            </div>
+            <div class="gov-modal-body" id="care-circle-modal-body">
+                <!-- Dynamically populated by JS -->
+            </div>
+            <div class="gov-modal-footer">
+                <button class="btn-primary-gov" onclick="closeModal('modal-care-circle')">बंद करें (Close)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 11: Add Family Member with Photo -->
+    <div class="gov-modal-backdrop" id="modal-add-family-member" onclick="handleBackdropClick(event, 'modal-add-family-member')">
+        <div class="gov-modal-dialog" style="max-width: 520px;">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-user-plus"></i> परिवार के सदस्य का फोटो जोड़ें (Add Member Photo)</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-add-family-member')">&times;</button>
+            </div>
+            <form id="form-add-family-member" onsubmit="handleAddFamilyMemberSubmit(event)">
+                <div class="gov-modal-body">
+                    <!-- Photo Upload / URL and Live Preview -->
+                    <div style="display:flex; gap: 1.2rem; align-items:center; background:#f8fafc; border:1.5px solid var(--border-color); padding: 1rem; border-radius: 10px; margin-bottom: 1.2rem;">
+                        <div style="width: 82px; height: 82px; min-width: 82px; border-radius: 50%; overflow: hidden; border: 3px solid var(--gov-saffron); box-shadow: var(--shadow-sm); background: #e2e8f0; display:flex; align-items:center; justify-content:center;">
+                            <img id="family-photo-preview" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200" alt="Preview" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div style="flex:1;">
+                            <label style="font-weight:700; font-size:0.9rem; color:var(--gov-navy); display:block; margin-bottom:0.25rem;">सदस्य की तस्वीर (Photo)</label>
+                            <input type="file" id="modal-family-file" accept="image/*" class="gov-input" style="padding:0.3rem; font-size:0.85rem;" onchange="handleFamilyPhotoFileChange(event)">
+                            <div style="font-size:0.78rem; color:var(--text-muted); margin:0.3rem 0 0.2rem 0;">या फोटो यूआरएल (Web URL):</div>
+                            <input type="url" id="modal-family-url" class="gov-input" placeholder="https://..." style="padding:0.4rem 0.6rem; font-size:0.85rem;" oninput="handleFamilyPhotoUrlChange(event)">
+                        </div>
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label>पूरा नाम (Full Name) *</label>
+                        <input type="text" id="modal-family-name" class="gov-input" placeholder="उदा. सुनीता शर्मा / विक्रम / रिया" required>
+                    </div>
+
+                    <div class="gov-form-group" style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
+                        <div>
+                            <label>मरीज से संबंध (Relationship) *</label>
+                            <select id="modal-family-relation" class="gov-select" required>
+                                <option value="पुत्री (Daughter)">पुत्री (Daughter)</option>
+                                <option value="सुपुत्र (Son)">सुपुत्र (Son)</option>
+                                <option value="पोता / पोती (Grandchild)">पोता / पोती (Grandchild)</option>
+                                <option value="धर्मपत्नी (Wife)">धर्मपत्नी (Wife)</option>
+                                <option value="पति (Husband)">पति (Husband)</option>
+                                <option value="भाई / बहन (Sibling)">भाई / बहन (Sibling)</option>
+                                <option value="दामाद / बहू (In-law)">दामाद / बहू (In-law)</option>
+                                <option value="पारिवारिक मित्र (Family Friend)">पारिवारिक मित्र (Family Friend)</option>
+                                <option value="देखभालकर्ता (Caregiver)">देखभालकर्ता (Caregiver)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>भूमिका (Role) *</label>
+                            <select id="modal-family-role" class="gov-select" required>
+                                <option value="पारिवारिक सदस्य (Family Member)">पारिवारिक सदस्य (Family Member)</option>
+                                <option value="मुख्य देखभालकर्ता (Primary Caregiver)">मुख्य देखभालकर्ता (Primary Caregiver)</option>
+                                <option value="सहायक देखभालकर्ता (Secondary Caregiver)">सहायक देखभालकर्ता (Secondary Caregiver)</option>
+                                <option value="चिकित्सकीय संरक्षक (Medical Attendant)">चिकित्सकीय संरक्षक (Medical Attendant)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label>फोन नंबर / संपर्क (Phone or Contact)</label>
+                        <input type="tel" id="modal-family-phone" class="gov-input" placeholder="+91 98765 00000">
+                    </div>
+
+                    <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:8px; padding:0.8rem; display:flex; align-items:center; gap:0.6rem;">
+                        <input type="checkbox" id="modal-family-add-memory" checked style="width:18px; height:18px; cursor:pointer;">
+                        <label for="modal-family-add-memory" style="font-size:0.88rem; color:#065f46; font-weight:600; cursor:pointer; margin:0;">
+                            डिजिटल मेमोरी बुक में भी यह फोटो कार्ड जोड़ें (Add to Patient Memory Cards)
+                        </label>
+                    </div>
+                </div>
+                <div class="gov-modal-footer">
+                    <button type="button" class="btn-secondary-gov" onclick="closeModal('modal-add-family-member')">रद्द करें (Cancel)</button>
+                    <button type="submit" class="btn-primary-gov"><i class="fa-solid fa-check"></i> सदस्य व फोटो सहेजें (Save Photo)</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 12: Caregiver Profile Photo Upload -->
+    <div class="gov-modal-backdrop" id="modal-upload-caregiver-photo" onclick="handleBackdropClick(event, 'modal-upload-caregiver-photo')">
+        <div class="gov-modal-dialog" style="max-width: 480px;">
+            <div class="gov-modal-header">
+                <h3 id="modal-cg-title"><i class="fa-solid fa-camera"></i> Caregiver Photo</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-upload-caregiver-photo')">&times;</button>
+            </div>
+            <form id="form-upload-caregiver-photo" onsubmit="handleCaregiverPhotoSubmit(event)">
+                <div class="gov-modal-body">
+                    <div style="display:flex; flex-direction:column; align-items:center; background:#f8fafc; border:1.5px solid var(--border-color); padding: 1.2rem; border-radius: 12px; margin-bottom: 1.2rem;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3.5px solid var(--gov-saffron); box-shadow: var(--shadow-sm); background: #ffffff; display:flex; align-items:center; justify-content:center; margin-bottom: 0.8rem;">
+                            <img id="modal-cg-photo-preview" src="" alt="Caregiver Preview" style="width:100%; height:100%; object-fit:cover; display:none;">
+                            <div id="modal-cg-photo-placeholder" style="font-size: 2.8rem; color: var(--gov-navy);">
+                                <i class="fa-solid fa-user-nurse"></i>
+                            </div>
+                        </div>
+                        <div id="lbl-modal-cg-desc" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-align: center;">
+                            Upload caregiver photo from device or enter web URL
+                        </div>
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label id="lbl-modal-cg-file">Upload Photo from Device</label>
+                        <input type="file" id="modal-cg-file" accept="image/*" class="gov-input" onchange="handleCaregiverPhotoFileChange(event)">
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label id="lbl-modal-cg-url">or Image URL</label>
+                        <input type="url" id="modal-cg-url" class="gov-input" placeholder="https://..." oninput="handleCaregiverPhotoUrlChange(event)">
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label id="lbl-modal-cg-name">Caregiver Name</label>
+                        <input type="text" id="modal-cg-name" class="gov-input" value="Ananya Sharma (Daughter)" required>
+                    </div>
+                </div>
+                <div class="gov-modal-footer" style="display:flex; justify-content:space-between; align-items:center;">
+                    <button type="button" class="btn-secondary-gov" id="btn-modal-cg-remove" style="color:#b91c1c; border-color:#fca5a5;" onclick="handleCaregiverPhotoRemove()">
+                        <i class="fa-solid fa-trash-can"></i> Remove Photo
+                    </button>
+                    <div style="display:flex; gap:0.6rem;">
+                        <button type="button" class="btn-secondary-gov" id="btn-modal-cg-cancel" onclick="closeModal('modal-upload-caregiver-photo')">Cancel</button>
+                        <button type="submit" class="btn-primary-gov" id="btn-modal-cg-save"><i class="fa-solid fa-check"></i> Save Photo</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 13: Patient Profile Photo Upload -->
+    <div class="gov-modal-backdrop" id="modal-upload-patient-photo" onclick="handleBackdropClick(event, 'modal-upload-patient-photo')">
+        <div class="gov-modal-dialog" style="max-width: 480px;">
+            <div class="gov-modal-header">
+                <h3 id="modal-pat-title"><i class="fa-solid fa-camera"></i> Patient Photo</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-upload-patient-photo')">&times;</button>
+            </div>
+            <form id="form-upload-patient-photo" onsubmit="handlePatientPhotoSubmit(event)">
+                <div class="gov-modal-body">
+                    <div style="display:flex; flex-direction:column; align-items:center; background:#f8fafc; border:1.5px solid var(--border-color); padding: 1.2rem; border-radius: 12px; margin-bottom: 1.2rem;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3.5px solid #0284c7; box-shadow: var(--shadow-sm); background: #ffffff; display:flex; align-items:center; justify-content:center; margin-bottom: 0.8rem;">
+                            <img id="modal-patient-photo-preview" src="" alt="Patient Preview" style="width:100%; height:100%; object-fit:cover; display:none;">
+                            <div id="modal-patient-photo-placeholder" style="font-size: 2.8rem; color: #0369a1;">
+                                <i class="fa-solid fa-hospital-user"></i>
+                            </div>
+                        </div>
+                        <div id="lbl-modal-pat-desc" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-align: center;">
+                            Upload or link patient photo
+                        </div>
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label id="lbl-modal-pat-file">Upload Photo from Device</label>
+                        <input type="file" id="modal-patient-file" accept="image/*" class="gov-input" onchange="handlePatientPhotoFileChange(event)">
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label id="lbl-modal-pat-url">or Image URL</label>
+                        <input type="url" id="modal-patient-url" class="gov-input" placeholder="https://..." oninput="handlePatientPhotoUrlChange(event)">
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label id="lbl-modal-pat-name">Patient Name</label>
+                        <input type="text" id="modal-patient-name" class="gov-input" value="Ramesh Sharma (74)" required>
+                    </div>
+                </div>
+                <div class="gov-modal-footer" style="display:flex; justify-content:space-between; align-items:center;">
+                    <button type="button" class="btn-secondary-gov" id="btn-modal-pat-remove" style="color:#b91c1c; border-color:#fca5a5;" onclick="handlePatientPhotoRemove()">
+                        <i class="fa-solid fa-trash-can"></i> Remove Photo
+                    </button>
+                    <div style="display:flex; gap:0.6rem;">
+                        <button type="button" class="btn-secondary-gov" id="btn-modal-pat-cancel" onclick="closeModal('modal-upload-patient-photo')">Cancel</button>
+                        <button type="submit" class="btn-primary-gov" id="btn-modal-pat-save"><i class="fa-solid fa-check"></i> Save Photo</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 7. OFFICIAL GOVERNMENT FOOTER                             -->
+    <!-- ========================================================= -->
+    <footer class="gov-footer">
+        <div class="gov-footer-top">
+            <div class="footer-col">
+                <h4 id="footer-brand-title">MINDSET-NER Portal</h4>
+                <p id="footer-about-text">
+                    AI-Powered Cognitive Care & Memory Assistance Platform developed under Smart India Hackathon (SIH 2026) for Ministry of Development of North Eastern Region (MDoNER) & MoHFW.
+                </p>
+                <div id="footer-sih-note" style="font-size: 0.82rem; color: #cbd5e1;">
+                    Problem Statement ID: <strong>SIH26003</strong> | MDoNER
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 id="footer-ql-title">Quick Links</h4>
+                <ul class="footer-links-list">
+                    <li><a href="javascript:void(0)" onclick="switchRole('elderly')" id="fl-link-1">Elderly Assistance App</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchRole('caregiver')" id="fl-link-2">Caregiver Dashboard</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchRole('doctor')" id="fl-link-3">Doctor & Clinical Portal</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchRole('schemes')" id="fl-link-4">Government Schemes</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 id="footer-pol-title">Policies & Support</h4>
+                <ul class="footer-links-list">
+                    <li><a href="javascript:void(0)" onclick="openModal('modal-privacy')" id="fl-pol-1">Privacy Policy</a></li>
+                    <li><a href="javascript:void(0)" onclick="alert('GIGW Compliance: This portal complies with Government of India Guidelines for Indian Government Websites (GIGW 3.0) and WCAG 2.1 AAA.')" id="fl-pol-2">Website Policies (GIGW 3.0)</a></li>
+                    <li><a href="javascript:void(0)" onclick="alert('Accessibility: Fully compliant with screen readers, high contrast mode, and dynamic text sizing.')" id="fl-pol-3">Accessibility Compliance (AAA)</a></li>
+                    <li><a href="javascript:void(0)" onclick="alert('Feedback: Your feedback is welcome at mdoner-support@gov.in')" id="fl-pol-4">Feedback & Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 id="footer-help-title">Emergency Helplines</h4>
+                <p style="font-weight: 700; color: #ffffff; margin-bottom: 0.4rem;" id="fl-hl-1">
+                    📞 Senior Citizen Helpline: <span style="color: var(--gov-saffron);">14567</span>
+                </p>
+                <p style="font-weight: 700; color: #ffffff; margin-bottom: 0.4rem;" id="fl-hl-2">
+                    🧠 Tele-MANAS (Mental Health): <span style="color: var(--gov-saffron);">14416</span>
+                </p>
+                <p style="font-weight: 700; color: #ffffff;" id="fl-hl-3">
+                    🚨 National Emergency Number: <span style="color: var(--gov-saffron);">112</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="gov-footer-bottom">
+            <div class="gov-footer-bottom-inner">
+                <div id="footer-copy-text">
+                    © 2026 MINDSET-NER Portal | Developed under National Health Mission guidelines for MDoNER & MoHFW, Govt of India.
+                </div>
+                <div id="footer-update-text">
+                    Last Updated: <strong>24 October 2026</strong> | Version: <strong>v2.6 (Govt Edition)</strong>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Toast Notification Element -->
+    <div class="gov-toast" id="gov-toast">
+        <i class="fa-solid fa-circle-check" style="color: #4ade80;"></i>
+        <span id="toast-message">सूचना अपडेट हुई</span>
+    </div>
+
+    <!-- Multilingual Translations and Application Engine -->
+    <script src="translations.js?v=2.6"></script>
+    <script src="app.js?v=2.6"></script>
 </body>
 </html>

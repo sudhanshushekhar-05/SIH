@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b2545" />
+      <stop offset="100%" stop-color="#041224" />
+    </linearGradient>
+    <linearGradient id="saffronGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF9933" />
+      <stop offset="100%" stop-color="#FF7700" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#138808" />
+      <stop offset="100%" stop-color="#0d6105" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer Rounded Shield / Circle -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bg)" stroke="#1e3a8a" stroke-width="1.5" />
+  
+  <!-- Indian Tricolor Ring / Arcs -->
+  <path d="M 12 10 A 24 24 0 0 1 52 10" fill="none" stroke="url(#saffronGrad)" stroke-width="3.5" stroke-linecap="round" />
+  <path d="M 12 54 A 24 24 0 0 0 52 54" fill="none" stroke="url(#greenGrad)" stroke-width="3.5" stroke-linecap="round" />
+  
+  <!-- Stylized Brain Hemispheres & Neuron Nodes -->
+  <!-- Left Hemisphere -->
+  <path d="M 30 20 C 25 18 19 22 19 27 C 17 29 16 33 18 36 C 17 40 20 44 24 44 C 26 44 28 43 30 41 Z" 
+        fill="#38bdf8" opacity="0.95" />
+  <!-- Right Hemisphere -->
+  <path d="M 34 20 C 39 18 45 22 45 27 C 47 29 48 33 46 36 C 47 40 44 44 40 44 C 38 44 36 43 34 41 Z" 
+        fill="#FF9933" opacity="0.95" />
+  
+  <!-- Central Synapse / Ashoka Blue Core -->
+  <path d="M 32 18 L 32 46" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Neural Connectivity Sparks -->
+  <circle cx="32" cy="23" r="2.2" fill="#ffffff" />
+  <circle cx="25" cy="27" r="1.8" fill="#ffffff" />
+  <circle cx="39" cy="27" r="1.8" fill="#ffffff" />
+  <circle cx="23" cy="35" r="1.8" fill="#ffffff" />
+  <circle cx="41" cy="35" r="1.8" fill="#ffffff" />
+  <circle cx="32" cy="40" r="2.2" fill="#138808" stroke="#ffffff" stroke-width="1" />
+  
+  <!-- Synapse Lines -->
+  <line x1="32" y1="23" x2="25" y2="27" stroke="#ffffff" stroke-width="1.2" opacity="0.8" />
+  <line x1="32" y1="23" x2="39" y2="27" stroke="#ffffff" stroke-width="1.2" opacity="0.8" />
+  <line x1="25" y1="27" x2="23" y2="35" stroke="#ffffff" stroke-width="1.2" opacity="0.8" />
+  <line x1="39" y1="27" x2="41" y2="35" stroke="#ffffff" stroke-width="1.2" opacity="0.8" />
+  <line x1="23" y1="35" x2="32" y2="40" stroke="#ffffff" stroke-width="1.2" opacity="0.8" />
+  <line x1="41" y1="35" x2="32" y2="40" stroke="#ffffff" stroke-width="1.2" opacity="0.8" />
+</svg>
+
