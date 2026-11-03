@@ -29,7 +29,7 @@ const appState = {
     role: 'elderly', // elderly, caregiver, doctor, schemes
     lang: 'en', // Default language is English as requested
     nerMode: true,
-    isOffline: false,
+    isOffline: (typeof window !== 'undefined' && window.location && window.location.hostname.endsWith('github.io')), // Self-contained client-side mode on GitHub Pages
     currentDifficulty: 'Medium',
     todayScore: getInitialTodayScore(),
     user_id: 'p001',
