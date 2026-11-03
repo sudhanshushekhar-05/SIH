@@ -128,5 +128,35 @@ class TestMindsetNerBackend(unittest.TestCase):
         data = response.json()
         self.assertEqual(data["status"], "success")
 
+    def test_security_headers_present(self):
+        """Verify OWASP and GIGW 3.0 required security headers are injected."""
+        response = self.client.get("/api/health")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.headers.get("x-frame-options"), "SAMEORIGIN")
+        self.assertEqual(response.headers.get("x-content-type-options"), "nosniff")
+        self.assertEqual(response.headers.get("x-xss-protection"), "1; mode=block")
+        self.assertIn("Content-Security-Policy", response.headers)
+        self.assertIn("Strict-Transport-Security", response.headers)
+
+    def test_user_id_validation_sanitization(self):
+        """Verify user_id format enforcement blocks path traversal or injection characters."""
+        # Valid user_id
+        res_valid = self.client.get("/api/user/p001")
+        self.assertEqual(res_valid.status_code, 200)
+
+        # Invalid user_id with unsafe injection characters
+        res_invalid = self.client.get("/api/user/p001<script>")
+        self.assertEqual(res_invalid.status_code, 400)
+        self.assertIn("Invalid user ID format", res_invalid.json()["detail"])
+
+    def test_retrain_rate_limiting(self):
+        """Verify that rapid consecutive calls to /api/ai/retrain return HTTP 429 Too Many Requests."""
+        # First call triggers training or cooldown
+        res1 = self.client.post("/api/ai/retrain")
+        # Second immediate call must be blocked by rate limiter
+        res2 = self.client.post("/api/ai/retrain")
+        self.assertEqual(res2.status_code, 429)
+        self.assertIn("Rate limit exceeded", res2.json()["detail"])
+
 if __name__ == "__main__":
     unittest.main()

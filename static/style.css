@@ -1,1268 +1,3162 @@
+/* ==========================================================================
+   MINDSET-NER — Government of India Official Portal Design System (GIGW Compliant)
+   Ministry of Development of North Eastern Region (MDoNER) & MoHFW
+   Smart India Hackathon 2026 | Problem Statement: SIH26003
+   ========================================================================== */
+
 :root {
-    --bg-gradient: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
-    --card-bg: rgba(255, 255, 255, 0.75);
-    --card-border: rgba(255, 255, 255, 0.6);
-    --text-primary: #1e293b;
-    --text-secondary: #475569;
-    --accent-blue: #2563eb;
-    --accent-blue-hover: #1d4ed8;
-    --accent-gold: #d97706;
-    --accent-green: #16a34a;
-    --accent-red: #dc2626;
-    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-    --glass-blur: blur(16px);
-    --radius-lg: 20px;
-    --radius-md: 12px;
+    /* Official Government Color Palette */
+    --gov-navy: #0b2545;
+    --gov-navy-dark: #061529;
+    --gov-navy-light: #133e87;
+    --gov-saffron: #ff9933;
+    --gov-saffron-dark: #d97706;
+    --gov-saffron-light: #fff7ed;
+    --gov-green: #138808;
+    --gov-green-dark: #047857;
+    --gov-green-light: #ecfdf5;
+    --gov-gold: #c28e00;
+    --gov-ashoka-blue: #000080;
+    
+    /* Surface & Background */
+    --bg-page: #f1f5f9;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #ffffff;
+    --bg-subtle: #f8fafc;
+    --border-color: #cbd5e1;
+    --border-strong: #94a3b8;
+    --border-focus: #133e87;
+    
+    /* Typography */
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --text-inverse: #ffffff;
+    --font-heading: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-body: 'Plus Jakarta Sans', 'Outfit', system-ui, -apple-system, sans-serif;
+    --base-font-size: 16px;
+    
+    /* Elevation & Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(11, 37, 69, 0.1), 0 4px 6px -4px rgba(11, 37, 69, 0.08);
+    --shadow-xl: 0 20px 25px -5px rgba(11, 37, 69, 0.15), 0 8px 10px -6px rgba(11, 37, 69, 0.1);
+    
+    /* Radii */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+    --radius-full: 9999px;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.25s ease;
 }
 
-body.theme-dark {
-    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    --card-bg: rgba(30, 41, 59, 0.75);
-    --card-border: rgba(255, 255, 255, 0.1);
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --accent-blue: #60a5fa;
-    --accent-blue-hover: #3b82f6;
-    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+/* ==========================================================================
+   Accessibility: High Contrast Theme (GIGW / WCAG 2.1 AAA Compliant)
+   ========================================================================== */
+body.theme-high-contrast {
+    --bg-page: #000000;
+    --bg-surface: #0a0a0a;
+    --bg-surface-elevated: #141414;
+    --bg-subtle: #1a1a1a;
+    --border-color: #ffff00;
+    --border-strong: #ffff00;
+    --border-focus: #00ffff;
+    
+    --text-primary: #ffffff;
+    --text-secondary: #fef08a;
+    --text-muted: #e2e8f0;
+    --text-inverse: #000000;
+    
+    --gov-navy: #000000;
+    --gov-navy-dark: #000000;
+    --gov-navy-light: #ffff00;
+    --gov-saffron: #facc15;
+    --gov-green: #4ade80;
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: 0 0 0 2px #ffff00;
+    --shadow-xl: 0 0 0 3px #ffff00;
 }
 
+/* Explicit High Contrast Element Overrides for GIGW AAA */
+body.theme-high-contrast .gov-main-header,
+body.theme-high-contrast .gov-card,
+body.theme-high-contrast .asha-voice-panel,
+body.theme-high-contrast .elderly-tabs-strip,
+body.theme-high-contrast .hub-status-header,
+body.theme-high-contrast .game-hub-card,
+body.theme-high-contrast .active-game-arena-box,
+body.theme-high-contrast .dmb-showcase-card,
+body.theme-high-contrast .dmb-qa-box,
+body.theme-high-contrast .reminder-gov-item,
+body.theme-high-contrast .cg-patient-strip,
+body.theme-high-contrast .b-stat-chip,
+body.theme-high-contrast .scheme-card,
+body.theme-high-contrast .gov-modal-dialog,
+body.theme-high-contrast .elderly-journey-banner,
+body.theme-high-contrast .game-stage-viewport,
+body.theme-high-contrast .prompt-btn,
+body.theme-high-contrast .circle-chip-card,
+body.theme-high-contrast .doc-stat-card,
+body.theme-high-contrast .dmb-thumb-item {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-color: #ffff00 !important;
+    box-shadow: none !important;
+}
+
+body.theme-high-contrast .brand-title-hi,
+body.theme-high-contrast .brand-title-en,
+body.theme-high-contrast h1,
+body.theme-high-contrast h2,
+body.theme-high-contrast h3,
+body.theme-high-contrast h4,
+body.theme-high-contrast strong {
+    color: #ffff00 !important;
+}
+
+body.theme-high-contrast p,
+body.theme-high-contrast span {
+    color: #ffffff !important;
+}
+
+body.theme-high-contrast .game-choice-btn {
+    background: #000000 !important;
+    color: #ffff00 !important;
+    border-color: #ffff00 !important;
+}
+
+body.theme-high-contrast .game-choice-btn:hover {
+    background: #ffff00 !important;
+    color: #000000 !important;
+}
+
+body.theme-high-contrast .btn-primary-gov,
+body.theme-high-contrast .game-play-action-btn {
+    background: #ffff00 !important;
+    color: #000000 !important;
+    font-weight: 900 !important;
+}
+
+/* Base Styles */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    font-size: var(--base-font-size);
+    scroll-behavior: smooth;
 }
 
 body {
-    background: var(--bg-gradient);
+    background-color: var(--bg-page);
     color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.5;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    transition: background 0.3s ease;
 }
 
-/* Header */
-.app-header {
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    background: var(--gov-saffron);
+    color: #000;
+    padding: 8px 16px;
+    font-weight: 700;
+    z-index: 10000;
+    transition: top 0.2s;
+    border-radius: 4px;
+}
+.skip-link:focus {
+    top: 10px;
+}
+
+/* ==========================================================================
+   1. GOVERNMENT TOP ACCESSIBILITY & MINISTRY STRIP
+   ========================================================================== */
+.gov-top-strip {
+    background: #061529;
+    color: #cbd5e1;
+    font-size: 0.82rem;
+    padding: 0.35rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.gov-top-strip-inner {
+    max-width: 1440px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background: var(--card-bg);
-    backdrop-filter: var(--glass-blur);
-    border-bottom: 1px solid var(--card-border);
-    box-shadow: var(--shadow-lg);
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.gov-emblem-text {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.flag-icon {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.gov-emblem-text span.hi {
+    color: #ffffff;
+    font-weight: 700;
+}
+.gov-emblem-text span.separator {
+    color: #64748b;
+}
+
+.gov-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.helpline-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 153, 51, 0.15);
+    border: 1px solid rgba(255, 153, 51, 0.4);
+    color: #fdba74;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.accessibility-tools {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+}
+
+.a-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0.15rem 0.4rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: var(--transition-fast);
+}
+
+.a-btn:hover, .a-btn.active {
+    background: var(--gov-saffron);
+    color: #000;
+}
+
+.contrast-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: var(--transition-fast);
+}
+
+.contrast-btn:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* ==========================================================================
+   2. MAIN GOVERNMENT BRANDING HEADER
+   ========================================================================== */
+.gov-main-header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.9rem 2rem;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+}
+
+.gov-header-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.brand-section {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.national-emblem-svg {
+    width: 58px;
+    height: 72px;
+    flex-shrink: 0;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-title-hi {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--gov-navy);
+    letter-spacing: -0.2px;
+}
+
+.brand-title-en {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--gov-navy);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.brand-title-en .highlight {
+    color: var(--gov-saffron-dark);
+}
+
+.brand-tagline {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.header-gov-badges {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.sih-badge {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    border: 1.5px solid #fed7aa;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-md);
+    text-align: right;
+}
+
+.sih-badge-title {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #9a3412;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sih-badge-code {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #475569;
+}
+
+.partner-logo-seal {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding-left: 1rem;
+    border-left: 1.5px solid var(--border-color);
+}
+
+.partner-logo-seal:first-of-type {
+    border-left: none;
+    padding-left: 0;
+}
+
+
+.seal-icon {
+    font-size: 2.2rem;
+    color: var(--gov-navy-light);
+}
+
+.seal-text {
+    font-size: 0.76rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text-secondary);
+}
+
+/* Official Tricolor Ribbon */
+.gov-tricolor-bar {
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(90deg, 
+        #ff9933 0%, #ff9933 33.3%, 
+        #ffffff 33.3%, #ffffff 66.6%, 
+        #138808 66.6%, #138808 100%);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+/* ==========================================================================
+   3. OFFICIAL PORTAL NAVIGATION & ACTION BAR
+   ========================================================================== */
+.gov-navbar {
+    background: var(--gov-navy);
+    color: #ffffff;
+    padding: 0 2rem;
+    box-shadow: var(--shadow-md);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
-.logo-container .logo-badge {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--accent-blue);
-    letter-spacing: -0.5px;
-}
-
-.logo-container .subtitle {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    font-weight: 600;
-}
-
-.role-nav {
+.gov-navbar-inner {
+    max-width: 1440px;
+    margin: 0 auto;
     display: flex;
-    gap: 0.5rem;
-    background: rgba(0, 0, 0, 0.05);
-    padding: 4px;
-    border-radius: 12px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    padding: 0.2rem 0;
 }
 
-.nav-btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 1.05rem;
-    font-weight: 700;
-    border: none;
-    background: transparent;
-    color: var(--text-secondary);
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-}
-
-.nav-btn.active {
-    background: var(--accent-blue);
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-}
-
-.header-actions {
+.main-portal-tabs {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.3rem;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
 }
+.main-portal-tabs::-webkit-scrollbar { display: none; }
 
-.ner-badge {
-    background: linear-gradient(135deg, #d97706, #b45309);
-    color: white;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
+.portal-nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.1rem;
+    color: #e2e8f0;
+    text-decoration: none;
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.94rem;
+    border: none;
+    background: transparent;
     cursor: pointer;
+    border-bottom: 4px solid transparent;
+    transition: var(--transition-fast);
+    white-space: nowrap;
 }
 
-.offline-pill {
-    padding: 0.4rem 0.9rem;
-    border-radius: 20px;
+.portal-nav-btn i {
+    font-size: 1.1rem;
+}
+
+.portal-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+.portal-nav-btn.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-bottom-color: var(--gov-saffron);
+}
+
+.nav-actions-group {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    flex-shrink: 0;
+}
+
+/* Language selector */
+.lang-selector-gov {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-sm);
+    padding: 0.35rem 0.65rem;
+    color: #ffffff;
+}
+
+.lang-selector-gov select {
+    background: transparent;
+    border: none;
+    color: #ffffff;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.lang-selector-gov select option {
+    background: #0b2545;
+    color: #ffffff;
+}
+
+/* NER Mode Toggle */
+.ner-toggle-gov {
+    background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: var(--transition-fast);
+}
+
+.ner-toggle-gov:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(217, 119, 6, 0.4);
+}
+
+.ner-toggle-gov.ner-off {
+    background: #475569;
+}
+
+/* Network pill */
+.network-pill-gov {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.82rem;
+    font-weight: 700;
     border: none;
     cursor: pointer;
     background: #dcfce7;
-    color: #15803d;
+    color: #166534;
+    transition: var(--transition-fast);
 }
 
-.offline-pill.offline {
+.network-pill-gov:hover {
+    opacity: 0.9;
+}
+
+.network-pill-gov.offline {
     background: #fee2e2;
-    color: #b91c1c;
+    color: #991b1b;
 }
 
-.theme-toggle-btn {
+/* Quick Tools Menu Buttons */
+.tools-quick-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: var(--transition-fast);
+}
+
+.tools-quick-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
+   4. GOVERNMENT OFFICIAL BULLETIN TICKER (NEWS MARQUEE)
+   ========================================================================== */
+.gov-bulletin-bar {
+    background: #e2e8f0;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.4rem 2rem;
+}
+
+.gov-bulletin-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.86rem;
+}
+
+.bulletin-label {
+    background: var(--gov-navy);
+    color: #ffffff;
+    padding: 0.25rem 0.7rem;
+    border-radius: var(--radius-sm);
+    font-weight: 800;
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+.bulletin-marquee {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.bulletin-content {
+    display: inline-block;
+    color: var(--gov-navy-dark);
+    font-weight: 600;
+}
+
+.bulletin-pause-btn {
     background: transparent;
     border: none;
-    font-size: 1.4rem;
-    color: var(--text-primary);
+    color: var(--text-muted);
     cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.85rem;
+}
+.bulletin-pause-btn:hover {
+    color: var(--gov-navy);
 }
 
-/* Main Views */
+/* ==========================================================================
+   5. MAIN CONTENT WRAPPER & SECTIONS
+   ========================================================================== */
 .main-content {
-    flex: 1;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
     padding: 1.5rem 2rem;
+    flex: 1;
 }
 
 .app-view {
     display: none;
 }
-
 .app-view.active {
     display: block;
+    animation: fadeIn 0.25s ease;
 }
 
-/* Glass Card */
-.glass-card {
-    background: var(--card-bg);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--card-border);
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Official Portal Cards */
+.gov-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
     padding: 1.5rem;
-    box-shadow: var(--shadow-lg);
+    transition: var(--transition-base);
 }
 
-/* Elderly Layout Grid */
-.elderly-grid {
-    display: grid;
-    grid-template-columns: 360px 1fr;
-    gap: 1.5rem;
+.gov-card:hover {
+    box-shadow: var(--shadow-md);
 }
 
-/* Voice Card */
-.voice-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-}
-
-.card-header {
+/* Caregiver Profile Card in Top Strip */
+.cg-caregiver-card {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.9rem;
+    background: #f8fafc;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 0.65rem 1.1rem;
+    transition: all 0.25s ease;
 }
 
-.avatar-pulse {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    color: white;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+.cg-caregiver-card:hover {
+    border-color: var(--gov-saffron);
+    background: #fffdfa;
+    box-shadow: var(--shadow-sm);
 }
 
-.speech-bubble {
-    background: rgba(37, 99, 235, 0.1);
-    border-left: 4px solid var(--accent-blue);
-    padding: 1.2rem;
-    border-radius: 0 16px 16px 16px;
-    font-size: 1.25rem;
-    line-height: 1.6;
-    font-weight: 600;
+.cg-avatar-wrapper {
+    position: relative;
+    cursor: pointer;
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
 }
 
-.voice-controls {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.mic-btn {
+.cg-caregiver-avatar {
     width: 100%;
-    padding: 1.2rem;
-    font-size: 1.4rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
-    color: white;
-    border: none;
-    border-radius: 16px;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
-    transition: transform 0.2s;
-}
-
-.mic-btn:hover {
-    transform: scale(1.02);
-}
-
-.secondary-voice-btn {
-    padding: 0.7rem;
-    font-size: 1rem;
-    font-weight: 700;
-    background: rgba(0,0,0,0.05);
-    border: 1px solid var(--card-border);
-    border-radius: 10px;
-    color: var(--text-primary);
-    cursor: pointer;
-}
-
-.quick-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.quick-pills button {
-    padding: 0.6rem 0.9rem;
-    font-size: 1rem;
-    font-weight: 700;
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    background: rgba(255,255,255,0.4);
-    color: var(--text-primary);
-    cursor: pointer;
-}
-
-.quick-pills button:hover {
-    background: var(--accent-blue);
-    color: white;
-}
-
-/* Elderly Center Panel */
-.center-elderly-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.elderly-tab-bar {
-    display: flex;
-    gap: 0.8rem;
-}
-
-.tab-btn {
-    flex: 1;
-    padding: 1rem;
-    font-size: 1.15rem;
-    font-weight: 800;
-    border: none;
-    border-radius: 14px;
-    background: var(--card-bg);
-    color: var(--text-secondary);
-    cursor: pointer;
-    border: 1px solid var(--card-border);
-}
-
-.tab-btn.active {
-    background: var(--accent-blue);
-    color: white;
-}
-
-.game-select-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-
-.difficulty-badge {
-    background: #dbeafe;
-    color: #1e40af;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
-.score-badge {
-    background: #dcfce7;
-    color: #166534;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.2rem;
-}
-
-.game-card {
-    background: var(--card-bg);
-    backdrop-filter: var(--glass-blur);
-    border: 2px solid var(--card-border);
-    border-radius: 18px;
-    padding: 1.5rem;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.game-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent-blue);
-    box-shadow: var(--shadow-lg);
-}
-
-.game-card.ner-highlight {
-    border-color: var(--accent-gold);
-    background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(255, 255, 255, 0.7));
-}
-
-.game-icon {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-}
-
-.game-card h3 {
-    font-size: 1.3rem;
-    font-weight: 800;
-    margin-bottom: 0.4rem;
-}
-
-.game-card p {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.play-pill {
-    display: inline-block;
-    padding: 0.5rem 1.2rem;
-    background: var(--accent-blue);
-    color: white;
-    border-radius: 20px;
-    font-weight: 800;
-    font-size: 1rem;
-}
-
-.play-pill.gold {
-    background: var(--accent-gold);
-}
-
-/* Game Arena */
-.game-arena {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.arena-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.back-game-btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    background: rgba(0,0,0,0.08);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.game-timer {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--accent-red);
-}
-
-.arena-stage {
-    background: rgba(255,255,255,0.5);
-    border-radius: 16px;
-    padding: 2rem;
-    min-height: 280px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.ai-feedback-banner {
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-    color: #1e40af;
-    padding: 1rem;
-    border-radius: 12px;
-    font-size: 1.15rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-/* Objects Grid in Stage */
-.stage-objects-row {
-    display: flex;
-    gap: 1.5rem;
-    font-size: 4rem;
-    margin: 1.5rem 0;
-}
-
-.option-buttons-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.option-btn {
-    padding: 1rem 1.8rem;
-    font-size: 1.5rem;
-    font-weight: 800;
-    border: 2px solid var(--accent-blue);
-    border-radius: 16px;
-    background: white;
-    color: var(--text-primary);
-    cursor: pointer;
-}
-
-.option-btn:hover {
-    background: var(--accent-blue);
-    color: white;
-}
-
-/* Caregiver Dashboard */
-.dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.patient-profile-strip {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-}
-
-.profile-thumb {
-    width: 70px;
-    height: 70px;
+    height: 100%;
     border-radius: 50%;
+    background: #ffffff;
+    border: 2.5px solid var(--gov-saffron);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--gov-navy);
+    font-size: 1.6rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.cg-caregiver-avatar img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-.score-circle {
-    width: 80px;
-    height: 80px;
+.cg-avatar-wrapper:hover .cg-caregiver-avatar {
+    transform: scale(1.05);
+}
+
+.cg-camera-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background: var(--gov-navy);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #10b981, #059669);
-    color: white;
-    font-size: 1.8rem;
-    font-weight: 800;
+    font-size: 0.65rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
 }
 
-.alert-card {
-    background: #fff1f2;
-    border: 2px solid #fecdd3;
-    border-radius: 16px;
-    padding: 1.2rem 1.5rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    gap: 1.2rem;
-    align-items: flex-start;
-}
-
-.alert-icon {
-    font-size: 2.2rem;
-}
-
-.alert-content h3 {
-    color: #9f1239;
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
-}
-
-.alert-content p {
-    color: #be123c;
-    font-size: 1.05rem;
-    font-weight: 600;
-
-}
-
-.alert-action {
-    margin-top: 0.5rem;
-    font-weight: 700;
-    color: #881337;
-}
-
-.caregiver-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-.metric-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin: 1rem 0;
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
-.metric-row span {
-    width: 200px;
-}
-
-.bar-wrap {
-    flex: 1;
-    height: 14px;
-    background: rgba(0,0,0,0.1);
-    border-radius: 7px;
-    overflow: hidden;
-}
-
-.bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
-    border-radius: 7px;
-}
-
-.svg-chart-box {
-    margin-top: 1rem;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group label {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 0.4rem;
-}
-
-.form-group input, .form-group select {
-    width: 100%;
-    padding: 0.8rem;
-    font-size: 1.05rem;
-    border-radius: 10px;
-    border: 1px solid var(--card-border);
-    background: rgba(255,255,255,0.6);
-}
-
-.submit-btn {
-    width: 100%;
-    padding: 0.9rem;
-    font-size: 1.1rem;
-    font-weight: 800;
-    background: var(--accent-blue);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-}
-
-.gold-btn {
-    background: var(--accent-gold);
-}
-
-/* Doctor View */
-.doc-card {
+.cg-caregiver-info {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2px;
 }
 
-.doc-header {
+.cg-role-pill {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--gov-saffron-dark);
+    font-weight: 800;
+}
+
+.cg-caregiver-info strong {
+    font-size: 0.96rem;
+    color: var(--gov-navy);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.btn-cg-photo {
+    background: transparent;
+    border: 1px dashed var(--gov-saffron);
+    color: var(--gov-saffron-dark);
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 3px;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+.btn-cg-photo:hover {
+    background: var(--gov-saffron);
+    color: #ffffff;
+    border-style: solid;
+}
+
+.family-avatar-placeholder {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    border-radius: 50%;
+    border: 2.5px dashed var(--gov-saffron);
+    background: #fff7ed;
+    color: #c2410c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.btn-add-member-photo-mini {
+    background: #fff7ed;
+    color: #c2410c;
+    border: 1.5px dashed #ea580c;
+    border-radius: 6px;
+    padding: 2px 7px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.btn-add-member-photo-mini:hover {
+    background: #ea580c;
+    color: #ffffff;
+    border-style: solid;
+}
+
+.gov-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.2rem;
 }
 
-.export-btn {
-    padding: 0.8rem 1.4rem;
-    font-size: 1.1rem;
+.gov-card-header h2, .gov-card-header h3 {
+    color: var(--gov-navy);
+    font-size: 1.25rem;
     font-weight: 800;
-    background: var(--accent-green);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-}
-
-.doc-summary-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-}
-
-.stat-box {
-    background: rgba(255,255,255,0.5);
-    padding: 1.2rem;
-    border-radius: 14px;
-    text-align: center;
-}
-
-.stat-box .num {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--accent-blue);
-}
-
-.stat-box .label {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--text-secondary);
-}
-
-.doc-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-}
-
-.doc-table th, .doc-table td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    font-size: 1.05rem;
-}
-
-.status-badge {
-    padding: 0.3rem 0.7rem;
-    border-radius: 12px;
-    font-size: 0.9rem;
-    font-weight: 800;
-}
-
-.status-badge.success {
-    background: #dcfce7;
-    color: #15803d;
-}
-
-.status-badge.neutral {
-    background: #f1f5f9;
-    color: #475569;
-}
-
-/* Multilingual & Judging Controls */
-.lang-selector-wrap {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    background: rgba(0,0,0,0.05);
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-weight: 700;
+    gap: 0.6rem;
 }
 
-.lang-selector-wrap select {
-    background: transparent;
-    border: none;
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: var(--text-primary);
-    cursor: pointer;
-    outline: none;
-}
-
-.judge-demo-bar {
-    display: flex;
-    gap: 0.4rem;
-}
-
-.judge-btn {
-    padding: 0.4rem 0.8rem;
-    border-radius: 14px;
+.gov-card-header .subtitle {
     font-size: 0.85rem;
-    font-weight: 800;
-    border: 1px solid var(--card-border);
-    background: rgba(255,255,255,0.5);
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: all 0.2s ease;
+    color: var(--text-muted);
+    font-weight: 500;
 }
 
-.judge-btn:hover {
-    background: var(--accent-blue);
-    color: white;
-}
-
-/* Cognitive Journey Banner */
-.journey-banner {
+/* ==========================================================================
+   6. ELDERLY APPLICATION VIEW LAYOUT (WCAG Senior Accessible)
+   ========================================================================== */
+.elderly-journey-banner {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1.5px solid #cbd5e1;
+    border-left: 6px solid var(--gov-navy);
+    border-radius: var(--radius-lg);
+    padding: 1.2rem 1.6rem;
     margin-bottom: 1.5rem;
-    padding: 1.2rem 1.8rem;
+    box-shadow: var(--shadow-sm);
 }
 
-.journey-title-wrap {
+.journey-top-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
 }
 
-.journey-title-wrap h3 {
-    font-size: 1.3rem;
+.journey-top-row h3 {
+    font-size: 1.25rem;
     font-weight: 800;
-    color: var(--accent-blue);
+    color: var(--gov-navy);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
 }
 
-.streak-badge {
-    background: linear-gradient(135deg, #ef4444, #dc2626);
-    color: white;
-    padding: 0.4rem 0.9rem;
-    border-radius: 20px;
+.streak-pill {
+    background: #fff1f2;
+    border: 1px solid #fecdd3;
+    color: #e11d48;
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-full);
     font-weight: 800;
-    font-size: 0.95rem;
-    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
-.journey-nodes {
+.journey-nodes-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding: 0 1rem;
+    padding: 0.5rem 0;
 }
 
 .j-node {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.4rem;
     z-index: 2;
-    background: var(--card-bg);
-    padding: 0.4rem 0.8rem;
-    border-radius: 12px;
-    border: 2px solid var(--card-border);
+    cursor: pointer;
 }
 
-.j-node.completed {
-    border-color: var(--accent-green);
+.j-node .j-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    border: 2px solid #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: var(--transition-fast);
 }
 
-.j-node.active {
-    border-color: var(--accent-blue);
-    box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+.j-node.completed .j-circle {
+    background: #dcfce7;
+    border-color: #16a34a;
+    color: #166534;
 }
 
-.j-node .icon {
-    font-size: 1.6rem;
+.j-node.active .j-circle {
+    background: #dbeafe;
+    border-color: var(--gov-navy);
+    color: var(--gov-navy);
+    box-shadow: 0 0 0 4px rgba(11, 37, 69, 0.15);
 }
 
-.j-node .label {
-    font-size: 0.85rem;
-    font-weight: 800;
+.j-node .j-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-secondary);
 }
 
-.j-line {
+.j-track-line {
     flex: 1;
     height: 4px;
-    background: rgba(0,0,0,0.1);
+    background: #cbd5e1;
+    margin: 0 0.5rem;
+    margin-bottom: 1.4rem;
 }
 
-.j-line.completed {
-    background: var(--accent-green);
+.j-track-line.filled {
+    background: #16a34a;
 }
 
-/* Giant Voice Mic Button */
-.giant-mic-btn {
-    padding: 1.5rem;
-    font-size: 1.6rem;
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
-}
-
-/* Visual AI Adaptation Decision Card */
-.ai-adaptation-card {
-    background: linear-gradient(135deg, #eff6ff, #dbeafe);
-    border: 2px solid #3b82f6;
-    border-radius: 16px;
-    padding: 1.2rem;
-    margin-top: 1rem;
-    width: 100%;
-}
-
-.ai-card-title {
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #1e40af;
-    margin-bottom: 0.8rem;
-}
-
-.ai-card-grid {
+/* Elderly Grid Layout */
+.elderly-main-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    grid-template-columns: 370px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* Left Panel: Asha AI Companion */
+.asha-voice-panel {
+    background: #ffffff;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.asha-badge-header {
+    display: flex;
     align-items: center;
-    background: white;
-    padding: 0.8rem 1.2rem;
-    border-radius: 12px;
-    font-size: 1rem;
+    gap: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.ai-card-grid .lbl {
-    display: block;
-    font-size: 0.8rem;
-    color: #64748b;
-    font-weight: 700;
+.asha-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gov-navy) 0%, var(--gov-navy-light) 100%);
+    border: 3px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #ffffff;
+    box-shadow: var(--shadow-md);
 }
 
-.ai-card-grid strong {
-    color: #0f172a;
-    font-size: 1.1rem;
+/* Caregiver Profile Card in Top Strip */
+.cg-caregiver-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: #f8fafc;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 0.65rem 1.1rem;
+    transition: all 0.25s ease;
 }
 
-.ai-arrow {
+.cg-caregiver-card:hover {
+    border-color: var(--gov-saffron);
+    background: #fffdfa;
+    box-shadow: var(--shadow-sm);
+}
+
+.cg-avatar-wrapper {
+    position: relative;
+    cursor: pointer;
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+}
+
+.cg-caregiver-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2.5px solid var(--gov-saffron);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--gov-navy);
+    font-size: 1.6rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.cg-caregiver-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cg-avatar-wrapper:hover .cg-caregiver-avatar {
+    transform: scale(1.05);
+}
+
+.cg-camera-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background: var(--gov-navy);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.cg-caregiver-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cg-role-pill {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--gov-saffron-dark);
     font-weight: 800;
-    color: var(--accent-blue);
+}
+
+.cg-caregiver-info strong {
+    font-size: 0.96rem;
+    color: var(--gov-navy);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.btn-cg-photo {
+    background: transparent;
+    border: 1px dashed var(--gov-saffron);
+    color: var(--gov-saffron-dark);
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 3px;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+.btn-cg-photo:hover {
+    background: var(--gov-saffron);
+    color: #ffffff;
+    border-style: solid;
+}
+
+.family-avatar-placeholder {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    border-radius: 50%;
+    border: 2.5px dashed var(--gov-saffron);
+    background: #fff7ed;
+    color: #c2410c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.btn-add-member-photo-mini {
+    background: #fff7ed;
+    color: #c2410c;
+    border: 1.5px dashed #ea580c;
+    border-radius: 6px;
+    padding: 2px 7px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.btn-add-member-photo-mini:hover {
+    background: #ea580c;
+    color: #ffffff;
+    border-style: solid;
+}
+
+.asha-info h2 {
+    font-size: 1.18rem;
+    font-weight: 800;
+    color: var(--gov-navy);
+    line-height: 1.2;
+}
+
+.asha-info p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.asha-speech-bubble {
+    background: #eff6ff;
+    border: 1.5px solid #bfdbfe;
+    border-left: 5px solid var(--gov-navy);
+    padding: 1.1rem;
+    border-radius: var(--radius-md);
+    position: relative;
+}
+
+.asha-speech-bubble p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+/* Voice Visualizer Wave */
+.voice-wave-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 32px;
+}
+
+.wave-bar {
+    width: 5px;
+    height: 12px;
+    background: #93c5fd;
+    border-radius: 4px;
+    transition: height 0.2s;
+}
+
+.voice-wave-container.speaking .wave-bar {
+    animation: wavePulse 0.8s ease-in-out infinite alternate;
+}
+.voice-wave-container.speaking .wave-bar:nth-child(2) { animation-delay: 0.15s; }
+.voice-wave-container.speaking .wave-bar:nth-child(3) { animation-delay: 0.3s; }
+.voice-wave-container.speaking .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+.voice-wave-container.speaking .wave-bar:nth-child(5) { animation-delay: 0.6s; }
+
+@keyframes wavePulse {
+    0% { height: 8px; background: #93c5fd; }
+    100% { height: 28px; background: var(--gov-navy); }
+}
+
+/* Big Mic Button (Senior Friendly) */
+.gov-mic-btn {
+    width: 100%;
+    padding: 1.1rem;
+    background: linear-gradient(135deg, var(--gov-navy) 0%, var(--gov-navy-light) 100%);
+    color: #ffffff;
+    border: 2px solid var(--gov-navy-dark);
+    border-radius: var(--radius-md);
+    font-size: 1.25rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    box-shadow: 0 4px 10px rgba(11, 37, 69, 0.25);
+    transition: var(--transition-fast);
+}
+
+.gov-mic-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(11, 37, 69, 0.35);
+}
+
+.gov-mic-btn.listening {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    animation: pulseMic 1.2s infinite;
+}
+
+@keyframes pulseMic {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5); }
+    50% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+}
+
+.listen-again-btn {
+    width: 100%;
+    padding: 0.65rem;
+    background: var(--bg-subtle);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--gov-navy);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: var(--transition-fast);
+}
+
+.listen-again-btn:hover {
+    background: #e2e8f0;
+}
+
+.quick-prompts-title {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 0.2rem;
+}
+
+.quick-prompt-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.prompt-btn {
+    text-align: left;
+    padding: 0.65rem 0.9rem;
+    background: #ffffff;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-fast);
+}
+
+.prompt-btn:hover {
+    border-color: var(--gov-navy);
+    background: #f8fafc;
+    color: var(--gov-navy);
+}
+
+/* ==========================================================================
+   7. ELDERLY CENTER TABS & HUBS
+   ========================================================================== */
+.elderly-tabs-strip {
+    display: flex;
+    gap: 0.5rem;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 0.5rem;
+    margin-bottom: 1.2rem;
+    box-shadow: var(--shadow-sm);
+    overflow-x: auto;
+}
+
+.elderly-subtab-btn {
+    flex: 1;
+    min-width: 140px;
+    padding: 0.85rem 0.6rem;
+    border: none;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    transition: var(--transition-fast);
+}
+
+.elderly-subtab-btn i {
+    font-size: 1.3rem;
+}
+
+.elderly-subtab-btn:hover {
+    background: #f1f5f9;
+    color: var(--gov-navy);
+}
+
+.elderly-subtab-btn.active {
+    background: var(--gov-navy);
+    color: #ffffff;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Hub Status Header */
+.hub-status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.status-badge {
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.92rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.status-badge.ai-level {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+}
+
+.status-badge.score {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+@keyframes scorePulseAnim {
+    0% { transform: scale(1); box-shadow: 0 0 0 rgba(16, 185, 129, 0); }
+    40% { transform: scale(1.1); box-shadow: 0 0 14px rgba(16, 185, 129, 0.4); background: #d1fae5; border-color: #10b981; }
+    100% { transform: scale(1); box-shadow: 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.status-badge.score.score-bump {
+    animation: scorePulseAnim 0.7s ease-out;
+}
+
+.score-delta-badge {
+    display: inline-block;
+    background: #10b981;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 1px 6px;
+    border-radius: 12px;
+    margin-left: 4px;
+    animation: deltaFade 1.6s forwards;
+}
+
+@keyframes deltaFade {
+    0% { opacity: 0; transform: translateY(4px); }
+    20% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-4px); }
+}
+
+.btn-score-reset {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #065f46;
+    opacity: 0.5;
+    margin-left: 4px;
+    padding: 2px 4px;
+    font-size: 0.78rem;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-score-reset:hover {
+    opacity: 1;
+    color: #047857;
+    transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   8. COGNITIVE GAMES GRID & ARENA
+   ========================================================================== */
+.games-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.2rem;
+}
+
+.game-hub-card {
+    background: #ffffff;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+}
+
+.game-hub-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gov-navy);
+    box-shadow: var(--shadow-lg);
+}
+
+.game-hub-card.ner-featured {
+    border-color: var(--gov-saffron-dark);
+    background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%);
+}
+
+.featured-ribbon {
+    position: absolute;
+    top: -10px;
+    right: 12px;
+    background: var(--gov-saffron-dark);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.game-icon-hero {
+    font-size: 2.8rem;
+    margin-bottom: 0.6rem;
+}
+
+.game-hub-card h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--gov-navy);
+    margin-bottom: 0.4rem;
+}
+
+.game-hub-card p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    flex: 1;
+}
+
+.game-play-action-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--gov-navy);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: var(--transition-fast);
+}
+
+.game-play-action-btn:hover {
+    background: var(--gov-navy-light);
+}
+
+.game-hub-card.ner-featured .game-play-action-btn {
+    background: var(--gov-saffron-dark);
+}
+.game-hub-card.ner-featured .game-play-action-btn:hover {
+    background: #b45309;
+}
+
+/* Active Game Arena */
+.active-game-arena-box {
+    background: #ffffff;
+    border: 2px solid var(--gov-navy);
+    border-radius: var(--radius-lg);
+    padding: 1.8rem;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.arena-top-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.arena-back-btn {
+    padding: 0.55rem 1.1rem;
+    background: #f1f5f9;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--gov-navy);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.arena-back-btn:hover {
+    background: #e2e8f0;
+}
+
+.arena-round-pill {
+    background: #f1f5f9;
+    border: 1px solid var(--border-color);
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.arena-timer {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #dc2626;
+    background: #fee2e2;
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-md);
+    border: 1px solid #fecaca;
+}
+
+.game-stage-viewport {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 2rem 1.5rem;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
-.ai-reason-text {
-    margin-top: 0.8rem;
+.game-options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.game-choice-btn {
+    padding: 1rem 1.8rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    background: #ffffff;
+    border: 2.5px solid var(--gov-navy);
+    border-radius: var(--radius-lg);
+    color: var(--gov-navy);
+    cursor: pointer;
+    min-width: 200px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.game-choice-btn:hover {
+    background: var(--gov-navy);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Caregiver Profile Card in Top Strip */
+.cg-caregiver-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: #f8fafc;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 0.65rem 1.1rem;
+    transition: all 0.25s ease;
+}
+
+.cg-caregiver-card:hover {
+    border-color: var(--gov-saffron);
+    background: #fffdfa;
+    box-shadow: var(--shadow-sm);
+}
+
+.cg-avatar-wrapper {
+    position: relative;
+    cursor: pointer;
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+}
+
+.cg-caregiver-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2.5px solid var(--gov-saffron);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--gov-navy);
+    font-size: 1.6rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.cg-caregiver-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cg-avatar-wrapper:hover .cg-caregiver-avatar {
+    transform: scale(1.05);
+}
+
+.cg-camera-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background: var(--gov-navy);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.cg-caregiver-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cg-role-pill {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--gov-saffron-dark);
+    font-weight: 800;
+}
+
+.cg-caregiver-info strong {
+    font-size: 0.96rem;
+    color: var(--gov-navy);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.btn-cg-photo {
+    background: transparent;
+    border: 1px dashed var(--gov-saffron);
+    color: var(--gov-saffron-dark);
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 3px;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+.btn-cg-photo:hover {
+    background: var(--gov-saffron);
+    color: #ffffff;
+    border-style: solid;
+}
+
+.family-avatar-placeholder {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    border-radius: 50%;
+    border: 2.5px dashed var(--gov-saffron);
+    background: #fff7ed;
+    color: #c2410c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.btn-add-member-photo-mini {
+    background: #fff7ed;
+    color: #c2410c;
+    border: 1.5px dashed #ea580c;
+    border-radius: 6px;
+    padding: 2px 7px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.btn-add-member-photo-mini:hover {
+    background: #ea580c;
+    color: #ffffff;
+    border-style: solid;
+}
+
+/* AI Adaptation Feedback Banner */
+.ai-adaptation-banner {
+    background: #eff6ff;
+    border: 1.5px solid #93c5fd;
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.ai-banner-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--gov-navy);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ai-banner-metrics {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+}
+
+.ai-metric-item span {
+    color: var(--text-muted);
+}
+.ai-metric-item strong {
+    color: var(--gov-navy);
+    margin-left: 0.3rem;
+}
+
+.ai-banner-reasoning {
+    background: #ffffff;
+    border: 1px solid #bfdbfe;
+    padding: 0.6rem 0.9rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.92rem;
     font-weight: 700;
     color: #1e3a8a;
 }
 
-/* Digital Memory Book */
-.dmb-qa-arena {
-    background: rgba(255,255,255,0.6);
-    border-radius: 18px;
-    padding: 1.5rem;
-    border: 2px solid var(--accent-gold);
-}
-
-.dmb-card-showcase {
+/* ==========================================================================
+   9. DIGITAL MEMORY BOOK ⭐ SIGNATURE FEATURE
+   ========================================================================== */
+.dmb-showcase-card {
+    background: #ffffff;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.6rem;
+    box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
     text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
 }
 
 .dmb-showcase-img {
     width: 220px;
     height: 220px;
-    border-radius: 20px;
+    border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--accent-gold);
+    border: 5px solid var(--gov-navy);
     box-shadow: var(--shadow-lg);
+    margin-bottom: 1rem;
 }
 
-.dmb-grid {
+.dmb-qa-box {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: var(--radius-md);
+    padding: 1.4rem;
+    width: 100%;
+    margin-top: 1.2rem;
+}
+
+.dmb-qa-box h4 {
+    color: var(--gov-navy);
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.dmb-qa-box p {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1.2rem;
+}
+
+.dmb-carousel-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.dmb-nav-btn {
+    padding: 0.6rem 1.2rem;
+    background: #f1f5f9;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-weight: 800;
+    color: var(--gov-navy);
+    cursor: pointer;
+}
+.dmb-nav-btn:hover {
+    background: #e2e8f0;
+}
+
+.dmb-thumbnails-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
-.dmb-card-thumb {
-    background: white;
-    border-radius: 14px;
+.dmb-thumb-item {
+    background: #ffffff;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
     overflow: hidden;
     cursor: pointer;
-    border: 2px solid var(--card-border);
-    transition: transform 0.2s;
+    transition: var(--transition-fast);
 }
 
-.dmb-card-thumb:hover {
-    transform: scale(1.03);
-    border-color: var(--accent-gold);
+.dmb-thumb-item:hover, .dmb-thumb-item.active {
+    border-color: var(--gov-navy);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
-.dmb-card-thumb img {
+/* Caregiver Profile Card in Top Strip */
+.cg-caregiver-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: #f8fafc;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 0.65rem 1.1rem;
+    transition: all 0.25s ease;
+}
+
+.cg-caregiver-card:hover {
+    border-color: var(--gov-saffron);
+    background: #fffdfa;
+    box-shadow: var(--shadow-sm);
+}
+
+.cg-avatar-wrapper {
+    position: relative;
+    cursor: pointer;
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+}
+
+.cg-caregiver-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2.5px solid var(--gov-saffron);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--gov-navy);
+    font-size: 1.6rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.cg-caregiver-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cg-avatar-wrapper:hover .cg-caregiver-avatar {
+    transform: scale(1.05);
+}
+
+.cg-camera-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background: var(--gov-navy);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.cg-caregiver-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cg-role-pill {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--gov-saffron-dark);
+    font-weight: 800;
+}
+
+.cg-caregiver-info strong {
+    font-size: 0.96rem;
+    color: var(--gov-navy);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.btn-cg-photo {
+    background: transparent;
+    border: 1px dashed var(--gov-saffron);
+    color: var(--gov-saffron-dark);
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 3px;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+.btn-cg-photo:hover {
+    background: var(--gov-saffron);
+    color: #ffffff;
+    border-style: solid;
+}
+
+.family-avatar-placeholder {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    border-radius: 50%;
+    border: 2.5px dashed var(--gov-saffron);
+    background: #fff7ed;
+    color: #c2410c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.btn-add-member-photo-mini {
+    background: #fff7ed;
+    color: #c2410c;
+    border: 1.5px dashed #ea580c;
+    border-radius: 6px;
+    padding: 2px 7px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.btn-add-member-photo-mini:hover {
+    background: #ea580c;
+    color: #ffffff;
+    border-style: solid;
+}
+
+.dmb-thumb-item img {
     width: 100%;
     height: 120px;
     object-fit: cover;
 }
 
 .dmb-thumb-body {
-    padding: 0.8rem;
+    padding: 0.75rem;
+}
+.dmb-thumb-body h4 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--gov-navy);
+}
+.dmb-thumb-body p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
 }
 
-/* Music Memory Player */
-.music-player-box {
-    text-align: center;
-    background: rgba(255,255,255,0.5);
-    padding: 2rem;
-    border-radius: 20px;
-    margin-top: 1rem;
+/* ==========================================================================
+   10. REMINDERS & HEALTH CHECKLIST
+   ========================================================================== */
+.reminders-gov-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
 }
 
-.music-icon-pulse {
-    width: 80px;
-    height: 80px;
+.reminder-gov-item {
+    background: #ffffff;
+    border: 1.5px solid var(--border-color);
+    border-left: 6px solid var(--gov-navy);
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.reminder-gov-item.completed {
+    border-left-color: #16a34a;
+    background: #f0fdf4;
+}
+
+.reminder-gov-item.completed h4 {
+    text-decoration: line-through;
+    color: #64748b;
+}
+
+.reminder-info h4 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--gov-navy);
+    margin-bottom: 0.3rem;
+}
+
+.reminder-info p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+.reminder-action-btn {
+    padding: 0.65rem 1.4rem;
+    font-size: 1rem;
+    font-weight: 800;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--gov-navy);
+    background: #ffffff;
+    color: var(--gov-navy);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.reminder-action-btn:hover {
+    background: var(--gov-navy);
+    color: #ffffff;
+}
+
+.reminder-gov-item.completed .reminder-action-btn {
+    border-color: #16a34a;
+    background: #16a34a;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   11. CAREGIVER MONITORING DASHBOARD
+   ========================================================================== */
+.cg-patient-strip {
+    background: #ffffff;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.cg-profile-details {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.cg-profile-avatar {
+    width: 68px;
+    height: 68px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #ec4899, #d946ef);
-    color: white;
-    font-size: 2.5rem;
+    object-fit: cover;
+    border: 3px solid var(--gov-navy);
+}
+
+.cg-patient-strip h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--gov-navy);
+}
+
+.cg-patient-strip p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.cg-score-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cg-circle-score {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gov-navy);
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1rem auto;
-    box-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
+    box-shadow: var(--shadow-md);
 }
 
-.music-btn-row {
+/* Patient Profile Card in Top Strip */
+.cg-patient-card {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 1rem;
+    align-items: center;
+    gap: 0.9rem;
+    background: #f8fafc;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 0.65rem 1.1rem;
+    transition: all 0.25s ease;
 }
 
-.btn-music-ans {
-    padding: 0.8rem 1.4rem;
-    font-size: 1.1rem;
-    font-weight: 800;
-    border: 2px solid var(--accent-blue);
-    border-radius: 14px;
-    background: white;
-    cursor: pointer;
+.cg-patient-card:hover {
+    border-color: #0284c7;
+    background: #f0f9ff;
+    box-shadow: var(--shadow-sm);
 }
 
-/* Family Connect Feed */
-.family-feed {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.family-post-card {
-    background: white;
-    padding: 1.2rem;
-    border-radius: 16px;
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    border-left: 5px solid var(--accent-gold);
-}
-
-.family-post-avatar {
-    width: 60px;
-    height: 60px;
+.cg-patient-avatar {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
+    background: #ffffff;
+    border: 2.5px solid #0284c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #0369a1;
+    font-size: 1.6rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.cg-patient-avatar img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-.voice-reply-btn {
-    margin-top: 0.8rem;
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-    font-weight: 800;
-    background: #dcfce7;
-    color: #15803d;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
+.cg-avatar-wrapper:hover .cg-patient-avatar {
+    transform: scale(1.05);
 }
 
-/* Daily Mood Emoji Check-In */
-.emoji-buttons-grid {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin: 2rem 0;
-}
-
-.emoji-btn {
+.cg-patient-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1.2rem 1.5rem;
-    background: white;
-    border: 3px solid var(--card-border);
-    border-radius: 20px;
+    gap: 2px;
+}
+
+.btn-patient-photo {
+    background: transparent;
+    border: 1px dashed #0284c7;
+    color: #0369a1;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.76rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: transform 0.2s, border-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 3px;
+    transition: all 0.2s ease;
+    align-self: flex-start;
 }
 
-.emoji-btn:hover {
-    transform: scale(1.1);
-    border-color: var(--accent-blue);
+.btn-patient-photo:hover {
+    background: #0284c7;
+    color: #ffffff;
+    border-style: solid;
 }
 
-.emoji-btn .e-icon {
-    font-size: 3rem;
+/* Caregiver Profile Card in Top Strip with Add Photo */
+.cg-caregiver-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: #f8fafc;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 0.65rem 1.1rem;
+    transition: all 0.25s ease;
 }
 
-.emoji-btn .e-label {
-    font-size: 1.1rem;
+.cg-caregiver-card:hover {
+    border-color: var(--gov-saffron);
+    background: #fffdfa;
+    box-shadow: var(--shadow-sm);
+}
+
+.cg-avatar-wrapper {
+    position: relative;
+    cursor: pointer;
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+}
+
+.cg-caregiver-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2.5px solid var(--gov-saffron);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--gov-navy);
+    font-size: 1.6rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.cg-caregiver-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cg-avatar-wrapper:hover .cg-caregiver-avatar {
+    transform: scale(1.05);
+}
+
+.cg-camera-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background: var(--gov-navy);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.cg-caregiver-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cg-role-pill {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--gov-saffron-dark);
     font-weight: 800;
 }
 
-/* Caregiver Daily Briefing Card */
-.briefing-card {
-    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-    border: 2px solid #f59e0b;
-    margin-bottom: 1.5rem;
+.cg-caregiver-info strong {
+    font-size: 0.96rem;
+    color: var(--gov-navy);
+    font-weight: 800;
+    line-height: 1.2;
 }
 
-.briefing-header {
+.btn-cg-photo {
+    background: transparent;
+    border: 1.5px dashed var(--gov-saffron);
+    color: var(--gov-saffron-dark);
+    border-radius: 14px;
+    padding: 3px 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 4px;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+.btn-cg-photo:hover {
+    background: var(--gov-saffron);
+    color: #ffffff;
+    border-style: solid;
+}
+
+.family-avatar-placeholder {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    border-radius: 50%;
+    border: 2.5px dashed var(--gov-saffron);
+    background: #fff7ed;
+    color: #c2410c;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
 }
 
-.briefing-sun-icon {
-    font-size: 2.2rem;
-    color: #d97706;
+.btn-add-member-photo-mini {
+    background: #fff7ed;
+    color: #c2410c;
+    border: 1.5px dashed #ea580c;
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-add-member-photo-mini:hover {
+    background: #ea580c;
+    color: #ffffff;
+    border-style: solid;
+}
+
+/* Caregiver Profile Card in Top Strip */
+.cg-caregiver-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: #f8fafc;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 0.65rem 1.1rem;
+    transition: all 0.25s ease;
+}
+
+.cg-caregiver-card:hover {
+    border-color: var(--gov-saffron);
+    background: #fffdfa;
+    box-shadow: var(--shadow-sm);
+}
+
+.cg-avatar-wrapper {
+    position: relative;
+    cursor: pointer;
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+}
+
+.cg-caregiver-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2.5px solid var(--gov-saffron);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--gov-navy);
+    font-size: 1.6rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.cg-caregiver-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cg-avatar-wrapper:hover .cg-caregiver-avatar {
+    transform: scale(1.05);
+}
+
+.cg-camera-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background: var(--gov-navy);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.cg-caregiver-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cg-role-pill {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--gov-saffron-dark);
+    font-weight: 800;
+}
+
+.cg-caregiver-info strong {
+    font-size: 0.96rem;
+    color: var(--gov-navy);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.btn-cg-photo {
+    background: transparent;
+    border: 1px dashed var(--gov-saffron);
+    color: var(--gov-saffron-dark);
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 3px;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+.btn-cg-photo:hover {
+    background: var(--gov-saffron);
+    color: #ffffff;
+    border-style: solid;
+}
+
+.family-avatar-placeholder {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    border-radius: 50%;
+    border: 2.5px dashed var(--gov-saffron);
+    background: #fff7ed;
+    color: #c2410c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.btn-add-member-photo-mini {
+    background: #fff7ed;
+    color: #c2410c;
+    border: 1.5px dashed #ea580c;
+    border-radius: 6px;
+    padding: 2px 7px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.btn-add-member-photo-mini:hover {
+    background: #ea580c;
+    color: #ffffff;
+    border-style: solid;
+}
+
+/* Briefing Alert Card */
+.cg-briefing-alert {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 1.5px solid #fde68a;
+    border-left: 6px solid #d97706;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .briefing-stats-row {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 1rem;
-    background: white;
-    padding: 1rem;
-    border-radius: 14px;
-    margin-bottom: 1rem;
+    margin: 1.2rem 0;
 }
 
-.b-stat .lbl {
+.b-stat-chip {
+    background: #ffffff;
+    border: 1px solid #fcd34d;
+    padding: 0.8rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+.b-stat-chip .lbl {
+    font-size: 0.78rem;
+    color: #78350f;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.b-stat-chip strong {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #92400e;
     display: block;
-    font-size: 0.8rem;
-    color: #64748b;
-    font-weight: 700;
+    margin-top: 0.2rem;
 }
 
-.b-stat strong {
-    font-size: 1.2rem;
-    color: #0f172a;
+.cg-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 1.5rem;
 }
 
-.briefing-alert-line {
-    padding: 0.8rem 1rem;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 1.05rem;
-    margin-bottom: 1rem;
-    background: #fee2e2;
-    color: #b91c1c;
-}
-
-.briefing-rec-box {
-    background: rgba(255,255,255,0.7);
-    padding: 0.8rem 1rem;
-    border-radius: 10px;
-    font-size: 1.05rem;
-}
-
-.care-circle-grid {
+/* Metric Bars */
+.metric-row {
     display: flex;
+    align-items: center;
     gap: 1rem;
+    margin: 0.85rem 0;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.metric-label {
+    width: 160px;
+    color: var(--text-secondary);
+}
+
+.progress-track-gov {
+    flex: 1;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-fill-gov {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gov-navy) 0%, var(--gov-navy-light) 100%);
+    border-radius: var(--radius-full);
+    transition: width 0.4s ease;
+}
+
+/* Care Circle Interactive Chips */
+.care-circle-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.8rem;
+}
+
+.circle-chip-card {
+    background: #f8fafc;
+    border: 1.5px solid var(--border-color);
+    padding: 0.9rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.circle-chip-card:hover, .circle-chip-card.active {
+    border-color: var(--gov-navy);
+    background: #ffffff;
+    box-shadow: var(--shadow-sm);
+}
+
+.circle-chip-card strong {
+    display: block;
+    color: var(--gov-navy);
+    font-size: 0.98rem;
+}
+
+.circle-chip-card span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   12. DOCTOR & CLINICAL HEALTHCARE PORTAL
+   ========================================================================== */
+.doc-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.doc-stat-card {
+    background: #f8fafc;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.doc-stat-card .num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--gov-navy);
+    line-height: 1.1;
+}
+
+.doc-stat-card .label {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-top: 0.3rem;
+}
+
+.doc-table-wrap {
+    overflow-x: auto;
     margin-top: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
 }
 
-.role-chip {
-    padding: 0.8rem 1.2rem;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.6);
-    border: 2px solid var(--card-border);
+.gov-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    text-align: left;
 }
 
-.role-chip.active {
-    border-color: var(--accent-blue);
-    background: #dbeafe;
+.gov-data-table th {
+    background: var(--gov-navy);
+    color: #ffffff;
+    padding: 0.85rem 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--gov-navy-dark);
 }
 
-/* Modals */
-.modal-backdrop {
+.gov-data-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.gov-data-table tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.gov-data-table tr:hover {
+    background: #f1f5f9;
+}
+
+.export-pdf-btn {
+    padding: 0.65rem 1.3rem;
+    background: #047857;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-fast);
+}
+
+.export-pdf-btn:hover {
+    background: #065f46;
+}
+
+/* ==========================================================================
+   13. GOVERNMENT SCHEMES & RESOURCES VIEW
+   ========================================================================== */
+.schemes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.2rem;
+}
+
+.scheme-card {
+    background: #ffffff;
+    border: 1.5px solid var(--border-color);
+    border-top: 5px solid var(--gov-navy);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+}
+
+.scheme-card h3 {
+    font-size: 1.2rem;
+    color: var(--gov-navy);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.scheme-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+}
+
+.scheme-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   14. OFFICIAL MODALS & DRAWERS (Accessible, Backdrop Dismissible)
+   ========================================================================== */
+.gov-modal-backdrop {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(8px);
-    z-index: 999;
+    background: rgba(6, 21, 41, 0.75);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
 }
 
-.modal-backdrop.active {
+.gov-modal-backdrop.active {
     display: flex;
+    animation: fadeIn 0.2s ease;
 }
 
-.modal-card {
-    background: white;
-    width: 90%;
-    max-width: 650px;
-    border-radius: 20px;
-    padding: 1.8rem;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+.gov-modal-dialog {
+    background: #ffffff;
+    border: 2px solid var(--gov-navy);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    flex-direction: column;
 }
 
-.modal-header {
+.gov-modal-header {
+    background: var(--gov-navy);
+    color: #ffffff;
+    padding: 1rem 1.4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.2rem;
-    border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 0.8rem;
 }
 
-.modal-close {
+.gov-modal-header h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.gov-modal-close {
     background: transparent;
     border: none;
-    font-size: 2rem;
+    color: #ffffff;
+    font-size: 1.6rem;
+    line-height: 1;
     cursor: pointer;
-    color: #64748b;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+.gov-modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
-.ai-brain-box h4 {
-    color: var(--accent-blue);
+.gov-modal-body {
+    padding: 1.5rem;
+    color: var(--text-primary);
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.gov-modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    background: #f8fafc;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+}
+
+.lang-chip-btn {
+    background: #e2e8f0;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.lang-chip-btn:hover {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #1d4ed8;
+}
+
+
+/* Form Styles inside Modals */
+.gov-form-group {
     margin-bottom: 1rem;
 }
 
-.ai-checklist {
-    list-style: none;
-    margin-bottom: 1.5rem;
-}
-
-.ai-checklist li {
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
+.gov-form-group label {
+    display: block;
+    font-size: 0.88rem;
     font-weight: 700;
+    color: var(--gov-navy);
+    margin-bottom: 0.35rem;
 }
 
-.text-green { color: var(--accent-green); }
-.text-red { color: var(--accent-red); }
-
-.ai-decision-box {
-    background: #f8fafc;
-    border: 2px solid #e2e8f0;
-    padding: 1rem;
-    border-radius: 12px;
-}
-
-.dec-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.05rem;
-    margin: 0.4rem 0;
-    font-weight: 700;
-}
-
-.ner-states-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-    margin-top: 1rem;
-}
-
-.state-chip {
-    background: #f1f5f9;
-    padding: 0.8rem;
-    border-radius: 10px;
-    font-weight: 700;
-}
-
-.sat-flow {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.sat-step {
+.gov-input, .gov-select, .gov-textarea {
     width: 100%;
-    padding: 0.8rem;
-    background: #f1f5f9;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: 800;
+    padding: 0.65rem 0.85rem;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: #ffffff;
+    outline: none;
 }
 
-.sat-step.gold {
-    background: #fef3c7;
-    border: 2px solid #f59e0b;
-    color: #b45309;
+.gov-input:focus, .gov-select:focus, .gov-textarea:focus {
+    border-color: var(--gov-navy);
+    box-shadow: 0 0 0 3px rgba(11, 37, 69, 0.15);
 }
 
-.privacy-list li {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid #e2e8f0;
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
-.offline-status-box .checklist {
-    margin: 1rem 0;
-    font-size: 1.05rem;
-    line-height: 1.8;
-}
-
-.sync-queue-info {
-    font-size: 1.15rem;
-    font-weight: 800;
-    margin: 1rem 0;
-}
-
-.sync-progress-bar-wrap {
-    margin: 1rem 0;
-}
-
-.progress-track {
-    height: 12px;
-    background: #e2e8f0;
-    border-radius: 6px;
-    overflow: hidden;
-    margin-top: 0.4rem;
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #10b981, #059669);
-    transition: width 0.3s ease;
-}
-
-.toggle-net-btn {
-    width: 100%;
-    padding: 0.9rem;
-    font-weight: 800;
+.btn-primary-gov {
+    padding: 0.65rem 1.3rem;
+    background: var(--gov-navy);
+    color: #ffffff;
     border: none;
-    border-radius: 12px;
-    background: var(--accent-blue);
-    color: white;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
     cursor: pointer;
-    margin-top: 1rem;
+}
+.btn-primary-gov:hover {
+    background: var(--gov-navy-light);
+}
+
+.btn-secondary-gov {
+    padding: 0.65rem 1.1rem;
+    background: #e2e8f0;
+    color: var(--gov-navy);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    cursor: pointer;
+}
+.btn-secondary-gov:hover {
+    background: #cbd5e1;
+}
+
+/* ==========================================================================
+   15. GOVERNMENT OFFICIAL FOOTER
+   ========================================================================== */
+.gov-footer {
+    background: #061529;
+    color: #94a3b8;
+    margin-top: 3rem;
+    border-top: 4px solid var(--gov-saffron);
+}
+
+.gov-footer-top {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 1.5rem 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 2rem;
+}
+
+.footer-col h4 {
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--gov-saffron);
+    padding-bottom: 0.4rem;
+    display: inline-block;
+}
+
+.footer-col p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+}
+
+.footer-links-list {
+    list-style: none;
+}
+.footer-links-list li {
+    margin-bottom: 0.5rem;
+}
+.footer-links-list a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: var(--transition-fast);
+}
+.footer-links-list a:hover {
+    color: var(--gov-saffron);
+    text-decoration: underline;
+}
+
+.gov-footer-bottom {
+    background: #030b14;
+    padding: 1.2rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gov-footer-bottom-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Toast Notifications */
+.gov-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--gov-navy);
+    color: #ffffff;
+    border-left: 5px solid var(--gov-saffron);
+    padding: 1rem 1.4rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xl);
+    z-index: 9999;
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gov-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ==========================================================================
+   16. RESPONSIVE DESIGN (Tablets & Mobile)
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .elderly-main-grid {
+        grid-template-columns: 1fr;
+    }
+    .gov-footer-top {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .gov-top-strip, .gov-main-header, .gov-navbar, .main-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .gov-header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+    
+    .brand-title-en {
+        font-size: 1.35rem;
+    }
+    
+    .header-gov-badges {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .gov-navbar-inner {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.5rem 0;
+    }
+    
+    .main-portal-tabs {
+        width: 100%;
+    }
+    
+    .portal-nav-btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.88rem;
+    }
+    
+    .nav-actions-group {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 0.4rem;
+    }
+    
+    .cg-patient-strip {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .gov-footer-top {
+        grid-template-columns: 1fr;
+    }
 }

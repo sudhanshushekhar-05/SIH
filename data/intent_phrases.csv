@@ -1,0 +1,303 @@
+phrase,intent
+मेरी दवाई कब है?,MEDICINE_REMINDER
+दवाई का समय क्या है?,MEDICINE_REMINDER
+क्या मुझे दवाई लेनी है?,MEDICINE_REMINDER
+सुबह की गोली कब खानी है?,MEDICINE_REMINDER
+दवा की याद दिलाओ,MEDICINE_REMINDER
+आज की दवाई बाकी है क्या?,MEDICINE_REMINDER
+दवा खाने का वक्त हो गया क्या?,MEDICINE_REMINDER
+शाम की गोली कब लेनी है?,MEDICINE_REMINDER
+दवाइयों का टाइम टेबल बताओ,MEDICINE_REMINDER
+बीपी की गोली का समय,MEDICINE_REMINDER
+शुगर की दवा कब लेनी है?,MEDICINE_REMINDER
+रात की खुराक कब खानी है?,MEDICINE_REMINDER
+मेरी दवाइयां दिखाओ,MEDICINE_REMINDER
+क्या मैंने दवा ले ली?,MEDICINE_REMINDER
+दवा का अलार्म लगाओ,MEDICINE_REMINDER
+दवा लेने का समय स्मरण कराएं,MEDICINE_REMINDER
+मुझे गोली खानी है,MEDICINE_REMINDER
+आज की गोलियां कौन सी हैं?,MEDICINE_REMINDER
+meri dawai kab hai,MEDICINE_REMINDER
+dawa ka time kya hai,MEDICINE_REMINDER
+kya mujhe dawai leni hai,MEDICINE_REMINDER
+subah ki goli kab khani hai,MEDICINE_REMINDER
+dawa yaad dilao,MEDICINE_REMINDER
+goli lene ka time ho gaya,MEDICINE_REMINDER
+aaj ki dawa baki hai kya,MEDICINE_REMINDER
+medicine ka time batao,MEDICINE_REMINDER
+dawai lene ka waqt,MEDICINE_REMINDER
+shaam ki goli,MEDICINE_REMINDER
+bp ki dawai kab leni hai,MEDICINE_REMINDER
+dawa khane ka time,MEDICINE_REMINDER
+dawai li ya nahi,MEDICINE_REMINDER
+aaj ki dawaiyan,MEDICINE_REMINDER
+pill lene ka reminder,MEDICINE_REMINDER
+When is my medicine?,MEDICINE_REMINDER
+What time do I take my pill?,MEDICINE_REMINDER
+Remind me about my medication,MEDICINE_REMINDER
+Is it time for blood pressure medicine?,MEDICINE_REMINDER
+When should I take my morning pills?,MEDICINE_REMINDER
+Do I have any medications pending today?,MEDICINE_REMINDER
+Medication reminder please,MEDICINE_REMINDER
+What time is my evening tablet?,MEDICINE_REMINDER
+Have I taken my sugar pills today?,MEDICINE_REMINDER
+Show my medication schedule,MEDICINE_REMINDER
+Is my dose due now?,MEDICINE_REMINDER
+Medicine alert,MEDICINE_REMINDER
+Check my prescription timings,MEDICINE_REMINDER
+Time for my tablets,MEDICINE_REMINDER
+Did I miss any pills today?,MEDICINE_REMINDER
+मुझे पानी पीना है,HYDRATION
+पानी पीने का समय कब है?,HYDRATION
+मुझे प्यास लगी है,HYDRATION
+क्या मुझे पानी पीना चाहिए?,HYDRATION
+एक गिलास पानी लाओ,HYDRATION
+पानी पीने की याद दिलाओ,HYDRATION
+आज मैंने कितना पानी पिया?,HYDRATION
+पानी का घूंट लेना है,HYDRATION
+थोड़ा सा ताजा पानी दो,HYDRATION
+पानी का समय हो गया क्या?,HYDRATION
+गले में सूखापन है पानी पीना है,HYDRATION
+पानी का अलार्म,HYDRATION
+जल ग्रहण का समय,HYDRATION
+मुझे प्यास महसूस हो रही है,HYDRATION
+साफ पीने का पानी,HYDRATION
+paani peena hai,HYDRATION
+pani kab piyu,HYDRATION
+mujhe pyaas lagi hai,HYDRATION
+pani peene ka time,HYDRATION
+ek glass pani chahiye,HYDRATION
+pani pina hai,HYDRATION
+aaj kitna pani piya,HYDRATION
+thoda paani do,HYDRATION
+pyas lag rahi hai,HYDRATION
+water peene ka reminder,HYDRATION
+pani ka glass,HYDRATION
+pani ka reminder lagao,HYDRATION
+I need to drink water,HYDRATION
+When should I drink water?,HYDRATION
+Hydration reminder please,HYDRATION
+Have I had enough water today?,HYDRATION
+I feel thirsty,HYDRATION
+Remind me to drink water,HYDRATION
+Can I have a glass of water?,HYDRATION
+Is it time for a water break?,HYDRATION
+Track my water intake,HYDRATION
+I need some fresh water,HYDRATION
+Time for hydration,HYDRATION
+Bring me a cup of water,HYDRATION
+Water reminder now,HYDRATION
+How many glasses of water have I had?,HYDRATION
+Drink some water,HYDRATION
+मेमोरी गेम शुरू करो,START_GAME
+कोई खेल खेलें,START_GAME
+बाज़ार वाला खेल खेलना है,START_GAME
+विलेज मार्केट गेम लगाओ,START_GAME
+दिमागी कसरत वाला खेल,START_GAME
+नया गेम चालू करो,START_GAME
+याददाश्त का खेल खेलना है,START_GAME
+कार्ड मिलान का खेल लगाओ,START_GAME
+दिमाग की परीक्षा वाला गेम,START_GAME
+चलो एक खेल खेलते हैं,START_GAME
+मुझे खेल पसंद है शुरू करो,START_GAME
+पहेली खेल चालू करें,START_GAME
+आसान गेम शुरू करो,START_GAME
+कठिन खेल खेलना चाहता हूँ,START_GAME
+मस्तिष्क संवर्धन खेल,START_GAME
+khel shuru karo,START_GAME
+game khelna hai,START_GAME
+memory game chalu karo,START_GAME
+market wala game lagao,START_GAME
+koi game khelen,START_GAME
+village market game,START_GAME
+dimag ka khel,START_GAME
+khelna chahta hu,START_GAME
+game play karo,START_GAME
+chalo game khelein,START_GAME
+brain exercise game,START_GAME
+card matching game chalu karo,START_GAME
+khel shuru kijiye,START_GAME
+Start a cognitive game,START_GAME
+Play the village market challenge,START_GAME
+Let's play memory game,START_GAME
+Open brain games,START_GAME
+Start memory cards challenge,START_GAME
+I want to play a game,START_GAME
+Launch cognitive exercise,START_GAME
+Play village market game,START_GAME
+Start pattern recall,START_GAME
+Begin a new puzzle session,START_GAME
+Can we play a brain game?,START_GAME
+Play the market game,START_GAME
+Open cognitive puzzles,START_GAME
+Start memory match,START_GAME
+Let us play a game now,START_GAME
+आज क्या करना है?,DAILY_ROUTINE
+आज की दिनचर्या क्या है?,DAILY_ROUTINE
+मेरा आज का शेड्यूल बताओ,DAILY_ROUTINE
+दिन भर का कार्यक्रम क्या है?,DAILY_ROUTINE
+आज का प्लान क्या है?,DAILY_ROUTINE
+दोपहर में क्या करना है?,DAILY_ROUTINE
+सुबह की सैर का समय,DAILY_ROUTINE
+आज की गतिविधियां बताओ,DAILY_ROUTINE
+आज का टाइम टेबल क्या है?,DAILY_ROUTINE
+दैनिक कार्य सूची दिखाओ,DAILY_ROUTINE
+आज कौन सा दिन और तारीख है?,DAILY_ROUTINE
+दिनचर्या की जानकारी,DAILY_ROUTINE
+शाम को क्या कार्यक्रम है?,DAILY_ROUTINE
+आज के मुख्य काम,DAILY_ROUTINE
+दिन का विवरण दो,DAILY_ROUTINE
+aaj kya karna hai,DAILY_ROUTINE
+routine kya hai aaj ka,DAILY_ROUTINE
+schedule batao aaj ka,DAILY_ROUTINE
+aaj ka program kya hai,DAILY_ROUTINE
+aaj ka plan kya hai,DAILY_ROUTINE
+din bhar ka schedule,DAILY_ROUTINE
+aaj kya kya activities hain,DAILY_ROUTINE
+mera time table,DAILY_ROUTINE
+aaj ke tasks,DAILY_ROUTINE
+subah se sham ka schedule,DAILY_ROUTINE
+aaj ki dincharya,DAILY_ROUTINE
+daily routine bataiye,DAILY_ROUTINE
+What is my schedule today?,DAILY_ROUTINE
+Tell me my daily routine,DAILY_ROUTINE
+What should I do this afternoon?,DAILY_ROUTINE
+What are my activities today?,DAILY_ROUTINE
+Show my daily planner,DAILY_ROUTINE
+What is planned for today?,DAILY_ROUTINE
+What day and date is it today?,DAILY_ROUTINE
+Give me my schedule for the morning,DAILY_ROUTINE
+What is on my agenda today?,DAILY_ROUTINE
+Daily task list,DAILY_ROUTINE
+What are my events today?,DAILY_ROUTINE
+Show my morning routine,DAILY_ROUTINE
+What activities are scheduled?,DAILY_ROUTINE
+Today's itinerary,DAILY_ROUTINE
+Review today's plan,DAILY_ROUTINE
+मेरी बेटी का नाम क्या है?,FAMILY_MEMORY
+मेरी बेटी की फोटो दिखाओ,FAMILY_MEMORY
+अनन्या कौन है?,FAMILY_MEMORY
+मेरे परिवार की तस्वीरें दिखाओ,FAMILY_MEMORY
+मेरे बेटे राहुल की यादें,FAMILY_MEMORY
+मेरा पोता कैसा है?,FAMILY_MEMORY
+हमारे पुराने घर की फोटो,FAMILY_MEMORY
+मेरी पत्नी की तस्वीर दिखाओ,FAMILY_MEMORY
+पारिवारिक एल्बम खोलो,FAMILY_MEMORY
+मेरे बच्चों के नाम क्या हैं?,FAMILY_MEMORY
+मेरी शादी की फोटो दिखाओ,FAMILY_MEMORY
+अनन्या का जन्मदिन कब है?,FAMILY_MEMORY
+परिवार के सदस्यों की यादें,FAMILY_MEMORY
+राहुल कहां रहता है?,FAMILY_MEMORY
+मेरे रिश्तेदार कौन हैं?,FAMILY_MEMORY
+meri beti ka naam kya hai,FAMILY_MEMORY
+family photos dikhao,FAMILY_MEMORY
+ananya kaun hai,FAMILY_MEMORY
+meri beti ananya ki photo,FAMILY_MEMORY
+bete rahul ki photo,FAMILY_MEMORY
+parivar ki yaadein,FAMILY_MEMORY
+purani photos dikhao,FAMILY_MEMORY
+meri family album,FAMILY_MEMORY
+ananya ki photo dikhao,FAMILY_MEMORY
+mere bachhe kahan hain,FAMILY_MEMORY
+family pictures dekhna hai,FAMILY_MEMORY
+meri beti ke baare me batao,FAMILY_MEMORY
+What is my daughter's name?,FAMILY_MEMORY
+Show me photos of my family,FAMILY_MEMORY
+Who is Ananya?,FAMILY_MEMORY
+Show my grandchildren pictures,FAMILY_MEMORY
+Where does my son Rahul live?,FAMILY_MEMORY
+Open family album,FAMILY_MEMORY
+Show photos of my wife,FAMILY_MEMORY
+Tell me about my grandchildren,FAMILY_MEMORY
+Who are the people in this picture?,FAMILY_MEMORY
+Show old family memories,FAMILY_MEMORY
+What is my son's profession?,FAMILY_MEMORY
+Pictures of Ananya and Rahul,FAMILY_MEMORY
+Can I see our ancestral home pictures?,FAMILY_MEMORY
+Show my daughter's picture,FAMILY_MEMORY
+Family photo gallery,FAMILY_MEMORY
+गाना सुनाओ,MUSIC_REMINISCENCE
+बिहू का संगीत बजाओ,MUSIC_REMINISCENCE
+बांसुरी की धुन सुनाओ,MUSIC_REMINISCENCE
+पुराने लोकगीत सुनना है,MUSIC_REMINISCENCE
+शास्त्रीय संगीत लगाओ,MUSIC_REMINISCENCE
+आसमिया लोकगीत बजाएं,MUSIC_REMINISCENCE
+मधुर धुन सुनाओ,MUSIC_REMINISCENCE
+शांतिदायक संगीत चालू करो,MUSIC_REMINISCENCE
+पुराने भजन सुनाओ,MUSIC_REMINISCENCE
+रेडियो पर संगीत चलाओ,MUSIC_REMINISCENCE
+बांसुरी वादन सुनाइए,MUSIC_REMINISCENCE
+मनपसंद गाना बजाओ,MUSIC_REMINISCENCE
+शाम का संगीत चालू करें,MUSIC_REMINISCENCE
+सुरीली आवाज में गाना,MUSIC_REMINISCENCE
+शांति देने वाला गीत,MUSIC_REMINISCENCE
+gaana bajao,MUSIC_REMINISCENCE
+music sunao,MUSIC_REMINISCENCE
+bihu ka music bajao,MUSIC_REMINISCENCE
+bansuri ki dhun,MUSIC_REMINISCENCE
+purane gaane sunao,MUSIC_REMINISCENCE
+classical music lagao,MUSIC_REMINISCENCE
+bina gaana bajao,MUSIC_REMINISCENCE
+kuch music play karo,MUSIC_REMINISCENCE
+bhajan sunao,MUSIC_REMINISCENCE
+song sunna hai,MUSIC_REMINISCENCE
+traditional music bajao,MUSIC_REMINISCENCE
+relaxing music chalu karo,MUSIC_REMINISCENCE
+gaane play kijiye,MUSIC_REMINISCENCE
+Play some traditional music,MUSIC_REMINISCENCE
+Play Bihu flute melody,MUSIC_REMINISCENCE
+I want to listen to folk music,MUSIC_REMINISCENCE
+Play old classical songs,MUSIC_REMINISCENCE
+Start relaxing instrumental tunes,MUSIC_REMINISCENCE
+Play devotional songs,MUSIC_REMINISCENCE
+Can you play Assam folk music?,MUSIC_REMINISCENCE
+Play some calming melodies,MUSIC_REMINISCENCE
+I want to hear flute music,MUSIC_REMINISCENCE
+Put on some gentle music,MUSIC_REMINISCENCE
+Play soothing traditional songs,MUSIC_REMINISCENCE
+Start music player,MUSIC_REMINISCENCE
+Play retro melodies,MUSIC_REMINISCENCE
+Acoustic folk music please,MUSIC_REMINISCENCE
+Play serene tunes,MUSIC_REMINISCENCE
+आज मुझे अच्छा लग रहा है,MOOD_CHECKIN
+आज बहुत उदास हूँ,MOOD_CHECKIN
+थोड़ी थकान महसूस हो रही है,MOOD_CHECKIN
+आज मन खुश है,MOOD_CHECKIN
+मुझे घबराहट हो रही है,MOOD_CHECKIN
+आज बहुत शांति महसूस हो रही है,MOOD_CHECKIN
+मन थोड़ा बेचैन है,MOOD_CHECKIN
+आज बहुत ऊर्जावान लग रहा है,MOOD_CHECKIN
+सिर में थोड़ा भारीपन है,MOOD_CHECKIN
+आज मेरा मूड बहुत अच्छा है,MOOD_CHECKIN
+थोड़ा अकेलापन लग रहा है,MOOD_CHECKIN
+मन प्रसन्न है,MOOD_CHECKIN
+आज थोड़ी चिंता हो रही है,MOOD_CHECKIN
+सब कुछ ठीक लग रहा है,MOOD_CHECKIN
+मन हल्का महसूस हो रहा है,MOOD_CHECKIN
+kaisa lag raha hai,MOOD_CHECKIN
+aaj mood kaisa hai,MOOD_CHECKIN
+aaj achha lag raha hai,MOOD_CHECKIN
+thoda thakan feel ho raha hai,MOOD_CHECKIN
+aaj udass lag raha hai,MOOD_CHECKIN
+mood check karo,MOOD_CHECKIN
+aaj bahut khush hu,MOOD_CHECKIN
+bechaini ho rahi hai,MOOD_CHECKIN
+sab theek hai aaj,MOOD_CHECKIN
+feeling good today,MOOD_CHECKIN
+thoda relax feel kar raha hu,MOOD_CHECKIN
+aaj thoda low feel ho raha hai,MOOD_CHECKIN
+I am feeling great today,MOOD_CHECKIN
+I feel a little tired,MOOD_CHECKIN
+Feeling restless today,MOOD_CHECKIN
+I feel very happy and cheerful,MOOD_CHECKIN
+I am feeling a bit lonely,MOOD_CHECKIN
+Today I feel peaceful,MOOD_CHECKIN
+I feel anxious this morning,MOOD_CHECKIN
+My mood is calm and serene,MOOD_CHECKIN
+I am having a wonderful day,MOOD_CHECKIN
+Feeling a little confused,MOOD_CHECKIN
+How is my mood status?,MOOD_CHECKIN
+I feel relaxed and energized,MOOD_CHECKIN
+I am feeling down today,MOOD_CHECKIN
+Everything feels pleasant today,MOOD_CHECKIN
+I feel good and refreshed,MOOD_CHECKIN
