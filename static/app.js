@@ -29,7 +29,7 @@ const appState = {
     role: 'elderly', // elderly, caregiver, doctor, schemes
     lang: 'en', // Default language is English as requested
     nerMode: true,
-    isOffline: (typeof window !== 'undefined' && window.location && window.location.hostname.endsWith('github.io')), // Self-contained client-side mode on GitHub Pages
+    isOffline: (typeof window !== 'undefined' && window.location && (window.location.hostname.endsWith('github.io') || window.location.hostname.endsWith('netlify.app'))), // Self-contained client-side mode on GitHub Pages and Netlify
     currentDifficulty: 'Medium',
     todayScore: getInitialTodayScore(),
     user_id: 'p001',
