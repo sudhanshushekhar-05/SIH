@@ -3,5 +3,10 @@ title MINDSET-NER Portal Launcher
 echo =========================================================
 echo Starting MINDSET-NER Portal Server (Port 8000)...
 echo =========================================================
-python run.py
+where py >nul 2>nul
+if %errorlevel% == 0 (
+    py run.py
+) else (
+    python run.py
+)
 pause
