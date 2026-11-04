@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0b2545">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>MINDSET-NER | मानसिक स्वास्थ्य एवं संज्ञानात्मक संवर्धन पोर्टल | Government of India</title>
     <meta name="description" content="AI-Based Cognitive Gaming and Memory Assistance Platform for Elderly Dementia Patients in North Eastern Region (SIH26003 - MDoNER & MoHFW)">
     
@@ -19,7 +23,7 @@
     <link rel="alternate icon" type="image/x-icon" href="favicon.ico">
     
     <!-- Official Government Portal Stylesheet -->
-    <link rel="stylesheet" href="style.css?v=2.6">
+    <link rel="stylesheet" href="style.css?v=3.1">
 </head>
 <body>
     <!-- Skip to main content for screen readers (GIGW standard) -->
@@ -966,7 +970,7 @@
                 </div>
 
                 <!-- Two-Column Interactive AI Testing Labs -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.2rem;">
+                <div class="gov-modal-two-col-grid">
                     
                     <!-- Lab 1: Interactive Cognitive Difficulty Simulator -->
                     <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 1.2rem;">
@@ -993,7 +997,7 @@
                                 <input type="range" min="1.0" max="25.0" step="0.5" value="4.5" id="sim-lat-slider" oninput="runAdaptiveSimulation()" style="width: 100%;">
                             </div>
 
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
+                            <div class="gov-modal-form-grid" style="gap: 0.6rem;">
                                 <div>
                                     <label style="display:block; margin-bottom: 3px;">गलतियां (Mistakes):</label>
                                     <select id="sim-mistakes-select" onchange="runAdaptiveSimulation()" class="gov-select" style="font-size: 0.85rem; padding: 6px 8px;">
@@ -1302,7 +1306,7 @@
                     <span style="font-size: 0.8rem; background: #e2e8f0; padding: 4px 8px; border-radius: 4px; font-weight: 700;">CONFIDENTIAL</span>
                 </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; font-size: 0.92rem; margin-bottom: 1.2rem;">
+                <div class="gov-modal-info-grid" style="font-size: 0.92rem; margin-bottom: 1.2rem;">
                     <div><strong>Patient Name:</strong> Ramesh Sharma</div>
                     <div><strong>Patient ID:</strong> #p001 (Guwahati, Assam)</div>
                     <div><strong>Age / Gender:</strong> 74 Years / Male</div>
@@ -1394,7 +1398,7 @@
                         <input type="text" id="modal-family-name" class="gov-input" placeholder="उदा. सुनीता शर्मा / विक्रम / रिया" required>
                     </div>
 
-                    <div class="gov-form-group" style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
+                    <div class="gov-form-group gov-modal-form-grid">
                         <div>
                             <label>मरीज से संबंध (Relationship) *</label>
                             <select id="modal-family-relation" class="gov-select" required>
@@ -1606,7 +1610,7 @@
     </div>
 
     <!-- Multilingual Translations and Application Engine -->
-    <script src="translations.js?v=2.6"></script>
-    <script src="app.js?v=2.6"></script>
+    <script src="translations.js?v=3.1"></script>
+    <script src="app.js?v=3.1"></script>
 </body>
 </html>

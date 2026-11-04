@@ -142,17 +142,26 @@ body.theme-high-contrast .game-play-action-btn {
     font-weight: 900 !important;
 }
 
-/* Base Styles */
-* {
+/* Base Styles & Universal Fluid Foundations */
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html {
     font-size: var(--base-font-size);
     scroll-behavior: smooth;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -161,8 +170,18 @@ body {
     font-family: var(--font-body);
     line-height: 1.5;
     min-height: 100vh;
+    min-height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
+    padding-top: env(safe-area-inset-top, 0);
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    padding-left: env(safe-area-inset-left, 0);
+    padding-right: env(safe-area-inset-right, 0);
+}
+
+img, svg, video, canvas, audio {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Skip link for accessibility */
@@ -970,7 +989,7 @@ body {
 /* Elderly Grid Layout */
 .elderly-main-grid {
     display: grid;
-    grid-template-columns: 370px 1fr;
+    grid-template-columns: minmax(300px, 370px) minmax(0, 1fr);
     gap: 1.5rem;
     align-items: start;
 }
@@ -1328,7 +1347,7 @@ body {
 
 .elderly-subtab-btn {
     flex: 1;
-    min-width: 140px;
+    min-width: min(100%, 120px);
     padding: 0.85rem 0.6rem;
     border: none;
     border-radius: var(--radius-md);
@@ -1451,7 +1470,7 @@ body {
    ========================================================================== */
 .games-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
     gap: 1.2rem;
 }
 
@@ -1632,7 +1651,8 @@ body {
     border-radius: var(--radius-lg);
     color: var(--gov-navy);
     cursor: pointer;
-    min-width: 200px;
+    min-width: min(100%, 180px);
+    width: auto;
     box-shadow: var(--shadow-sm);
     transition: var(--transition-fast);
 }
@@ -1911,7 +1931,7 @@ body {
 
 .dmb-thumbnails-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 160px), 1fr));
     gap: 1rem;
     margin-top: 1.5rem;
 }
@@ -2618,7 +2638,7 @@ body {
 
 .briefing-stats-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 120px), 1fr));
     gap: 1rem;
     margin: 1.2rem 0;
 }
@@ -2646,7 +2666,7 @@ body {
 
 .cg-dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
     gap: 1.5rem;
 }
 
@@ -2718,7 +2738,7 @@ body {
    ========================================================================== */
 .doc-stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
     gap: 1rem;
     margin: 1.5rem 0;
 }
@@ -2805,7 +2825,7 @@ body {
    ========================================================================== */
 .schemes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 1.5rem;
     margin-top: 1.2rem;
 }
@@ -2852,8 +2872,10 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(6, 21, 41, 0.75);
     backdrop-filter: blur(4px);
     z-index: 1000;
@@ -2945,7 +2967,28 @@ body {
 }
 
 
-/* Form Styles inside Modals */
+/* Form Styles & Responsive Grids inside Modals */
+.gov-modal-two-col-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1.2rem;
+}
+
+.gov-modal-form-grid,
+.gov-modal-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
+@media (max-width: 600px) {
+    .gov-modal-two-col-grid,
+    .gov-modal-form-grid,
+    .gov-modal-info-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
 .gov-form-group {
     margin-bottom: 1rem;
 }
@@ -3098,65 +3141,1037 @@ body {
 }
 
 /* ==========================================================================
-   16. RESPONSIVE DESIGN (Tablets & Mobile)
+   16. COMPREHENSIVE MULTI-DEVICE RESPONSIVE SYSTEM (GIGW 3.0 & WCAG AAA)
+   Auto-adjusts across: Laptops, Tablets, Large/Small Phones, and Foldables
    ========================================================================== */
-@media (max-width: 1100px) {
-    .elderly-main-grid {
-        grid-template-columns: 1fr;
+
+/* --------------------------------------------------------------------------
+   A. Small Laptops, Netbooks & Tablets Landscape (max-width: 1200px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+    .main-content, .gov-header-inner, .gov-navbar-inner, .gov-top-strip-inner, .gov-bulletin-inner, .gov-footer-top, .gov-footer-bottom-inner {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
     }
+    
+    .elderly-main-grid {
+        grid-template-columns: 310px minmax(0, 1fr);
+        gap: 1.2rem;
+    }
+    
+    .brand-title-en {
+        font-size: 1.45rem;
+    }
+    
+    .cg-dashboard-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+        gap: 1.2rem;
+    }
+    
     .gov-footer-top {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+        gap: 1.5rem;
     }
 }
 
+/* --------------------------------------------------------------------------
+   B. Tablets Landscape & Compact Screens (max-width: 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .elderly-main-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    .asha-voice-panel {
+        padding: 1.2rem;
+    }
+    
+    /* On stacked layout, show quick prompts in a compact responsive grid */
+    .quick-prompt-buttons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0.6rem;
+    }
+    
+    .gov-footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem 1.5rem;
+    }
+    
+    .header-gov-badges {
+        gap: 0.8rem;
+    }
+    
+    .partner-logo-seal {
+        padding-left: 0.8rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   C. Tablets Portrait & Large Mobile / Phablets (max-width: 768px)
+   -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-    .gov-top-strip, .gov-main-header, .gov-navbar, .main-content {
+    /* Global Container Padding */
+    .gov-top-strip, .gov-main-header, .gov-navbar, .main-content, .gov-bulletin-bar {
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+
+    /* 1. Top Strip */
+    .gov-top-strip {
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+    
+    .gov-top-strip-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+    
+    .gov-emblem-text {
+        font-size: 0.78rem;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+    
+    .gov-top-actions {
+        width: 100%;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+    
+    /* 2. Main Header */
+    .gov-main-header {
+        padding: 0.75rem 1rem;
     }
     
     .gov-header-inner {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 0.8rem;
+        align-items: stretch;
+        gap: 0.85rem;
+    }
+    
+    .brand-section {
+        gap: 0.85rem;
+    }
+    
+    .national-emblem-svg {
+        width: 46px;
+        height: 58px;
     }
     
     .brand-title-en {
-        font-size: 1.35rem;
+        font-size: 1.3rem;
+        line-height: 1.2;
+    }
+    
+    .brand-title-hi {
+        font-size: 0.82rem;
+    }
+    
+    .brand-tagline {
+        font-size: 0.76rem;
     }
     
     .header-gov-badges {
         width: 100%;
-        justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.6rem;
+    }
+    
+    .partner-logo-seal {
+        border-left: none;
+        padding-left: 0;
+    }
+    
+    .seal-icon {
+        font-size: 1.8rem;
+    }
+
+    /* 3. Navigation Bar */
+    .gov-navbar {
+        padding: 0 1rem;
     }
     
     .gov-navbar-inner {
         flex-direction: column;
         align-items: stretch;
-        padding: 0.5rem 0;
+        padding: 0.4rem 0;
+        gap: 0.5rem;
     }
     
     .main-portal-tabs {
         width: 100%;
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 2px;
+        scrollbar-width: none;
     }
     
     .portal-nav-btn {
-        padding: 0.75rem 1rem;
-        font-size: 0.88rem;
+        padding: 0.65rem 0.85rem;
+        font-size: 0.86rem;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        white-space: nowrap;
     }
     
     .nav-actions-group {
         width: 100%;
-        overflow-x: auto;
-        padding-bottom: 0.4rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.45rem;
+        overflow-x: visible;
+        padding-bottom: 0.2rem;
     }
     
-    .cg-patient-strip {
+    .tools-quick-btn {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.78rem;
+        flex-shrink: 0;
+    }
+
+    /* 4. Bulletin Marquee */
+    .gov-bulletin-bar {
+        padding: 0.35rem 1rem;
+    }
+    
+    .bulletin-label {
+        font-size: 0.74rem;
+        padding: 0.2rem 0.55rem;
+    }
+    
+    .bulletin-content {
+        font-size: 0.82rem;
+    }
+
+    /* 5. Elderly Journey Banner */
+    .elderly-journey-banner {
+        padding: 1rem 1.1rem;
+        border-left-width: 4px;
+        margin-bottom: 1rem;
+    }
+    
+    .journey-top-row {
         flex-direction: column;
         align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .journey-top-row h3 {
+        font-size: 1.15rem;
+    }
+    
+    .streak-pill {
+        font-size: 0.85rem;
+        padding: 0.25rem 0.75rem;
+    }
+    
+    .journey-nodes-bar {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 0.5rem 0.2rem;
+        width: 100%;
+        gap: 0.2rem;
+    }
+    
+    .j-node .j-circle {
+        width: 38px;
+        height: 38px;
+        font-size: 1.05rem;
+    }
+    
+    .j-node .j-label {
+        font-size: 0.76rem;
+        white-space: nowrap;
+    }
+    
+    .j-track-line {
+        min-width: 20px;
+        margin: 0 0.3rem;
+        margin-bottom: 1.2rem;
+    }
+
+    /* 6. Elderly Subtabs Navigation */
+    .elderly-tabs-strip {
+        padding: 0.4rem;
+        gap: 0.4rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .elderly-subtab-btn {
+        min-width: 110px;
+        padding: 0.7rem 0.5rem;
+        font-size: 0.88rem;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+    }
+    
+    .elderly-subtab-btn i {
+        font-size: 1.15rem;
+    }
+
+    /* 7. Hub Status Header */
+    .hub-status-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.6rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .status-badge {
+        justify-content: center;
+        font-size: 0.88rem;
+    }
+
+    /* 8. Cognitive Games Grid & Arena */
+    .games-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+        gap: 1rem;
+    }
+    
+    .game-hub-card {
+        padding: 1.2rem 1rem;
+    }
+    
+    .active-game-arena-box {
+        padding: 1.2rem 1rem;
+        gap: 1.2rem;
+    }
+    
+    .arena-top-controls {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+    
+    .game-stage-viewport {
+        padding: 1.5rem 1rem;
+        min-height: 220px;
+    }
+    
+    .game-options-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+        gap: 0.75rem;
+        width: 100%;
+    }
+    
+    .game-choice-btn {
+        min-width: 0;
+        width: 100%;
+        padding: 0.9rem 1rem;
+        font-size: 1.1rem;
+    }
+
+    /* 9. Digital Memory Book */
+    .dmb-showcase-card {
+        padding: 1.2rem 1rem;
+    }
+    
+    .dmb-showcase-img {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .dmb-qa-box {
+        padding: 1.1rem;
+    }
+    
+    .dmb-qa-box p {
+        font-size: 1.18rem;
+    }
+    
+    .dmb-thumbnails-grid {
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 140px), 1fr));
+        gap: 0.8rem;
+    }
+
+    /* 10. Caregiver Dashboard View */
+    .cg-patient-strip {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1.2rem;
+    }
+    
+    .cg-score-box {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .cg-briefing-alert {
+        padding: 1.2rem 1rem;
+    }
+    
+    .briefing-stats-row {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 110px), 1fr));
+        gap: 0.75rem;
+    }
+    
+    .cg-dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    /* 11. Doctor View */
+    .doc-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem;
+    }
+    
+    .doc-stat-card {
+        padding: 1rem 0.6rem;
+    }
+    
+    .doc-stat-card .num {
+        font-size: 1.6rem;
+    }
+
+    /* 12. Schemes Grid */
+    .schemes-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    /* 13. Modals & Dialogs */
+    .gov-modal-backdrop {
+        padding: 0.75rem;
+    }
+    
+    .gov-modal-dialog {
+        max-height: 92vh;
+        width: 100%;
+        border-radius: 12px;
+    }
+    
+    .gov-modal-header {
+        padding: 0.85rem 1.1rem;
+    }
+    
+    .gov-modal-body {
+        padding: 1.2rem 1rem;
+    }
+    
+    .gov-modal-footer {
+        padding: 0.85rem 1rem;
+        flex-wrap: wrap;
+    }
+
+    /* 14. Toast Notification */
+    .gov-toast {
+        right: 14px;
+        left: 14px;
+        bottom: 14px;
+        width: auto;
+        max-width: calc(100vw - 28px);
+        justify-content: center;
+        text-align: center;
+        padding: 0.85rem 1.2rem;
+        font-size: 0.88rem;
+    }
+
+    /* 15. Footer */
+    .gov-footer {
+        margin-top: 2.5rem;
     }
     
     .gov-footer-top {
         grid-template-columns: 1fr;
+        gap: 1.8rem;
+        padding: 2rem 1rem 1.2rem 1rem;
+    }
+    
+    .gov-footer-bottom {
+        padding: 1rem;
+    }
+    
+    .gov-footer-bottom-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.6rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   D. Standard Mobile Devices & Handhelds (max-width: 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+    /* Global Container Spacing */
+    .gov-top-strip, .gov-main-header, .gov-navbar, .main-content, .gov-bulletin-bar {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    
+    .main-content {
+        padding-top: 0.85rem;
+        padding-bottom: 1.2rem;
+    }
+
+    /* 1. Top Strip */
+    .gov-top-strip {
+        padding-top: 0.35rem;
+        padding-bottom: 0.35rem;
+    }
+    
+    .gov-emblem-text {
+        font-size: 0.72rem;
+        line-height: 1.35;
+    }
+    
+    .helpline-pill {
+        font-size: 0.72rem;
+        padding: 0.15rem 0.5rem;
+    }
+    
+    .accessibility-tools .a-btn {
+        padding: 0.15rem 0.35rem;
+        font-size: 0.74rem;
+    }
+    
+    .contrast-btn {
+        font-size: 0.72rem;
+        padding: 0.15rem 0.5rem;
+    }
+
+    /* 2. Brand Header */
+    .gov-main-header {
+        padding: 0.65rem 0.75rem;
+    }
+    
+    .brand-section {
+        gap: 0.65rem;
+    }
+    
+    .national-emblem-svg {
+        width: 38px;
+        height: 48px;
+    }
+    
+    .brand-title-hi {
+        font-size: 0.78rem;
+    }
+    
+    .brand-title-en {
+        font-size: 1.15rem;
+        gap: 0.4rem;
+    }
+    
+    .brand-tagline {
+        font-size: 0.72rem;
+        line-height: 1.3;
+    }
+    
+    .header-gov-badges {
+        gap: 0.4rem;
+    }
+    
+    .sih-badge {
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .sih-badge-title {
+        font-size: 0.72rem;
+    }
+    
+    .sih-badge-code {
+        font-size: 0.68rem;
+    }
+    
+    .seal-icon {
+        font-size: 1.5rem;
+    }
+    
+    .seal-text {
+        font-size: 0.68rem;
+        line-height: 1.2;
+    }
+
+    /* 3. Navigation */
+    .gov-navbar {
+        padding: 0 0.75rem;
+    }
+    
+    .portal-nav-btn {
+        padding: 0.55rem 0.65rem;
+        font-size: 0.8rem;
+        gap: 0.35rem;
+    }
+    
+    .portal-nav-btn i {
+        font-size: 0.95rem;
+    }
+    
+    .nav-actions-group {
+        gap: 0.35rem;
+    }
+    
+    .lang-selector-gov {
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .lang-selector-gov select {
+        font-size: 0.78rem;
+    }
+    
+    .ner-toggle-gov, .network-pill-gov {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.74rem;
+    }
+    
+    .tools-quick-btn {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.74rem;
+    }
+
+    /* 4. Bulletin Marquee */
+    .gov-bulletin-bar {
+        padding: 0.35rem 0.75rem;
+    }
+    
+    .bulletin-label {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+    }
+    
+    .bulletin-content {
+        font-size: 0.76rem;
+    }
+
+    /* 5. Elderly Journey Banner */
+    .elderly-journey-banner {
+        padding: 0.85rem 0.75rem;
+        margin-bottom: 0.85rem;
+    }
+    
+    .journey-top-row h3 {
+        font-size: 1.05rem;
+    }
+    
+    .streak-pill {
+        font-size: 0.78rem;
+        padding: 0.2rem 0.6rem;
+    }
+    
+    .j-node .j-circle {
+        width: 34px;
+        height: 34px;
+        font-size: 0.95rem;
+    }
+    
+    .j-node .j-label {
+        font-size: 0.7rem;
+    }
+    
+    .j-track-line {
+        height: 3px;
+        margin-bottom: 1rem;
+    }
+
+    /* 6. Asha Voice Panel */
+    .asha-voice-panel {
+        padding: 1rem 0.85rem;
+        gap: 0.9rem;
+    }
+    
+    .asha-avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .asha-info h2 {
+        font-size: 1.05rem;
+    }
+    
+    .asha-speech-bubble {
+        padding: 0.85rem;
+    }
+    
+    .asha-speech-bubble p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .gov-mic-btn {
+        padding: 0.9rem;
+        font-size: 1.1rem;
+    }
+    
+    .quick-prompt-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+    }
+    
+    .prompt-btn {
+        font-size: 0.85rem;
+        padding: 0.55rem 0.75rem;
+    }
+
+    /* 7. Elderly Subtabs */
+    .elderly-tabs-strip {
+        padding: 0.3rem;
+        gap: 0.3rem;
+    }
+    
+    .elderly-subtab-btn {
+        min-width: 95px;
+        padding: 0.55rem 0.35rem;
+        font-size: 0.8rem;
+        gap: 0.25rem;
+    }
+    
+    .elderly-subtab-btn i {
+        font-size: 1.05rem;
+    }
+    
+    /* 8. Games & Active Arena */
+    .games-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+    
+    .game-icon-hero {
+        font-size: 2.3rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .game-hub-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .game-hub-card p {
+        font-size: 0.85rem;
+        margin-bottom: 0.9rem;
+    }
+    
+    .game-play-action-btn {
+        font-size: 0.95rem;
+        padding: 0.65rem;
+    }
+    
+    .active-game-arena-box {
+        padding: 1rem 0.75rem;
+        gap: 0.9rem;
+    }
+    
+    .arena-top-controls {
+        gap: 0.4rem;
+    }
+    
+    .arena-back-btn {
+        padding: 0.45rem 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    .arena-round-pill {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .arena-timer {
+        font-size: 1.1rem;
+        padding: 0.25rem 0.6rem;
+    }
+    
+    .game-stage-viewport {
+        min-height: 190px;
+        padding: 1.2rem 0.6rem;
+    }
+    
+    .game-options-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    
+    .game-choice-btn {
+        width: 100%;
+        min-width: 0;
+        padding: 0.85rem 0.85rem;
+        font-size: 1.05rem;
+    }
+
+    /* 9. Digital Memory Book */
+    .dmb-showcase-card {
+        padding: 1rem 0.75rem;
+    }
+    
+    .dmb-showcase-img {
+        width: 145px;
+        height: 145px;
+        border-width: 3.5px;
+    }
+    
+    .dmb-qa-box {
+        padding: 0.9rem 0.75rem;
+    }
+    
+    .dmb-qa-box h4 {
+        font-size: 1rem;
+    }
+    
+    .dmb-qa-box p {
+        font-size: 1.05rem;
+        margin-bottom: 0.85rem;
+    }
+    
+    .dmb-carousel-nav {
+        gap: 0.5rem;
+    }
+    
+    .dmb-nav-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+        flex: 1;
+    }
+    
+    .dmb-thumbnails-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+
+    /* 10. Caregiver View */
+    .cg-patient-strip {
+        padding: 1rem 0.85rem;
+        gap: 0.85rem;
+    }
+    
+    .cg-patient-card, .cg-caregiver-card {
+        width: 100%;
+        padding: 0.65rem 0.85rem;
+    }
+    
+    .cg-avatar-wrapper {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+    }
+    
+    .cg-patient-avatar, .cg-caregiver-avatar {
+        font-size: 1.3rem;
+    }
+    
+    .cg-patient-info h2 {
+        font-size: 1rem;
+    }
+    
+    .cg-score-box {
+        width: 100%;
+        gap: 0.75rem;
+    }
+    
+    .cg-circle-score {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+    
+    .cg-briefing-alert {
+        padding: 1rem 0.85rem;
+    }
+    
+    .briefing-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .b-stat-chip {
+        padding: 0.6rem 0.3rem;
+    }
+    
+    .b-stat-chip .lbl {
+        font-size: 0.72rem;
+    }
+    
+    .b-stat-chip strong {
+        font-size: 1.05rem;
+    }
+    
+    .metric-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+        font-size: 0.88rem;
+    }
+    
+    .metric-label {
+        width: 100%;
+    }
+    
+    .progress-track-gov {
+        width: 100%;
+        height: 10px;
+    }
+    
+    .care-circle-list {
+        grid-template-columns: 1fr;
+    }
+
+    /* 11. Doctor View */
+    .doc-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+    
+    .doc-stat-card {
+        padding: 0.75rem 0.4rem;
+    }
+    
+    .doc-stat-card .num {
+        font-size: 1.4rem;
+    }
+
+    /* 12. Modals */
+    .gov-modal-backdrop {
+        padding: 0.5rem;
+    }
+    
+    .gov-modal-dialog {
+        max-height: 94vh;
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    .gov-modal-header {
+        padding: 0.75rem 0.9rem;
+    }
+    
+    .gov-modal-header h3 {
+        font-size: 1rem;
+    }
+    
+    .gov-modal-body {
+        padding: 1rem 0.85rem;
+        font-size: 0.9rem;
+    }
+    
+    .gov-modal-footer {
+        padding: 0.75rem 0.85rem;
+        gap: 0.5rem;
+    }
+    
+    .gov-modal-footer button {
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+
+    /* 13. Footer */
+    .gov-footer {
+        margin-top: 2rem;
+    }
+    
+    .gov-footer-top {
+        padding: 1.5rem 0.75rem 1rem 0.75rem;
+        gap: 1.2rem;
+    }
+    
+    .footer-col h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .footer-col p, .footer-links-list a {
+        font-size: 0.82rem;
+    }
+    
+    .gov-footer-bottom {
+        padding: 0.85rem 0.75rem;
+    }
+    
+    .gov-footer-bottom-inner {
+        font-size: 0.75rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   E. Ultra-Narrow Smartphones & Feature Displays (max-width: 360px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 360px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .gov-top-strip, .gov-main-header, .gov-navbar, .main-content, .gov-bulletin-bar {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .brand-title-en {
+        font-size: 1.05rem;
+    }
+    
+    .elderly-subtab-btn {
+        min-width: 85px;
+        font-size: 0.75rem;
+    }
+    
+    .briefing-stats-row {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .doc-stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .dmb-thumbnails-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   F. Mobile Landscape Orientation (max-height: 500px and orientation: landscape)
+   -------------------------------------------------------------------------- */
+@media (max-height: 500px) and (orientation: landscape) {
+    .gov-navbar {
+        position: static;
+    }
+    
+    .gov-modal-dialog {
+        max-height: 86vh;
+    }
+    
+    .game-stage-viewport {
+        min-height: 160px;
+        padding: 1rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   G. Touch Targets & Accessibility Enhancements (WCAG AAA)
+   -------------------------------------------------------------------------- */
+@media (hover: none) and (pointer: coarse) {
+    /* Ensure minimum touch target size of 44px for accessibility */
+    .portal-nav-btn,
+    .elderly-subtab-btn,
+    .game-play-action-btn,
+    .game-choice-btn,
+    .btn-primary-gov,
+    .btn-secondary-gov,
+    .prompt-btn,
+    .gov-mic-btn {
+        min-height: 44px;
+    }
+    
+    /* Smooth touch scrolling momentum */
+    .main-portal-tabs,
+    .nav-actions-group,
+    .elderly-tabs-strip,
+    .journey-nodes-bar,
+    .doc-table-wrap,
+    .gov-modal-body,
+    .gov-modal-dialog {
+        -webkit-overflow-scrolling: touch;
     }
 }
