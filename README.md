@@ -1,6 +1,5 @@
 # 🧠 MINDSET-NER: AI-Based Cognitive Gaming & Memory Assistance Platform
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sudhanshushekhar-05/SIH)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-brightgreen?logo=github)](https://sudhanshushekhar-05.github.io/SIH/)
 
 > **Smart India Hackathon (SIH 2026) Problem Statement: SIH26003**  
@@ -10,7 +9,6 @@
 
 ## 🌐 Live Deployments
 
-- **Netlify (1-Click Auto-Deploy)**: [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sudhanshushekhar-05/SIH)
 - **GitHub Pages Demo**: [https://sudhanshushekhar-05.github.io/SIH/](https://sudhanshushekhar-05.github.io/SIH/)
 
 
