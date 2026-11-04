@@ -1,116 +1,1616 @@
-<!DOCTYPE html>
-<!-- 
-===============================================================================
-MINDSET-NER PORTAL LAUNCHER
-NOTE: The full 1,600+ line application code is located in:
-👉 static/index.html
-
-HOW TO RUN:
-1. VS Code Live Server: Right-click 'static/index.html' -> 'Open with Live Server'
-2. With Full AI Backend: In terminal run 'python run.py' (opens http://127.0.0.1:8000)
-===============================================================================
--->
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <meta name="theme-color" content="#0b2545">
-    <meta http-equiv="refresh" content="0; url=./static/index.html">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>MINDSET-NER | à¤®à¤¾à¤¨à¤¸à¤¿à¤• à¤¸à¥à¤µà¤¾à¤¸à¥à¤¥à¥à¤¯ à¤à¤µà¤‚ à¤¸à¤‚à¤œà¥à¤žà¤¾à¤¨à¤¾à¤¤à¥à¤®à¤• à¤¸à¤‚à¤µà¤°à¥à¤§à¤¨ à¤ªà¥‹à¤°à¥à¤Ÿà¤² | Government of India</title>
+    <meta name="description" content="AI-Based Cognitive Gaming and Memory Assistance Platform for Elderly Dementia Patients in North Eastern Region (SIH26003 - MDoNER & MoHFW)">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Portal Favicon -->
     <link rel="icon" type="image/svg+xml" href="static/favicon.svg">
-    <title>MINDSET-NER Portal | Launching...</title>
-    <script>
-        // Smooth and immediate redirection for Live Server & Localhost
-        (function() {
-            var currentPath = window.location.pathname;
-            var search = window.location.search || '';
-            var hash = window.location.hash || '';
-            
-            // Check if already in static
-            if (currentPath.indexOf('/static') === -1) {
-                var basePath = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
-                var target = basePath + 'static/index.html' + search + hash;
-                window.location.replace(target);
-            }
-        })();
-    </script>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #061529 0%, #0b2545 100%);
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 1.5rem;
-            text-align: center;
-        }
-        .launcher-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            border: 1.5px solid rgba(255, 255, 255, 0.18);
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
-            max-width: 520px;
-            width: 100%;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-        }
-        .launcher-card h2 {
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
-        }
-        .launcher-card p {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-        .btn-launch {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff9933 0%, #d97706 100%);
-            color: #ffffff;
-            padding: 0.85rem 1.8rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1.05rem;
-            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
-            transition: transform 0.2s, background 0.2s;
-        }
-        .btn-launch:hover {
-            transform: translateY(-2px);
-            background: #b45309;
-        }
-        .tip-box {
-            margin-top: 1.5rem;
-            padding: 0.8rem 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            font-size: 0.85rem;
-            color: #cbd5e1;
-            text-align: left;
-        }
-        .tip-box code {
-            background: #000;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #facc15;
-        }
-    </style>
+    <link rel="alternate icon" type="image/x-icon" href="static/favicon.ico">
+    
+    <!-- Official Government Portal Stylesheet -->
+    <link rel="stylesheet" href="static/style.css?v=3.1">
 </head>
 <body>
-    <div class="launcher-card">
-        <div style="font-size: 3rem; margin-bottom: 0.8rem;">🧠</div>
-        <h2>MINDSET-NER Portal</h2>
-        <p>Redirecting to the official cognitive assistance portal...</p>
-        <a href="./static/index.html" class="btn-launch">👉 Click here to Open Portal</a>
-        <div class="tip-box">
-            💡 <strong>VS Code Live Server Tip:</strong><br>
-            Aap VS Code me <code>static/index.html</code> par Right-Click karke <strong>"Open with Live Server"</strong> karein, ya terminal me <code>python run.py</code> chalayein.
+    <!-- Skip to main content for screen readers (GIGW standard) -->
+    <a href="#main-content-anchor" class="skip-link">Skip to main content</a>
+
+    <!-- ========================================================= -->
+    <!-- 1. TOP ACCESSIBILITY & MINISTRY STRIP                     -->
+    <!-- ========================================================= -->
+    <div class="gov-top-strip">
+        <div class="gov-top-strip-inner">
+            <div class="gov-emblem-text">
+                <span class="flag-icon" title="National Flag of India">ðŸ‡®ðŸ‡³</span>
+                <span class="hi">à¤­à¤¾à¤°à¤¤ à¤¸à¤°à¤•à¤¾à¤°</span>
+                <span class="separator">|</span>
+                <span>Government of India</span>
+                <span class="separator">|</span>
+                <span>à¤ªà¥‚à¤°à¥à¤µà¥‹à¤¤à¥à¤¤à¤° à¤•à¥à¤·à¥‡à¤¤à¥à¤° à¤µà¤¿à¤•à¤¾à¤¸ à¤®à¤‚à¤¤à¥à¤°à¤¾à¤²à¤¯ (MDoNER)</span>
+            </div>
+
+            <div class="gov-top-actions">
+                <!-- Text Sizing Accessibility Controls -->
+                <div class="accessibility-tools" title="Text Sizing Controls / à¤…à¤•à¥à¤·à¤°à¥‹à¤‚ à¤•à¤¾ à¤†à¤•à¤¾à¤°">
+                    <button class="a-btn" id="btn-font-dec" onclick="changeFontSize('decrease')" title="Decrease Font Size">A-</button>
+                    <button class="a-btn active" id="btn-font-reset" onclick="changeFontSize('reset')" title="Normal Font Size">A</button>
+                    <button class="a-btn" id="btn-font-inc" onclick="changeFontSize('increase')" title="Increase Font Size">A+</button>
+                </div>
+
+                <!-- High Contrast Toggle Button -->
+                <button class="contrast-btn" id="btn-high-contrast" onclick="toggleHighContrast()" title="Toggle High Contrast Mode for Better Visibility">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                    <span id="contrast-text">High Contrast</span>
+                </button>
+            </div>
         </div>
     </div>
+
+    <!-- ========================================================= -->
+    <!-- 2. MAIN GOVERNMENT BRANDING HEADER                         -->
+    <!-- ========================================================= -->
+    <header class="gov-main-header">
+        <div class="gov-header-inner">
+            <div class="brand-section">
+                <!-- Ashoka Lion Capital (Emblem of India) SVG -->
+                <div class="national-emblem-svg" title="State Emblem of India">
+                    <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="30" r="18" fill="#0B2545"/>
+                        <path d="M35 30 Q50 14 65 30 Q50 24 35 30 Z" fill="#FF9933"/>
+                        <rect x="42" y="30" width="16" height="34" rx="3" fill="#0B2545"/>
+                        <circle cx="50" cy="46" r="7" stroke="#FF9933" stroke-width="2"/>
+                        <rect x="24" y="66" width="52" height="10" rx="2" fill="#0B2545"/>
+                        <circle cx="50" cy="71" r="4" stroke="#138808" stroke-width="1.5"/>
+                        <rect x="20" y="78" width="60" height="12" rx="2" fill="#061529"/>
+                        <text x="50" y="87" fill="#FFFFFF" font-size="7" font-weight="bold" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif">à¤¸à¤¤à¥à¤¯à¤®à¥‡à¤µ à¤œà¤¯à¤¤à¥‡</text>
+                    </svg>
+                </div>
+
+                <div class="brand-text">
+                    <span class="brand-title-hi">à¤®à¤¾à¤¨à¤¸à¤¿à¤• à¤¸à¥à¤µà¤¾à¤¸à¥à¤¥à¥à¤¯ à¤à¤µà¤‚ à¤¸à¤‚à¤œà¥à¤žà¤¾à¤¨à¤¾à¤¤à¥à¤®à¤• à¤¸à¤‚à¤µà¤°à¥à¤§à¤¨ à¤®à¤‚à¤š</span>
+                    <h1 class="brand-title-en">
+                        MINDSET<span class="highlight">-NER</span>
+                        <span style="font-size: 0.85rem; background: #e2e8f0; color: #0b2545; padding: 2px 8px; border-radius: 4px; font-weight: 700; margin-left: 6px;">PORTAL</span>
+                    </h1>
+                    <span class="brand-tagline">AI-Powered Cognitive Care & Memory Assistance for North East India</span>
+                </div>
+            </div>
+
+            <div class="header-gov-badges">
+                <div class="partner-logo-seal">
+                    <div class="seal-icon">
+                        <i class="fa-solid fa-mountain-sun"></i>
+                    </div>
+                    <div class="seal-text">
+                        <strong>MDoNER</strong><br>
+                        North Eastern Region
+                    </div>
+                </div>
+
+                <div class="partner-logo-seal">
+                    <div class="seal-icon" style="color: #047857;">
+                        <i class="fa-solid fa-notes-medical"></i>
+                    </div>
+                    <div class="seal-text">
+                        <strong>MoHFW</strong><br>
+                        Tele-MANAS Protocol
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Official Tricolor Ribbon -->
+    <div class="gov-tricolor-bar"></div>
+
+    <!-- ========================================================= -->
+    <!-- 3. OFFICIAL PORTAL NAVIGATION & ACTION BAR                 -->
+    <!-- ========================================================= -->
+    <nav class="gov-navbar">
+        <div class="gov-navbar-inner">
+            <!-- Main Role Navigation Tabs -->
+            <div class="main-portal-tabs" role="tablist">
+                <button class="portal-nav-btn active" id="btn-role-elderly" onclick="switchRole('elderly')" role="tab" aria-selected="true">
+                    <i class="fa-solid fa-person-walking-with-cane"></i>
+                    <span id="nav-lbl-elderly">ðŸ‘´ Elderly App</span>
+                </button>
+                <button class="portal-nav-btn" id="btn-role-caregiver" onclick="switchRole('caregiver')" role="tab" aria-selected="false">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span id="nav-lbl-caregiver">ðŸ‘©â€âš•ï¸ Caregiver Dashboard</span>
+                </button>
+                <button class="portal-nav-btn" id="btn-role-doctor" onclick="switchRole('doctor')" role="tab" aria-selected="false">
+                    <i class="fa-solid fa-stethoscope"></i>
+                    <span id="nav-lbl-doctor">ðŸ§‘â€âš•ï¸ Doctor & Clinic</span>
+                </button>
+                <button class="portal-nav-btn" id="btn-role-schemes" onclick="switchRole('schemes')" role="tab" aria-selected="false">
+                    <i class="fa-solid fa-landmark"></i>
+                    <span id="nav-lbl-schemes">ðŸ›ï¸ Government Schemes</span>
+                </button>
+            </div>
+
+            <!-- Header Quick Action Tools -->
+            <div class="nav-actions-group">
+                <!-- Multilingual Language Selector -->
+                <div class="lang-selector-gov" title="à¤­à¤¾à¤·à¤¾ à¤šà¥à¤¨à¥‡à¤‚ / Select Language">
+                    <i class="fa-solid fa-language"></i>
+                    <select id="lang-picker" onchange="changeLanguage(this.value)">
+                        <option value="en" selected>ðŸ‡¬ðŸ‡§ English</option>
+                        <option value="hi">ðŸ‡®ðŸ‡³ à¤¹à¤¿à¤¨à¥à¤¦à¥€ (Hindi)</option>
+                        <option value="as">ðŸ‡®ðŸ‡³ à¦…à¦¸à¦®à§€à¦¯à¦¼à¦¾ (Assamese)</option>
+                        <option value="bn">ðŸ‡®ðŸ‡³ à¦¬à¦¾à¦‚à¦²à¦¾ (Bengali)</option>
+                        <option value="mni">ðŸ‡®ðŸ‡³ à¦®à§ˆà¦¤à§ˆà¦²à§‹à¦¨à§ (Meitei)</option>
+                        <option value="mzo">ðŸ‡®ðŸ‡³ Mizo á¹­awng</option>
+                        <option value="kha">ðŸ‡®ðŸ‡³ Ka Khasi</option>
+                    </select>
+                </div>
+
+                <!-- NER Cultural Content Filter -->
+                <button class="ner-toggle-gov" id="ner-toggle-btn" onclick="toggleNerMode()" title="Toggle North Eastern Cultural Content">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                    <span id="ner-badge-text">ðŸŒ¸ NER à¤¸à¤¾à¤®à¤—à¥à¤°à¥€: ON</span>
+                </button>
+
+                <!-- Offline/Online Status Pill Simulator -->
+                <button class="network-pill-gov" id="offline-pill" onclick="openModal('modal-offline-drawer')" title="Check Network / Offline-First Tele-Health Status">
+                    <i class="fa-solid fa-wifi"></i>
+                    <span id="network-text">ðŸŸ¢ Online</span>
+                </button>
+
+                <!-- Judging & Portal Inspector Quick Buttons -->
+                <button class="tools-quick-btn" onclick="openModal('modal-ai-brain')" title="AI Cognitive Decision Engine Inspection">
+                    <i class="fa-solid fa-brain"></i> AI Brain
+                </button>
+                <button class="tools-quick-btn" onclick="openModal('modal-ner-map')" title="8 NER States Impact Map">
+                    <i class="fa-solid fa-map-location-dot"></i> NER Map
+                </button>
+                <button class="tools-quick-btn" onclick="openModal('modal-satellite')" title="Space Tech & NavIC Satellite Layer">
+                    <i class="fa-solid fa-satellite"></i> Satellite
+                </button>
+                <button class="tools-quick-btn" onclick="openModal('modal-privacy')" title="Patient Data Privacy & Security Center">
+                    <i class="fa-solid fa-shield-halved"></i> Privacy
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================================= -->
+    <!-- 4. OFFICIAL GOVERNMENT BULLETIN (NEWS MARQUEE)            -->
+    <!-- ========================================================= -->
+    <div class="gov-bulletin-bar">
+        <div class="gov-bulletin-inner">
+            <span class="bulletin-label" id="bulletin-label">
+                <i class="fa-solid fa-bullhorn"></i> <span id="bulletin-label-text">Notice / Bulletin</span>
+            </span>
+            <div class="bulletin-marquee" id="marquee-wrapper">
+                <span class="bulletin-content" id="bulletin-text">
+                    ðŸ“¢ <strong>MDoNER & MoHFW Initiative:</strong> 100% offline-first AI dementia care & cognitive gaming platform operational across 8 North Eastern states (Assam, Arunachal, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim, Tripura).
+                </span>
+            </div>
+            <button class="bulletin-pause-btn" id="btn-pause-marquee" onclick="toggleMarqueePause()" title="Pause/Play Marquee">
+                <i class="fa-solid fa-pause"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 5. MAIN CONTENT WRAPPER                                   -->
+    <!-- ========================================================= -->
+    <main class="main-content" id="main-content-anchor">
+
+        <!-- ===================================================== -->
+        <!-- VIEW 1: ELDERLY PATIENT APPLICATION INTERFACE         -->
+        <!-- ===================================================== -->
+        <section id="view-elderly" class="app-view active">
+            
+            <!-- Cognitive Journey Map & Daily Streak Banner -->
+            <div class="elderly-journey-banner">
+                <div class="journey-top-row">
+                    <h3 id="lbl-journey-title">
+                        <i class="fa-solid fa-route" style="color: var(--gov-saffron-dark);"></i>
+                        Your Cognitive Memory Journey
+                    </h3>
+                    <div class="streak-pill" id="streak-badge-box">
+                        <i class="fa-solid fa-fire"></i>
+                        <span id="streak-count">7 Day Active Streak</span>
+                    </div>
+                </div>
+
+                <div class="journey-nodes-bar">
+                    <div class="j-node completed" onclick="showJourneyInfo(1)" title="Step 1 Completed">
+                        <div class="j-circle">ðŸŒ±</div>
+                        <span class="j-label" id="j-label-1">Start</span>
+                    </div>
+                    <div class="j-track-line filled"></div>
+
+                    <div class="j-node active" onclick="showJourneyInfo(2)" title="Current Active Milestone">
+                        <div class="j-circle">ðŸ§ </div>
+                        <span class="j-label" id="j-label-2">Memory Builder</span>
+                    </div>
+                    <div class="j-track-line"></div>
+
+                    <div class="j-node" onclick="showJourneyInfo(3)" title="Step 3">
+                        <div class="j-circle">ðŸŽ¯</div>
+                        <span class="j-label" id="j-label-3">Focus Master</span>
+                    </div>
+                    <div class="j-track-line"></div>
+
+                    <div class="j-node" onclick="showJourneyInfo(4)" title="Step 4">
+                        <div class="j-circle">â¤ï¸</div>
+                        <span class="j-label" id="j-label-4">Memory Moments</span>
+                    </div>
+                    <div class="j-track-line"></div>
+
+                    <div class="j-node" onclick="showJourneyInfo(5)" title="Step 5">
+                        <div class="j-circle">ðŸŒŸ</div>
+                        <span class="j-label" id="j-label-5">Cognitive Champion</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elderly Main Grid (Left Asha Companion + Center Activities) -->
+            <div class="elderly-main-grid">
+
+                <!-- Left Panel: AI Companion 'Asha' -->
+                <aside class="asha-voice-panel">
+                    <div class="asha-badge-header">
+                        <div class="asha-avatar">
+                            <i class="fa-solid fa-user-nurse"></i>
+                        </div>
+                        <div class="asha-info">
+                            <h2 id="companion-name-title">AI Companion Asha</h2>
+                            <p id="companion-lang-subtext">Multilingual Senior Voice Assistant</p>
+                        </div>
+                    </div>
+
+                    <!-- Voice Visualizer Wave -->
+                    <div class="voice-wave-container" id="audio-visualizer">
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                    </div>
+
+                    <!-- Asha Speech Response Bubble -->
+                    <div class="asha-speech-bubble" id="companion-speech-bubble">
+                        <p id="speech-text">â€œHello Ramesh ji! I am Asha, your health companion. You can ask me about your medicine, water schedule, family memories, or games.â€</p>
+                    </div>
+
+                    <!-- Big Senior Friendly Voice Controls -->
+                    <button class="gov-mic-btn" id="mic-trigger-btn" onclick="listenVoiceCommand()">
+                        <i class="fa-solid fa-microphone"></i>
+                        <span id="mic-btn-text">Talk to Asha</span>
+                    </button>
+
+                    <button class="listen-again-btn" onclick="speakCurrentText()">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <span id="lbl-listen-again">Listen Again</span>
+                    </button>
+
+                    <!-- Quick Voice Prompt Suggestion Buttons -->
+                    <div class="quick-prompts-title" id="lbl-quick-prompts">à¤¤à¥à¤µà¤°à¤¿à¤¤ à¤ªà¥à¤°à¤¶à¥à¤¨ (Quick Questions):</div>
+                    <div class="quick-prompt-buttons">
+                        <button class="prompt-btn" onclick="sendQuickPromptIndex(0)">
+                            ðŸ’Š <span id="prompt-txt-1">When is my medicine schedule?</span>
+                        </button>
+                        <button class="prompt-btn" onclick="sendQuickPromptIndex(1)">
+                            â¤ï¸ <span id="prompt-txt-2">What is my daughter's name?</span>
+                        </button>
+                        <button class="prompt-btn" onclick="sendQuickPromptIndex(2)">
+                            ðŸ“… <span id="prompt-txt-3">What is my daily routine?</span>
+                        </button>
+                        <button class="prompt-btn" onclick="sendQuickPromptIndex(3)">
+                            ðŸ’§ <span id="prompt-txt-4">When should I drink water?</span>
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- Center Panel: Tabs for Activities -->
+                <div class="elderly-center-content">
+                    
+                    <!-- Top Tab Switcher Strip -->
+                    <div class="elderly-tabs-strip" role="tablist">
+                        <button class="elderly-subtab-btn active" id="tab-games-btn" onclick="switchElderlyTab('games')">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span id="subtab-lbl-games">Cognitive Games</span>
+                        </button>
+                        <button class="elderly-subtab-btn" id="tab-memorybook-btn" onclick="switchElderlyTab('memorybook')">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span id="subtab-lbl-dmb">Digital Memory Book</span>
+                        </button>
+                        <button class="elderly-subtab-btn" id="tab-music-btn" onclick="switchElderlyTab('music')">
+                            <i class="fa-solid fa-music"></i>
+                            <span id="subtab-lbl-music">Memory Through Music</span>
+                        </button>
+                        <button class="elderly-subtab-btn" id="tab-family-btn" onclick="switchElderlyTab('family')">
+                            <i class="fa-solid fa-people-roof"></i>
+                            <span id="subtab-lbl-family">Family Connect</span>
+                        </button>
+                        <button class="elderly-subtab-btn" id="tab-mood-btn" onclick="switchElderlyTab('mood')">
+                            <i class="fa-solid fa-face-smile"></i>
+                            <span id="subtab-lbl-mood">Daily Mood</span>
+                        </button>
+                        <button class="elderly-subtab-btn" id="tab-reminders-btn" onclick="switchElderlyTab('reminders')">
+                            <i class="fa-solid fa-bell"></i>
+                            <span id="subtab-lbl-reminders">Reminders</span>
+                        </button>
+                    </div>
+
+                    <!-- ========================================= -->
+                    <!-- TAB 1: COGNITIVE GAMES HUB                -->
+                    <!-- ========================================= -->
+                    <div id="elderly-tab-games" class="tab-content active">
+                        <div class="hub-status-header">
+                            <div class="status-badge ai-level" id="current-diff-display">
+                                <i class="fa-solid fa-robot"></i> AI Level: Medium (Adaptive)
+                            </div>
+                            <div class="status-badge score" id="elderly-today-score">
+                                <i class="fa-solid fa-award"></i> à¤†à¤œ à¤•à¤¾ à¤¸à¥à¤•à¥‹à¤°: <strong id="val-today-score">0</strong>/100
+                                <button type="button" class="btn-score-reset" onclick="resetTodayScore(event)" title="à¤¸à¥à¤•à¥‹à¤° à¤°à¥€à¤¸à¥‡à¤Ÿ à¤•à¤°à¥‡à¤‚ (Reset Score for Demo)"><i class="fa-solid fa-arrows-rotate"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Game Selection Grid -->
+                        <div class="games-cards-grid" id="game-selector-grid">
+                            <!-- Populated dynamically by renderGameSelectorGrid() based on active language -->
+                        </div>
+
+                        <!-- ACTIVE GAME PLAY ARENA -->
+                        <div class="active-game-arena-box" id="active-game-arena" style="display:none;">
+                            <div class="arena-top-controls">
+                                <button class="arena-back-btn" onclick="exitGameArena()">
+                                    <i class="fa-solid fa-arrow-left"></i> <span id="arena-back-text">à¤–à¥‡à¤²à¥‹à¤‚ à¤•à¥€ à¤¸à¥‚à¤šà¥€ (Back to Menu)</span>
+                                </button>
+                                <h3 id="game-title" style="color: var(--gov-navy); font-size: 1.3rem;">Village Market Challenge</h3>
+                                <div style="display:flex; align-items:center; gap: 0.8rem;">
+                                    <span class="arena-round-pill" id="game-round-pill">à¤°à¤¾à¤‰à¤‚à¤¡ 1 / 3</span>
+                                    <div class="arena-timer" id="game-timer-display">â±ï¸ 00:10</div>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic Stage Container -->
+                            <div class="game-stage-viewport" id="game-stage-container">
+                                <!-- Dynamic Game HTML will be injected by app.js -->
+                            </div>
+
+                            <!-- Visual AI Adaptation Decision Card -->
+                            <div class="ai-adaptation-banner" id="ai-adaptation-card" style="display:none;">
+                                <div class="ai-banner-title">
+                                    <i class="fa-solid fa-brain" style="color: var(--gov-navy-light);"></i>
+                                    <span id="ai-banner-header">AI à¤…à¤¨à¥à¤•à¥‚à¤²à¤¨ à¤¨à¤¿à¤°à¥à¤£à¤¯ à¤‡à¤‚à¤œà¤¨ (AI Adaptive Decision Engine)</span>
+                                </div>
+                                <div class="ai-banner-metrics">
+                                    <div class="ai-metric-item">
+                                        <span id="lbl-ai-acc">à¤¸à¤Ÿà¥€à¤•à¤¤à¤¾ (Accuracy):</span> <strong id="ai-val-acc">95%</strong>
+                                    </div>
+                                    <div class="ai-metric-item">
+                                        <span id="lbl-ai-speed">à¤ªà¥à¤°à¤¤à¤¿à¤•à¥à¤°à¤¿à¤¯à¤¾ à¤¸à¤®à¤¯ (Latency):</span> <strong id="ai-val-speed">3.8s</strong>
+                                    </div>
+                                    <div class="ai-metric-item">
+                                        <span id="lbl-ai-next">à¤…à¤—à¤²à¤¾ à¤¸à¥à¤¤à¤° (Next Level):</span> <strong id="ai-val-next">Medium â†’ Hard</strong>
+                                    </div>
+                                </div>
+                                <div class="ai-banner-reasoning" id="ai-reason-text">
+                                    ðŸ¤– AI à¤µà¤¿à¤¶à¥à¤²à¥‡à¤·à¤£: à¤‰à¤¤à¥à¤•à¥ƒà¤·à¥à¤Ÿ à¤ªà¥à¤°à¤¦à¤°à¥à¤¶à¤¨! à¤®à¤°à¥€à¤œ à¤•à¤¾ à¤¸à¤‚à¤œà¥à¤žà¤¾à¤¨à¤¾à¤¤à¥à¤®à¤• à¤°à¤¿à¤¸à¥à¤ªà¥‰à¤¨à¥à¤¸ à¤¬à¤¹à¥à¤¤ à¤¸à¤•à¥à¤°à¤¿à¤¯ à¤¹à¥ˆà¥¤
+                                </div>
+                                <div style="display:flex; justify-content:flex-end; margin-top: 0.4rem;">
+                                    <button class="btn-primary-gov" id="btn-next-game-round" onclick="advanceNextGameRound()">
+                                        <span id="btn-next-round-text">à¤…à¤—à¤²à¤¾ à¤ªà¥à¤°à¤¶à¥à¤¨ (Next Question)</span> <i class="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ========================================= -->
+                    <!-- TAB 2: DIGITAL MEMORY BOOK â­             -->
+                    <!-- ========================================= -->
+                    <div id="elderly-tab-memorybook" class="tab-content" style="display:none;">
+                        <div class="gov-card">
+                            <div class="gov-card-header">
+                                <div>
+                                    <h2 id="dmb-sec-title"><i class="fa-solid fa-book-bookmark" style="color: var(--gov-saffron-dark);"></i> <span id="dmb-title-text">à¤¡à¤¿à¤œà¤¿à¤Ÿà¤² à¤®à¥‡à¤®à¥‹à¤°à¥€ à¤¬à¥à¤• (Digital Memory Book)</span></h2>
+                                    <span class="subtitle" id="dmb-sec-subtitle">à¤ªà¤¾à¤°à¤¿à¤µà¤¾à¤°à¤¿à¤• à¤¤à¤¸à¥à¤µà¥€à¤°à¥‡à¤‚, à¤ªà¥à¤°à¤¿à¤¯ à¤¸à¥à¤¥à¤¾à¤¨ à¤”à¤° à¤®à¤§à¥à¤° à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤¯à¥‹à¤‚ à¤•à¤¾ à¤µà¥à¤¯à¤•à¥à¤¤à¤¿à¤—à¤¤ à¤¸à¤‚à¤—à¥à¤°à¤¹</span>
+                                </div>
+                                <button class="btn-primary-gov" onclick="openModal('modal-add-dmb')">
+                                    <i class="fa-solid fa-plus"></i> <span id="dmb-add-btn-text">à¤¨à¤ˆ à¤¯à¤¾à¤¦ à¤œà¥‹à¤¡à¤¼à¥‡à¤‚ (Add Card)</span>
+                                </button>
+                            </div>
+
+                            <!-- Active Showcase Card -->
+                            <div class="dmb-showcase-card" id="dmb-active-card">
+                                <!-- Injected dynamically by JS -->
+                            </div>
+
+                            <div class="dmb-carousel-nav">
+                                <button class="dmb-nav-btn" onclick="prevDmbCard()">
+                                    <i class="fa-solid fa-chevron-left"></i> <span id="dmb-prev-text">à¤ªà¤¿à¤›à¤²à¥€ à¤¯à¤¾à¤¦ (Previous)</span>
+                                </button>
+                                <span id="dmb-index-indicator" style="font-weight: 700; color: var(--text-muted); align-self: center;">1 / 4</span>
+                                <button class="dmb-nav-btn" onclick="nextDmbCard()">
+                                    <span id="dmb-next-text">à¤…à¤—à¤²à¥€ à¤¯à¤¾à¤¦ (Next)</span> <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                            </div>
+
+                            <h3 id="dmb-browse-title" style="margin: 2rem 0 1rem 0; color: var(--gov-navy); font-size: 1.15rem;">
+                                <i class="fa-solid fa-grip"></i> <span id="dmb-browse-text">à¤¸à¤­à¥€ à¤µà¥à¤¯à¤•à¥à¤¤à¤¿à¤—à¤¤ à¤¸à¥à¤®à¥ƒà¤¤à¤¿ à¤•à¤¾à¤°à¥à¤¡ (Browse Memory Cards):</span>
+                            </h3>
+                            <div class="dmb-thumbnails-grid" id="dmb-grid-container">
+                                <!-- Injected by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ========================================= -->
+                    <!-- TAB 3: MUSIC MEMORY ðŸŽµ                    -->
+                    <!-- ========================================= -->
+                    <div id="elderly-tab-music" class="tab-content" style="display:none;">
+                        <div class="gov-card">
+                            <div class="gov-card-header">
+                                <div>
+                                    <h2 id="music-sec-title"><i class="fa-solid fa-music" style="color: var(--gov-saffron-dark);"></i> <span id="music-title-text">à¤¸à¤‚à¤—à¥€à¤¤ à¤¸à¥‡ à¤¯à¤¾à¤¦à¥‡à¤‚ (Memory Through Music)</span></h2>
+                                    <span class="subtitle" id="music-sec-subtitle">à¤ªà¥‚à¤°à¥à¤µà¥‹à¤¤à¥à¤¤à¤° à¤•à¥‡ à¤ªà¤¾à¤°à¤‚à¤ªà¤°à¤¿à¤• à¤µ à¤²à¥‹à¤• à¤¸à¤‚à¤—à¥€à¤¤ à¤¦à¥à¤µà¤¾à¤°à¤¾ à¤ªà¥à¤°à¤¾à¤¨à¥€ à¤¸à¥à¤–à¤¦ à¤¸à¥à¤®à¥ƒà¤¤à¤¿à¤¯à¥‹à¤‚ à¤•à¤¾ à¤œà¤¾à¤—à¤°à¤£</span>
+                                </div>
+                            </div>
+
+                            <div style="max-width: 650px; margin: 0 auto; text-align: center; padding: 1.5rem;">
+                                <div style="font-size: 4rem; color: var(--gov-navy-light); margin-bottom: 0.5rem;">
+                                    <i class="fa-solid fa-compact-disc fa-spin" style="animation-duration: 8s;"></i>
+                                </div>
+                                <h3 id="music-track-title" style="color: var(--gov-navy); font-size: 1.4rem;">Assamese Folk Bihu Flute</h3>
+                                <p id="music-track-region" style="color: var(--gov-saffron-dark); font-weight: 700; margin-bottom: 1.2rem;">à¤…à¤¸à¤® à¤•à¥€ à¤ªà¤¾à¤°à¤‚à¤ªà¤°à¤¿à¤• à¤§à¥à¤¨ (Assam Traditional)</p>
+
+                                <div style="display:flex; justify-content:center; gap: 0.8rem; margin-bottom: 1.2rem; flex-wrap: wrap;">
+                                    <button class="btn-secondary-gov" id="music-track-btn-0" onclick="selectMusicTrack(0)">1. Bihu Flute (Assam)</button>
+                                    <button class="btn-secondary-gov" id="music-track-btn-1" onclick="selectMusicTrack(1)">2. Classical Raga Flute</button>
+                                    <button class="btn-secondary-gov" id="music-track-btn-2" onclick="selectMusicTrack(2)">3. Manipuri Pena Melody</button>
+                                </div>
+
+                                <audio id="reminiscence-audio" controls style="width: 100%; margin: 1rem 0;"></audio>
+
+                                <div style="background: #f8fafc; border: 2px solid var(--border-color); border-radius: 12px; padding: 1.4rem; margin-top: 1.5rem;">
+                                    <h4 id="music-prompt-question" style="color: var(--gov-navy); font-size: 1.2rem; margin-bottom: 1rem;">
+                                        â€œDo you remember this music?â€
+                                    </h4>
+                                    <div style="display:flex; justify-content:center; gap: 1rem; flex-wrap: wrap;">
+                                        <button class="game-choice-btn" style="padding: 0.8rem 1.5rem; font-size: 1.1rem;" onclick="respondMusicMemory('yes')">
+                                            <span id="music-btn-yes-text">ðŸ˜Š Yes, I Remember!</span>
+                                        </button>
+                                        <button class="game-choice-btn" style="padding: 0.8rem 1.5rem; font-size: 1.1rem; border-color: #64748b; color: #475569;" onclick="respondMusicMemory('listen_again')">
+                                            <span id="music-btn-again-text">ðŸ” Play Again</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ========================================= -->
+                    <!-- TAB 4: FAMILY CONNECT ðŸ‘¨â€ðŸ‘©â€ðŸ‘§                 -->
+                    <!-- ========================================= -->
+                    <div id="elderly-tab-family" class="tab-content" style="display:none;">
+                        <div class="gov-card">
+                            <div class="gov-card-header">
+                                <div>
+                                    <h2 id="family-sec-title"><i class="fa-solid fa-people-roof" style="color: #e11d48;"></i> <span id="family-title-text">Family Connect Feed</span></h2>
+                                    <span class="subtitle" id="family-sec-subtitle">Loving messages and photos from your children, grandchildren, and relatives</span>
+                                </div>
+                            </div>
+
+                            <div id="family-feed-list" style="display:flex; flex-direction:column; gap: 1.2rem; margin-top: 1rem;">
+                                <!-- Injected dynamically by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ========================================= -->
+                    <!-- TAB 5: DAILY MOOD CHECK-IN ðŸ˜Š             -->
+                    <!-- ========================================= -->
+                    <div id="elderly-tab-mood" class="tab-content" style="display:none;">
+                        <div class="gov-card">
+                            <div class="gov-card-header">
+                                <div>
+                                    <h2 id="mood-sec-title"><i class="fa-solid fa-face-smile" style="color: var(--gov-saffron-dark);"></i> <span id="mood-title-text">à¤†à¤œ à¤†à¤ª à¤•à¥ˆà¤¸à¤¾ à¤®à¤¹à¤¸à¥‚à¤¸ à¤•à¤° à¤°à¤¹à¥‡ à¤¹à¥ˆà¤‚? (Daily Mood Check-In)</span></h2>
+                                    <span class="subtitle" id="mood-sec-subtitle">Share your emotions so family and doctors can stay informed about your well-being</span>
+                                </div>
+                            </div>
+
+                            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1.2rem; margin: 2rem 0;">
+                                <button class="game-hub-card" style="padding: 1.5rem 1rem;" onclick="submitMoodCheckIn('good', appState.lang === 'en' ? 'ðŸ˜Š Happy & Calm' : 'ðŸ˜Š à¤ªà¥à¤°à¤¸à¤¨à¥à¤¨ à¤µ à¤¶à¤¾à¤‚à¤¤')">
+                                    <span style="font-size: 3.5rem;">ðŸ˜Š</span>
+                                    <strong id="mood-lbl-good" style="margin-top: 0.6rem; color: #166534; font-size: 1.1rem;">Good / Happy</strong>
+                                </button>
+                                <button class="game-hub-card" style="padding: 1.5rem 1rem;" onclick="submitMoodCheckIn('okay', appState.lang === 'en' ? 'ðŸ˜ Normal / Okay' : 'ðŸ˜ à¤¸à¤¾à¤®à¤¾à¤¨à¥à¤¯')">
+                                    <span style="font-size: 3.5rem;">ðŸ˜</span>
+                                    <strong id="mood-lbl-okay" style="margin-top: 0.6rem; color: #b45309; font-size: 1.1rem;">Normal / Okay</strong>
+                                </button>
+                                <button class="game-hub-card" style="padding: 1.5rem 1rem;" onclick="submitMoodCheckIn('sad', appState.lang === 'en' ? 'ðŸ˜” Sad / Low' : 'ðŸ˜” à¤‰à¤¦à¤¾à¤¸ / à¤®à¤¨ à¤­à¤¾à¤°à¥€')">
+                                    <span style="font-size: 3.5rem;">ðŸ˜”</span>
+                                    <strong id="mood-lbl-sad" style="margin-top: 0.6rem; color: #1e40af; font-size: 1.1rem;">Sad / Low</strong>
+                                </button>
+                                <button class="game-hub-card" style="padding: 1.5rem 1rem;" onclick="submitMoodCheckIn('restless', appState.lang === 'en' ? 'ðŸ˜Ÿ Restless' : 'ðŸ˜Ÿ à¤¬à¥‡à¤šà¥ˆà¤¨')">
+                                    <span style="font-size: 3.5rem;">ðŸ˜Ÿ</span>
+                                    <strong id="mood-lbl-restless" style="margin-top: 0.6rem; color: #dc2626; font-size: 1.1rem;">Restless</strong>
+                                </button>
+                                <button class="game-hub-card" style="padding: 1.5rem 1rem;" onclick="submitMoodCheckIn('tired', appState.lang === 'en' ? 'ðŸ˜´ Tired / Sleepy' : 'ðŸ˜´ à¤¥à¤•à¤¾à¤¨ / à¤¨à¥€à¤‚à¤¦')">
+                                    <span style="font-size: 3.5rem;">ðŸ˜´</span>
+                                    <strong id="mood-lbl-tired" style="margin-top: 0.6rem; color: #64748b; font-size: 1.1rem;">Tired / Sleepy</strong>
+                                </button>
+                            </div>
+
+                            <div id="mood-feedback-box" style="display:none; background: #ecfdf5; border: 2px solid #a7f3d0; border-radius: 12px; padding: 1.2rem; text-align: center;">
+                                <h4 id="mood-feedback-heading" style="color: #065f46; font-size: 1.2rem; margin-bottom: 0.3rem;"><i class="fa-solid fa-circle-check"></i> Mood Logged Successfully!</h4>
+                                <p id="mood-feedback-text" style="color: #047857; font-weight: 700; font-size: 1.1rem;">Thank you Ramesh Ji! Your health and well-being are our top priority.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ========================================= -->
+                    <!-- TAB 6: REMINDERS & HEALTH CHECKLIST       -->
+                    <!-- ========================================= -->
+                    <div id="elderly-tab-reminders" class="tab-content" style="display:none;">
+                        <div class="gov-card">
+                            <div class="gov-card-header">
+                                <div>
+                                    <h2 id="rem-sec-title"><i class="fa-solid fa-bell" style="color: var(--gov-saffron-dark);"></i> <span id="rem-title-text">Today's Health & Routine Reminders</span></h2>
+                                    <span class="subtitle" id="rem-sec-subtitle">Official digital schedule for timely medication, hydration, and daily activities</span>
+                                </div>
+                                <button class="btn-primary-gov" onclick="openModal('modal-add-reminder')">
+                                    <i class="fa-solid fa-plus"></i> <span id="rem-add-btn-text">Add Health Reminder</span>
+                                </button>
+                            </div>
+
+                            <div class="reminders-gov-list" id="elderly-reminders-list">
+                                <!-- Injected dynamically by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- VIEW 2: CAREGIVER DASHBOARD INTERFACE                 -->
+        <!-- ===================================================== -->
+        <section id="view-caregiver" class="app-view">
+            <!-- Patient Profile & Cognitive Score Strip -->
+            <div class="cg-patient-strip">
+                <!-- Patient Profile & Add Photo Widget -->
+                <div class="cg-patient-card" id="cg-patient-card">
+                    <div class="cg-avatar-wrapper" onclick="openPatientPhotoUploadModal()" title="à¤®à¤°à¥€à¤œ à¤•à¥€ à¤«à¥‹à¤Ÿà¥‹ à¤œà¥‹à¤¡à¤¼à¥‡à¤‚ / à¤¬à¤¦à¤²à¥‡à¤‚ (Add/Change Patient Photo)">
+                        <div class="cg-patient-avatar" id="cg-patient-avatar-display">
+                            <i class="fa-solid fa-hospital-user"></i>
+                        </div>
+                        <span class="cg-camera-badge" title="à¤«à¥‹à¤Ÿà¥‹ à¤…à¤ªà¤²à¥‹à¤¡ à¤•à¤°à¥‡à¤‚"><i class="fa-solid fa-camera"></i></span>
+                    </div>
+                    <div class="cg-patient-info">
+                        <span class="cg-role-pill" id="cg-pat-role-pill" style="color: #0284c7;">Registered Patient</span>
+                        <h2 id="cg-pat-title" style="margin: 2px 0; font-size: 1.15rem; color: var(--gov-navy);">Patient: Ramesh Sharma (Age: 74)</h2>
+                        <p id="cg-pat-subtext" style="margin: 0; font-size: 0.82rem; color: var(--text-muted);">Primary Caregiver: Ananya Sharma (Daughter) | Patient ID: #p001 | Guwahati, Assam</p>
+                        <button type="button" class="btn-patient-photo" id="btn-patient-photo-action" onclick="openPatientPhotoUploadModal()">
+                            <i class="fa-solid fa-camera"></i> <span id="txt-patient-photo-btn">+ Add Photo</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Caregiver Profile & Add Photo Widget -->
+                <div class="cg-caregiver-card" id="cg-caregiver-card">
+                    <div class="cg-avatar-wrapper" onclick="openCaregiverPhotoUploadModal()" title="Add/Change Caregiver Photo">
+                        <div class="cg-caregiver-avatar" id="cg-caregiver-avatar-display">
+                            <i class="fa-solid fa-user-nurse"></i>
+                        </div>
+                        <span class="cg-camera-badge" title="Upload Photo"><i class="fa-solid fa-camera"></i></span>
+                    </div>
+                    <div class="cg-caregiver-info">
+                        <span class="cg-role-pill" id="cg-caregiver-role-pill">Authorized Caregiver</span>
+                        <strong id="cg-caregiver-display-name">Ananya Sharma (Daughter)</strong>
+                        <button type="button" class="btn-cg-photo" id="btn-cg-photo-action" onclick="openCaregiverPhotoUploadModal()">
+                            <i class="fa-solid fa-camera"></i> <span id="txt-cg-photo-btn">+ Add Photo</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cg-score-box">
+                    <div class="cg-circle-score" id="cg-overall-score-circle">0%</div>
+                    <div>
+                        <div id="cg-score-lbl" style="font-weight: 800; color: var(--gov-navy); font-size: 1.05rem;">Cognitive Engagement Score</div>
+                        <div id="cg-score-sub" style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Daily Non-Clinical Longitudinal Trend Analysis</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Caregiver Daily Briefing Card -->
+            <div class="cg-briefing-alert" id="caregiver-daily-briefing-card">
+                <div style="display:flex; align-items:center; gap: 0.8rem;">
+                    <i class="fa-solid fa-sun" style="font-size: 1.8rem; color: #d97706;"></i>
+                    <div>
+                        <h3 id="cg-brief-title" style="color: #78350f; font-size: 1.25rem; font-weight: 800;">Good Morning, Ananya</h3>
+                        <p id="cg-brief-sub" style="color: #92400e; font-size: 0.85rem; font-weight: 600;">Ramesh Ji â€” Daily AI Cognitive & Health Briefing</p>
+                    </div>
+                </div>
+
+                <div class="briefing-stats-row">
+                    <div class="b-stat-chip">
+                        <span class="lbl" id="lbl-b-eng">Cognitive Score</span>
+                        <strong id="b-eng">0%</strong>
+                    </div>
+                    <div class="b-stat-chip">
+                        <span class="lbl" id="lbl-b-games">Game Sessions</span>
+                        <strong id="b-games">3 Sessions</strong>
+                    </div>
+                    <div class="b-stat-chip">
+                        <span class="lbl" id="lbl-b-med">Medicine Adherence</span>
+                        <strong id="b-med">2/3 Done</strong>
+                    </div>
+                    <div class="b-stat-chip">
+                        <span class="lbl" id="lbl-b-water">Hydration Log</span>
+                        <strong id="b-water">1.8L / 2.2L</strong>
+                    </div>
+                    <div class="b-stat-chip">
+                        <span class="lbl" id="lbl-b-mood">Daily Mood</span>
+                        <strong id="b-mood">ðŸ˜Š Calm & Happy</strong>
+                    </div>
+                </div>
+
+                <div style="background: #ffffff; border-left: 4px solid #d97706; padding: 0.8rem 1rem; border-radius: 6px; margin-bottom: 0.8rem; color: #92400e; font-weight: 700; font-size: 0.95rem;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> <strong id="cg-alert-prefix">Caregiver Alert: </strong> <span id="cg-alert-msg">Mild latency detected during 02:30 AM night movement (28 mins elapsed).</span>
+                </div>
+
+                <div style="font-size: 0.95rem; color: #78350f; font-weight: 600;">
+                    <strong id="cg-rec-prefix">AI Care Recommendation: </strong> <span id="b-rec-text">Recommended to engage in 15 minutes of Village Market Challenge after breakfast and ensure adequate hydration.</span>
+                </div>
+            </div>
+
+            <!-- Caregiver Dashboard Grid -->
+            <div class="cg-dashboard-grid">
+                
+                <!-- Domain Breakdown Scores -->
+                <div class="gov-card">
+                    <div class="gov-card-header">
+                        <h3 id="cg-domain-title"><i class="fa-solid fa-brain" style="color: var(--gov-navy);"></i> à¤¸à¤‚à¤œà¥à¤žà¤¾à¤¨à¤¾à¤¤à¥à¤®à¤• à¤•à¥à¤·à¥‡à¤¤à¥à¤° à¤®à¥‡à¤Ÿà¥à¤°à¤¿à¤•à¥à¤¸ (Domain Metrics)</h3>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label" id="lbl-dom-memory">à¤¸à¥à¤®à¥ƒà¤¤à¤¿ à¤°à¤¿à¤•à¥‰à¤² (Memory)</span>
+                        <div class="progress-track-gov"><div class="progress-fill-gov" id="bar-memory" style="width: 82%;"></div></div>
+                        <strong id="val-memory">82%</strong>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label" id="lbl-dom-attention">à¤à¤•à¤¾à¤—à¥à¤°à¤¤à¤¾ (Attention)</span>
+                        <div class="progress-track-gov"><div class="progress-fill-gov" id="bar-attention" style="width: 74%;"></div></div>
+                        <strong id="val-attention">74%</strong>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label" id="lbl-dom-pattern">à¤ªà¥ˆà¤Ÿà¤°à¥à¤¨ à¤ªà¤¹à¤šà¤¾à¤¨ (Patterns)</span>
+                        <div class="progress-track-gov"><div class="progress-fill-gov" id="bar-pattern" style="width: 89%;"></div></div>
+                        <strong id="val-pattern">89%</strong>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label" id="lbl-dom-routine">à¤¦à¤¿à¤¨à¤šà¤°à¥à¤¯à¤¾ à¤°à¤¿à¤•à¥‰à¤² (Routine)</span>
+                        <div class="progress-track-gov"><div class="progress-fill-gov" id="bar-routine" style="width: 71%;"></div></div>
+                        <strong id="val-routine">71%</strong>
+                    </div>
+                </div>
+
+                <!-- 14-Day Trend Chart -->
+                <div class="gov-card">
+                    <div class="gov-card-header">
+                        <h3 id="cg-trend-title"><i class="fa-solid fa-chart-line" style="color: var(--gov-navy);"></i> 14-à¤¦à¤¿à¤µà¤¸à¥€à¤¯ à¤¸à¤‚à¤œà¥à¤žà¤¾à¤¨à¤¾à¤¤à¥à¤®à¤• à¤¸à¤¹à¤­à¤¾à¤—à¤¿à¤¤à¤¾ à¤°à¥à¤à¤¾à¤¨</h3>
+                    </div>
+                    <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem;">
+                        <svg viewBox="0 0 500 180" style="width:100%; height:auto;" id="trend-chart-svg">
+                            <line x1="40" y1="20" x2="480" y2="20" stroke="#cbd5e1" stroke-dasharray="3,3"/>
+                            <line x1="40" y1="70" x2="480" y2="70" stroke="#cbd5e1" stroke-dasharray="3,3"/>
+                            <line x1="40" y1="120" x2="480" y2="120" stroke="#cbd5e1" stroke-dasharray="3,3"/>
+                            <polyline fill="none" stroke="#0b2545" stroke-width="4" points="
+                                50,70 80,65 110,68 140,55 170,60 200,50 230,58 260,72 290,75 320,80 350,78 380,85 410,82 440,78
+                            "/>
+                            <circle cx="50" cy="70" r="5" fill="#133e87"/>
+                            <circle cx="200" cy="50" r="6" fill="#16a34a"/>
+                            <circle cx="440" cy="78" r="7" fill="#d97706"/>
+                            <text x="50" y="150" font-size="11" fill="#64748b" font-weight="bold" id="txt-trend-day1">à¤¦à¤¿à¤¨ 1</text>
+                            <text x="240" y="150" font-size="11" fill="#64748b" font-weight="bold" id="txt-trend-day7">à¤¦à¤¿à¤¨ 7</text>
+                            <text x="430" y="150" font-size="11" fill="#64748b" font-weight="bold" id="txt-trend-today">à¤†à¤œ (à¤¦à¤¿à¤¨ 14)</text>
+                        </svg>
+                    </div>
+                    <p id="cg-trend-note" style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem;">
+                        à¤¸à¤¤à¤¤ à¤¨à¤¿à¤—à¤°à¤¾à¤¨à¥€: MDoNER AI Trend Analyzer Protocol
+                    </p>
+                </div>
+
+                <!-- Care Circle & Family Members Directory with Photo Cards -->
+                <div class="gov-card">
+                    <div class="gov-card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.6rem;">
+                        <h3 id="cg-circle-title"><i class="fa-solid fa-people-roof" style="color: var(--gov-navy);"></i> à¤ªà¤°à¤¿à¤µà¤¾à¤° à¤•à¥‡ à¤¸à¤¦à¤¸à¥à¤¯ à¤µ à¤«à¥‹à¤Ÿà¥‹ à¤¡à¤¾à¤¯à¤°à¥‡à¤•à¥à¤Ÿà¤°à¥€ (Family Members & Photos)</h3>
+                        <button type="button" class="btn-primary-gov" style="padding: 0.45rem 0.95rem; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.4rem;" onclick="openAddFamilyMemberModal()">
+                            <i class="fa-solid fa-user-plus"></i> <span id="btn-add-family-text">+ à¤¸à¤¦à¤¸à¥à¤¯ à¤•à¤¾ à¤«à¥‹à¤Ÿà¥‹ à¤œà¥‹à¤¡à¤¼à¥‡à¤‚ (Add Member Photo)</span>
+                        </button>
+                    </div>
+                    <div class="care-circle-list" id="care-circle-list">
+                        <!-- Injected dynamically with photo cards of every family member by JS -->
+                    </div>
+                </div>
+
+                <!-- Quick Send Message to Patient -->
+                <div class="gov-card">
+                    <div class="gov-card-header">
+                        <h3 id="cg-post-title"><i class="fa-solid fa-paper-plane" style="color: var(--gov-navy);"></i> à¤®à¤°à¥€à¤œ à¤•à¥‹ à¤ªà¤¾à¤°à¤¿à¤µà¤¾à¤°à¤¿à¤• à¤¸à¤‚à¤¦à¥‡à¤¶ à¤­à¥‡à¤œà¥‡à¤‚</h3>
+                    </div>
+                    <form id="cg-quick-post-form" onsubmit="handleCaregiverPostSubmit(event)">
+                        <div class="gov-form-group">
+                            <label id="cg-lbl-msg">à¤¸à¤‚à¤¦à¥‡à¤¶ (Message for Ramesh Ji)</label>
+                            <textarea id="cg-post-text" class="gov-textarea" rows="2" placeholder="à¤‰à¤¦à¤¾. à¤ªà¤¿à¤¤à¤¾à¤œà¥€! à¤†à¤œ à¤¶à¤¾à¤® à¤¹à¤® à¤¸à¤¬ à¤®à¤¿à¤²à¤¨à¥‡ à¤† à¤°à¤¹à¥‡ à¤¹à¥ˆà¤‚..." required></textarea>
+                        </div>
+                        <div class="gov-form-group">
+                            <label id="cg-lbl-photo">à¤«à¥‹à¤Ÿà¥‹ à¤¯à¥‚à¤†à¤°à¤à¤² (à¤µà¥ˆà¤•à¤²à¥à¤ªà¤¿à¤•)</label>
+                            <input type="url" id="cg-post-url" class="gov-input" placeholder="https://...">
+                        </div>
+                        <button type="submit" class="btn-primary-gov" style="width: 100%;">
+                            <i class="fa-solid fa-paper-plane"></i> <span id="cg-btn-post-text">à¤¸à¤‚à¤¦à¥‡à¤¶ à¤­à¥‡à¤œà¥‡à¤‚ (Post to Patient Feed)</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- VIEW 3: DOCTOR / CLINICAL HEALTHCARE PORTAL           -->
+        <!-- ===================================================== -->
+        <section id="view-doctor" class="app-view">
+            <div class="gov-card">
+                <div class="gov-card-header">
+                    <div>
+                        <h2 id="doc-sec-title"><i class="fa-solid fa-file-medical" style="color: var(--gov-navy);"></i> Longitudinal Clinical Report â€” Patient #p001</h2>
+                        <span class="subtitle" id="doc-sec-subtitle">Attending Neurologist: Dr. Phukan | MDoNER Tele-Health Protocol</span>
+                    </div>
+                    <button class="export-pdf-btn" onclick="openClinicalReportModal()">
+                        <i class="fa-solid fa-print"></i> <span id="doc-btn-export-text">Official Clinical Report Print / PDF</span>
+                    </button>
+                </div>
+
+                <div class="doc-stats-grid">
+                    <div class="doc-stat-card">
+                        <div class="num" id="doc-stat-sessions">24</div>
+                        <div class="label" id="doc-lbl-sessions">Total Game Sessions</div>
+                    </div>
+                    <div class="doc-stat-card">
+                        <div class="num" id="doc-stat-accuracy">82.5%</div>
+                        <div class="label" id="doc-lbl-accuracy">Mean Accuracy</div>
+                    </div>
+                    <div class="doc-stat-card">
+                        <div class="num" id="doc-stat-latency">5.8s</div>
+                        <div class="label" id="doc-lbl-latency">Mean Latency</div>
+                    </div>
+                    <div class="doc-stat-card">
+                        <div class="num" id="doc-stat-diff" style="color: var(--gov-saffron-dark);">Medium</div>
+                        <div class="label" id="doc-lbl-diff">Current AI Difficulty Level</div>
+                    </div>
+                </div>
+
+                <div class="doc-table-wrap">
+                    <table class="gov-data-table">
+                        <thead>
+                            <tr>
+                                <th id="th-col-time">Timestamp</th>
+                                <th id="th-col-module">Game Module</th>
+                                <th id="th-col-acc">Accuracy</th>
+                                <th id="th-col-lat">Latency</th>
+                                <th id="th-col-diff">Difficulty</th>
+                                <th id="th-col-outcome">AI Adaptive Outcome</th>
+                            </tr>
+                        </thead>
+                        <tbody id="doctor-session-logs">
+                            <tr>
+                                <td>Today 11:05 AM</td>
+                                <td>Village Market Challenge</td>
+                                <td><strong>95%</strong></td>
+                                <td>4.0s</td>
+                                <td>Medium</td>
+                                <td><span style="background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 4px; font-weight: 700;">Upgraded to Hard</span></td>
+                            </tr>
+                            <tr>
+                                <td>Today 11:00 AM</td>
+                                <td>North Eastern Heritage</td>
+                                <td><strong>95%</strong></td>
+                                <td>3.8s</td>
+                                <td>Easy</td>
+                                <td><span style="background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 4px; font-weight: 700;">Upgraded to Medium</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- VIEW 4: GOVERNMENT SCHEMES & RESOURCES VIEW           -->
+        <!-- ===================================================== -->
+        <section id="view-schemes" class="app-view">
+            <div class="gov-card">
+                <div class="gov-card-header">
+                    <div>
+                        <h2 id="schemes-sec-title"><i class="fa-solid fa-landmark" style="color: var(--gov-navy);"></i> Government Schemes & Senior Citizen Welfare Resources</h2>
+                        <span class="subtitle" id="schemes-sec-subtitle">National policies supported by Ministry of Health & Family Welfare and MDoNER</span>
+                    </div>
+                </div>
+
+                <div class="schemes-grid" id="schemes-cards-container">
+                    <!-- Populated dynamically by renderSchemesView() -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- 6. JUDGING & DEMO INSPECTION MODALS (GIGW Compliant)      -->
+    <!-- ========================================================= -->
+
+    <!-- Modal 1: AI Brain Hub & Model Architecture Inspection -->
+    <div class="gov-modal-backdrop" id="modal-ai-brain" onclick="handleBackdropClick(event, 'modal-ai-brain')">
+        <div class="gov-modal-dialog" style="max-width: 860px; width: 95%; max-height: 90vh; overflow-y: auto;">
+            <div class="gov-modal-header" style="background: linear-gradient(135deg, #0b2545 0%, #134e4a 100%); color: #ffffff;">
+                <div style="display:flex; align-items:center; gap: 10px;">
+                    <div style="background: rgba(255,255,255,0.15); width: 38px; height: 38px; border-radius: 8px; display:flex; align-items:center; justify-content:center; font-size: 1.25rem;">
+                        <i class="fa-solid fa-brain" style="color: #6ee7b7;"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.2rem; color: #ffffff;">AI à¤¸à¤‚à¤œà¥à¤žà¤¾à¤¨à¤¾à¤¤à¥à¤®à¤• à¤®à¥‰à¤¡à¤² à¤¹à¤¬ (MINDSET-NER AI Architecture)</h3>
+                        <p style="margin: 2px 0 0 0; font-size: 0.8rem; color: #a7f3d0;">Smart India Hackathon (SIH26003) | Machine Learning Pipelines</p>
+                    </div>
+                </div>
+                <button class="gov-modal-close" style="color: #ffffff;" onclick="closeModal('modal-ai-brain')">&times;</button>
+            </div>
+
+            <div class="gov-modal-body" style="padding: 1.4rem;">
+                <!-- Model Cards Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.9rem; margin-bottom: 1.4rem;">
+                    <!-- Card 1: Adaptive Game Difficulty -->
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-top: 4px solid #16a34a; border-radius: 8px; padding: 1rem;">
+                        <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: #166534;">à¤®à¥‰à¤¡à¤² 1 â€” à¤¸à¤‚à¤œà¥à¤žà¤¾à¤¨à¤¾à¤¤à¥à¤®à¤• à¤–à¥‡à¤²</span>
+                            <span class="badge" style="background: #dcfce7; color: #166534; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; font-weight: 700;">ðŸŸ¢ à¤¸à¤•à¥à¤°à¤¿à¤¯ (Active)</span>
+                        </div>
+                        <h4 style="margin: 0 0 0.4rem 0; font-size: 0.98rem; color: var(--gov-navy);">Adaptive Game Classifier</h4>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                            <div>à¤à¤²à¥à¤—à¥‹à¤°à¤¿à¤¦à¤®: <strong>RandomForest (100 Trees)</strong></div>
+                            <div>à¤ªà¥à¤°à¤¶à¤¿à¤•à¥à¤·à¤£ à¤¡à¥‡à¤Ÿà¤¾: <strong id="ai-model-samples-rf">2,142</strong> à¤¸à¤¤à¥à¤° (Sessions)</div>
+                            <div>à¤ªà¤°à¥€à¤•à¥à¤·à¤£ à¤¸à¤Ÿà¥€à¤•à¤¤à¤¾ (Accuracy): <strong id="ai-model-acc-rf" style="color: #16a34a; font-size: 1.05rem;">100.0%</strong></div>
+                            <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">à¤†à¤°à¥à¤Ÿà¤¿à¤«à¥ˆà¤•à¥à¤Ÿ: <code>models/adaptive_game_model.joblib</code></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Multilingual Voice Intent Engine -->
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-top: 4px solid #2563eb; border-radius: 8px; padding: 1rem;">
+                        <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: #1e40af;">à¤®à¥‰à¤¡à¤² 2 â€” à¤¬à¤¹à¥à¤­à¤¾à¤·à¥€ à¤µà¥‰à¤¯à¤¸ NLP</span>
+                            <span class="badge" style="background: #dbeafe; color: #1e40af; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; font-weight: 700;">ðŸŸ¢ à¤¸à¤•à¥à¤°à¤¿à¤¯ (Active)</span>
+                        </div>
+                        <h4 style="margin: 0 0 0.4rem 0; font-size: 0.98rem; color: var(--gov-navy);">Multilingual Intent Model</h4>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                            <div>à¤à¤²à¥à¤—à¥‹à¤°à¤¿à¤¦à¤®: <strong>TF-IDF + LogisticRegression</strong></div>
+                            <div>à¤ªà¥à¤°à¤¶à¤¿à¤•à¥à¤·à¤£ à¤¡à¥‡à¤Ÿà¤¾: <strong id="ai-model-samples-nlp">302</strong> à¤µà¤¾à¤•à¥à¤¯ (7 à¤¶à¥à¤°à¥‡à¤£à¤¿à¤¯à¤¾à¤‚)</div>
+                            <div>à¤ªà¤°à¥€à¤•à¥à¤·à¤£ à¤¸à¤Ÿà¥€à¤•à¤¤à¤¾ (Accuracy): <strong id="ai-model-acc-nlp" style="color: #2563eb; font-size: 1.05rem;">95.08%</strong></div>
+                            <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">à¤­à¤¾à¤·à¤¾à¤à¤‚: à¤¹à¤¿à¤¨à¥à¤¦à¥€, Hinglish, English</div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Longitudinal Trend Monitoring -->
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-top: 4px solid #d97706; border-radius: 8px; padding: 1rem;">
+                        <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: #92400e;">à¤®à¥‰à¤¡à¤² 3 â€” à¤Ÿà¥à¤°à¥‡à¤‚à¤¡ à¤®à¥‰à¤¨à¤¿à¤Ÿà¤°à¤¿à¤‚à¤—</span>
+                            <span class="badge" style="background: #fef3c7; color: #92400e; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; font-weight: 700;">à¤¸à¥à¤°à¤•à¥à¤·à¤¾ à¤—à¤¾à¤°à¥à¤¡à¤°à¥‡à¤²</span>
+                        </div>
+                        <h4 style="margin: 0 0 0.4rem 0; font-size: 0.98rem; color: var(--gov-navy);">Activity Baseline Tracker</h4>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                            <div>à¤ªà¤¦à¥à¤§à¤¤à¤¿: <strong>7-Day Longitudinal Sliding Baseline</strong></div>
+                            <div>à¤Ÿà¥à¤°à¥ˆà¤•à¤¿à¤‚à¤— à¤†à¤¯à¤¾à¤®: <strong>à¤¯à¤¾à¤¦à¤¦à¤¾à¤¶à¥à¤¤, à¤§à¥à¤¯à¤¾à¤¨, à¤¦à¥ˆà¤¨à¤¿à¤• à¤¦à¤¿à¤¨à¤šà¤°à¥à¤¯à¤¾</strong></div>
+                            <div>à¤¸à¥à¤°à¤•à¥à¤·à¤¾ à¤®à¤¾à¤¨à¤•: <strong>à¤—à¥ˆà¤°-à¤¨à¤¿à¤¦à¤¾à¤¨à¤¾à¤¤à¥à¤®à¤• (Non-Diagnostic)</strong></div>
+                            <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">à¤‰à¤¦à¥à¤¦à¥‡à¤¶à¥à¤¯: à¤¦à¥‡à¤–à¤­à¤¾à¤²à¤•à¤°à¥à¤¤à¤¾ à¤•à¥‹ à¤¶à¥à¤°à¥à¤†à¤¤à¥€ à¤šà¥‡à¤¤à¤¾à¤µà¤¨à¥€</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Importance Breakdown for Model 1 -->
+                <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 1.4rem;">
+                    <h4 style="margin: 0 0 0.6rem 0; font-size: 0.95rem; color: var(--gov-navy); display:flex; align-items:center; justify-content:space-between;">
+                        <span><i class="fa-solid fa-chart-simple" style="color: #0d9488; margin-right: 6px;"></i> à¤°à¥ˆà¤‚à¤¡à¤®à¤«à¥‰à¤°à¥‡à¤¸à¥à¤Ÿ à¤«à¥€à¤šà¤° à¤®à¤¹à¤¤à¥à¤µ (Feature Importances - Adaptive Model):</span>
+                        <span style="font-size: 0.78rem; color: #64748b; font-weight: normal;">scikit-learn MDI Metrics</span>
+                    </h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.7rem; font-size: 0.85rem;">
+                        <div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom: 2px;">
+                                <span>à¤µà¤°à¥à¤¤à¤®à¤¾à¤¨ à¤•à¤ à¤¿à¤¨à¤¾à¤ˆ (Difficulty):</span> <strong>60.6%</strong>
+                            </div>
+                            <div style="background: #e2e8f0; border-radius: 3px; height: 6px; overflow:hidden;">
+                                <div style="background: #0d9488; height: 100%; width: 60.6%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom: 2px;">
+                                <span>à¤ªà¥à¤°à¤¤à¤¿à¤•à¥à¤°à¤¿à¤¯à¤¾ à¤¸à¤®à¤¯ (Latency):</span> <strong>14.7%</strong>
+                            </div>
+                            <div style="background: #e2e8f0; border-radius: 3px; height: 6px; overflow:hidden;">
+                                <div style="background: #2563eb; height: 100%; width: 14.7%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom: 2px;">
+                                <span>à¤—à¤²à¤¤à¤¿à¤¯à¥‹à¤‚ à¤•à¥€ à¤¸à¤‚à¤–à¥à¤¯à¤¾ (Mistakes):</span> <strong>12.7%</strong>
+                            </div>
+                            <div style="background: #e2e8f0; border-radius: 3px; height: 6px; overflow:hidden;">
+                                <div style="background: #f59e0b; height: 100%; width: 12.7%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom: 2px;">
+                                <span>à¤¸à¤Ÿà¥€à¤•à¤¤à¤¾ (Accuracy):</span> <strong>12.0%</strong>
+                            </div>
+                            <div style="background: #e2e8f0; border-radius: 3px; height: 6px; overflow:hidden;">
+                                <div style="background: #16a34a; height: 100%; width: 12.0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two-Column Interactive AI Testing Labs -->
+                <div class="gov-modal-two-col-grid">
+                    
+                    <!-- Lab 1: Interactive Cognitive Difficulty Simulator -->
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 1.2rem;">
+                        <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: var(--gov-navy); display:flex; align-items:center; gap: 8px;">
+                            <i class="fa-solid fa-sliders" style="color: #16a34a;"></i>
+                            à¤²à¤¾à¤‡à¤µ à¤¸à¤¿à¤®à¥à¤²à¥‡à¤Ÿà¤°: à¤…à¤¨à¥à¤•à¥‚à¤²à¤¨ à¤¨à¤¿à¤°à¥à¤£à¤¯ (Interactive Simulator)
+                        </h4>
+                        <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 1rem;">à¤¸à¥à¤²à¤¾à¤‡à¤¡à¤° à¤¬à¤¦à¤²à¥‡à¤‚ à¤”à¤° à¤¦à¥‡à¤–à¥‡à¤‚ à¤•à¤¿ AI à¤®à¥‰à¤¡à¤² à¤•à¤ à¤¿à¤¨à¤¾à¤ˆ à¤¸à¥à¤¤à¤° à¤•à¥ˆà¤¸à¥‡ à¤¬à¤¦à¤²à¤¤à¤¾ à¤¹à¥ˆ:</p>
+
+                        <div style="display:flex; flex-direction:column; gap: 0.8rem; font-size: 0.85rem;">
+                            <div>
+                                <div style="display:flex; justify-content:space-between; margin-bottom: 3px;">
+                                    <span>à¤¸à¤Ÿà¥€à¤•à¤¤à¤¾ (Accuracy %):</span>
+                                    <strong id="sim-acc-val" style="color: #16a34a;">85%</strong>
+                                </div>
+                                <input type="range" min="10" max="100" step="5" value="85" id="sim-acc-slider" oninput="runAdaptiveSimulation()" style="width: 100%;">
+                            </div>
+
+                            <div>
+                                <div style="display:flex; justify-content:space-between; margin-bottom: 3px;">
+                                    <span>à¤ªà¥à¤°à¤¤à¤¿à¤•à¥à¤°à¤¿à¤¯à¤¾ à¤¸à¤®à¤¯ (Speed / Latency):</span>
+                                    <strong id="sim-lat-val" style="color: #2563eb;">4.5 à¤¸à¥‡à¤•à¤‚.</strong>
+                                </div>
+                                <input type="range" min="1.0" max="25.0" step="0.5" value="4.5" id="sim-lat-slider" oninput="runAdaptiveSimulation()" style="width: 100%;">
+                            </div>
+
+                            <div class="gov-modal-form-grid" style="gap: 0.6rem;">
+                                <div>
+                                    <label style="display:block; margin-bottom: 3px;">à¤—à¤²à¤¤à¤¿à¤¯à¤¾à¤‚ (Mistakes):</label>
+                                    <select id="sim-mistakes-select" onchange="runAdaptiveSimulation()" class="gov-select" style="font-size: 0.85rem; padding: 6px 8px;">
+                                        <option value="0">0 Mistakes</option>
+                                        <option value="1">1 Mistake</option>
+                                        <option value="2">2 Mistakes</option>
+                                        <option value="3">3 Mistakes</option>
+                                        <option value="4">4+ Mistakes</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label style="display:block; margin-bottom: 3px;">à¤µà¤°à¥à¤¤à¤®à¤¾à¤¨ à¤¸à¥à¤¤à¤° (Current):</label>
+                                    <select id="sim-level-select" onchange="runAdaptiveSimulation()" class="gov-select" style="font-size: 0.85rem; padding: 6px 8px;">
+                                        <option value="Easy">Easy (à¤†à¤¸à¤¾à¤¨)</option>
+                                        <option value="Medium" selected>Medium (à¤®à¤§à¥à¤¯à¤®)</option>
+                                        <option value="Hard">Hard (à¤•à¤ à¤¿à¤¨)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Live Inference Output Box -->
+                        <div id="sim-output-card" style="background: #eff6ff; border: 1.5px solid #93c5fd; border-radius: 6px; padding: 0.85rem; margin-top: 1rem;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.4rem;">
+                                <span style="font-weight: 700; color: #1e3a8a; font-size: 0.88rem;">AI à¤¸à¤¿à¤«à¤¼à¤¾à¤°à¤¿à¤¶ (Decision):</span>
+                                <span id="sim-result-transition" style="background: #1e40af; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: 700; font-size: 0.82rem;">MEDIUM -> HARD</span>
+                            </div>
+                            <div id="sim-result-reason" style="font-size: 0.82rem; color: #1e293b; line-height: 1.5; margin-bottom: 0.4rem;">
+                                à¤‰à¤¤à¥à¤•à¥ƒà¤·à¥à¤Ÿ à¤ªà¥à¤°à¤¦à¤°à¥à¤¶à¤¨! AI à¤¨à¥‡ à¤–à¥‡à¤² à¤•à¥‹ à¤”à¤° à¤…à¤§à¤¿à¤• à¤°à¥‹à¤šà¤• à¤¬à¤¨à¤¾à¤¨à¥‡ à¤•à¥‡ à¤²à¤¿à¤ à¤•à¤ à¤¿à¤¨à¤¾à¤ˆ à¤¸à¥à¤¤à¤° à¤¬à¤¢à¤¼à¤¾ à¤¦à¤¿à¤¯à¤¾ à¤¹à¥ˆà¥¤
+                            </div>
+                            <div style="font-size: 0.78rem; color: #475569; border-top: 1px dashed #bfdbfe; padding-top: 4px; display:flex; justify-content:space-between;">
+                                <span>à¤µà¤¸à¥à¤¤à¥à¤à¤‚: <strong id="sim-objects-change">5 -> 7 à¤µà¤¸à¥à¤¤à¥à¤à¤‚</strong></span>
+                                <span>à¤¸à¤®à¤¯: <strong id="sim-time-change">8s -> 6s</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lab 2: Live Multilingual Voice Query Tester -->
+                    <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 1.2rem;">
+                        <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: var(--gov-navy); display:flex; align-items:center; gap: 8px;">
+                            <i class="fa-solid fa-microphone-lines" style="color: #2563eb;"></i>
+                            à¤²à¤¾à¤‡à¤µ à¤µà¥‰à¤¯à¤¸ NLP à¤‡à¤‚à¤Ÿà¥‡à¤¨à¥à¤Ÿ à¤ªà¤°à¥€à¤•à¥à¤·à¤• (Voice Intent Tester)
+                        </h4>
+                        <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.8rem;">à¤¹à¤¿à¤¨à¥à¤¦à¥€, Hinglish à¤¯à¤¾ à¤…à¤‚à¤—à¥à¤°à¥‡à¤œà¥€ à¤®à¥‡à¤‚ à¤µà¥‰à¤¯à¤¸/à¤Ÿà¥‡à¤•à¥à¤¸à¥à¤Ÿ à¤Ÿà¥‡à¤¸à¥à¤Ÿ à¤•à¤°à¥‡à¤‚:</p>
+
+                        <!-- Input and Test Button -->
+                        <div style="display:flex; gap: 6px; margin-bottom: 0.6rem;">
+                            <input type="text" id="sim-voice-input" class="gov-input" placeholder="à¤‰à¤¦à¤¾. à¤¦à¤µà¤¾ à¤•à¤¾ à¤¸à¤®à¤¯ à¤•à¥à¤¯à¤¾ à¤¹à¥ˆ? / thoda pani pina hai" style="font-size: 0.85rem;" value="à¤¦à¤µà¤¾ à¤²à¥‡à¤¨à¥‡ à¤•à¤¾ à¤¸à¤®à¤¯ à¤•à¤¬ à¤¹à¥ˆ?">
+                            <button class="btn-primary-gov" onclick="testVoiceQueryAI()" style="white-space: nowrap; padding: 6px 12px; font-size: 0.85rem;">
+                                <i class="fa-solid fa-play"></i> à¤Ÿà¥‡à¤¸à¥à¤Ÿ à¤•à¤°à¥‡à¤‚
+                            </button>
+                        </div>
+
+                        <!-- Quick Phrase Chips -->
+                        <div style="display:flex; flex-wrap:wrap; gap: 4px; margin-bottom: 0.8rem;">
+                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('à¤¦à¤µà¤¾ à¤•à¥€ à¤¯à¤¾à¤¦ à¤¦à¤¿à¤²à¤¾à¤“')">à¤¦à¤µà¤¾ à¤°à¤¿à¤®à¤¾à¤‡à¤‚à¤¡à¤°</button>
+                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('thoda pani pina hai')">thoda pani</button>
+                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('khel shuru karo')">khel shuru</button>
+                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('meri beti ananya ki photo')">beti ki photo</button>
+                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('bihu ka gana bajao')">bihu music</button>
+                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('What is my schedule today?')">daily schedule</button>
+                        </div>
+
+                        <!-- Live NLP Output Card -->
+                        <div id="sim-voice-output" style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 6px; padding: 0.85rem;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.4rem;">
+                                <span style="font-weight: 700; color: #14532d; font-size: 0.85rem;">à¤ªà¤¹à¤šà¤¾à¤¨à¤¾ à¤—à¤¯à¤¾ à¤‡à¤‚à¤Ÿà¥‡à¤¨à¥à¤Ÿ:</span>
+                                <span id="sim-voice-intent" style="background: #15803d; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.8rem;">MEDICINE_REMINDER</span>
+                            </div>
+                            <div style="font-size: 0.8rem; color: #166534; margin-bottom: 0.4rem;">
+                                à¤†à¤¤à¥à¤®à¤µà¤¿à¤¶à¥à¤µà¤¾à¤¸ à¤¸à¥à¤¤à¤° (Confidence): <strong id="sim-voice-conf" style="color: #15803d; font-size: 0.95rem;">87.6%</strong>
+                                <span style="color: #64748b; font-size: 0.75rem; margin-left: 6px;">(à¤‡à¤‚à¤œà¤¨: <span id="sim-voice-engine">sklearn_tfidf_logreg</span>)</span>
+                            </div>
+                            <div style="background: #ffffff; border: 1px solid #bbf7d0; border-radius: 4px; padding: 6px 8px; font-size: 0.82rem; color: #1e293b;">
+                                <strong>à¤†à¤¶à¤¾ à¤•à¥€ à¤ªà¥à¤°à¤¤à¤¿à¤•à¥à¤°à¤¿à¤¯à¤¾:</strong> <span id="sim-voice-speech">à¤†à¤ªà¤•à¥€ à¤…à¤—à¤²à¥€ à¤¦à¤µà¤¾à¤ˆ à¤¦à¥‹à¤ªà¤¹à¤° 2:00 à¤¬à¤œà¥‡ à¤¹à¥ˆà¥¤</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gov-modal-footer" style="display:flex; justify-content:space-between; align-items:center; background: #f8fafc;">
+                <button class="btn-primary-gov" id="btn-retrain-models" onclick="triggerRetrainAIModels()" style="background: #0284c7; border-color: #0284c7;">
+                    <i class="fa-solid fa-arrows-rotate" id="retrain-spin-icon"></i> AI à¤®à¥‰à¤¡à¤²à¥à¤¸ à¤ªà¥à¤¨à¤ƒ à¤ªà¥à¤°à¤¶à¤¿à¤•à¥à¤·à¤¿à¤¤ à¤•à¤°à¥‡à¤‚ (Retrain AI Models)
+                </button>
+                <button class="btn-secondary-gov" onclick="closeModal('modal-ai-brain')">à¤¬à¤‚à¤¦ à¤•à¤°à¥‡à¤‚ (Close)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: NER Regional Impact Map -->
+    <div class="gov-modal-backdrop" id="modal-ner-map" onclick="handleBackdropClick(event, 'modal-ner-map')">
+        <div class="gov-modal-dialog">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-map-location-dot"></i> à¤ªà¥‚à¤°à¥à¤µà¥‹à¤¤à¥à¤¤à¤° à¤•à¥à¤·à¥‡à¤¤à¥à¤° (NER) 8 à¤°à¤¾à¤œà¥à¤¯à¥‹à¤‚ à¤®à¥‡à¤‚ à¤ªà¥à¤°à¤­à¤¾à¤µ à¤®à¤¾à¤¨à¤šà¤¿à¤¤à¥à¤°</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-ner-map')">&times;</button>
+            </div>
+            <div class="gov-modal-body">
+                <p style="margin-bottom: 1rem;">MDoNER à¤•à¥‡ à¤…à¤‚à¤¤à¤°à¥à¤—à¤¤ à¤ªà¥‚à¤°à¥à¤µà¥‹à¤¤à¥à¤¤à¤° à¤•à¥‡ à¤†à¤ à¥‹à¤‚ à¤°à¤¾à¤œà¥à¤¯à¥‹à¤‚ à¤®à¥‡à¤‚ à¤‘à¤«à¤¼à¤²à¤¾à¤‡à¤¨-à¤¸à¤•à¥à¤·à¤® à¤¸à¥à¤µà¤¾à¤¸à¥à¤¥à¥à¤¯ à¤¸à¤¹à¤¾à¤¯à¤¤à¤¾ à¤•à¤µà¤°à¥‡à¤œ:</p>
+                <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem;">
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">à¤…à¤¸à¤® (Assam) ðŸŸ¢ à¤¸à¤•à¥à¤°à¤¿à¤¯</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">à¤…à¤°à¥à¤£à¤¾à¤šà¤² à¤ªà¥à¤°à¤¦à¥‡à¤¶ ðŸŸ¢ à¤‘à¤«à¤¼à¤²à¤¾à¤‡à¤¨-à¤¸à¤¿à¤‚à¤•</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">à¤®à¤£à¤¿à¤ªà¥à¤° (Manipur) ðŸŸ¢ à¤¸à¤•à¥à¤°à¤¿à¤¯</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">à¤®à¥‡à¤˜à¤¾à¤²à¤¯ (Meghalaya) ðŸŸ¢ à¤‘à¤«à¤¼à¤²à¤¾à¤‡à¤¨-à¤¸à¤¿à¤‚à¤•</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">à¤®à¤¿à¤œà¥‹à¤°à¤® (Mizoram) ðŸŸ¢ à¤¸à¤•à¥à¤°à¤¿à¤¯</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">à¤¨à¤¾à¤—à¤¾à¤²à¥ˆà¤‚à¤¡ (Nagaland) ðŸŸ¢ à¤‘à¤«à¤¼à¤²à¤¾à¤‡à¤¨-à¤¸à¤¿à¤‚à¤•</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">à¤¤à¥à¤°à¤¿à¤ªà¥à¤°à¤¾ (Tripura) ðŸŸ¢ à¤¸à¤•à¥à¤°à¤¿à¤¯</div>
+                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">à¤¸à¤¿à¤•à¥à¤•à¤¿à¤® (Sikkim) ðŸŸ¢ à¤¸à¤•à¥à¤°à¤¿à¤¯</div>
+                </div>
+            </div>
+            <div class="gov-modal-footer">
+                <button class="btn-primary-gov" onclick="closeModal('modal-ner-map')">à¤¬à¤‚à¤¦ à¤•à¤°à¥‡à¤‚ (Close)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Satellite Layer Roadmap -->
+    <div class="gov-modal-backdrop" id="modal-satellite" onclick="handleBackdropClick(event, 'modal-satellite')">
+        <div class="gov-modal-dialog">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-satellite"></i> à¤¸à¥à¤ªà¥‡à¤¸ à¤Ÿà¥‡à¤• à¤à¤•à¥€à¤•à¤°à¤£ à¤°à¥‹à¤¡à¤®à¥ˆà¤ª (NavIC / Satellite Layer)</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-satellite')">&times;</button>
+            </div>
+            <div class="gov-modal-body">
+                <p style="margin-bottom: 1.2rem;">à¤¦à¥‚à¤°à¤¦à¤°à¤¾à¤œ à¤•à¥‡ à¤ªà¤¹à¤¾à¤¡à¤¼à¥€ à¤—à¤¾à¤‚à¤µà¥‹à¤‚ à¤®à¥‡à¤‚ à¤¶à¥‚à¤¨à¥à¤¯ à¤¸à¥‡à¤²à¥à¤²à¤° à¤¨à¥‡à¤Ÿà¤µà¤°à¥à¤• à¤¹à¥‹à¤¨à¥‡ à¤ªà¤° à¤­à¥€ à¤¸à¥ˆà¤Ÿà¥‡à¤²à¤¾à¤‡à¤Ÿ à¤à¤µà¤‚ à¤¸à¥à¤¥à¤¾à¤¨à¥€à¤¯ à¤¡à¥‡à¤Ÿà¤¾ à¤¸à¤¿à¤‚à¤•:</p>
+                <div style="display:flex; flex-direction:column; gap: 0.6rem; align-items:center;">
+                    <div style="background: #f1f5f9; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 700;">1. à¤¦à¥‚à¤°à¤¸à¥à¤¥ à¤ªà¤¹à¤¾à¤¡à¤¼à¥€ à¤—à¤¾à¤‚à¤µ (Remote Hill Village)</div>
+                    <i class="fa-solid fa-arrow-down" style="color: var(--gov-navy);"></i>
+                    <div style="background: #f1f5f9; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 700;">2. à¤‘à¤«à¤¼à¤²à¤¾à¤‡à¤¨ MINDSET-NER à¤®à¥‹à¤¬à¤¾à¤‡à¤²/à¤µà¥‡à¤¬ à¤à¤ª (Local SQLite)</div>
+                    <i class="fa-solid fa-arrow-down" style="color: var(--gov-navy);"></i>
+                    <div style="background: #fef3c7; border: 2px solid #f59e0b; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 800; color: #b45309;">
+                        3. NavIC / Satcom à¤¸à¥ˆà¤Ÿà¥‡à¤²à¤¾à¤‡à¤Ÿ à¤•à¤¨à¥‡à¤•à¥à¤Ÿà¤¿à¤µà¤¿à¤Ÿà¥€ à¤²à¥‡à¤¯à¤° (à¤­à¤µà¤¿à¤·à¥à¤¯ à¤à¤•à¥€à¤•à¤°à¤£)
+                    </div>
+                    <i class="fa-solid fa-arrow-down" style="color: var(--gov-navy);"></i>
+                    <div style="background: #dcfce7; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 700; color: #166534;">4. à¤•à¥‡à¤‚à¤¦à¥à¤°à¥€à¤¯ à¤¸à¥à¤µà¤¾à¤¸à¥à¤¥à¥à¤¯ à¤¨à¥‡à¤Ÿà¤µà¤°à¥à¤• (National Health Portal)</div>
+                </div>
+            </div>
+            <div class="gov-modal-footer">
+                <button class="btn-primary-gov" onclick="closeModal('modal-satellite')">à¤¬à¤‚à¤¦ à¤•à¤°à¥‡à¤‚ (Close)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Privacy & Security Center -->
+    <div class="gov-modal-backdrop" id="modal-privacy" onclick="handleBackdropClick(event, 'modal-privacy')">
+        <div class="gov-modal-dialog">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-shield-halved"></i> à¤°à¥‹à¤—à¥€ à¤¡à¥‡à¤Ÿà¤¾ à¤—à¥‹à¤ªà¤¨à¥€à¤¯à¤¤à¤¾ à¤à¤µà¤‚ à¤¸à¥à¤°à¤•à¥à¤·à¤¾ à¤•à¥‡à¤‚à¤¦à¥à¤° (Privacy Center)</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-privacy')">&times;</button>
+            </div>
+            <div class="gov-modal-body">
+                <div style="display:flex; flex-direction:column; gap: 0.8rem;">
+                    <div style="display:flex; justify-content:space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color);">
+                        <span>à¤µà¥à¤¯à¤•à¥à¤¤à¤¿à¤—à¤¤ à¤¸à¥à¤®à¥ƒà¤¤à¤¿ à¤¡à¥‡à¤Ÿà¤¾ (Memory Data)</span>
+                        <strong style="color: #16a34a;"><i class="fa-solid fa-check"></i> AES-256 à¤à¤¨à¥à¤•à¥à¤°à¤¿à¤ªà¥à¤Ÿà¥‡à¤¡</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color);">
+                        <span>à¤ªà¤¾à¤°à¤¿à¤µà¤¾à¤°à¤¿à¤• à¤¤à¤¸à¥à¤µà¥€à¤°à¥‡à¤‚ (Family Photographs)</span>
+                        <strong style="color: #16a34a;"><i class="fa-solid fa-check"></i> à¤•à¥‡à¤µà¤² à¤…à¤§à¤¿à¤•à¥ƒà¤¤ à¤•à¥‡à¤¯à¤°-à¤¸à¤°à¥à¤•à¤¿à¤²</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color);">
+                        <span>à¤•à¥à¤²à¤¾à¤‰à¤¡ à¤¡à¥‡à¤Ÿà¤¾ à¤¸à¤¿à¤‚à¤• (Cloud TLS 1.3)</span>
+                        <strong style="color: #16a34a;"><i class="fa-solid fa-check"></i> à¤¸à¥à¤°à¤•à¥à¤·à¤¿à¤¤ à¤Ÿà¥à¤°à¤¾à¤‚à¤¸à¤«à¤°</strong>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color);">
+                        <span>à¤¬à¤¾à¤¹à¤°à¥€ à¤¤à¥ƒà¤¤à¥€à¤¯-à¤ªà¤•à¥à¤· à¤¡à¥‡à¤Ÿà¤¾ à¤¸à¤¾à¤à¤¾à¤•à¤°à¤£ (Third-Party)</span>
+                        <strong style="color: #dc2626;"><i class="fa-solid fa-xmark"></i> à¤ªà¥‚à¤°à¥à¤£à¤¤à¤ƒ à¤ªà¥à¤°à¤¤à¤¿à¤¬à¤‚à¤§à¤¿à¤¤ (Strictly OFF)</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="gov-modal-footer">
+                <button class="btn-primary-gov" onclick="closeModal('modal-privacy')">à¤¸à¥à¤µà¥€à¤•à¤¾à¤° à¤•à¤°à¥‡à¤‚ (Acknowledge)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5: Offline Drawer Simulator -->
+    <div class="gov-modal-backdrop" id="modal-offline-drawer" onclick="handleBackdropClick(event, 'modal-offline-drawer')">
+        <div class="gov-modal-dialog">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-wifi"></i> à¤‘à¤«à¤¼à¤²à¤¾à¤‡à¤¨ à¤®à¥‹à¤¡ à¤à¤µà¤‚ à¤¡à¥‡à¤Ÿà¤¾ à¤¸à¤¿à¤‚à¤•à¥à¤°à¤¨à¤¾à¤‡à¤œà¤¼à¥‡à¤¶à¤¨ à¤•à¥‡à¤‚à¤¦à¥à¤°</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-offline-drawer')">&times;</button>
+            </div>
+            <div class="gov-modal-body">
+                <div style="text-align: center; margin-bottom: 1.2rem;">
+                    <h4 id="off-drawer-status-title" style="color: #16a34a; font-size: 1.25rem;">ðŸŸ¢ à¤µà¤°à¥à¤¤à¤®à¤¾à¤¨ à¤¸à¥à¤¥à¤¿à¤¤à¤¿: à¤‘à¤¨à¤²à¤¾à¤‡à¤¨ (ONLINE)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.88rem;">à¤‡à¤‚à¤Ÿà¤°à¤¨à¥‡à¤Ÿ à¤¨ à¤¹à¥‹à¤¨à¥‡ à¤ªà¤° à¤­à¥€ à¤¸à¤­à¥€ à¤—à¥‡à¤®, à¤°à¤¿à¤®à¤¾à¤‡à¤‚à¤¡à¤° à¤”à¤° à¤†à¤µà¤¾à¤œ à¤¸à¤¾à¤¥à¥€ à¤ªà¥‚à¤°à¥€ à¤¤à¤°à¤¹ à¤•à¤¾à¤°à¥à¤¯à¤¶à¥€à¤² à¤°à¤¹à¤¤à¥‡ à¤¹à¥ˆà¤‚à¥¤</p>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                    <div style="margin: 0.4rem 0;">à¤¸à¤‚à¤œà¥à¤žà¤¾à¤¨à¤¾à¤¤à¥à¤®à¤• à¤–à¥‡à¤²: <strong style="color: #16a34a;">âœ“ à¤‘à¤«à¤¼à¤²à¤¾à¤‡à¤¨ à¤‰à¤ªà¤²à¤¬à¥à¤§</strong></div>
+                    <div style="margin: 0.4rem 0;">à¤¦à¤µà¤¾ à¤µ à¤œà¤²à¤ªà¤¾à¤¨ à¤°à¤¿à¤®à¤¾à¤‡à¤‚à¤¡à¤°: <strong style="color: #16a34a;">âœ“ à¤‘à¤«à¤¼à¤²à¤¾à¤‡à¤¨ à¤‰à¤ªà¤²à¤¬à¥à¤§</strong></div>
+                    <div style="margin: 0.4rem 0;">à¤†à¤µà¤¾à¤œ à¤¸à¤¾à¤¥à¥€ à¤†à¤¶à¤¾: <strong style="color: #16a34a;">âœ“ à¤²à¥‹à¤•à¤² NLP à¤‡à¤‚à¤œà¤¨ à¤¸à¤•à¥à¤°à¤¿à¤¯</strong></div>
+                </div>
+
+                <div style="margin-bottom: 1.2rem;">
+                    <span>à¤¸à¤¿à¤‚à¤• à¤¹à¥‡à¤¤à¥ à¤²à¤‚à¤¬à¤¿à¤¤ à¤°à¤¿à¤•à¥‰à¤°à¥à¤¡à¥à¤¸ (Pending Queue):</span>
+                    <strong id="off-queue-count" style="color: var(--gov-navy); font-size: 1.1rem;">0 à¤°à¤¿à¤•à¥‰à¤°à¥à¤¡à¥à¤¸</strong>
+                </div>
+
+                <!-- Animated Sync Progress -->
+                <div id="sync-progress-wrap" style="display:none; margin-bottom: 1.2rem;">
+                    <div style="font-size: 0.85rem; font-weight: 700; color: var(--gov-navy);">â˜ à¤•à¥à¤²à¤¾à¤‰à¤¡ à¤¸à¤°à¥à¤µà¤° à¤¸à¥‡ à¤¸à¤¿à¤‚à¤•à¥à¤°à¤¨à¤¾à¤‡à¤œà¤¼ à¤¹à¥‹ à¤°à¤¹à¤¾ à¤¹à¥ˆ...</div>
+                    <div class="progress-track-gov" style="margin-top: 0.4rem;">
+                        <div class="progress-fill-gov" id="sync-progress-fill" style="width: 0%; background: #16a34a;"></div>
+                    </div>
+                </div>
+
+                <button class="btn-primary-gov" style="width: 100%; padding: 0.85rem; font-size: 1rem;" onclick="toggleOfflineMode()">
+                    <i class="fa-solid fa-plug-circle-xmark"></i> à¤‡à¤‚à¤Ÿà¤°à¤¨à¥‡à¤Ÿ à¤•à¤¨à¥‡à¤•à¥à¤Ÿà¤¿à¤µà¤¿à¤Ÿà¥€ à¤Ÿà¥‰à¤—à¤² à¤•à¤°à¥‡à¤‚ (Simulate Offline/Online)
+                </button>
+            </div>
+            <div class="gov-modal-footer">
+                <button class="btn-secondary-gov" onclick="closeModal('modal-offline-drawer')">à¤¬à¤‚à¤¦ à¤•à¤°à¥‡à¤‚ (Close)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6: Add New Reminder Modal -->
+    <div class="gov-modal-backdrop" id="modal-add-reminder" onclick="handleBackdropClick(event, 'modal-add-reminder')">
+        <div class="gov-modal-dialog">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-bell"></i> à¤¨à¤¯à¤¾ à¤°à¤¿à¤®à¤¾à¤‡à¤‚à¤¡à¤° à¤œà¥‹à¤¡à¤¼à¥‡à¤‚ (Add Health Reminder)</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-add-reminder')">&times;</button>
+            </div>
+            <form onsubmit="handleCreateReminderSubmit(event)">
+                <div class="gov-modal-body">
+                    <div class="gov-form-group">
+                        <label>à¤°à¤¿à¤®à¤¾à¤‡à¤‚à¤¡à¤° à¤ªà¥à¤°à¤•à¤¾à¤° (Category)</label>
+                        <select id="new-rem-type" class="gov-select" required>
+                            <option value="medicine">ðŸ’Š à¤¦à¤µà¤¾à¤ˆ (Medication)</option>
+                            <option value="hydration">ðŸ’§ à¤œà¤²à¤ªà¤¾à¤¨ / à¤ªà¤¾à¤¨à¥€ (Hydration)</option>
+                            <option value="activity">ðŸš¶ à¤¶à¤¾à¤°à¥€à¤°à¤¿à¤• à¤µà¥à¤¯à¤¾à¤¯à¤¾à¤® / à¤¸à¥ˆà¤° (Activity)</option>
+                            <option value="appointment">ðŸ©º à¤¡à¥‰à¤•à¥à¤Ÿà¤° à¤ªà¤°à¤¾à¤®à¤°à¥à¤¶ (Doctor Consultation)</option>
+                        </select>
+                    </div>
+                    <div class="gov-form-group">
+                        <label>à¤¶à¥€à¤°à¥à¤·à¤• / à¤µà¤¿à¤µà¤°à¤£ (Title)</label>
+                        <input type="text" id="new-rem-title" class="gov-input" placeholder="à¤‰à¤¦à¤¾. à¤¦à¥‹à¤ªà¤¹à¤° 2 à¤¬à¤œà¥‡ à¤•à¥€ à¤¬à¥€à¤ªà¥€ à¤—à¥‹à¤²à¥€" required>
+                    </div>
+                    <div class="gov-form-group">
+                        <label>à¤¨à¤¿à¤°à¥à¤§à¤¾à¤°à¤¿à¤¤ à¤¸à¤®à¤¯ (Scheduled Time)</label>
+                        <input type="text" id="new-rem-time" class="gov-input" placeholder="à¤‰à¤¦à¤¾. 02:00 PM" required>
+                    </div>
+                </div>
+                <div class="gov-modal-footer">
+                    <button type="button" class="btn-secondary-gov" onclick="closeModal('modal-add-reminder')">à¤°à¤¦à¥à¤¦ à¤•à¤°à¥‡à¤‚ (Cancel)</button>
+                    <button type="submit" class="btn-primary-gov">à¤°à¤¿à¤®à¤¾à¤‡à¤‚à¤¡à¤° à¤¸à¥à¤°à¤•à¥à¤·à¤¿à¤¤ à¤•à¤°à¥‡à¤‚ (Save Reminder)</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 7: Add Digital Memory Book Card Modal -->
+    <div class="gov-modal-backdrop" id="modal-add-dmb" onclick="handleBackdropClick(event, 'modal-add-dmb')">
+        <div class="gov-modal-dialog">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-book-bookmark"></i> à¤¨à¤¯à¤¾ à¤¸à¥à¤®à¥ƒà¤¤à¤¿ à¤•à¤¾à¤°à¥à¤¡ à¤œà¥‹à¤¡à¤¼à¥‡à¤‚ (Add Memory Card)</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-add-dmb')">&times;</button>
+            </div>
+            <form onsubmit="handleCreateMemoryBookModal(event)">
+                <div class="gov-modal-body">
+                    <div class="gov-form-group">
+                        <label>à¤¶à¥à¤°à¥‡à¤£à¥€ (Category)</label>
+                        <select id="modal-dmb-category" class="gov-select">
+                            <option value="family">ðŸ‘¨â€ðŸ‘©â€ðŸ‘§ à¤ªà¤°à¤¿à¤µà¤¾à¤° à¤•à¤¾ à¤¸à¤¦à¤¸à¥à¤¯ (Family Member)</option>
+                            <option value="place">ðŸ¡ à¤ªà¥à¤°à¤¿à¤¯ à¤˜à¤° à¤¯à¤¾ à¤¸à¥à¤¥à¤¾à¤¨ (Familiar Place)</option>
+                            <option value="food">ðŸ² à¤ªà¤¸à¤‚à¤¦à¥€à¤¦à¤¾ à¤­à¥‹à¤œà¤¨ (Favorite Dish)</option>
+                            <option value="song">ðŸŽµ à¤ªà¥à¤°à¤¿à¤¯ à¤¸à¤‚à¤—à¥€à¤¤ / à¤—à¥€à¤¤ (Favorite Song)</option>
+                        </select>
+                    </div>
+                    <div class="gov-form-group">
+                        <label>à¤¨à¤¾à¤® à¤¯à¤¾ à¤¶à¥€à¤°à¥à¤·à¤• (Name / Title)</label>
+                        <input type="text" id="modal-dmb-title" class="gov-input" placeholder="à¤‰à¤¦à¤¾. à¤ªà¥‹à¤¤à¥€ à¤¶à¥à¤°à¥‡à¤¯à¤¾ / à¤—à¥à¤µà¤¾à¤¹à¤¾à¤Ÿà¥€ à¤•à¤¾ à¤˜à¤°" required>
+                    </div>
+                    <div class="gov-form-group">
+                        <label>à¤°à¤¿à¤¶à¥à¤¤à¤¾ à¤¯à¤¾ à¤µà¤¿à¤µà¤°à¤£ (Relationship / Detail)</label>
+                        <input type="text" id="modal-dmb-rel" class="gov-input" placeholder="à¤‰à¤¦à¤¾. à¤ªà¥‹à¤¤à¥€ (Granddaughter) / à¤¬à¤šà¤ªà¤¨ à¤•à¤¾ à¤˜à¤°" required>
+                    </div>
+                    <div class="gov-form-group">
+                        <label>à¤«à¥‹à¤Ÿà¥‹ à¤¯à¥‚à¤†à¤°à¤à¤² (Photo URL - Optional)</label>
+                        <input type="url" id="modal-dmb-url" class="gov-input" placeholder="https://...">
+                    </div>
+                </div>
+                <div class="gov-modal-footer">
+                    <button type="button" class="btn-secondary-gov" onclick="closeModal('modal-add-dmb')">à¤°à¤¦à¥à¤¦ à¤•à¤°à¥‡à¤‚ (Cancel)</button>
+                    <button type="submit" class="btn-primary-gov">à¤®à¥‡à¤®à¥‹à¤°à¥€ à¤•à¤¾à¤°à¥à¤¡ à¤œà¥‹à¤¡à¤¼à¥‡à¤‚ (Add Card)</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 8: Printable Official Clinical Report Modal -->
+    <div class="gov-modal-backdrop" id="modal-clinical-print" onclick="handleBackdropClick(event, 'modal-clinical-print')">
+        <div class="gov-modal-dialog" style="max-width: 780px;">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-file-medical"></i> à¤†à¤§à¤¿à¤•à¤¾à¤°à¤¿à¤• à¤•à¥à¤²à¤¿à¤¨à¤¿à¤•à¤² à¤°à¤¿à¤ªà¥‹à¤°à¥à¤Ÿ à¤ªà¥‚à¤°à¥à¤µà¤¾à¤µà¤²à¥‹à¤•à¤¨ (Clinical Report View)</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-clinical-print')">&times;</button>
+            </div>
+            <div class="gov-modal-body" id="clinical-print-area">
+                <div style="border-bottom: 2px solid var(--gov-navy); padding-bottom: 1rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h3 style="color: var(--gov-navy); margin: 0;">MINDSET-NER CLINICAL ASSESSMENT RECORD</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 2px 0 0 0;">Ministry of Development of North Eastern Region (MDoNER) | MoHFW</p>
+                    </div>
+                    <span style="font-size: 0.8rem; background: #e2e8f0; padding: 4px 8px; border-radius: 4px; font-weight: 700;">CONFIDENTIAL</span>
+                </div>
+
+                <div class="gov-modal-info-grid" style="font-size: 0.92rem; margin-bottom: 1.2rem;">
+                    <div><strong>Patient Name:</strong> Ramesh Sharma</div>
+                    <div><strong>Patient ID:</strong> #p001 (Guwahati, Assam)</div>
+                    <div><strong>Age / Gender:</strong> 74 Years / Male</div>
+                    <div><strong>Attending Doctor:</strong> Dr. Phukan (Neurology)</div>
+                    <div><strong>Assessment Date:</strong> 24 October 2026</div>
+                    <div><strong>Cognitive Score:</strong> <span id="modal-clinical-score">0/100 (Session In Progress)</span></div>
+                </div>
+
+                <h4 style="color: var(--gov-navy); margin-bottom: 0.5rem;">Domain Evaluation Summary:</h4>
+                <ul style="padding-left: 1.2rem; line-height: 1.8; font-size: 0.95rem;">
+                    <li>Memory Recall: <strong>82%</strong> (Stable with personalized photo cues)</li>
+                    <li>Attention & Focus: <strong>74%</strong> (Recommended 10m daily music stimulation)</li>
+                    <li>Pattern Recognition: <strong>89%</strong> (High logical sequence capability)</li>
+                    <li>Routine Adherence: <strong>71%</strong> (Medication reminders 90% completed)</li>
+                </ul>
+
+                <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: 6px; padding: 0.8rem; margin-top: 1rem; font-size: 0.88rem;">
+                    <strong>AI Clinical Decision Note:</strong> Patient demonstrates healthy reminiscence triggers through regional North Eastern music and daughter's digital photo prompts. Continue low-stress adaptive cognitive gaming.
+                </div>
+            </div>
+            <div class="gov-modal-footer">
+                <button class="btn-secondary-gov" onclick="downloadReportJSON()"><i class="fa-solid fa-download"></i> JSON à¤¡à¤¾à¤‰à¤¨à¤²à¥‹à¤¡</button>
+                <button class="btn-primary-gov" onclick="window.print()"><i class="fa-solid fa-print"></i> à¤ªà¥à¤°à¤¿à¤‚à¤Ÿ à¤°à¤¿à¤ªà¥‹à¤°à¥à¤Ÿ (Print)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 9: Voice Reply Simulator Modal -->
+    <div class="gov-modal-backdrop" id="modal-voice-reply" onclick="handleBackdropClick(event, 'modal-voice-reply')">
+        <div class="gov-modal-dialog" style="max-width: 480px; text-align: center;">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-microphone"></i> à¤ªà¤¾à¤°à¤¿à¤µà¤¾à¤°à¤¿à¤• à¤µà¥‰à¤¯à¤¸ à¤¸à¤‚à¤¦à¥‡à¤¶ à¤­à¥‡à¤œà¥‡à¤‚</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-voice-reply')">&times;</button>
+            </div>
+            <div class="gov-modal-body" style="padding: 2rem 1.5rem;">
+                <div style="font-size: 3.5rem; color: #dc2626; margin-bottom: 1rem;">
+                    <i class="fa-solid fa-circle-dot fa-fade"></i>
+                </div>
+                <h4 id="voice-reply-target" style="color: var(--gov-navy); margin-bottom: 0.5rem;">à¤…à¤¨à¤¨à¥à¤¯à¤¾ à¤•à¥‹ à¤µà¥‰à¤¯à¤¸ à¤¸à¤‚à¤¦à¥‡à¤¶ à¤­à¥‡à¤œà¤¾ à¤œà¤¾ à¤°à¤¹à¤¾ à¤¹à¥ˆ...</h4>
+                <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.5rem;">â€œà¤…à¤ªà¤¨à¤¾ à¤¸à¤‚à¤¦à¥‡à¤¶ à¤¬à¥‹à¤²à¥‡à¤‚à¥¤ à¤¬à¥‹à¤²à¤¨à¥‡ à¤•à¥‡ à¤¬à¤¾à¤¦ 'à¤­à¥‡à¤œà¥‡à¤‚' à¤¬à¤Ÿà¤¨ à¤¦à¤¬à¤¾à¤à¤‚à¥¤â€</p>
+
+                <button class="btn-primary-gov" style="padding: 0.8rem 1.8rem; font-size: 1.1rem; background: #16a34a;" onclick="confirmVoiceReplySent()">
+                    <i class="fa-solid fa-check"></i> à¤¸à¤‚à¤¦à¥‡à¤¶ à¤ªà¥‚à¤°à¤¾ à¤¹à¥à¤†, à¤­à¥‡à¤œà¥‡à¤‚ (Send Voice Note)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 10: Care Circle Member Contact Modal -->
+    <div class="gov-modal-backdrop" id="modal-care-circle" onclick="handleBackdropClick(event, 'modal-care-circle')">
+        <div class="gov-modal-dialog" style="max-width: 480px;">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-user-shield"></i> à¤•à¥‡à¤¯à¤°-à¤¸à¤°à¥à¤•à¤¿à¤² à¤…à¤§à¤¿à¤•à¥ƒà¤¤ à¤µà¤¿à¤µà¤°à¤£</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-care-circle')">&times;</button>
+            </div>
+            <div class="gov-modal-body" id="care-circle-modal-body">
+                <!-- Dynamically populated by JS -->
+            </div>
+            <div class="gov-modal-footer">
+                <button class="btn-primary-gov" onclick="closeModal('modal-care-circle')">à¤¬à¤‚à¤¦ à¤•à¤°à¥‡à¤‚ (Close)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 11: Add Family Member with Photo -->
+    <div class="gov-modal-backdrop" id="modal-add-family-member" onclick="handleBackdropClick(event, 'modal-add-family-member')">
+        <div class="gov-modal-dialog" style="max-width: 520px;">
+            <div class="gov-modal-header">
+                <h3><i class="fa-solid fa-user-plus"></i> à¤ªà¤°à¤¿à¤µà¤¾à¤° à¤•à¥‡ à¤¸à¤¦à¤¸à¥à¤¯ à¤•à¤¾ à¤«à¥‹à¤Ÿà¥‹ à¤œà¥‹à¤¡à¤¼à¥‡à¤‚ (Add Member Photo)</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-add-family-member')">&times;</button>
+            </div>
+            <form id="form-add-family-member" onsubmit="handleAddFamilyMemberSubmit(event)">
+                <div class="gov-modal-body">
+                    <!-- Photo Upload / URL and Live Preview -->
+                    <div style="display:flex; gap: 1.2rem; align-items:center; background:#f8fafc; border:1.5px solid var(--border-color); padding: 1rem; border-radius: 10px; margin-bottom: 1.2rem;">
+                        <div style="width: 82px; height: 82px; min-width: 82px; border-radius: 50%; overflow: hidden; border: 3px solid var(--gov-saffron); box-shadow: var(--shadow-sm); background: #e2e8f0; display:flex; align-items:center; justify-content:center;">
+                            <img id="family-photo-preview" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200" alt="Preview" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div style="flex:1;">
+                            <label style="font-weight:700; font-size:0.9rem; color:var(--gov-navy); display:block; margin-bottom:0.25rem;">à¤¸à¤¦à¤¸à¥à¤¯ à¤•à¥€ à¤¤à¤¸à¥à¤µà¥€à¤° (Photo)</label>
+                            <input type="file" id="modal-family-file" accept="image/*" class="gov-input" style="padding:0.3rem; font-size:0.85rem;" onchange="handleFamilyPhotoFileChange(event)">
+                            <div style="font-size:0.78rem; color:var(--text-muted); margin:0.3rem 0 0.2rem 0;">à¤¯à¤¾ à¤«à¥‹à¤Ÿà¥‹ à¤¯à¥‚à¤†à¤°à¤à¤² (Web URL):</div>
+                            <input type="url" id="modal-family-url" class="gov-input" placeholder="https://..." style="padding:0.4rem 0.6rem; font-size:0.85rem;" oninput="handleFamilyPhotoUrlChange(event)">
+                        </div>
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label>à¤ªà¥‚à¤°à¤¾ à¤¨à¤¾à¤® (Full Name) *</label>
+                        <input type="text" id="modal-family-name" class="gov-input" placeholder="à¤‰à¤¦à¤¾. à¤¸à¥à¤¨à¥€à¤¤à¤¾ à¤¶à¤°à¥à¤®à¤¾ / à¤µà¤¿à¤•à¥à¤°à¤® / à¤°à¤¿à¤¯à¤¾" required>
+                    </div>
+
+                    <div class="gov-form-group gov-modal-form-grid">
+                        <div>
+                            <label>à¤®à¤°à¥€à¤œ à¤¸à¥‡ à¤¸à¤‚à¤¬à¤‚à¤§ (Relationship) *</label>
+                            <select id="modal-family-relation" class="gov-select" required>
+                                <option value="à¤ªà¥à¤¤à¥à¤°à¥€ (Daughter)">à¤ªà¥à¤¤à¥à¤°à¥€ (Daughter)</option>
+                                <option value="à¤¸à¥à¤ªà¥à¤¤à¥à¤° (Son)">à¤¸à¥à¤ªà¥à¤¤à¥à¤° (Son)</option>
+                                <option value="à¤ªà¥‹à¤¤à¤¾ / à¤ªà¥‹à¤¤à¥€ (Grandchild)">à¤ªà¥‹à¤¤à¤¾ / à¤ªà¥‹à¤¤à¥€ (Grandchild)</option>
+                                <option value="à¤§à¤°à¥à¤®à¤ªà¤¤à¥à¤¨à¥€ (Wife)">à¤§à¤°à¥à¤®à¤ªà¤¤à¥à¤¨à¥€ (Wife)</option>
+                                <option value="à¤ªà¤¤à¤¿ (Husband)">à¤ªà¤¤à¤¿ (Husband)</option>
+                                <option value="à¤­à¤¾à¤ˆ / à¤¬à¤¹à¤¨ (Sibling)">à¤­à¤¾à¤ˆ / à¤¬à¤¹à¤¨ (Sibling)</option>
+                                <option value="à¤¦à¤¾à¤®à¤¾à¤¦ / à¤¬à¤¹à¥‚ (In-law)">à¤¦à¤¾à¤®à¤¾à¤¦ / à¤¬à¤¹à¥‚ (In-law)</option>
+                                <option value="à¤ªà¤¾à¤°à¤¿à¤µà¤¾à¤°à¤¿à¤• à¤®à¤¿à¤¤à¥à¤° (Family Friend)">à¤ªà¤¾à¤°à¤¿à¤µà¤¾à¤°à¤¿à¤• à¤®à¤¿à¤¤à¥à¤° (Family Friend)</option>
+                                <option value="à¤¦à¥‡à¤–à¤­à¤¾à¤²à¤•à¤°à¥à¤¤à¤¾ (Caregiver)">à¤¦à¥‡à¤–à¤­à¤¾à¤²à¤•à¤°à¥à¤¤à¤¾ (Caregiver)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>à¤­à¥‚à¤®à¤¿à¤•à¤¾ (Role) *</label>
+                            <select id="modal-family-role" class="gov-select" required>
+                                <option value="à¤ªà¤¾à¤°à¤¿à¤µà¤¾à¤°à¤¿à¤• à¤¸à¤¦à¤¸à¥à¤¯ (Family Member)">à¤ªà¤¾à¤°à¤¿à¤µà¤¾à¤°à¤¿à¤• à¤¸à¤¦à¤¸à¥à¤¯ (Family Member)</option>
+                                <option value="à¤®à¥à¤–à¥à¤¯ à¤¦à¥‡à¤–à¤­à¤¾à¤²à¤•à¤°à¥à¤¤à¤¾ (Primary Caregiver)">à¤®à¥à¤–à¥à¤¯ à¤¦à¥‡à¤–à¤­à¤¾à¤²à¤•à¤°à¥à¤¤à¤¾ (Primary Caregiver)</option>
+                                <option value="à¤¸à¤¹à¤¾à¤¯à¤• à¤¦à¥‡à¤–à¤­à¤¾à¤²à¤•à¤°à¥à¤¤à¤¾ (Secondary Caregiver)">à¤¸à¤¹à¤¾à¤¯à¤• à¤¦à¥‡à¤–à¤­à¤¾à¤²à¤•à¤°à¥à¤¤à¤¾ (Secondary Caregiver)</option>
+                                <option value="à¤šà¤¿à¤•à¤¿à¤¤à¥à¤¸à¤•à¥€à¤¯ à¤¸à¤‚à¤°à¤•à¥à¤·à¤• (Medical Attendant)">à¤šà¤¿à¤•à¤¿à¤¤à¥à¤¸à¤•à¥€à¤¯ à¤¸à¤‚à¤°à¤•à¥à¤·à¤• (Medical Attendant)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label>à¤«à¥‹à¤¨ à¤¨à¤‚à¤¬à¤° / à¤¸à¤‚à¤ªà¤°à¥à¤• (Phone or Contact)</label>
+                        <input type="tel" id="modal-family-phone" class="gov-input" placeholder="+91 98765 00000">
+                    </div>
+
+                    <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:8px; padding:0.8rem; display:flex; align-items:center; gap:0.6rem;">
+                        <input type="checkbox" id="modal-family-add-memory" checked style="width:18px; height:18px; cursor:pointer;">
+                        <label for="modal-family-add-memory" style="font-size:0.88rem; color:#065f46; font-weight:600; cursor:pointer; margin:0;">
+                            à¤¡à¤¿à¤œà¤¿à¤Ÿà¤² à¤®à¥‡à¤®à¥‹à¤°à¥€ à¤¬à¥à¤• à¤®à¥‡à¤‚ à¤­à¥€ à¤¯à¤¹ à¤«à¥‹à¤Ÿà¥‹ à¤•à¤¾à¤°à¥à¤¡ à¤œà¥‹à¤¡à¤¼à¥‡à¤‚ (Add to Patient Memory Cards)
+                        </label>
+                    </div>
+                </div>
+                <div class="gov-modal-footer">
+                    <button type="button" class="btn-secondary-gov" onclick="closeModal('modal-add-family-member')">à¤°à¤¦à¥à¤¦ à¤•à¤°à¥‡à¤‚ (Cancel)</button>
+                    <button type="submit" class="btn-primary-gov"><i class="fa-solid fa-check"></i> à¤¸à¤¦à¤¸à¥à¤¯ à¤µ à¤«à¥‹à¤Ÿà¥‹ à¤¸à¤¹à¥‡à¤œà¥‡à¤‚ (Save Photo)</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 12: Caregiver Profile Photo Upload -->
+    <div class="gov-modal-backdrop" id="modal-upload-caregiver-photo" onclick="handleBackdropClick(event, 'modal-upload-caregiver-photo')">
+        <div class="gov-modal-dialog" style="max-width: 480px;">
+            <div class="gov-modal-header">
+                <h3 id="modal-cg-title"><i class="fa-solid fa-camera"></i> Caregiver Photo</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-upload-caregiver-photo')">&times;</button>
+            </div>
+            <form id="form-upload-caregiver-photo" onsubmit="handleCaregiverPhotoSubmit(event)">
+                <div class="gov-modal-body">
+                    <div style="display:flex; flex-direction:column; align-items:center; background:#f8fafc; border:1.5px solid var(--border-color); padding: 1.2rem; border-radius: 12px; margin-bottom: 1.2rem;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3.5px solid var(--gov-saffron); box-shadow: var(--shadow-sm); background: #ffffff; display:flex; align-items:center; justify-content:center; margin-bottom: 0.8rem;">
+                            <img id="modal-cg-photo-preview" src="" alt="Caregiver Preview" style="width:100%; height:100%; object-fit:cover; display:none;">
+                            <div id="modal-cg-photo-placeholder" style="font-size: 2.8rem; color: var(--gov-navy);">
+                                <i class="fa-solid fa-user-nurse"></i>
+                            </div>
+                        </div>
+                        <div id="lbl-modal-cg-desc" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-align: center;">
+                            Upload caregiver photo from device or enter web URL
+                        </div>
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label id="lbl-modal-cg-file">Upload Photo from Device</label>
+                        <input type="file" id="modal-cg-file" accept="image/*" class="gov-input" onchange="handleCaregiverPhotoFileChange(event)">
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label id="lbl-modal-cg-url">or Image URL</label>
+                        <input type="url" id="modal-cg-url" class="gov-input" placeholder="https://..." oninput="handleCaregiverPhotoUrlChange(event)">
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label id="lbl-modal-cg-name">Caregiver Name</label>
+                        <input type="text" id="modal-cg-name" class="gov-input" value="Ananya Sharma (Daughter)" required>
+                    </div>
+                </div>
+                <div class="gov-modal-footer" style="display:flex; justify-content:space-between; align-items:center;">
+                    <button type="button" class="btn-secondary-gov" id="btn-modal-cg-remove" style="color:#b91c1c; border-color:#fca5a5;" onclick="handleCaregiverPhotoRemove()">
+                        <i class="fa-solid fa-trash-can"></i> Remove Photo
+                    </button>
+                    <div style="display:flex; gap:0.6rem;">
+                        <button type="button" class="btn-secondary-gov" id="btn-modal-cg-cancel" onclick="closeModal('modal-upload-caregiver-photo')">Cancel</button>
+                        <button type="submit" class="btn-primary-gov" id="btn-modal-cg-save"><i class="fa-solid fa-check"></i> Save Photo</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 13: Patient Profile Photo Upload -->
+    <div class="gov-modal-backdrop" id="modal-upload-patient-photo" onclick="handleBackdropClick(event, 'modal-upload-patient-photo')">
+        <div class="gov-modal-dialog" style="max-width: 480px;">
+            <div class="gov-modal-header">
+                <h3 id="modal-pat-title"><i class="fa-solid fa-camera"></i> Patient Photo</h3>
+                <button class="gov-modal-close" onclick="closeModal('modal-upload-patient-photo')">&times;</button>
+            </div>
+            <form id="form-upload-patient-photo" onsubmit="handlePatientPhotoSubmit(event)">
+                <div class="gov-modal-body">
+                    <div style="display:flex; flex-direction:column; align-items:center; background:#f8fafc; border:1.5px solid var(--border-color); padding: 1.2rem; border-radius: 12px; margin-bottom: 1.2rem;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; border: 3.5px solid #0284c7; box-shadow: var(--shadow-sm); background: #ffffff; display:flex; align-items:center; justify-content:center; margin-bottom: 0.8rem;">
+                            <img id="modal-patient-photo-preview" src="" alt="Patient Preview" style="width:100%; height:100%; object-fit:cover; display:none;">
+                            <div id="modal-patient-photo-placeholder" style="font-size: 2.8rem; color: #0369a1;">
+                                <i class="fa-solid fa-hospital-user"></i>
+                            </div>
+                        </div>
+                        <div id="lbl-modal-pat-desc" style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-align: center;">
+                            Upload or link patient photo
+                        </div>
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label id="lbl-modal-pat-file">Upload Photo from Device</label>
+                        <input type="file" id="modal-patient-file" accept="image/*" class="gov-input" onchange="handlePatientPhotoFileChange(event)">
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label id="lbl-modal-pat-url">or Image URL</label>
+                        <input type="url" id="modal-patient-url" class="gov-input" placeholder="https://..." oninput="handlePatientPhotoUrlChange(event)">
+                    </div>
+
+                    <div class="gov-form-group">
+                        <label id="lbl-modal-pat-name">Patient Name</label>
+                        <input type="text" id="modal-patient-name" class="gov-input" value="Ramesh Sharma (74)" required>
+                    </div>
+                </div>
+                <div class="gov-modal-footer" style="display:flex; justify-content:space-between; align-items:center;">
+                    <button type="button" class="btn-secondary-gov" id="btn-modal-pat-remove" style="color:#b91c1c; border-color:#fca5a5;" onclick="handlePatientPhotoRemove()">
+                        <i class="fa-solid fa-trash-can"></i> Remove Photo
+                    </button>
+                    <div style="display:flex; gap:0.6rem;">
+                        <button type="button" class="btn-secondary-gov" id="btn-modal-pat-cancel" onclick="closeModal('modal-upload-patient-photo')">Cancel</button>
+                        <button type="submit" class="btn-primary-gov" id="btn-modal-pat-save"><i class="fa-solid fa-check"></i> Save Photo</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 7. OFFICIAL GOVERNMENT FOOTER                             -->
+    <!-- ========================================================= -->
+    <footer class="gov-footer">
+        <div class="gov-footer-top">
+            <div class="footer-col">
+                <h4 id="footer-brand-title">MINDSET-NER Portal</h4>
+                <p id="footer-about-text">
+                    AI-Powered Cognitive Care & Memory Assistance Platform developed under Smart India Hackathon (SIH 2026) for Ministry of Development of North Eastern Region (MDoNER) & MoHFW.
+                </p>
+                <div id="footer-sih-note" style="font-size: 0.82rem; color: #cbd5e1;">
+                    Problem Statement ID: <strong>SIH26003</strong> | MDoNER
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 id="footer-ql-title">Quick Links</h4>
+                <ul class="footer-links-list">
+                    <li><a href="javascript:void(0)" onclick="switchRole('elderly')" id="fl-link-1">Elderly Assistance App</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchRole('caregiver')" id="fl-link-2">Caregiver Dashboard</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchRole('doctor')" id="fl-link-3">Doctor & Clinical Portal</a></li>
+                    <li><a href="javascript:void(0)" onclick="switchRole('schemes')" id="fl-link-4">Government Schemes</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 id="footer-pol-title">Policies & Support</h4>
+                <ul class="footer-links-list">
+                    <li><a href="javascript:void(0)" onclick="openModal('modal-privacy')" id="fl-pol-1">Privacy Policy</a></li>
+                    <li><a href="javascript:void(0)" onclick="alert('GIGW Compliance: This portal complies with Government of India Guidelines for Indian Government Websites (GIGW 3.0) and WCAG 2.1 AAA.')" id="fl-pol-2">Website Policies (GIGW 3.0)</a></li>
+                    <li><a href="javascript:void(0)" onclick="alert('Accessibility: Fully compliant with screen readers, high contrast mode, and dynamic text sizing.')" id="fl-pol-3">Accessibility Compliance (AAA)</a></li>
+                    <li><a href="javascript:void(0)" onclick="alert('Feedback: Your feedback is welcome at mdoner-support@gov.in')" id="fl-pol-4">Feedback & Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 id="footer-help-title">Emergency Helplines</h4>
+                <p style="font-weight: 700; color: #ffffff; margin-bottom: 0.4rem;" id="fl-hl-1">
+                    ðŸ“ž Senior Citizen Helpline: <span style="color: var(--gov-saffron);">14567</span>
+                </p>
+                <p style="font-weight: 700; color: #ffffff; margin-bottom: 0.4rem;" id="fl-hl-2">
+                    ðŸ§  Tele-MANAS (Mental Health): <span style="color: var(--gov-saffron);">14416</span>
+                </p>
+                <p style="font-weight: 700; color: #ffffff;" id="fl-hl-3">
+                    ðŸš¨ National Emergency Number: <span style="color: var(--gov-saffron);">112</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="gov-footer-bottom">
+            <div class="gov-footer-bottom-inner">
+                <div id="footer-copy-text">
+                    Â© 2026 MINDSET-NER Portal | Developed under National Health Mission guidelines for MDoNER & MoHFW, Govt of India.
+                </div>
+                <div id="footer-update-text">
+                    Last Updated: <strong>24 October 2026</strong> | Version: <strong>v2.6 (Govt Edition)</strong>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Toast Notification Element -->
+    <div class="gov-toast" id="gov-toast">
+        <i class="fa-solid fa-circle-check" style="color: #4ade80;"></i>
+        <span id="toast-message">à¤¸à¥‚à¤šà¤¨à¤¾ à¤…à¤ªà¤¡à¥‡à¤Ÿ à¤¹à¥à¤ˆ</span>
+    </div>
+
+    <!-- Multilingual Translations and Application Engine -->
+    <script src="static/translations.js?v=3.1"></script>
+    <script src="static/app.js?v=3.1"></script>
 </body>
 </html>
-
