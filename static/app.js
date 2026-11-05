@@ -311,16 +311,27 @@ function toggleHighContrast() {
 
 function toggleMarqueePause() {
     const marquee = document.getElementById('marquee-wrapper');
+    const bulletinText = document.getElementById('bulletin-text');
     const btn = document.getElementById('btn-pause-marquee');
     appState.marqueePaused = !appState.marqueePaused;
 
     if (appState.marqueePaused) {
-        if (marquee) marquee.style.animationPlayState = 'paused';
-        if (btn) btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+        if (marquee) marquee.classList.add('paused');
+        if (bulletinText) bulletinText.style.animationPlayState = 'paused';
+        if (btn) {
+            btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+            btn.setAttribute('title', 'Play Marquee');
+            btn.setAttribute('aria-label', 'Play Notice Marquee');
+        }
         showToast("सूचना पट्टी रुकी हुई है (Paused)");
     } else {
-        if (marquee) marquee.style.animationPlayState = 'running';
-        if (btn) btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+        if (marquee) marquee.classList.remove('paused');
+        if (bulletinText) bulletinText.style.animationPlayState = 'running';
+        if (btn) {
+            btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+            btn.setAttribute('title', 'Pause Marquee');
+            btn.setAttribute('aria-label', 'Pause Notice Marquee');
+        }
         showToast("सूचना पट्टी चल रही है (Running)");
     }
 }
