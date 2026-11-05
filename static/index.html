@@ -172,16 +172,16 @@
 
                 <!-- Judging & Portal Inspector Quick Buttons -->
                 <button class="tools-quick-btn" onclick="openModal('modal-ai-brain')" title="AI Cognitive Decision Engine Inspection">
-                    <i class="fa-solid fa-brain"></i> AI Brain
+                    <i class="fa-solid fa-brain"></i> <span id="quick-btn-ai-brain">AI Brain</span>
                 </button>
                 <button class="tools-quick-btn" onclick="openModal('modal-ner-map')" title="8 NER States Impact Map">
-                    <i class="fa-solid fa-map-location-dot"></i> NER Map
+                    <i class="fa-solid fa-map-location-dot"></i> <span id="quick-btn-ner-map">NER Map</span>
                 </button>
                 <button class="tools-quick-btn" onclick="openModal('modal-satellite')" title="Space Tech & NavIC Satellite Layer">
-                    <i class="fa-solid fa-satellite"></i> Satellite
+                    <i class="fa-solid fa-satellite"></i> <span id="quick-btn-satellite">Satellite</span>
                 </button>
                 <button class="tools-quick-btn" onclick="openModal('modal-privacy')" title="Patient Data Privacy & Security Center">
-                    <i class="fa-solid fa-shield-halved"></i> Privacy
+                    <i class="fa-solid fa-shield-halved"></i> <span id="quick-btn-privacy">Privacy</span>
                 </button>
             </div>
         </div>
@@ -871,8 +871,8 @@
                         <i class="fa-solid fa-brain" style="color: #6ee7b7;"></i>
                     </div>
                     <div>
-                        <h3 style="margin: 0; font-size: 1.2rem; color: #ffffff;">AI संज्ञानात्मक मॉडल हब (MINDSET-NER AI Architecture)</h3>
-                        <p style="margin: 2px 0 0 0; font-size: 0.8rem; color: #a7f3d0;">Smart India Hackathon (SIH26003) | Machine Learning Pipelines</p>
+                        <h3 style="margin: 0; font-size: 1.2rem; color: #ffffff;" id="ai-modal-title">AI संज्ञानात्मक मॉडल हब (MINDSET-NER AI Architecture)</h3>
+                        <p style="margin: 2px 0 0 0; font-size: 0.8rem; color: #a7f3d0;" id="ai-modal-subtitle">Smart India Hackathon (SIH26003) | Machine Learning Pipelines</p>
                     </div>
                 </div>
                 <button class="gov-modal-close" style="color: #ffffff;" onclick="closeModal('modal-ai-brain')">&times;</button>
@@ -884,45 +884,45 @@
                     <!-- Card 1: Adaptive Game Difficulty -->
                     <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-top: 4px solid #16a34a; border-radius: 8px; padding: 1rem;">
                         <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom: 0.5rem;">
-                            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: #166534;">मॉडल 1 — संज्ञानात्मक खेल</span>
-                            <span class="badge" style="background: #dcfce7; color: #166534; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; font-weight: 700;">🟢 सक्रिय (Active)</span>
+                            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: #166534;" id="ai-card1-tag">मॉडल 1 — संज्ञानात्मक खेल</span>
+                            <span class="badge" style="background: #dcfce7; color: #166534; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; font-weight: 700;" id="ai-card1-status">🟢 सक्रिय (Active)</span>
                         </div>
                         <h4 style="margin: 0 0 0.4rem 0; font-size: 0.98rem; color: var(--gov-navy);">Adaptive Game Classifier</h4>
                         <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
-                            <div>एल्गोरिदम: <strong>RandomForest (100 Trees)</strong></div>
-                            <div>प्रशिक्षण डेटा: <strong id="ai-model-samples-rf">2,142</strong> सत्र (Sessions)</div>
-                            <div>परीक्षण सटीकता (Accuracy): <strong id="ai-model-acc-rf" style="color: #16a34a; font-size: 1.05rem;">100.0%</strong></div>
-                            <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">आर्टिफैक्ट: <code>models/adaptive_game_model.joblib</code></div>
+                            <div><span id="ai-card1-algo-lbl">एल्गोरिदम:</span> <strong>RandomForest (100 Trees)</strong></div>
+                            <div><span id="ai-card1-samples-lbl">प्रशिक्षण डेटा:</span> <strong id="ai-model-samples-rf">2,142</strong> <span id="ai-card1-sessions-lbl">सत्र (Sessions)</span></div>
+                            <div><span id="ai-card1-acc-lbl">परीक्षण सटीकता (Accuracy):</span> <strong id="ai-model-acc-rf" style="color: #16a34a; font-size: 1.05rem;">100.0%</strong></div>
+                            <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;"><span id="ai-card1-art-lbl">आर्टिफैक्ट:</span> <code>models/adaptive_game_model.joblib</code></div>
                         </div>
                     </div>
 
                     <!-- Card 2: Multilingual Voice Intent Engine -->
                     <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-top: 4px solid #2563eb; border-radius: 8px; padding: 1rem;">
                         <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom: 0.5rem;">
-                            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: #1e40af;">मॉडल 2 — बहुभाषी वॉयस NLP</span>
-                            <span class="badge" style="background: #dbeafe; color: #1e40af; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; font-weight: 700;">🟢 सक्रिय (Active)</span>
+                            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: #1e40af;" id="ai-card2-tag">मॉडल 2 — बहुभाषी वॉयस NLP</span>
+                            <span class="badge" style="background: #dbeafe; color: #1e40af; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; font-weight: 700;" id="ai-card2-status">🟢 सक्रिय (Active)</span>
                         </div>
                         <h4 style="margin: 0 0 0.4rem 0; font-size: 0.98rem; color: var(--gov-navy);">Multilingual Intent Model</h4>
                         <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
-                            <div>एल्गोरिदम: <strong>TF-IDF + LogisticRegression</strong></div>
-                            <div>प्रशिक्षण डेटा: <strong id="ai-model-samples-nlp">302</strong> वाक्य (7 श्रेणियां)</div>
-                            <div>परीक्षण सटीकता (Accuracy): <strong id="ai-model-acc-nlp" style="color: #2563eb; font-size: 1.05rem;">95.08%</strong></div>
-                            <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">भाषाएं: हिन्दी, Hinglish, English</div>
+                            <div><span id="ai-card2-algo-lbl">एल्गोरिदम:</span> <strong>TF-IDF + LogisticRegression</strong></div>
+                            <div><span id="ai-card2-samples-lbl">प्रशिक्षण डेटा:</span> <strong id="ai-model-samples-nlp">302</strong> <span id="ai-card2-sent-lbl">वाक्य (7 श्रेणियां)</span></div>
+                            <div><span id="ai-card2-acc-lbl">परीक्षण सटीकता (Accuracy):</span> <strong id="ai-model-acc-nlp" style="color: #2563eb; font-size: 1.05rem;">95.08%</strong></div>
+                            <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;" id="ai-card2-lang-lbl">भाषाएं: हिन्दी, Hinglish, English</div>
                         </div>
                     </div>
 
                     <!-- Card 3: Longitudinal Trend Monitoring -->
                     <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-top: 4px solid #d97706; border-radius: 8px; padding: 1rem;">
                         <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom: 0.5rem;">
-                            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: #92400e;">मॉडल 3 — ट्रेंड मॉनिटरिंग</span>
-                            <span class="badge" style="background: #fef3c7; color: #92400e; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; font-weight: 700;">सुरक्षा गार्डरेल</span>
+                            <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: #92400e;" id="ai-card3-tag">मॉडल 3 — ट्रेंड मॉनिटरिंग</span>
+                            <span class="badge" style="background: #fef3c7; color: #92400e; font-size: 0.75rem; padding: 2px 6px; border-radius: 4px; font-weight: 700;" id="ai-card3-status">सुरक्षा गार्डरेल</span>
                         </div>
                         <h4 style="margin: 0 0 0.4rem 0; font-size: 0.98rem; color: var(--gov-navy);">Activity Baseline Tracker</h4>
                         <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
-                            <div>पद्धति: <strong>7-Day Longitudinal Sliding Baseline</strong></div>
-                            <div>ट्रैकिंग आयाम: <strong>याददाश्त, ध्यान, दैनिक दिनचर्या</strong></div>
-                            <div>सुरक्षा मानक: <strong>गैर-निदानात्मक (Non-Diagnostic)</strong></div>
-                            <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">उद्देश्य: देखभालकर्ता को शुरुआती चेतावनी</div>
+                            <div><span id="ai-card3-meth-lbl">पद्धति:</span> <strong>7-Day Longitudinal Sliding Baseline</strong></div>
+                            <div><span id="ai-card3-dim-lbl">ट्रैकिंग आयाम: <strong>याददाश्त, ध्यान, दैनिक दिनचर्या</strong></span></div>
+                            <div><span id="ai-card3-safe-lbl">सुरक्षा मानक: <strong>गैर-निदानात्मक (Non-Diagnostic)</strong></span></div>
+                            <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;" id="ai-card3-purp-lbl">उद्देश्य: देखभालकर्ता को शुरुआती चेतावनी</div>
                         </div>
                     </div>
                 </div>
@@ -930,13 +930,13 @@
                 <!-- Feature Importance Breakdown for Model 1 -->
                 <div style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 1.4rem;">
                     <h4 style="margin: 0 0 0.6rem 0; font-size: 0.95rem; color: var(--gov-navy); display:flex; align-items:center; justify-content:space-between;">
-                        <span><i class="fa-solid fa-chart-simple" style="color: #0d9488; margin-right: 6px;"></i> रैंडमफॉरेस्ट फीचर महत्व (Feature Importances - Adaptive Model):</span>
+                        <span id="ai-fi-title"><i class="fa-solid fa-chart-simple" style="color: #0d9488; margin-right: 6px;"></i> रैंडमफॉरेस्ट फीचर महत्व (Feature Importances - Adaptive Model):</span>
                         <span style="font-size: 0.78rem; color: #64748b; font-weight: normal;">scikit-learn MDI Metrics</span>
                     </h4>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.7rem; font-size: 0.85rem;">
                         <div>
                             <div style="display:flex; justify-content:space-between; margin-bottom: 2px;">
-                                <span>वर्तमान कठिनाई (Difficulty):</span> <strong>60.6%</strong>
+                                <span id="ai-fi-diff-lbl">वर्तमान कठिनाई (Difficulty):</span> <strong>60.6%</strong>
                             </div>
                             <div style="background: #e2e8f0; border-radius: 3px; height: 6px; overflow:hidden;">
                                 <div style="background: #0d9488; height: 100%; width: 60.6%;"></div>
@@ -944,7 +944,7 @@
                         </div>
                         <div>
                             <div style="display:flex; justify-content:space-between; margin-bottom: 2px;">
-                                <span>प्रतिक्रिया समय (Latency):</span> <strong>14.7%</strong>
+                                <span id="ai-fi-lat-lbl">प्रतिक्रिया समय (Latency):</span> <strong>14.7%</strong>
                             </div>
                             <div style="background: #e2e8f0; border-radius: 3px; height: 6px; overflow:hidden;">
                                 <div style="background: #2563eb; height: 100%; width: 14.7%;"></div>
@@ -952,7 +952,7 @@
                         </div>
                         <div>
                             <div style="display:flex; justify-content:space-between; margin-bottom: 2px;">
-                                <span>गलतियों की संख्या (Mistakes):</span> <strong>12.7%</strong>
+                                <span id="ai-fi-mis-lbl">गलतियों की संख्या (Mistakes):</span> <strong>12.7%</strong>
                             </div>
                             <div style="background: #e2e8f0; border-radius: 3px; height: 6px; overflow:hidden;">
                                 <div style="background: #f59e0b; height: 100%; width: 12.7%;"></div>
@@ -960,7 +960,7 @@
                         </div>
                         <div>
                             <div style="display:flex; justify-content:space-between; margin-bottom: 2px;">
-                                <span>सटीकता (Accuracy):</span> <strong>12.0%</strong>
+                                <span id="ai-fi-acc-lbl">सटीकता (Accuracy):</span> <strong>12.0%</strong>
                             </div>
                             <div style="background: #e2e8f0; border-radius: 3px; height: 6px; overflow:hidden;">
                                 <div style="background: #16a34a; height: 100%; width: 12.0%;"></div>
@@ -974,16 +974,16 @@
                     
                     <!-- Lab 1: Interactive Cognitive Difficulty Simulator -->
                     <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 1.2rem;">
-                        <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: var(--gov-navy); display:flex; align-items:center; gap: 8px;">
+                        <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: var(--gov-navy); display:flex; align-items:center; gap: 8px;" id="ai-sim-heading">
                             <i class="fa-solid fa-sliders" style="color: #16a34a;"></i>
-                            लाइव सिमुलेटर: अनुकूलन निर्णय (Interactive Simulator)
+                            <span id="ai-sim-title-text">लाइव सिमुलेटर: अनुकूलन निर्णय (Interactive Simulator)</span>
                         </h4>
-                        <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 1rem;">स्लाइडर बदलें और देखें कि AI मॉडल कठिनाई स्तर कैसे बदलता है:</p>
+                        <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 1rem;" id="ai-sim-desc">स्लाइडर बदलें और देखें कि AI मॉडल कठिनाई स्तर कैसे बदलता है:</p>
 
                         <div style="display:flex; flex-direction:column; gap: 0.8rem; font-size: 0.85rem;">
                             <div>
                                 <div style="display:flex; justify-content:space-between; margin-bottom: 3px;">
-                                    <span>सटीकता (Accuracy %):</span>
+                                    <span id="ai-sim-acc-lbl">सटीकता (Accuracy %):</span>
                                     <strong id="sim-acc-val" style="color: #16a34a;">85%</strong>
                                 </div>
                                 <input type="range" min="10" max="100" step="5" value="85" id="sim-acc-slider" oninput="runAdaptiveSimulation()" style="width: 100%;">
@@ -991,7 +991,7 @@
 
                             <div>
                                 <div style="display:flex; justify-content:space-between; margin-bottom: 3px;">
-                                    <span>प्रतिक्रिया समय (Speed / Latency):</span>
+                                    <span id="ai-sim-lat-lbl">प्रतिक्रिया समय (Speed / Latency):</span>
                                     <strong id="sim-lat-val" style="color: #2563eb;">4.5 सेकं.</strong>
                                 </div>
                                 <input type="range" min="1.0" max="25.0" step="0.5" value="4.5" id="sim-lat-slider" oninput="runAdaptiveSimulation()" style="width: 100%;">
@@ -999,7 +999,7 @@
 
                             <div class="gov-modal-form-grid" style="gap: 0.6rem;">
                                 <div>
-                                    <label style="display:block; margin-bottom: 3px;">गलतियां (Mistakes):</label>
+                                    <label style="display:block; margin-bottom: 3px;" id="ai-sim-mis-lbl">गलतियां (Mistakes):</label>
                                     <select id="sim-mistakes-select" onchange="runAdaptiveSimulation()" class="gov-select" style="font-size: 0.85rem; padding: 6px 8px;">
                                         <option value="0">0 Mistakes</option>
                                         <option value="1">1 Mistake</option>
@@ -1009,7 +1009,7 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label style="display:block; margin-bottom: 3px;">वर्तमान स्तर (Current):</label>
+                                    <label style="display:block; margin-bottom: 3px;" id="ai-sim-lvl-lbl">वर्तमान स्तर (Current):</label>
                                     <select id="sim-level-select" onchange="runAdaptiveSimulation()" class="gov-select" style="font-size: 0.85rem; padding: 6px 8px;">
                                         <option value="Easy">Easy (आसान)</option>
                                         <option value="Medium" selected>Medium (मध्यम)</option>
@@ -1022,57 +1022,57 @@
                         <!-- Live Inference Output Box -->
                         <div id="sim-output-card" style="background: #eff6ff; border: 1.5px solid #93c5fd; border-radius: 6px; padding: 0.85rem; margin-top: 1rem;">
                             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.4rem;">
-                                <span style="font-weight: 700; color: #1e3a8a; font-size: 0.88rem;">AI सिफ़ारिश (Decision):</span>
+                                <span style="font-weight: 700; color: #1e3a8a; font-size: 0.88rem;" id="ai-sim-dec-lbl">AI सिफ़ारिश (Decision):</span>
                                 <span id="sim-result-transition" style="background: #1e40af; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: 700; font-size: 0.82rem;">MEDIUM -> HARD</span>
                             </div>
                             <div id="sim-result-reason" style="font-size: 0.82rem; color: #1e293b; line-height: 1.5; margin-bottom: 0.4rem;">
                                 उत्कृष्ट प्रदर्शन! AI ने खेल को और अधिक रोचक बनाने के लिए कठिनाई स्तर बढ़ा दिया है।
                             </div>
                             <div style="font-size: 0.78rem; color: #475569; border-top: 1px dashed #bfdbfe; padding-top: 4px; display:flex; justify-content:space-between;">
-                                <span>वस्तुएं: <strong id="sim-objects-change">5 -> 7 वस्तुएं</strong></span>
-                                <span>समय: <strong id="sim-time-change">8s -> 6s</strong></span>
+                                <span><span id="sim-obj-lbl">वस्तुएं:</span> <strong id="sim-objects-change">5 -> 7 वस्तुएं</strong></span>
+                                <span><span id="sim-time-lbl">समय:</span> <strong id="sim-time-change">8s -> 6s</strong></span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Lab 2: Live Multilingual Voice Query Tester -->
                     <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 1.2rem;">
-                        <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: var(--gov-navy); display:flex; align-items:center; gap: 8px;">
+                        <h4 style="margin: 0 0 0.4rem 0; font-size: 1rem; color: var(--gov-navy); display:flex; align-items:center; gap: 8px;" id="ai-nlp-heading">
                             <i class="fa-solid fa-microphone-lines" style="color: #2563eb;"></i>
-                            लाइव वॉयस NLP इंटेन्ट परीक्षक (Voice Intent Tester)
+                            <span id="ai-nlp-title-text">लाइव वॉयस NLP इंटेन्ट परीक्षक (Voice Intent Tester)</span>
                         </h4>
-                        <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.8rem;">हिन्दी, Hinglish या अंग्रेजी में वॉयस/टेक्स्ट टेस्ट करें:</p>
+                        <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 0.8rem;" id="ai-nlp-desc">हिन्दी, Hinglish या अंग्रेजी में वॉयस/टेक्स्ट टेस्ट करें:</p>
 
                         <!-- Input and Test Button -->
                         <div style="display:flex; gap: 6px; margin-bottom: 0.6rem;">
                             <input type="text" id="sim-voice-input" class="gov-input" placeholder="उदा. दवा का समय क्या है? / thoda pani pina hai" style="font-size: 0.85rem;" value="दवा लेने का समय कब है?">
-                            <button class="btn-primary-gov" onclick="testVoiceQueryAI()" style="white-space: nowrap; padding: 6px 12px; font-size: 0.85rem;">
-                                <i class="fa-solid fa-play"></i> टेस्ट करें
+                            <button class="btn-primary-gov" onclick="testVoiceQueryAI()" id="btn-test-voice-query" style="white-space: nowrap; padding: 6px 12px; font-size: 0.85rem;">
+                                <i class="fa-solid fa-play"></i> <span id="btn-test-voice-txt">टेस्ट करें</span>
                             </button>
                         </div>
 
                         <!-- Quick Phrase Chips -->
                         <div style="display:flex; flex-wrap:wrap; gap: 4px; margin-bottom: 0.8rem;">
-                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('दवा की याद दिलाओ')">दवा रिमाइंडर</button>
-                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('thoda pani pina hai')">thoda pani</button>
-                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('khel shuru karo')">khel shuru</button>
-                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('meri beti ananya ki photo')">beti ki photo</button>
-                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('bihu ka gana bajao')">bihu music</button>
-                            <button type="button" class="lang-chip-btn" onclick="setVoiceQueryTest('What is my schedule today?')">daily schedule</button>
+                            <button type="button" class="lang-chip-btn" id="chip-voice-1" onclick="setVoiceQueryTest('दवा की याद दिलाओ')">दवा रिमाइंडर</button>
+                            <button type="button" class="lang-chip-btn" id="chip-voice-2" onclick="setVoiceQueryTest('thoda pani pina hai')">thoda pani</button>
+                            <button type="button" class="lang-chip-btn" id="chip-voice-3" onclick="setVoiceQueryTest('khel shuru karo')">khel shuru</button>
+                            <button type="button" class="lang-chip-btn" id="chip-voice-4" onclick="setVoiceQueryTest('meri beti ananya ki photo')">beti ki photo</button>
+                            <button type="button" class="lang-chip-btn" id="chip-voice-5" onclick="setVoiceQueryTest('bihu ka gana bajao')">bihu music</button>
+                            <button type="button" class="lang-chip-btn" id="chip-voice-6" onclick="setVoiceQueryTest('What is my schedule today?')">daily schedule</button>
                         </div>
 
                         <!-- Live NLP Output Card -->
                         <div id="sim-voice-output" style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 6px; padding: 0.85rem;">
                             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.4rem;">
-                                <span style="font-weight: 700; color: #14532d; font-size: 0.85rem;">पहचाना गया इंटेन्ट:</span>
+                                <span style="font-weight: 700; color: #14532d; font-size: 0.85rem;" id="ai-nlp-intent-lbl">पहचाना गया इंटेन्ट:</span>
                                 <span id="sim-voice-intent" style="background: #15803d; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.8rem;">MEDICINE_REMINDER</span>
                             </div>
                             <div style="font-size: 0.8rem; color: #166534; margin-bottom: 0.4rem;">
-                                आत्मविश्वास स्तर (Confidence): <strong id="sim-voice-conf" style="color: #15803d; font-size: 0.95rem;">87.6%</strong>
+                                <span id="ai-nlp-conf-lbl">आत्मविश्वास स्तर (Confidence):</span> <strong id="sim-voice-conf" style="color: #15803d; font-size: 0.95rem;">87.6%</strong>
                                 <span style="color: #64748b; font-size: 0.75rem; margin-left: 6px;">(इंजन: <span id="sim-voice-engine">sklearn_tfidf_logreg</span>)</span>
                             </div>
                             <div style="background: #ffffff; border: 1px solid #bbf7d0; border-radius: 4px; padding: 6px 8px; font-size: 0.82rem; color: #1e293b;">
-                                <strong>आशा की प्रतिक्रिया:</strong> <span id="sim-voice-speech">आपकी अगली दवाई दोपहर 2:00 बजे है।</span>
+                                <strong id="ai-nlp-reply-lbl">आशा की प्रतिक्रिया:</strong> <span id="sim-voice-speech">आपकी अगली दवाई दोपहर 2:00 बजे है।</span>
                             </div>
                         </div>
                     </div>
@@ -1081,9 +1081,9 @@
 
             <div class="gov-modal-footer" style="display:flex; justify-content:space-between; align-items:center; background: #f8fafc;">
                 <button class="btn-primary-gov" id="btn-retrain-models" onclick="triggerRetrainAIModels()" style="background: #0284c7; border-color: #0284c7;">
-                    <i class="fa-solid fa-arrows-rotate" id="retrain-spin-icon"></i> AI मॉडल्स पुनः प्रशिक्षित करें (Retrain AI Models)
+                    <i class="fa-solid fa-arrows-rotate" id="retrain-spin-icon"></i> <span id="ai-btn-retrain-text">AI मॉडल्स पुनः प्रशिक्षित करें (Retrain AI Models)</span>
                 </button>
-                <button class="btn-secondary-gov" onclick="closeModal('modal-ai-brain')">बंद करें (Close)</button>
+                <button class="btn-secondary-gov" id="ai-btn-close" onclick="closeModal('modal-ai-brain')">बंद करें (Close)</button>
             </div>
         </div>
     </div>
@@ -1092,24 +1092,24 @@
     <div class="gov-modal-backdrop" id="modal-ner-map" onclick="handleBackdropClick(event, 'modal-ner-map')">
         <div class="gov-modal-dialog">
             <div class="gov-modal-header">
-                <h3><i class="fa-solid fa-map-location-dot"></i> पूर्वोत्तर क्षेत्र (NER) 8 राज्यों में प्रभाव मानचित्र</h3>
+                <h3><i class="fa-solid fa-map-location-dot"></i> <span id="ner-map-title">पूर्वोत्तर क्षेत्र (NER) 8 राज्यों में प्रभाव मानचित्र</span></h3>
                 <button class="gov-modal-close" onclick="closeModal('modal-ner-map')">&times;</button>
             </div>
             <div class="gov-modal-body">
-                <p style="margin-bottom: 1rem;">MDoNER के अंतर्गत पूर्वोत्तर के आठों राज्यों में ऑफ़लाइन-सक्षम स्वास्थ्य सहायता कवरेज:</p>
+                <p style="margin-bottom: 1rem;" id="ner-map-desc">MDoNER के अंतर्गत पूर्वोत्तर के आठों राज्यों में ऑफ़लाइन-सक्षम स्वास्थ्य सहायता कवरेज:</p>
                 <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem;">
-                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">असम (Assam) 🟢 सक्रिय</div>
-                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">अरुणाचल प्रदेश 🟢 ऑफ़लाइन-सिंक</div>
-                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">मणिपुर (Manipur) 🟢 सक्रिय</div>
-                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">मेघालय (Meghalaya) 🟢 ऑफ़लाइन-सिंक</div>
-                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">मिजोरम (Mizoram) 🟢 सक्रिय</div>
-                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">नागालैंड (Nagaland) 🟢 ऑफ़लाइन-सिंक</div>
-                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">त्रिपुरा (Tripura) 🟢 सक्रिय</div>
-                    <div style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">सिक्किम (Sikkim) 🟢 सक्रिय</div>
+                    <div id="ner-st-assam" style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">असम (Assam) 🟢 सक्रिय</div>
+                    <div id="ner-st-arunachal" style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">अरुणाचल प्रदेश 🟢 ऑफ़लाइन-सिंक</div>
+                    <div id="ner-st-manipur" style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">मणिपुर (Manipur) 🟢 सक्रिय</div>
+                    <div id="ner-st-meghalaya" style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">मेघालय (Meghalaya) 🟢 ऑफ़लाइन-सिंक</div>
+                    <div id="ner-st-mizoram" style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">मिजोरम (Mizoram) 🟢 सक्रिय</div>
+                    <div id="ner-st-nagaland" style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">नागालैंड (Nagaland) 🟢 ऑफ़लाइन-सिंक</div>
+                    <div id="ner-st-tripura" style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">त्रिपुरा (Tripura) 🟢 सक्रिय</div>
+                    <div id="ner-st-sikkim" style="background: #f1f5f9; padding: 0.8rem; border-radius: 6px; font-weight: 700;">सिक्किम (Sikkim) 🟢 सक्रिय</div>
                 </div>
             </div>
             <div class="gov-modal-footer">
-                <button class="btn-primary-gov" onclick="closeModal('modal-ner-map')">बंद करें (Close)</button>
+                <button class="btn-primary-gov" id="ner-map-btn-close" onclick="closeModal('modal-ner-map')">बंद करें (Close)</button>
             </div>
         </div>
     </div>
@@ -1118,25 +1118,25 @@
     <div class="gov-modal-backdrop" id="modal-satellite" onclick="handleBackdropClick(event, 'modal-satellite')">
         <div class="gov-modal-dialog">
             <div class="gov-modal-header">
-                <h3><i class="fa-solid fa-satellite"></i> स्पेस टेक एकीकरण रोडमैप (NavIC / Satellite Layer)</h3>
+                <h3><i class="fa-solid fa-satellite"></i> <span id="sat-title">स्पेस टेक एकीकरण रोडमैप (NavIC / Satellite Layer)</span></h3>
                 <button class="gov-modal-close" onclick="closeModal('modal-satellite')">&times;</button>
             </div>
             <div class="gov-modal-body">
-                <p style="margin-bottom: 1.2rem;">दूरदराज के पहाड़ी गांवों में शून्य सेलुलर नेटवर्क होने पर भी सैटेलाइट एवं स्थानीय डेटा सिंक:</p>
+                <p style="margin-bottom: 1.2rem;" id="sat-desc">दूरदराज के पहाड़ी गांवों में शून्य सेलुलर नेटवर्क होने पर भी सैटेलाइट एवं स्थानीय डेटा सिंक:</p>
                 <div style="display:flex; flex-direction:column; gap: 0.6rem; align-items:center;">
-                    <div style="background: #f1f5f9; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 700;">1. दूरस्थ पहाड़ी गांव (Remote Hill Village)</div>
+                    <div id="sat-step-1" style="background: #f1f5f9; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 700;">1. दूरस्थ पहाड़ी गांव (Remote Hill Village)</div>
                     <i class="fa-solid fa-arrow-down" style="color: var(--gov-navy);"></i>
-                    <div style="background: #f1f5f9; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 700;">2. ऑफ़लाइन MINDSET-NER मोबाइल/वेब ऐप (Local SQLite)</div>
+                    <div id="sat-step-2" style="background: #f1f5f9; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 700;">2. ऑफ़लाइन MINDSET-NER मोबाइल/वेब ऐप (Local SQLite)</div>
                     <i class="fa-solid fa-arrow-down" style="color: var(--gov-navy);"></i>
-                    <div style="background: #fef3c7; border: 2px solid #f59e0b; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 800; color: #b45309;">
+                    <div id="sat-step-3" style="background: #fef3c7; border: 2px solid #f59e0b; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 800; color: #b45309;">
                         3. NavIC / Satcom सैटेलाइट कनेक्टिविटी लेयर (भविष्य एकीकरण)
                     </div>
                     <i class="fa-solid fa-arrow-down" style="color: var(--gov-navy);"></i>
-                    <div style="background: #dcfce7; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 700; color: #166534;">4. केंद्रीय स्वास्थ्य नेटवर्क (National Health Portal)</div>
+                    <div id="sat-step-4" style="background: #dcfce7; width: 100%; padding: 0.8rem; border-radius: 6px; text-align: center; font-weight: 700; color: #166534;">4. केंद्रीय स्वास्थ्य नेटवर्क (National Health Portal)</div>
                 </div>
             </div>
             <div class="gov-modal-footer">
-                <button class="btn-primary-gov" onclick="closeModal('modal-satellite')">बंद करें (Close)</button>
+                <button class="btn-primary-gov" id="sat-btn-close" onclick="closeModal('modal-satellite')">बंद करें (Close)</button>
             </div>
         </div>
     </div>
@@ -1145,31 +1145,31 @@
     <div class="gov-modal-backdrop" id="modal-privacy" onclick="handleBackdropClick(event, 'modal-privacy')">
         <div class="gov-modal-dialog">
             <div class="gov-modal-header">
-                <h3><i class="fa-solid fa-shield-halved"></i> रोगी डेटा गोपनीयता एवं सुरक्षा केंद्र (Privacy Center)</h3>
+                <h3><i class="fa-solid fa-shield-halved"></i> <span id="priv-title">रोगी डेटा गोपनीयता एवं सुरक्षा केंद्र (Privacy Center)</span></h3>
                 <button class="gov-modal-close" onclick="closeModal('modal-privacy')">&times;</button>
             </div>
             <div class="gov-modal-body">
                 <div style="display:flex; flex-direction:column; gap: 0.8rem;">
                     <div style="display:flex; justify-content:space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color);">
-                        <span>व्यक्तिगत स्मृति डेटा (Memory Data)</span>
-                        <strong style="color: #16a34a;"><i class="fa-solid fa-check"></i> AES-256 एन्क्रिप्टेड</strong>
+                        <span id="priv-row1-lbl">व्यक्तिगत स्मृति डेटा (Memory Data)</span>
+                        <strong id="priv-row1-val" style="color: #16a34a;"><i class="fa-solid fa-check"></i> AES-256 एन्क्रिप्टेड</strong>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color);">
-                        <span>पारिवारिक तस्वीरें (Family Photographs)</span>
-                        <strong style="color: #16a34a;"><i class="fa-solid fa-check"></i> केवल अधिकृत केयर-सर्किल</strong>
+                        <span id="priv-row2-lbl">पारिवारिक तस्वीरें (Family Photographs)</span>
+                        <strong id="priv-row2-val" style="color: #16a34a;"><i class="fa-solid fa-check"></i> केवल अधिकृत केयर-सर्किल</strong>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color);">
-                        <span>क्लाउड डेटा सिंक (Cloud TLS 1.3)</span>
-                        <strong style="color: #16a34a;"><i class="fa-solid fa-check"></i> सुरक्षित ट्रांसफर</strong>
+                        <span id="priv-row3-lbl">क्लाउड डेटा सिंक (Cloud TLS 1.3)</span>
+                        <strong id="priv-row3-val" style="color: #16a34a;"><i class="fa-solid fa-check"></i> सुरक्षित ट्रांसफर</strong>
                     </div>
                     <div style="display:flex; justify-content:space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color);">
-                        <span>बाहरी तृतीय-पक्ष डेटा साझाकरण (Third-Party)</span>
-                        <strong style="color: #dc2626;"><i class="fa-solid fa-xmark"></i> पूर्णतः प्रतिबंधित (Strictly OFF)</strong>
+                        <span id="priv-row4-lbl">बाहरी तृतीय-पक्ष डेटा साझाकरण (Third-Party)</span>
+                        <strong id="priv-row4-val" style="color: #dc2626;"><i class="fa-solid fa-xmark"></i> पूर्णतः प्रतिबंधित (Strictly OFF)</strong>
                     </div>
                 </div>
             </div>
             <div class="gov-modal-footer">
-                <button class="btn-primary-gov" onclick="closeModal('modal-privacy')">स्वीकार करें (Acknowledge)</button>
+                <button class="btn-primary-gov" id="priv-btn-ack" onclick="closeModal('modal-privacy')">स्वीकार करें (Acknowledge)</button>
             </div>
         </div>
     </div>
@@ -1610,7 +1610,7 @@
     </div>
 
     <!-- Multilingual Translations and Application Engine -->
-    <script src="translations.js?v=3.1"></script>
-    <script src="app.js?v=3.2"></script>
+    <script src="translations.js?v=3.2"></script>
+    <script src="app.js?v=3.3"></script>
 </body>
 </html>

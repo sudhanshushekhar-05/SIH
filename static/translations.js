@@ -226,7 +226,129 @@ window.PORTAL_TRANSLATIONS = {
             ],
             copyText: "© 2026 MINDSET-NER Portal | भारत सरकार के दिशानिर्देशों के अनुरूप राष्ट्रीय स्वास्थ्य मिशन (NHM) एवं MDoNER हेतु विकसित।",
             updateText: "अंतिम अद्यतन: <strong>24 अक्टूबर 2026</strong> | संस्करण: <strong>v2.6 (Govt Edition)</strong>"
+        },
+        modals: {
+        "quickButtons": {
+                "aiBrain": "AI Brain",
+                "nerMap": "NER Map",
+                "satellite": "Satellite",
+                "privacy": "Privacy"
+        },
+        "aiBrain": {
+                "title": "AI संज्ञानात्मक मॉडल हब (MINDSET-NER AI Architecture)",
+                "subtitle": "Smart India Hackathon (SIH26003) | Machine Learning Pipelines",
+                "card1": {
+                        "tag": "मॉडल 1 — संज्ञानात्मक खेल",
+                        "status": "🟢 सक्रिय (Active)",
+                        "algo": "एल्गोरिदम:",
+                        "train": "प्रशिक्षण डेटा:",
+                        "sessions": "सत्र (Sessions)",
+                        "acc": "परीक्षण सटीकता (Accuracy):",
+                        "artifact": "आर्टिफैक्ट:"
+                },
+                "card2": {
+                        "tag": "मॉडल 2 — बहुभाषी वॉयस NLP",
+                        "status": "🟢 सक्रिय (Active)",
+                        "algo": "एल्गोरिदम:",
+                        "train": "प्रशिक्षण डेटा:",
+                        "sentences": "वाक्य (7 श्रेणियां)",
+                        "acc": "परीक्षण सटीकता (Accuracy):",
+                        "langs": "भाषाएं: हिन्दी, Hinglish, English, क्षेत्रीय"
+                },
+                "card3": {
+                        "tag": "मॉडल 3 — ट्रेंड मॉनिटरिंग",
+                        "status": "सुरक्षा गार्डरेल",
+                        "method": "पद्धति:",
+                        "dims": "ट्रैकिंग आयाम: याददाश्त, ध्यान, दैनिक दिनचर्या",
+                        "safety": "सुरक्षा मानक: गैर-निदानात्मक (Non-Diagnostic)",
+                        "purpose": "उद्देश्य: देखभालकर्ता को शुरुआती चेतावनी"
+                },
+                "featureImportance": {
+                        "title": "रैंडमफॉरेस्ट फीचर महत्व (Feature Importances - Adaptive Model):",
+                        "diff": "वर्तमान कठिनाई (Difficulty):",
+                        "lat": "प्रतिक्रिया समय (Latency):",
+                        "mis": "गलतियों की संख्या (Mistakes):",
+                        "acc": "सटीकता (Accuracy):"
+                },
+                "sim": {
+                        "title": "लाइव सिमुलेटर: अनुकूलन निर्णय (Interactive Simulator)",
+                        "desc": "स्लाइडर बदलें और देखें कि AI मॉडल कठिनाई स्तर कैसे बदलता है:",
+                        "acc": "सटीकता (Accuracy %):",
+                        "lat": "प्रतिक्रिया समय (Speed / Latency):",
+                        "mis": "गलतियां (Mistakes):",
+                        "lvl": "वर्तमान स्तर (Current):",
+                        "levels": [
+                                "Easy (आसान)",
+                                "Medium (मध्यम)",
+                                "Hard (कठिन)"
+                        ],
+                        "decision": "AI सिफ़ारिश (Decision):",
+                        "objects": "वस्तुएं:",
+                        "time": "समय:",
+                        "objectsUnit": "वस्तुएं"
+                },
+                "nlp": {
+                        "title": "लाइव वॉयस NLP इंटेन्ट परीक्षक (Voice Intent Tester)",
+                        "desc": "हिन्दी, Hinglish या अंग्रेजी में वॉयस/टेक्स्ट टेस्ट करें:",
+                        "placeholder": "उदा. दवा का समय क्या है? / thoda pani pina hai",
+                        "btn": "टेस्ट करें",
+                        "chips": [
+                                "दवा रिमाइंडर",
+                                "thoda pani",
+                                "khel shuru",
+                                "beti ki photo",
+                                "bihu music",
+                                "daily schedule"
+                        ],
+                        "intent": "पहचाना गया इंटेन्ट:",
+                        "conf": "आत्मविश्वास स्तर (Confidence):",
+                        "reply": "आशा की प्रतिक्रिया:",
+                        "defaultReply": "आपकी अगली दवाई दोपहर 2:00 बजे है।"
+                },
+                "footer": {
+                        "retrain": "AI मॉडल्स पुनः प्रशिक्षित करें (Retrain AI Models)",
+                        "close": "बंद करें (Close)"
+                }
+        },
+        "nerMap": {
+                "title": "पूर्वोत्तर क्षेत्र (NER) 8 राज्यों में प्रभाव मानचित्र",
+                "desc": "MDoNER के अंतर्गत पूर्वोत्तर के आठों राज्यों में ऑफ़लाइन-सक्षम स्वास्थ्य सहायता कवरेज:",
+                "states": {
+                        "assam": "असम (Assam) 🟢 सक्रिय",
+                        "arunachal": "अरुणाचल प्रदेश 🟢 ऑफ़लाइन-सिंक",
+                        "manipur": "मणिपुर (Manipur) 🟢 सक्रिय",
+                        "meghalaya": "मेघालय (Meghalaya) 🟢 ऑफ़लाइन-सिंक",
+                        "mizoram": "मिजोरम (Mizoram) 🟢 सक्रिय",
+                        "nagaland": "नागालैंड (Nagaland) 🟢 ऑफ़लाइन-सिंक",
+                        "tripura": "त्रिपुरा (Tripura) 🟢 सक्रिय",
+                        "sikkim": "सिक्किम (Sikkim) 🟢 सक्रिय"
+                },
+                "close": "बंद करें (Close)"
+        },
+        "satellite": {
+                "title": "स्पेस टेक एकीकरण रोडमैप (NavIC / Satellite Layer)",
+                "desc": "दूरदराज के पहाड़ी गांवों में शून्य सेलुलर नेटवर्क होने पर भी सैटेलाइट एवं स्थानीय डेटा सिंक:",
+                "steps": {
+                        "step1": "1. दूरस्थ पहाड़ी गांव (Remote Hill Village)",
+                        "step2": "2. ऑफ़लाइन MINDSET-NER मोबाइल/वेब ऐप (Local SQLite)",
+                        "step3": "3. NavIC / Satcom सैटेलाइट कनेक्टिविटी लेयर (भविष्य एकीकरण)",
+                        "step4": "4. केंद्रीय स्वास्थ्य नेटवर्क (National Health Portal)"
+                },
+                "close": "बंद करें (Close)"
+        },
+        "privacy": {
+                "title": "रोगी डेटा गोपनीयता एवं सुरक्षा केंद्र (Privacy Center)",
+                "row1Label": "व्यक्तिगत स्मृति डेटा (Memory Data)",
+                "row1Val": "AES-256 एन्क्रिप्टेड",
+                "row2Label": "पारिवारिक तस्वीरें (Family Photographs)",
+                "row2Val": "केवल अधिकृत केयर-सर्किल",
+                "row3Label": "क्लाउड डेटा सिंक (Cloud TLS 1.3)",
+                "row3Val": "सुरक्षित ट्रांसफर",
+                "row4Label": "बाहरी तृतीय-पक्ष डेटा साझाकरण (Third-Party)",
+                "row4Val": "पूर्णतः प्रतिबंधित (Strictly OFF)",
+                "ack": "स्वीकार करें (Acknowledge)"
         }
+}
     },
 
     // --------------------------------------------------------------------------
@@ -449,7 +571,129 @@ window.PORTAL_TRANSLATIONS = {
             ],
             copyText: "© 2026 MINDSET-NER Portal | Developed under Government of India guidelines for National Health Mission & MDoNER.",
             updateText: "Last Updated: <strong>24 October 2026</strong> | Version: <strong>v2.6 (Govt Edition)</strong>"
+        },
+        modals: {
+        "quickButtons": {
+                "aiBrain": "AI Brain",
+                "nerMap": "NER Map",
+                "satellite": "Satellite",
+                "privacy": "Privacy"
+        },
+        "aiBrain": {
+                "title": "AI Cognitive Model Hub (MINDSET-NER AI Architecture)",
+                "subtitle": "Smart India Hackathon (SIH26003) | Machine Learning Pipelines",
+                "card1": {
+                        "tag": "Model 1 — Cognitive Games",
+                        "status": "🟢 Active",
+                        "algo": "Algorithm:",
+                        "train": "Training Data:",
+                        "sessions": "Sessions",
+                        "acc": "Test Accuracy:",
+                        "artifact": "Artifact:"
+                },
+                "card2": {
+                        "tag": "Model 2 — Multilingual Voice NLP",
+                        "status": "🟢 Active",
+                        "algo": "Algorithm:",
+                        "train": "Training Data:",
+                        "sentences": "Sentences (7 Categories)",
+                        "acc": "Test Accuracy:",
+                        "langs": "Languages: Hindi, Hinglish, English, Regional"
+                },
+                "card3": {
+                        "tag": "Model 3 — Trend Monitoring",
+                        "status": "Safety Guardrail",
+                        "method": "Method:",
+                        "dims": "Tracking Dimensions: Memory, Attention, Daily Routine",
+                        "safety": "Safety Standard: Non-Diagnostic Clinical Support",
+                        "purpose": "Purpose: Early Warning Insights for Caregivers"
+                },
+                "featureImportance": {
+                        "title": "RandomForest Feature Importances (Adaptive Model):",
+                        "diff": "Current Difficulty:",
+                        "lat": "Response Latency:",
+                        "mis": "Mistakes Count:",
+                        "acc": "Accuracy:"
+                },
+                "sim": {
+                        "title": "Live Simulator: Adaptive Decision Engine",
+                        "desc": "Adjust sliders to see how the AI model adapts difficulty in real-time:",
+                        "acc": "Accuracy (%):",
+                        "lat": "Response Speed (Latency):",
+                        "mis": "Mistakes:",
+                        "lvl": "Current Level:",
+                        "levels": [
+                                "Easy",
+                                "Medium",
+                                "Hard"
+                        ],
+                        "decision": "AI Decision:",
+                        "objects": "Objects:",
+                        "time": "Time:",
+                        "objectsUnit": "objects"
+                },
+                "nlp": {
+                        "title": "Live Voice NLP Intent Tester",
+                        "desc": "Test voice or text intent queries in real-time:",
+                        "placeholder": "e.g., What time is my medicine? / Start game",
+                        "btn": "Test Query",
+                        "chips": [
+                                "Med Reminder",
+                                "Need Water",
+                                "Start Game",
+                                "Daughter Photo",
+                                "Bihu Music",
+                                "Daily Schedule"
+                        ],
+                        "intent": "Detected Intent:",
+                        "conf": "Confidence Level:",
+                        "reply": "Asha's Response:",
+                        "defaultReply": "Your next medicine is scheduled at 2:00 PM."
+                },
+                "footer": {
+                        "retrain": "Retrain AI Models",
+                        "close": "Close"
+                }
+        },
+        "nerMap": {
+                "title": "North Eastern Region (NER) 8 States Impact Map",
+                "desc": "Offline-first healthcare coverage across all 8 North Eastern states under MDoNER:",
+                "states": {
+                        "assam": "Assam 🟢 Active",
+                        "arunachal": "Arunachal Pradesh 🟢 Offline-Sync",
+                        "manipur": "Manipur 🟢 Active",
+                        "meghalaya": "Meghalaya 🟢 Offline-Sync",
+                        "mizoram": "Mizoram 🟢 Active",
+                        "nagaland": "Nagaland 🟢 Offline-Sync",
+                        "tripura": "Tripura 🟢 Active",
+                        "sikkim": "Sikkim 🟢 Active"
+                },
+                "close": "Close"
+        },
+        "satellite": {
+                "title": "Space Tech Integration Roadmap (NavIC / Satellite Layer)",
+                "desc": "Satellite and local data synchronization for remote hill villages with zero cellular network:",
+                "steps": {
+                        "step1": "1. Remote Hill Village (Zero Cellular)",
+                        "step2": "2. Offline MINDSET-NER Mobile/Web App (Local SQLite)",
+                        "step3": "3. NavIC / Satcom Satellite Connectivity Layer (Future Integration)",
+                        "step4": "4. Central National Health Network (MoHFW)"
+                },
+                "close": "Close"
+        },
+        "privacy": {
+                "title": "Patient Data Privacy & Security Center",
+                "row1Label": "Personal Memory Data",
+                "row1Val": "AES-256 Encrypted",
+                "row2Label": "Family Photographs",
+                "row2Val": "Authorized Care-Circle Only",
+                "row3Label": "Cloud Data Sync (TLS 1.3)",
+                "row3Val": "Secure End-to-End Transfer",
+                "row4Label": "External Third-Party Data Sharing",
+                "row4Val": "Strictly Prohibited (OFF)",
+                "ack": "Acknowledge"
         }
+}
     },
 
     // --------------------------------------------------------------------------
@@ -672,7 +916,129 @@ window.PORTAL_TRANSLATIONS = {
             ],
             copyText: "© 2026 MINDSET-NER Portal | ভাৰত চৰকাৰৰ নিৰ্দেশনা অনুসৰি NHM আৰু MDoNER ৰ বাবে বিকশিত।",
             updateText: "অন্তিম নবীকৰণ: <strong>২৪ অক্টোবৰ ২০২৬</strong> | সংস্কৰণ: <strong>v2.6 (Govt Edition)</strong>"
+        },
+        modals: {
+        "quickButtons": {
+                "aiBrain": "AI Brain",
+                "nerMap": "NER Map",
+                "satellite": "Satellite",
+                "privacy": "Privacy"
+        },
+        "aiBrain": {
+                "title": "AI সংজ্ঞানাত্মক মডেল হাব (MINDSET-NER AI Architecture)",
+                "subtitle": "Smart India Hackathon (SIH26003) | Machine Learning Pipelines",
+                "card1": {
+                        "tag": "মডেল ১ — সংজ্ঞানাত্মক খেল",
+                        "status": "🟢 সক্ৰিয় (Active)",
+                        "algo": "এলগৰিদম:",
+                        "train": "প্ৰশিক্ষণ ডাটা:",
+                        "sessions": "অধিবেশন (Sessions)",
+                        "acc": "পৰীক্ষণ সঠিকতা (Accuracy):",
+                        "artifact": "আৰ্টিফেক্ট:"
+                },
+                "card2": {
+                        "tag": "মডেল ২ — বহুভাষিক কণ্ঠ NLP",
+                        "status": "🟢 সক্ৰিয় (Active)",
+                        "algo": "এলগৰিদম:",
+                        "train": "প্ৰশিক্ষণ ডাটা:",
+                        "sentences": "বাক্য (৭ শ্ৰেণী)",
+                        "acc": "পৰীক্ষণ সঠিকতা (Accuracy):",
+                        "langs": "ভাষাসমূহ: অসমীয়া, হিন্দী, ইংৰাজী"
+                },
+                "card3": {
+                        "tag": "মডেল ৩ — ট্ৰেণ্ড নিৰীক্ষণ",
+                        "status": "সুৰক্ষা গাৰ্ডৰেল",
+                        "method": "পদ্ধতি:",
+                        "dims": "ট্ৰেকিং মাত্ৰা: স্মৃতি, মনোযোগ, দৈনিক ৰুটিন",
+                        "safety": "সুৰক্ষা মানক: অ-নিদানিক (Non-Diagnostic)",
+                        "purpose": "উদ্দেশ্য: যত্নকৰ্তাৰ বাবে আগতীয়া সতৰ্কবাৰ্তা"
+                },
+                "featureImportance": {
+                        "title": "RandomForest বৈশিষ্ট্য গুৰুত্ব (Feature Importances):",
+                        "diff": "বৰ্তমান কঠিনতা (Difficulty):",
+                        "lat": "প্ৰতিক্ৰিয়া সময় (Latency):",
+                        "mis": "ভুলৰ সংখ্যা (Mistakes):",
+                        "acc": "সঠিকতা (Accuracy):"
+                },
+                "sim": {
+                        "title": "লাইভ চিমুলেটৰ: অভিযোজন সিদ্ধান্ত (Interactive Simulator)",
+                        "desc": "শ্লাইডাৰ সলনি কৰি চাওক কেনেকৈ AI মডেলে কঠিনতা অভিযোজন কৰে:",
+                        "acc": "সঠিকতা (Accuracy %):",
+                        "lat": "প্ৰতিক্ৰিয়া সময় (Latency):",
+                        "mis": "ভুল (Mistakes):",
+                        "lvl": "বৰ্তমান স্তৰ (Current):",
+                        "levels": [
+                                "সহজ (Easy)",
+                                "মধ্যম (Medium)",
+                                "কঠিন (Hard)"
+                        ],
+                        "decision": "AI সিদ্ধান্ত:",
+                        "objects": "বস্তু:",
+                        "time": "সময়:",
+                        "objectsUnit": "বস্তু"
+                },
+                "nlp": {
+                        "title": "লাইভ কণ্ঠ NLP ইনটেণ্ট পৰীক্ষক (Voice Intent Tester)",
+                        "desc": "অসমীয়া, হিন্দী বা ইংৰাজীত কণ্ঠ/টেক্সট পৰীক্ষা কৰক:",
+                        "placeholder": "উদাহৰণ: ঔষধৰ সময় কেতিয়া? / বিহুৰ গান বজোৱা",
+                        "btn": "পৰীক্ষা কৰক",
+                        "chips": [
+                                "ঔষধ ৰিমাইণ্ডাৰ",
+                                "পানী খাব খোজো",
+                                "খেল আৰম্ভ",
+                                "ছোৱালীৰ ফটো",
+                                "বিহু গান",
+                                "দৈনিক সূচী"
+                        ],
+                        "intent": "চিনাক্ত কৰা ইনটেণ্ট:",
+                        "conf": "আত্মবিশ্বাস স্তৰ (Confidence):",
+                        "reply": "আশাৰ উত্তৰ:",
+                        "defaultReply": "আপোনাৰ পৰৱৰ্তী ঔষধ দুপৰীয়া ২:০০ বজাত আছে।"
+                },
+                "footer": {
+                        "retrain": "AI মডেলসমূহ পুনৰ প্ৰশিক্ষণ কৰক",
+                        "close": "বন্ধ কৰক (Close)"
+                }
+        },
+        "nerMap": {
+                "title": "উত্তৰ-পূব অঞ্চল (NER) ৮খন ৰাজ্যৰ প্ৰভাৱ মানচিত্ৰ",
+                "desc": "MDoNER-ৰ অধীনত উত্তৰ-পূবৰ আঠোখন ৰাজ্যত অফলাইন স্বাস্থ্য সেৱা কভাৰেজ:",
+                "states": {
+                        "assam": "অসম (Assam) 🟢 সক্ৰিয়",
+                        "arunachal": "অৰুণাচল প্ৰদেশ 🟢 অফলাইন-চিঙ্ক",
+                        "manipur": "মণিপুৰ (Manipur) 🟢 সক্ৰিয়",
+                        "meghalaya": "মেঘালয় (Meghalaya) 🟢 অফলাইন-চিঙ্ক",
+                        "mizoram": "মিজোৰাম (Mizoram) 🟢 সক্ৰিয়",
+                        "nagaland": "নাগালেণ্ড (Nagaland) 🟢 অফলাইন-চিঙ্ক",
+                        "tripura": "ত্ৰিপুৰা (Tripura) 🟢 সক্ৰিয়",
+                        "sikkim": "ছিকিম (Sikkim) 🟢 সক্ৰিয়"
+                },
+                "close": "বন্ধ কৰক (Close)"
+        },
+        "satellite": {
+                "title": "মহাকাশ প্ৰযুক্তি সংহতকৰণ ৰোডমেপ (NavIC / Satellite Layer)",
+                "desc": "দূৰৱৰ্তী পাহাৰীয়া গাঁৱত চেলুলাৰ নেটৱৰ্ক নথকাৰ পিছতো উপগ্ৰহ আৰু স্থানীয় ডাটা সমন্বয়:",
+                "steps": {
+                        "step1": "১. দূৰৱৰ্তী পাহাৰীয়া গাঁও (Remote Hill Village)",
+                        "step2": "২. অফলাইন MINDSET-NER মোবাইল/ৱেব এপ (Local SQLite)",
+                        "step3": "৩. NavIC / Satcom উপগ্ৰহ সংযোগ স্তৰ (ভৱিষ্যত সংহতি)",
+                        "step4": "৪. কেন্দ্ৰীয় ৰাষ্ট্ৰীয় স্বাস্থ্য নেটৱৰ্ক (National Health Portal)"
+                },
+                "close": "বন্ধ কৰক (Close)"
+        },
+        "privacy": {
+                "title": "ৰোগীৰ তথ্য গোপনীয়তা আৰু সুৰক্ষা কেন্দ্ৰ (Privacy Center)",
+                "row1Label": "ব্যক্তিগত স্মৃতি ডাটা (Memory Data)",
+                "row1Val": "AES-256 এনক্ৰিপ্ট কৰা",
+                "row2Label": "পাৰিবাৰিক ফটো (Family Photographs)",
+                "row2Val": "কেৱল অনুমোদিত কেয়াৰ-চাৰ্কল",
+                "row3Label": "ক্লাউড ডাটা চিঙ্ক (Cloud TLS 1.3)",
+                "row3Val": "সুৰক্ষিত স্থানান্তৰ",
+                "row4Label": "তৃতীয় পক্ষৰ সৈতে ডাটা আদান-প্ৰদান",
+                "row4Val": "সম্পূৰ্ণৰূপে নিষিদ্ধ (Strictly OFF)",
+                "ack": "স্বীকাৰ কৰক (Acknowledge)"
         }
+}
     },
 
     // --------------------------------------------------------------------------
@@ -895,7 +1261,129 @@ window.PORTAL_TRANSLATIONS = {
             ],
             copyText: "© 2026 MINDSET-NER Portal | ভারত সরকারের নির্দেশিকা অনুসারে NHM ও MDoNER-এর জন্য তৈরি।",
             updateText: "সর্বশেষ আপডেট: <strong>২৪ অক্টোবর ২০২৬</strong> | সংস্করণ: <strong>v2.6 (Govt Edition)</strong>"
+        },
+        modals: {
+        "quickButtons": {
+                "aiBrain": "AI Brain",
+                "nerMap": "NER Map",
+                "satellite": "Satellite",
+                "privacy": "Privacy"
+        },
+        "aiBrain": {
+                "title": "AI সংজ্ঞানাত্মক মডেল হাব (MINDSET-NER AI Architecture)",
+                "subtitle": "Smart India Hackathon (SIH26003) | Machine Learning Pipelines",
+                "card1": {
+                        "tag": "মডেল ১ — সংজ্ঞানাত্মক খেলা",
+                        "status": "🟢 সক্রিয় (Active)",
+                        "algo": "অ্যালগরিদম:",
+                        "train": "প্রশিক্ষণ ডেটা:",
+                        "sessions": "সেশন (Sessions)",
+                        "acc": "পরীক্ষণ নির্ভুলতা (Accuracy):",
+                        "artifact": "আর্টিফ্যাক্ট:"
+                },
+                "card2": {
+                        "tag": "মডেল ২ — বহুভাষিক ভয়েস NLP",
+                        "status": "🟢 সক্রিয় (Active)",
+                        "algo": "অ্যালগরিদম:",
+                        "train": "প্রশিক্ষণ ডেটা:",
+                        "sentences": "বাক্য (৭টি বিভাগ)",
+                        "acc": "পরীক্ষণ নির্ভুলতা (Accuracy):",
+                        "langs": "ভাষা: বাংলা, হিন্দি, ইংরেজি"
+                },
+                "card3": {
+                        "tag": "মডেল ৩ — ট্রেন্ড নিরীক্ষণ",
+                        "status": "সুরক্ষা গার্ডরেল",
+                        "method": "পদ্ধতি:",
+                        "dims": "ট্র্যাকিং মাত্রা: স্মৃতি, মনোযোগ, দৈনিক রুটিন",
+                        "safety": "সুরক্ষা মানক: অ-নিদানিক (Non-Diagnostic)",
+                        "purpose": "উদ্দেশ্য: যত্নকারীর জন্য প্রাথমিক সতর্কতা"
+                },
+                "featureImportance": {
+                        "title": "RandomForest বৈশিষ্ট্য গুরুত্ব (Feature Importances):",
+                        "diff": "বর্তমান কঠিনতা (Difficulty):",
+                        "lat": "প্রতিক্রিয়া সময় (Latency):",
+                        "mis": "ভুলের সংখ্যা (Mistakes):",
+                        "acc": "নির্ভুলতা (Accuracy):"
+                },
+                "sim": {
+                        "title": "লাইভ সিমুলেটর: অভিযোজন সিদ্ধান্ত (Interactive Simulator)",
+                        "desc": "স্লাইডার পরিবর্তন করে দেখুন AI মডেল কীভাবে কঠিনতা সমন্বয় করে:",
+                        "acc": "নির্ভুলতা (Accuracy %):",
+                        "lat": "প্রতিক্রিয়া সময় (Latency):",
+                        "mis": "ভুল (Mistakes):",
+                        "lvl": "বর্তমান স্তর (Current):",
+                        "levels": [
+                                "সহজ (Easy)",
+                                "মাঝারি (Medium)",
+                                "কঠিন (Hard)"
+                        ],
+                        "decision": "AI সিদ্ধান্ত:",
+                        "objects": "বস্তু:",
+                        "time": "সময়:",
+                        "objectsUnit": "বস্তু"
+                },
+                "nlp": {
+                        "title": "লাইভ ভয়েস NLP ইনটেন্ট পরীক্ষক (Voice Intent Tester)",
+                        "desc": "বাংলা, হিন্দি বা ইংরেজিতে ভয়েস/টেক্সট পরীক্ষা করুন:",
+                        "placeholder": "উদা. ওষুধের সময় কখন? / খেলা শুরু করুন",
+                        "btn": "পরীক্ষা করুন",
+                        "chips": [
+                                "ওষুধ রিমাইন্ডার",
+                                "একটু জল খাব",
+                                "খেলা শুরু",
+                                "মেয়ের ছবি",
+                                "গান বাজাও",
+                                "দৈনিক সূচি"
+                        ],
+                        "intent": "শনাক্তকৃত ইনটেন্ট:",
+                        "conf": "আত্মবিশ্বাস স্তর (Confidence):",
+                        "reply": "আশার প্রতিক্রিয়া:",
+                        "defaultReply": "আপনার পরবর্তী ওষুধ দুপুর ২:০০ টায় রয়েছে।"
+                },
+                "footer": {
+                        "retrain": "AI মডেলসমূহ পুনরায় প্রশিক্ষণ দিন",
+                        "close": "বন্ধ করুন (Close)"
+                }
+        },
+        "nerMap": {
+                "title": "উত্তর-পূর্ব অঞ্চল (NER) ৮টি রাজ্যের প্রভাব মানচিত্র",
+                "desc": "MDoNER-এর অধীনে উত্তর-পূর্বের আটটি রাজ্যে অফলাইন স্বাস্থ্যসেবা কভারেজ:",
+                "states": {
+                        "assam": "আসাম (Assam) 🟢 সক্রিয়",
+                        "arunachal": "অরুণাচল প্রদেশ 🟢 অফলাইন-সিঙ্ক",
+                        "manipur": "মণিপুর (Manipur) 🟢 সক্রিয়",
+                        "meghalaya": "মেঘালয় (Meghalaya) 🟢 অফলাইন-সিঙ্ক",
+                        "mizoram": "মিজোরাম (Mizoram) 🟢 সক্রিয়",
+                        "nagaland": "নাগাল্যান্ড (Nagaland) 🟢 অফলাইন-সিঙ্ক",
+                        "tripura": "ত্রিপুরা (Tripura) 🟢 সক্রিয়",
+                        "sikkim": "সিকিম (Sikkim) 🟢 সক্রিয়"
+                },
+                "close": "বন্ধ করুন (Close)"
+        },
+        "satellite": {
+                "title": "স্পেস টেক ইন্টিগ্রেশন রোডম্যাপ (NavIC / Satellite Layer)",
+                "desc": "প্রত্যন্ত পাহাড়ি গ্রামে সেলুলার নেটওয়ার্ক না থাকলেও স্যাটেলাইট ও স্থানীয় ডেটা সিঙ্ক:",
+                "steps": {
+                        "step1": "১. প্রত্যন্ত পাহাড়ি গ্রাম (Remote Hill Village)",
+                        "step2": "২. অফলাইন MINDSET-NER মোবাইল/ওয়েব অ্যাপ (Local SQLite)",
+                        "step3": "৩. NavIC / Satcom স্যাটেলাইট সংযোগ স্তর (ভবিষ্যৎ সংহতি)",
+                        "step4": "৪. কেন্দ্রীয় জাতীয় স্বাস্থ্য নেটওয়ার্ক (National Health Portal)"
+                },
+                "close": "বন্ধ করুন (Close)"
+        },
+        "privacy": {
+                "title": "রোগীর তথ্যের গোপনীয়তা ও সুরক্ষা কেন্দ্র (Privacy Center)",
+                "row1Label": "ব্যক্তিগত স্মৃতি ডেটা (Memory Data)",
+                "row1Val": "AES-256 এনক্রিপ্ট করা",
+                "row2Label": "পারিবারিক ছবি (Family Photographs)",
+                "row2Val": "শুধুমাত্র অনুমোদিত কেয়ার-সার্কেল",
+                "row3Label": "ক্লাউড ডেটা সিঙ্ক (Cloud TLS 1.3)",
+                "row3Val": "নিরাপদ স্থানান্তর",
+                "row4Label": "তৃতীয় পক্ষের সাথে ডেটা শেয়ারিং",
+                "row4Val": "সম্পূর্ণরূপে নিষিদ্ধ (Strictly OFF)",
+                "ack": "স্বীকার করুন (Acknowledge)"
         }
+}
     },
 
     // --------------------------------------------------------------------------
@@ -1118,7 +1606,129 @@ window.PORTAL_TRANSLATIONS = {
             ],
             copyText: "© 2026 MINDSET-NER Portal | National Health Mission & MDoNER.",
             updateText: "Last Updated: <strong>24 October 2026</strong> | Version: <strong>v2.6 (Govt Edition)</strong>"
+        },
+        modals: {
+        "quickButtons": {
+                "aiBrain": "AI Brain",
+                "nerMap": "NER Map",
+                "satellite": "Satellite",
+                "privacy": "Privacy"
+        },
+        "aiBrain": {
+                "title": "AI কগনিটিভ মডেল হব (MINDSET-NER AI Architecture)",
+                "subtitle": "Smart India Hackathon (SIH26003) | Machine Learning Pipelines",
+                "card1": {
+                        "tag": "মডেল ১ — কগনিটিভ সানাবা",
+                        "status": "🟢 এক্টিভ (Active)",
+                        "algo": "এলগোরিদম:",
+                        "train": "ট্রেণিং দেতা:",
+                        "sessions": "সেসন্স (Sessions)",
+                        "acc": "তেস্ত এক্যুরেসি (Accuracy):",
+                        "artifact": "আর্তিফেক্ট:"
+                },
+                "card2": {
+                        "tag": "মডেল ২ — মাল্টিলিঙ্গুয়েল খোঞ্জেল NLP",
+                        "status": "🟢 এক্টিভ (Active)",
+                        "algo": "এলগোরিদম:",
+                        "train": "ট্রেণিং দেতা:",
+                        "sentences": "ৱাহৈ পরেং (৭টি কাংলুপ)",
+                        "acc": "তেস্ত এক্যুরেসি (Accuracy):",
+                        "langs": "লোনশিং: মৈতৈলোন, হিন্দী, ইংলিস"
+                },
+                "card3": {
+                        "tag": "মডেল ৩ — ট্রেন্ড মোনিটরিং",
+                        "status": "সেক্যুরিতি গার্দরেল",
+                        "method": "পদ্ধতি:",
+                        "dims": "ট্রেকিং ডাইমেন্সন্স: নিংশিংবা, পুক্নিং চাংবা",
+                        "safety": "সেফতি স্তেন্দর্দ: নন-দাইগ্নোস্তিক",
+                        "purpose": "পান্দম: কেয়রগিবরগী অহানবা চেকশিন ৱাফম"
+                },
+                "featureImportance": {
+                        "title": "RandomForest ফিচর ইম্পোর্তেন্স (Feature Importances):",
+                        "diff": "হৌজিক লৈরিবা অরুবা (Difficulty):",
+                        "lat": "রেস্পোন্স লেতেন্সি (Latency):",
+                        "mis": "অশোয়বা মশিং (Mistakes):",
+                        "acc": "এক্যুরেসি (Accuracy):"
+                },
+                "sim": {
+                        "title": "লাইভ সিমুলেটর: এদাপ্তেসন ৱারেপ (Interactive Simulator)",
+                        "desc": "স্লাইদর ওন্থোক্তুনা AI মোদেল অসিনা করম্না অরুবা ওন্থোকপগে য়েংবীয়ু:",
+                        "acc": "এক্যুরেসি (Accuracy %):",
+                        "lat": "খোঙজেল (Speed / Latency):",
+                        "mis": "অশোয়বশিং (Mistakes):",
+                        "lvl": "হৌজিক্কী থাক (Current):",
+                        "levels": [
+                                "লাইবা (Easy)",
+                                "ময়াইওয়প্পা (Medium)",
+                                "লুবা (Hard)"
+                        ],
+                        "decision": "AI ৱারেপ:",
+                        "objects": "পোৎলমশিং:",
+                        "time": "মতম:",
+                        "objectsUnit": "পোৎলমশিং"
+                },
+                "nlp": {
+                        "title": "লাইভ খোঞ্জেল NLP ইনতেন্ত তেস্তর (Voice Intent Tester)",
+                        "desc": "মৈতৈলোন, হিন্দী নত্রগা ইংলিসতা খোঞ্জেল/তেক্সত তেস্ত তৌবীয়ু:",
+                        "placeholder": "উদাহরন: হিদা পীনবগী মতম করম্বনো?",
+                        "btn": "তেস্ত তৌবীয়ু",
+                        "chips": [
+                                "হিদাক রিমাইন্দার",
+                                "ঈশিং থকনিংই",
+                                "শানবা হৌরো",
+                                "ইচাগী ফোতো",
+                                "সঙ্গীত তানবা",
+                                "দৈনিক রুটিন"
+                        ],
+                        "intent": "খঙদোক্লবা ইনতেন্ত:",
+                        "conf": "কনফিদেন্স থাক (Confidence):",
+                        "reply": "আশাগী পাওখুম:",
+                        "defaultReply": "অদোমগী মথংগী হিদাক্কী মতম অয়ুক্কী ২:০০ তারকপা মতমদনি।"
+                },
+                "footer": {
+                        "retrain": "AI মোদেলশিং অমুক হন্না ট্রেণ তৌবীয়ু",
+                        "close": "থিংজিনবা (Close)"
+                }
+        },
+        "nerMap": {
+                "title": "অৱাং-নোংপোক লমদম (NER) রাজ্য ৮গী ইম্পেক্ত মেপ",
+                "desc": "MDoNER মখাদা রাজ্য ৮দা অফলাইন হেল্থকেয়ার কভরেজ:",
+                "states": {
+                        "assam": "আসাম (Assam) 🟢 এক্টিভ",
+                        "arunachal": "অরুণাচল প্রদেশ 🟢 অফলাইন-সিঙ্ক",
+                        "manipur": "মণিপুর (Manipur) 🟢 এক্টিভ",
+                        "meghalaya": "মেঘালয় (Meghalaya) 🟢 অফলাইন-সিঙ্ক",
+                        "mizoram": "মিজোরাম (Mizoram) 🟢 এক্টিভ",
+                        "nagaland": "নাগাল্যান্ড (Nagaland) 🟢 অফলাইন-সিঙ্ক",
+                        "tripura": "ত্রিপুরা (Tripura) 🟢 এক্টিভ",
+                        "sikkim": "সিক্কিম (Sikkim) 🟢 এক্টিভ"
+                },
+                "close": "থিংজিনবা (Close)"
+        },
+        "satellite": {
+                "title": "স্পেস টেক ইন্টিগ্রেশন রোদমেপ (NavIC / Satellite Layer)",
+                "desc": "নেটৱার্ক লৈতবা চীংগী খুঙ্গংশিংদা সেটেলাইট অমসুং লোকেল দেতা সিঙ্ক:",
+                "steps": {
+                        "step1": "১. চীংগী খুঙ্গংশিং (Remote Hill Village)",
+                        "step2": "২. অফলাইন MINDSET-NER মোবাইল/ৱেব এপ (Local SQLite)",
+                        "step3": "৩. NavIC / Satcom সেটেলাইট কনেক্টিভিতি (ভবিষ্যৎ)",
+                        "step4": "৪. কেন্দ্রগী নেস্নেল হেল্থ পোর্তেল (MoHFW)"
+                },
+                "close": "থিংজিনবা (Close)"
+        },
+        "privacy": {
+                "title": "অনাবাগী দেতা প্রাইভেসি অমসুং সেক্যুরিতি কেন্দ্র (Privacy Center)",
+                "row1Label": "ইশাগী নিংশিংবা দেতা (Memory Data)",
+                "row1Val": "AES-256 এনক্রিপ্টেদ",
+                "row2Label": "ইমুংগী ফোতোশিং (Family Photographs)",
+                "row2Val": "অথোরাইজ্দ কেয়র-সার্কল খক্তদা",
+                "row3Label": "ক্লাউদ দেতা সিঙ্ক (Cloud TLS 1.3)",
+                "row3Val": "চেকশিন্না ত্রান্সফর তৌবা",
+                "row4Label": "অতোপ্পা পার্তিদা দেতা শেয়ার তৌবা",
+                "row4Val": "থিংজিল্লি (Strictly OFF)",
+                "ack": "য়ারে হায়না য়াবা (Acknowledge)"
         }
+}
     },
 
     // --------------------------------------------------------------------------
@@ -1341,7 +1951,129 @@ window.PORTAL_TRANSLATIONS = {
             ],
             copyText: "© 2026 MINDSET-NER Portal | National Health Mission & MDoNER.",
             updateText: "Ennawn Hnuhnun: <strong>24 October 2026</strong> | Version: <strong>v2.6 (Govt Edition)</strong>"
+        },
+        modals: {
+        "quickButtons": {
+                "aiBrain": "AI Brain",
+                "nerMap": "NER Map",
+                "satellite": "Satellite",
+                "privacy": "Privacy"
+        },
+        "aiBrain": {
+                "title": "AI Rilru Lam Model Hub (MINDSET-NER AI Architecture)",
+                "subtitle": "Smart India Hackathon (SIH26003) | Machine Learning Pipelines",
+                "card1": {
+                        "tag": "Model 1 — Rilru Chawhhlimna Infiamna",
+                        "status": "🟢 Nung (Active)",
+                        "algo": "Algorithm:",
+                        "train": "Zirtirna Data:",
+                        "sessions": "Zirna Hun (Sessions)",
+                        "acc": "Fiahna Diktak (Accuracy):",
+                        "artifact": "Artifact:"
+                },
+                "card2": {
+                        "tag": "Model 2 — Tawng Hrang Aw NLP",
+                        "status": "🟢 Nung (Active)",
+                        "algo": "Algorithm:",
+                        "train": "Zirtirna Data:",
+                        "sentences": "Thu (Khaihkhawm 7)",
+                        "acc": "Fiahna Diktak (Accuracy):",
+                        "langs": "Tawngte: Mizo, Hindi, English"
+                },
+                "card3": {
+                        "tag": "Model 3 — Hmasawnna Entu",
+                        "status": "Vanhimna Kulh",
+                        "method": "Hman dan:",
+                        "dims": "Enzui: Hriatrengna, Ngaihtuahna, Nitin Hun",
+                        "safety": "Vanhimna: Enkawltu Puihna Chauh",
+                        "purpose": "Thiltum: Enkawltute hriattir hma"
+                },
+                "featureImportance": {
+                        "title": "RandomForest Pawimawhna (Feature Importances):",
+                        "diff": "Harsa zawng (Difficulty):",
+                        "lat": "Chhan ran zawng (Latency):",
+                        "mis": "Tihsual zat (Mistakes):",
+                        "acc": "Diktak (Accuracy):"
+                },
+                "sim": {
+                        "title": "Chianna Hmun: AI Thutlukna Enna (Simulator)",
+                        "desc": "Thil che thei pawt kual la, AI-in harsat zawng a thlak dan en rawh:",
+                        "acc": "Diktak (Accuracy %):",
+                        "lat": "Chhan ran zawng (Speed / Latency):",
+                        "mis": "Tihsual (Mistakes):",
+                        "lvl": "Harsat zawng (Current):",
+                        "levels": [
+                                "Awlsam (Easy)",
+                                "Laihawl (Medium)",
+                                "Harsa (Hard)"
+                        ],
+                        "decision": "AI Thutlukna:",
+                        "objects": "Thilte:",
+                        "time": "Hun:",
+                        "objectsUnit": "thilte"
+                },
+                "nlp": {
+                        "title": "Aw NLP Thu Hriatthiam Fiahna (Voice Intent Tester)",
+                        "desc": "Mizo, Hindi emaw English-in aw/thu fiah rawh:",
+                        "placeholder": "Entirnan: Damdawi ei hun a ni tawh em? / Infiamna tan rawh",
+                        "btn": "Fiah rawh",
+                        "chips": [
+                                "Damdawi Hriattirna",
+                                "Tui in ka duh",
+                                "Infiam tan rawh",
+                                "Fanau Thlalak",
+                                "Lengzem Rimawi",
+                                "Nitin Hun"
+                        ],
+                        "intent": "Hriatthiam Thu:",
+                        "conf": "Rinngamna (Confidence):",
+                        "reply": "Asha Chhanna:",
+                        "defaultReply": "I damdawi ei leh hun chu chhun dar 2:00-ah a ni e."
+                },
+                "footer": {
+                        "retrain": "AI Models Zirtir Ththar Rawh",
+                        "close": "Khar rawh (Close)"
+                }
+        },
+        "nerMap": {
+                "title": "Chhim-Chhak Bial (NER) State 8 Huamchin Map",
+                "desc": "MDoNER hnuaia state 8-a internet tel lova hriselna enkawlna:",
+                "states": {
+                        "assam": "Assam 🟢 Nung",
+                        "arunachal": "Arunachal Pradesh 🟢 Offline-Sync",
+                        "manipur": "Manipur 🟢 Nung",
+                        "meghalaya": "Meghalaya 🟢 Offline-Sync",
+                        "mizoram": "Mizoram 🟢 Nung",
+                        "nagaland": "Nagaland 🟢 Offline-Sync",
+                        "tripura": "Tripura 🟢 Nung",
+                        "sikkim": "Sikkim 🟢 Nung"
+                },
+                "close": "Khar rawh (Close)"
+        },
+        "satellite": {
+                "title": "Space Tech & NavIC Satellite Layer Roadmap",
+                "desc": "Tlangram khaw hla taka phone network awm lohna hmunah satellite hmanga data inthawn:",
+                "steps": {
+                        "step1": "1. Tlangram Khaw Hla Tak (Network Awm Lo)",
+                        "step2": "2. Offline MINDSET-NER Mobile/Web App (Local SQLite)",
+                        "step3": "3. NavIC / Satcom Satellite Connectivity Layer",
+                        "step4": "4. Sawrkar Hriselna Network Pui (MoHFW)"
+                },
+                "close": "Khar rawh (Close)"
+        },
+        "privacy": {
+                "title": "Damlo Data Vawn Himna Hmunpui (Privacy Center)",
+                "row1Label": "Mahni Hriatrengna Data (Memory Data)",
+                "row1Val": "AES-256 hmanga humhalh",
+                "row2Label": "Chhungkaw Thlalak (Family Photographs)",
+                "row2Val": "Enkawltu chhungte chauh tan",
+                "row3Label": "Cloud Data Sync (TLS 1.3)",
+                "row3Val": "Him taka inthawn",
+                "row4Label": "Pawnlam mi hnena data pekchhuah",
+                "row4Val": "Khap tlat (Strictly OFF)",
+                "ack": "Pawm e (Acknowledge)"
         }
+}
     },
 
     // --------------------------------------------------------------------------
@@ -1564,6 +2296,128 @@ window.PORTAL_TRANSLATIONS = {
             ],
             copyText: "© 2026 MINDSET-NER Portal | National Health Mission & MDoNER.",
             updateText: "La pynthymmai: <strong>24 October 2026</strong> | Version: <strong>v2.6 (Govt Edition)</strong>"
+        },
+        modals: {
+        "quickButtons": {
+                "aiBrain": "AI Brain",
+                "nerMap": "NER Map",
+                "satellite": "Satellite",
+                "privacy": "Privacy"
+        },
+        "aiBrain": {
+                "title": "AI Cognitive Model Hub (MINDSET-NER AI Architecture)",
+                "subtitle": "Smart India Hackathon (SIH26003) | Machine Learning Pipelines",
+                "card1": {
+                        "tag": "Model 1 — Ki Jingialehkai Jingmut",
+                        "status": "🟢 Trei Kam (Active)",
+                        "algo": "Algorithm:",
+                        "train": "Data Jinghikai:",
+                        "sessions": "Ki Kynta (Sessions)",
+                        "acc": "Jingshisha (Accuracy):",
+                        "artifact": "Artifact:"
+                },
+                "card2": {
+                        "tag": "Model 2 — NLP Ktien & Sur Ktien",
+                        "status": "🟢 Trei Kam (Active)",
+                        "algo": "Algorithm:",
+                        "train": "Data Jinghikai:",
+                        "sentences": "Ki Kyntien (7 Ki Jait)",
+                        "acc": "Jingshisha (Accuracy):",
+                        "langs": "Ki Ktien: Khasi, Hindi, English"
+                },
+                "card3": {
+                        "tag": "Model 3 — Jingpeit Bniah ia ka Jingkoit",
+                        "status": "Jingiada Ba Bniah",
+                        "method": "Ka Rukom:",
+                        "dims": "Ki Jingthew: Jingkynmaw, Jingmut, Ka Riti Sngi",
+                        "safety": "Jingiada: Ka Jingiarap Sumar Marwei",
+                        "purpose": "Ka Jingthmu: Jingmaham kloi ia ki Nongsumar"
+                },
+                "featureImportance": {
+                        "title": "RandomForest Jingdonkam (Feature Importances):",
+                        "diff": "Jingeh mynta (Difficulty):",
+                        "lat": "Por ba shim ban jubab (Latency):",
+                        "mis": "Jingbakla (Mistakes):",
+                        "acc": "Jingshisha (Accuracy):"
+                },
+                "sim": {
+                        "title": "Simulator: Ka Jingrai ka AI ban Pynkylla ia ka Jingeh",
+                        "desc": "Pynkhih ia ki slider ban peit kumno ka AI ka pynkylla ia ka jingeh:",
+                        "acc": "Jingshisha (Accuracy %):",
+                        "lat": "Por jubab (Speed / Latency):",
+                        "mis": "Jingbakla (Mistakes):",
+                        "lvl": "Ka kyrdan mynta (Current):",
+                        "levels": [
+                                "Suk (Easy)",
+                                "Pdeng (Medium)",
+                                "Eh (Hard)"
+                        ],
+                        "decision": "Ka Jingrai ka AI:",
+                        "objects": "Ki tiar:",
+                        "time": "Por:",
+                        "objectsUnit": "ki tiar"
+                },
+                "nlp": {
+                        "title": "Jingpeit ia ka Sur Ktien NLP (Voice Intent Tester)",
+                        "desc": "Test ia ka sur ktien ha ka Khasi, Hindi lane English:",
+                        "placeholder": "Nuksa: Por aiu ban dih dawai? / Pynialehkai",
+                        "btn": "Test mynta",
+                        "chips": [
+                                "Dawai Reminder",
+                                "Kwah dih um",
+                                "Sdang Jingialehkai",
+                                "Dur Khun Kynthei",
+                                "Jingrwai Bihu",
+                                "Ka Riti Sngi"
+                        ],
+                        "intent": "Jingthmu ba lap:",
+                        "conf": "Jingshisha (Confidence):",
+                        "reply": "Jingjubab ka Asha:",
+                        "defaultReply": "Ka dawai kaba bud jong phi ka dei ha ka por 2:00 nohphyrngab."
+                },
+                "footer": {
+                        "retrain": "Hikai thymmai ia ki AI Model",
+                        "close": "Khang (Close)"
+                }
+        },
+        "nerMap": {
+                "title": "Ka Map ki 8 Tylli ki Jylla Shatei Lam-Mihngi (NER)",
+                "desc": "Ka jingiarap sumar na ka bynta ki 8 tylla ki jylla hapoh MDoNER khlem internet:",
+                "states": {
+                        "assam": "Assam 🟢 Trei Kam",
+                        "arunachal": "Arunachal Pradesh 🟢 Offline-Sync",
+                        "manipur": "Manipur 🟢 Trei Kam",
+                        "meghalaya": "Meghalaya 🟢 Offline-Sync",
+                        "mizoram": "Mizoram 🟢 Trei Kam",
+                        "nagaland": "Nagaland 🟢 Offline-Sync",
+                        "tripura": "Tripura 🟢 Trei Kam",
+                        "sikkim": "Sikkim 🟢 Trei Kam"
+                },
+                "close": "Khang (Close)"
+        },
+        "satellite": {
+                "title": "Space Tech Integration Roadmap (NavIC / Satellite Layer)",
+                "desc": "Ka jingiajan data lyngba ki satellite ha ki shnong nongkyndong ba khlem network phone:",
+                "steps": {
+                        "step1": "1. Ki Shnong Nongkyndong (Khlem Network)",
+                        "step2": "2. Offline MINDSET-NER Mobile/Web App (Local SQLite)",
+                        "step3": "3. NavIC / Satcom Satellite Connectivity Layer",
+                        "step4": "4. Ka Network Jingkoit-Jingkhiah ka Ri (MoHFW)"
+                },
+                "close": "Khang (Close)"
+        },
+        "privacy": {
+                "title": "Ka Ktem Jingiada ia ki Jingtip Nongpang (Privacy Center)",
+                "row1Label": "Ki Jingkynmaw Shimet (Memory Data)",
+                "row1Val": "La pyndait AES-256 Encryption",
+                "row2Label": "Ki Dur Kmie-Kpa & Shing (Family Photographs)",
+                "row2Val": "Tang ki ba la shah bad kiba haing",
+                "row3Label": "Cloud Data Sync (TLS 1.3)",
+                "row3Val": "Jingshai ba shngiam",
+                "row4Label": "Jingsam Data sha kiwei pat",
+                "row4Val": "La khang pyrshah beit (Strictly OFF)",
+                "ack": "Pdiang (Acknowledge)"
         }
+}
     }
 };

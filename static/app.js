@@ -755,6 +755,144 @@ function changeLanguage(langCode, isInitial = false) {
         setElHTML('footer-update-text', t.footer.updateText || t.footer.updated);
     }
 
+    // 14. Modals Localization (AI Brain, NER Map, Satellite, Privacy)
+    if (t.modals) {
+        const m = t.modals;
+        // Header Quick Buttons
+        if (m.quickButtons) {
+            setElText('quick-btn-ai-brain', m.quickButtons.aiBrain);
+            setElText('quick-btn-ner-map', m.quickButtons.nerMap);
+            setElText('quick-btn-satellite', m.quickButtons.satellite);
+            setElText('quick-btn-privacy', m.quickButtons.privacy);
+        }
+
+        // Modal 1: AI Brain Hub & Models
+        if (m.aiBrain) {
+            const b = m.aiBrain;
+            setElText('ai-modal-title', b.title);
+            setElText('ai-modal-subtitle', b.subtitle || b.sub);
+            if (b.card1) {
+                setElText('ai-card1-tag', b.card1.tag);
+                setElText('ai-card1-status', b.card1.status);
+                setElText('ai-card1-algo-lbl', b.card1.algo);
+                setElText('ai-card1-samples-lbl', b.card1.train);
+                setElText('ai-card1-sessions-lbl', b.card1.sessions);
+                setElText('ai-card1-acc-lbl', b.card1.acc);
+                setElText('ai-card1-art-lbl', b.card1.artifact);
+            }
+            if (b.card2) {
+                setElText('ai-card2-tag', b.card2.tag);
+                setElText('ai-card2-status', b.card2.status);
+                setElText('ai-card2-algo-lbl', b.card2.algo);
+                setElText('ai-card2-samples-lbl', b.card2.train);
+                setElText('ai-card2-sent-lbl', b.card2.sentences);
+                setElText('ai-card2-acc-lbl', b.card2.acc);
+                setElText('ai-card2-lang-lbl', b.card2.langs);
+            }
+            if (b.card3) {
+                setElText('ai-card3-tag', b.card3.tag);
+                setElText('ai-card3-status', b.card3.status);
+                setElText('ai-card3-meth-lbl', b.card3.method);
+                setElText('ai-card3-dim-lbl', b.card3.dims);
+                setElText('ai-card3-safe-lbl', b.card3.safety);
+                setElText('ai-card3-purp-lbl', b.card3.purpose);
+            }
+            if (b.featureImportance) {
+                setElHTML('ai-fi-title', `<i class="fa-solid fa-chart-simple" style="color: #0d9488; margin-right: 6px;"></i> ${b.featureImportance.title}`);
+                setElText('ai-fi-diff-lbl', b.featureImportance.diff);
+                setElText('ai-fi-lat-lbl', b.featureImportance.lat);
+                setElText('ai-fi-mis-lbl', b.featureImportance.mis);
+                setElText('ai-fi-acc-lbl', b.featureImportance.acc);
+            }
+            if (b.sim) {
+                setElHTML('ai-sim-heading', `<i class="fa-solid fa-sliders" style="color: #16a34a;"></i> <span id="ai-sim-title-text">${b.sim.title}</span>`);
+                setElText('ai-sim-desc', b.sim.desc);
+                setElText('ai-sim-acc-lbl', b.sim.acc);
+                setElText('ai-sim-lat-lbl', b.sim.lat);
+                setElText('ai-sim-mis-lbl', b.sim.mis);
+                setElText('ai-sim-lvl-lbl', b.sim.lvl);
+                setElText('ai-sim-dec-lbl', b.sim.decision);
+                setElText('sim-obj-lbl', b.sim.objects);
+                setElText('sim-time-lbl', b.sim.time);
+                const lvlSelect = document.getElementById('sim-level-select');
+                if (lvlSelect && b.sim.levels) {
+                    if (lvlSelect.options[0]) lvlSelect.options[0].text = b.sim.levels[0];
+                    if (lvlSelect.options[1]) lvlSelect.options[1].text = b.sim.levels[1];
+                    if (lvlSelect.options[2]) lvlSelect.options[2].text = b.sim.levels[2];
+                }
+            }
+            if (b.nlp) {
+                setElHTML('ai-nlp-heading', `<i class="fa-solid fa-microphone-lines" style="color: #2563eb;"></i> <span id="ai-nlp-title-text">${b.nlp.title}</span>`);
+                setElText('ai-nlp-desc', b.nlp.desc);
+                const voiceInput = document.getElementById('sim-voice-input');
+                if (voiceInput) voiceInput.placeholder = b.nlp.placeholder;
+                setElText('btn-test-voice-txt', b.nlp.btn);
+                if (b.nlp.chips) {
+                    for (let i = 0; i < b.nlp.chips.length; i++) {
+                        setElText(`chip-voice-${i+1}`, b.nlp.chips[i]);
+                    }
+                }
+                setElText('ai-nlp-intent-lbl', b.nlp.intent);
+                setElText('ai-nlp-conf-lbl', b.nlp.conf);
+                setElText('ai-nlp-reply-lbl', b.nlp.reply);
+                if (b.nlp.defaultReply && (!appState.customVoiceResponse)) {
+                    setElText('sim-voice-speech', b.nlp.defaultReply);
+                }
+            }
+            if (b.footer) {
+                setElText('ai-btn-retrain-text', b.footer.retrain);
+                setElText('ai-btn-close', b.footer.close);
+            }
+        }
+
+        // Modal 2: NER Regional Impact Map
+        if (m.nerMap) {
+            const nm = m.nerMap;
+            setElHTML('ner-map-title', `<i class="fa-solid fa-map-location-dot"></i> ${nm.title}`);
+            setElText('ner-map-desc', nm.desc);
+            if (nm.states) {
+                setElText('ner-st-assam', nm.states.assam);
+                setElText('ner-st-arunachal', nm.states.arunachal);
+                setElText('ner-st-manipur', nm.states.manipur);
+                setElText('ner-st-meghalaya', nm.states.meghalaya);
+                setElText('ner-st-mizoram', nm.states.mizoram);
+                setElText('ner-st-nagaland', nm.states.nagaland);
+                setElText('ner-st-tripura', nm.states.tripura);
+                setElText('ner-st-sikkim', nm.states.sikkim);
+            }
+            setElText('ner-map-btn-close', nm.close);
+        }
+
+        // Modal 3: Satellite Layer Roadmap
+        if (m.satellite) {
+            const sat = m.satellite;
+            setElHTML('sat-title', `<i class="fa-solid fa-satellite"></i> ${sat.title}`);
+            setElText('sat-desc', sat.desc);
+            if (sat.steps) {
+                setElText('sat-step-1', sat.steps.step1);
+                setElText('sat-step-2', sat.steps.step2);
+                setElText('sat-step-3', sat.steps.step3);
+                setElText('sat-step-4', sat.steps.step4);
+            }
+            setElText('sat-btn-close', sat.close);
+        }
+
+        // Modal 4: Patient Data Privacy & Security Center
+        if (m.privacy) {
+            const p = m.privacy;
+            setElHTML('priv-title', `<i class="fa-solid fa-shield-halved"></i> ${p.title}`);
+            setElText('priv-row1-lbl', p.row1Label);
+            setElHTML('priv-row1-val', `<i class="fa-solid fa-check"></i> ${p.row1Val}`);
+            setElText('priv-row2-lbl', p.row2Label);
+            setElHTML('priv-row2-val', `<i class="fa-solid fa-check"></i> ${p.row2Val}`);
+            setElText('priv-row3-lbl', p.row3Label);
+            setElHTML('priv-row3-val', `<i class="fa-solid fa-check"></i> ${p.row3Val}`);
+            setElText('priv-row4-lbl', p.row4Label);
+            setElHTML('priv-row4-val', `<i class="fa-solid fa-xmark"></i> ${p.row4Val}`);
+            setElText('priv-btn-ack', p.ack);
+        }
+    }
+
     if (!isInitial) {
         const picker = document.getElementById('lang-picker');
         const selectedText = picker && picker.selectedOptions && picker.selectedOptions[0] ? picker.selectedOptions[0].text : langCode;
@@ -791,6 +929,9 @@ function openModal(modalId) {
     const el = document.getElementById(modalId);
     if (el) {
         el.classList.add('active');
+        try {
+            changeLanguage(appState.lang, true);
+        } catch(e) {}
         if (modalId === 'modal-ai-brain') {
             loadAIBrainData();
             runAdaptiveSimulation();
@@ -886,9 +1027,26 @@ function runAdaptiveSimulation() {
                 transEl.style.background = '#16a34a';
             }
         }
-        if (reasonEl) reasonEl.innerText = data.ai_reasoning;
+        if (reasonEl) {
+            const isEn = (appState.lang === 'en');
+            if (isEn) {
+                if (data.next_difficulty === 'Hard') {
+                    reasonEl.innerText = "Excellent performance! AI increased difficulty level to keep the challenge engaging.";
+                } else if (data.next_difficulty === 'Medium') {
+                    reasonEl.innerText = "Steady consistency! AI maintained medium difficulty level for balanced cognitive stimulation.";
+                } else {
+                    reasonEl.innerText = "Gentle adjustment applied. AI decreased difficulty to reduce cognitive fatigue and build confidence.";
+                }
+            } else {
+                reasonEl.innerText = data.ai_reasoning;
+            }
+        }
         if (objEl && data.adaptation_params) {
-            objEl.innerText = `${data.adaptation_params.objects_before} -> ${data.adaptation_params.objects_after} वस्तुएं`;
+            const t = getT();
+            const unit = (t && t.modals && t.modals.aiBrain && t.modals.aiBrain.sim && t.modals.aiBrain.sim.objectsUnit)
+                ? t.modals.aiBrain.sim.objectsUnit
+                : ((appState.lang === 'en') ? 'objects' : 'वस्तुएं');
+            objEl.innerText = `${data.adaptation_params.objects_before} -> ${data.adaptation_params.objects_after} ${unit}`;
         }
         if (timeEl && data.adaptation_params) {
             timeEl.innerText = `${data.adaptation_params.time_before}s -> ${data.adaptation_params.time_after}s`;
@@ -940,7 +1098,8 @@ function triggerRetrainAIModels() {
     if (btn) btn.disabled = true;
     if (spin) spin.classList.add('fa-spin');
 
-    showToast("⚙️ AI मॉडल्स का पुनः प्रशिक्षण प्रारंभ हुआ...");
+    const isEn = (appState.lang === 'en');
+    showToast(isEn ? "⚙️ Retraining AI models..." : "⚙️ AI मॉडल्स का पुनः प्रशिक्षण प्रारंभ हुआ...");
 
     fetch(`${API_BASE}/api/ai/retrain`, { method: 'POST' })
         .then(res => res.json())
@@ -949,19 +1108,19 @@ function triggerRetrainAIModels() {
             if (spin) spin.classList.remove('fa-spin');
 
             if (data.status === 'success') {
-                showToast("✓ AI मॉडल्स (RandomForest + NLP Intent) सफलतापूर्वक पुनः प्रशिक्षित हुए!");
+                showToast(isEn ? "✓ AI models (RandomForest + NLP Intent) successfully retrained!" : "✓ AI मॉडल्स (RandomForest + NLP Intent) सफलतापूर्वक पुनः प्रशिक्षित हुए!");
                 loadAIBrainData();
                 runAdaptiveSimulation();
-                speakText("एआई मॉडल को नए संज्ञानात्मक डेटासेट के साथ सफलतापूर्वक फिर से प्रशिक्षित किया गया है।");
+                speakText(isEn ? "AI models retrained successfully with cognitive dataset." : "एआई मॉडल को नए संज्ञानात्मक डेटासेट के साथ सफलतापूर्वक फिर से प्रशिक्षित किया गया है।");
             } else {
-                showToast("⚠️ प्रशिक्षण में त्रुटि हुई: " + (data.message || "Failed"));
+                showToast(isEn ? "⚠️ Retrain warning: " + (data.message || "Failed") : "⚠️ प्रशिक्षण में त्रुटि हुई: " + (data.message || "Failed"));
             }
         })
         .catch(err => {
             if (btn) btn.disabled = false;
             if (spin) spin.classList.remove('fa-spin');
             console.warn("Retrain error", err);
-            showToast("✓ मॉडल्स पहले से सक्रिय और अपडेटेड हैं।");
+            showToast(isEn ? "✓ Models currently active and up to date." : "✓ मॉडल्स पहले से सक्रिय और अपडेटेड हैं।");
         });
 }
 
