@@ -112,10 +112,15 @@ SIH/
 ├── index.html                  # Root standalone deployment file (GitHub Pages / Netlify)
 ├── start.bat                   # 1-click Windows launcher (starts FastAPI server & opens browser)
 ├── run.py                      # Python entry point for Uvicorn server execution
+├── generate_data.py            # Synthetic cognitive dataset generator
+├── train_model.py              # Adaptive game classifier training pipeline
+├── train_intent_model.py       # Voice NLP intent model training pipeline
+├── predict.py                  # CLI test utility for game difficulty prediction
+├── predict_intent.py           # CLI test utility for voice intent queries
 ├── requirements.txt            # Production Python package dependencies
 ├── netlify.toml                # Netlify deployment configuration & cache-control headers
-├── PROJECT_RULES.md            # Architectural invariants, GIGW guidelines & coding rules
 ├── README.md                   # Public project overview, badges, and quick-start guide
+├── CODEBASE.md                 # Complete project codebase reference documentation
 │
 ├── backend/                    # Python FastAPI Backend Architecture
 │   ├── main.py                 # FastAPI application, route handlers & API controllers
@@ -142,18 +147,13 @@ SIH/
 │   ├── game_sessions.csv       # 2,142 simulated patient gameplay sessions
 │   └── intent_phrases.csv      # Multilingual conversational voice phrases (7 categories)
 │
-├── scripts/                    # Maintenance, Training & Code Health Scripts
-│   ├── generate_data.py        # Synthetic cognitive dataset generator
-│   ├── train_model.py          # Adaptive game classifier training pipeline
-│   ├── train_intent_model.py   # Voice NLP intent model training pipeline
-│   ├── predict.py              # CLI test utility for game difficulty prediction
-│   └── predict_intent.py       # CLI test utility for voice intent queries
-│
 ├── tests/                      # Automated Test Suite
 │   └── test_backend.py         # End-to-end FastAPI endpoint & ML validation test cases
 │
 └── flutter_app_structure/      # Mobile Companion Reference Structure
-    └── pubspec.yaml            # Flutter mobile application configuration
+    ├── pubspec.yaml            # Flutter mobile application configuration
+    └── lib/
+        └── main.dart           # Flutter mobile app entry point
 ```
 
 ---
@@ -419,3 +419,4 @@ pytest tests/test_backend.py -v
 
 **MINDSET-NER — Developed for Smart India Hackathon 2026**  
 *Empowering Caregivers, Supporting Doctors, Honoring Elders across North East India.*
+
